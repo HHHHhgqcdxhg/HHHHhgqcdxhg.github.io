@@ -792,7 +792,7 @@ pre .javascript .function {
   position: relative;
   padding: 15px;
   margin-bottom: 20px;
-  border: 1px solid #f8ff95;
+  border: 1px solid #fbc8ff;
   border-left-width: 5px;
   border-radius: 3px;
 }
@@ -1023,7 +1023,7 @@ pre .javascript .function {
 .pagination {
   margin: 120px 0 40px;
   text-align: center;
-  border-top: 1px solid #f8ff95;
+  border-top: 1px solid #fbc8ff;
 }
 .page-number-basic,
 .pagination .prev,
@@ -1049,7 +1049,7 @@ pre .javascript .function {
 .pagination .next,
 .pagination .page-number {
   border-bottom: 0;
-  border-top: 1px solid #f8ff95;
+  border-top: 1px solid #fbc8ff;
   transition-property: border-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -1084,7 +1084,7 @@ pre .javascript .function {
   .pagination .page-number {
     margin-bottom: 10px;
     border-top: 0;
-    border-bottom: 1px solid #f8ff95;
+    border-bottom: 1px solid #fbc8ff;
     padding: 0 10px;
   }
   .pagination .prev:hover,
@@ -1613,7 +1613,7 @@ pre .javascript .function {
   display: table;
   margin-top: 15px;
   width: 100%;
-  border-top: 1px solid #f8ff95;
+  border-top: 1px solid #fbc8ff;
 }
 .post-nav-divider {
   display: table-cell;
@@ -1726,7 +1726,7 @@ pre .javascript .function {
 }
 .sidebar a:hover,
 .sidebar .exturl:hover {
-  color: #f8ff95;
+  color: #fbc8ff;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sidebar {
@@ -1806,7 +1806,7 @@ pre .javascript .function {
   padding: 2px;
   max-width: 120px;
   height: auto;
-  border: 1px solid #f8ff95;
+  border: 1px solid #fbc8ff;
   opacity: 1;
 }
 .site-author-name {
@@ -1830,7 +1830,7 @@ pre .javascript .function {
 .site-state-item {
   display: inline-block;
   padding: 0 15px;
-  border-left: 1px solid #f8ff95;
+  border-left: 1px solid #fbc8ff;
 }
 .site-state-item:first-child {
   border-left: none;
@@ -1891,7 +1891,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1dfffe;
+  background: #ffb122;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2942,7 +2942,7 @@ ul.breadcrumb li+li:last-child {
 .links-of-author-item a:hover,
 .links-of-author-item span.exturl:hover {
   border-radius: 4px;
-  background: #f8ff95;
+  background: #fbc8ff;
 }
 .links-of-author-item .fa {
   margin-right: 2px;

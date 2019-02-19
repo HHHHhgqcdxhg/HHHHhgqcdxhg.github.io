@@ -1,3 +1,3 @@
 # HHHHhgqcdxhg.github.io
 蔳莼菂䒕黃苽的github.io  
-[blog.purecucumber.club](httpsblog.purecucumber.club)
+[blog.purecucumber.club](https://blog.purecucumber.club)

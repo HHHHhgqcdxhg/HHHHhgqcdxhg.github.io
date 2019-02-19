@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-19T12:10:16.033Z</updated>
+  <updated>2019-02-19T12:14:49.184Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/azurlane-painting/"/>
     <id>http://yoursite.com/azurlane-painting/</id>
     <published>2019-02-19T12:02:40.000Z</published>
-    <updated>2019-02-19T12:10:16.033Z</updated>
+    <updated>2019-02-19T12:14:49.184Z</updated>
     
     <content type="html"><![CDATA[<table><thead><tr><th><a href="http://www.penlab.site/#/articles/9" target="_blank" rel="noopener">dalao的开发过程</a></th><th>我的开发过程</th></tr></thead><tbody><tr><td><img src="http://pmplttpn9.bkt.clouddn.com/picgo/QQ截图20190219200437.jpg" alt></td><td><img src="http://pmplttpn9.bkt.clouddn.com/picgo/QQ截图20190219200153.jpg" alt> </td></tr></tbody></table><hr><p>repo : <a href="https://github.com/HHHHhgqcdxhg/azurlane-painting" target="_blank" rel="noopener">https://github.com/HHHHhgqcdxhg/azurlane-painting</a><br>图片处理过程: 将图片缩小 -&gt; 将图片色彩聚类到16色 -&gt; 将聚类后的16色归到舰b指定的8色 -&gt; 合成画板图片</p>]]></content>
     
@@ -38,6 +38,8 @@
       
     
     </summary>
+    
+      <category term="图像处理" scheme="http://yoursite.com/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
       <category term="碧蓝航线" scheme="http://yoursite.com/tags/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF/"/>

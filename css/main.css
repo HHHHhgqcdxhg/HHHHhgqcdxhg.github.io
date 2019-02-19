@@ -318,7 +318,7 @@ span.exturl {
   overflow-wrap: break-word;
   word-wrap: break-word;
   background-color: transparent;
-  color: #555;
+  color: #739eff;
   text-decoration: none;
   outline: none;
   border-bottom: 1px solid #f6fcff;
@@ -968,7 +968,7 @@ pre .javascript .function {
 }
 .post-body .tabs ul.nav-tabs li.tab.active a {
   cursor: default;
-  color: #555;
+  color: #739eff;
 }
 .post-body .tabs .tab-content {
   background-color: #fff;
@@ -1630,7 +1630,7 @@ pre .javascript .function {
   display: block;
   line-height: 25px;
   font-size: 14px;
-  color: #555;
+  color: #739eff;
   border-bottom: none;
 }
 .post-nav-item a:hover {
@@ -1891,7 +1891,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e2ff20;
+  background: #c6fffc;
 }
 .links-of-blogroll {
   font-size: 13px;

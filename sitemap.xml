@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.purecucumber.club/build-blog/</loc>
+    
+    <lastmod>2019-02-20T05:46:05.574Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/py2exe/</loc>
+    
+    <lastmod>2019-02-20T05:37:43.606Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/blog/</loc>
+    
+    <lastmod>2019-02-20T05:33:12.677Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.purecucumber.club/about/index.html</loc>
     
-    <lastmod>2019-02-20T05:12:53.650Z</lastmod>
+    <lastmod>2019-02-20T05:31:43.579Z</lastmod>
     
   </url>
   
@@ -19,13 +40,6 @@
     <loc>https://blog.purecucumber.club/bot-help/</loc>
     
     <lastmod>2019-02-19T18:04:45.787Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/py2exe/</loc>
-    
-    <lastmod>2019-02-19T17:42:00.109Z</lastmod>
     
   </url>
   

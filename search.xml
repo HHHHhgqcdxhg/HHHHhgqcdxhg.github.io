@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[本站的搭建]]></title>
+    <url>%2Fbuild-blog%2F</url>
+    <content type="text"><![CDATA[本博客基于Hexo生成,选用Next.Mixins作为主题不是很喜欢黑黑的颜色,就把css里颜色改了改,改成了蓝色的主题不是很清楚hexo clean和hexo generate的关系,索性每次deploy的时候都先hexo clean再hexo g再hexo d.因为很麻烦,就写了段C++做成个exe #include &lt;iostream&gt; using namespace std; int main() { system("hexo clean"); system("hexo g"); system("hexo d"); return 0; } 之后就把编译出来的exe命名为d.exe,之后每次deploy就./d.exe就完事了]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[blog]]></title>
+    <url>%2Fblog%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[ｆｔｐ 三 次 握 手]]></title>
     <url>%2FsomeFTP%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -58,7 +68,7 @@
   <entry>
     <title><![CDATA[python程序打包成exe]]></title>
     <url>%2Fpy2exe%2F</url>
-    <content type="text"><![CDATA[前言用python写了个项目(在这)想发布出去给没有python环境的人用.试了pyinstaller,打包出来不能正常跑…于是心生淫技,将python环境跟项目放到一起,然后拿C++写几行程序,通过system call的方式调用python运行项目脚本,再将这个C++程序编译成exe… python环境的准备我首先试了拿虚拟环境,然后发现虚拟环境少了一堆dll…拿自己的python环境吧,一堆这个项目用不着的库,打包进去太大,挑出来太麻烦…索性另外装一个python.我本身环境是3.6.7版本的,又去另外装了个3.7.2版本.安装时注意把什么设置环境变量,向所有用户安装都取消了,留着pip就好,之后拿pip把包都装好,然后把整个python目录拷贝到项目根目录就完事了 准备一个exe这就比较野蛮…程序入口main.py,然后传下命令行参数123456789101112131415161718192021#include &lt;iostream&gt;#include &lt;windows.h&gt;#include &lt;direct.h&gt; using namespace std;int main(int argc, char * argv[])&#123; string cwd = _getcwd(NULL, 0); string cmd = &quot;\\Python37-32\\python.exe __main__.py&quot;; cmd = cwd + cmd; for (int i = 1; i &lt; argc; i++) &#123; cmd += &quot; &quot;; cmd += argv[i]; &#125; const char *cmd_c_str = cmd.c_str(); // cout &lt;&lt; cmd_c_str&lt;&lt;endl; system(cmd_c_str); //system(&quot;pause&quot;); return 0;&#125; 编译好拿出来放到项目根目录就完事了]]></content>
+    <content type="text"><![CDATA[前言用python写了个项目(在这)想发布出去给没有python环境的人用.试了pyinstaller,打包出来不能正常跑…于是心生淫技,将python环境跟项目放到一起,然后拿C++写几行程序,通过system call的方式调用python运行项目脚本,再将这个C++程序编译成exe… python环境的准备我首先试了拿虚拟环境,然后发现虚拟环境少了一堆dll…拿自己的python环境吧,一堆这个项目用不着的库,打包进去太大,挑出来太麻烦…索性另外装一个python.我本身环境是3.6.7版本的,又去另外装了个3.7.2版本.安装时注意把什么设置环境变量,向所有用户安装都取消了,留着pip就好,之后拿pip把包都装好,然后把整个python目录拷贝到项目根目录就完事了 准备一个exe这就比较野蛮…程序入口12345678910111213141516171819202122```#include &lt;iostream&gt;#include &lt;windows.h&gt;#include &lt;direct.h&gt; using namespace std;int main(int argc, char * argv[])&#123; string cwd = _getcwd(NULL, 0); string cmd = &quot;\\Python37-32\\python.exe __main__.py&quot;; cmd = cwd + cmd; for (int i = 1; i &lt; argc; i++) &#123; cmd += &quot; &quot;; cmd += argv[i]; &#125; const char *cmd_c_str = cmd.c_str(); // cout &lt;&lt; cmd_c_str&lt;&lt;endl; system(cmd_c_str); //system(&quot;pause&quot;); return 0;&#125; 编译好拿出来放到项目根目录就完事了]]></content>
       <categories>
         <category>python</category>
       </categories>

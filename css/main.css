@@ -1144,8 +1144,8 @@ pre .javascript .function {
   position: relative;
 }
 .headband {
-  height: 3px;
-  background: #fdf2ff;
+  height: 0px;
+  background: #9cd6ff;
 }
 .site-meta {
   margin: 0;
@@ -1884,7 +1884,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1a8ea8;
+  background: #4b88e4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2042,7 +2042,7 @@ pre .javascript .function {
 .with-love {
   display: inline-block;
   margin: 0 5px;
-  color: #7adbff;
+  color: #739eff;
 }
 .powered-by,
 .theme-info {
@@ -2695,8 +2695,12 @@ ul.breadcrumb li+li:last-child {
 }
 .site-meta {
   padding: 20px 0;
-  color: #fff;
+  color: rgba(0,0,0,0) !important;
   background: #739eff;
+  background-image: url("http://pic.ggemo.com/picgo/msk_bar2.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-meta {
@@ -2707,6 +2711,9 @@ ul.breadcrumb li+li:last-child {
   .site-meta {
     box-shadow: 0 0 16px rgba(0,0,0,0.5);
   }
+}
+.site-meta .brand {
+  color: rgba(0,0,0,0) !important;
 }
 .brand {
   padding: 0;

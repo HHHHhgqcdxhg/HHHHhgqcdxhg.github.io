@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.purecucumber.club/"/>
-  <updated>2019-02-20T06:41:49.641Z</updated>
+  <updated>2019-02-20T12:43:00.866Z</updated>
   <id>https://blog.purecucumber.club/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.purecucumber.club/build-blog/"/>
     <id>https://blog.purecucumber.club/build-blog/</id>
     <published>2019-02-20T05:33:21.000Z</published>
-    <updated>2019-02-20T06:41:49.641Z</updated>
+    <updated>2019-02-20T12:43:00.866Z</updated>
     
     <content type="html"><![CDATA[<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>本博客基于Hexo生成,选用Next.Mixins作为主题  </p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h4 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h4><p>不是很喜欢黑黑的颜色,就把css里颜色改了改,改成了蓝色的主题  </p><h4 id="写作工具"><a href="#写作工具" class="headerlink" title="写作工具"></a>写作工具</h4><p>VSC + MPE写md不要太爽(atom,sublime应该一样)</p><h4 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h4><p>图床用的是<a href="https://www.qiniu.com" target="_blank" rel="noopener">七牛云</a><br>上传图片至图床的工具是<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a>,同样不要太爽</p><h4 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h4><p>不是很清楚<code>hexo clean</code>和<code>hexo generate</code>的关系,索性每次deploy的时候都先<code>hexo clean</code>再<code>hexo g</code>再<code>hexo d</code>.因为很麻烦,就写了段C++做成个exe</p><pre><code class="C++"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><span class="function"></span>{    system(<span class="string">"hexo clean"</span>);    system(<span class="string">"hexo g"</span>);    system(<span class="string">"hexo d"</span>);    <span class="keyword">return</span> <span class="number">0</span>;}</code></pre><p>之后就把编译出来的exe命名为d.exe放到项目根目录,之后每次deploy就<code>./d</code>就完事了</p><h4 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h4><p>之前选用的livere,现在换成了Valine</p>]]></content>
     
@@ -69,9 +69,9 @@
     <link href="https://blog.purecucumber.club/azurlane-painting/"/>
     <id>https://blog.purecucumber.club/azurlane-painting/</id>
     <published>2019-02-19T12:02:40.000Z</published>
-    <updated>2019-02-19T12:14:49.184Z</updated>
+    <updated>2019-02-20T13:08:02.544Z</updated>
     
-    <content type="html"><![CDATA[<table><thead><tr><th><a href="http://www.penlab.site/#/articles/9" target="_blank" rel="noopener">dalao的开发过程</a></th><th>我的开发过程</th></tr></thead><tbody><tr><td><img src="http://pmplttpn9.bkt.clouddn.com/picgo/QQ截图20190219200437.jpg" alt></td><td><img src="http://pmplttpn9.bkt.clouddn.com/picgo/QQ截图20190219200153.jpg" alt> </td></tr></tbody></table><hr><p>repo : <a href="https://github.com/HHHHhgqcdxhg/azurlane-painting" target="_blank" rel="noopener">https://github.com/HHHHhgqcdxhg/azurlane-painting</a><br>图片处理过程: 将图片缩小 -&gt; 将图片色彩聚类到16色 -&gt; 将聚类后的16色归到舰b指定的8色 -&gt; 合成画板图片</p>]]></content>
+    <content type="html"><![CDATA[<table><thead><tr><th><a href="http://www.penlab.site/#/articles/9" target="_blank" rel="noopener">dalao的开发过程</a></th><th>我的开发过程</th></tr></thead><tbody><tr><td><img src="http://pic.ggemo.com/picgo/QQ截图20190219200437.jpg" alt></td><td><img src="http://pic.ggemo.com/picgo/QQ截图20190219200153.jpg" alt> </td></tr></tbody></table><hr><p>repo : <a href="https://github.com/HHHHhgqcdxhg/azurlane-painting" target="_blank" rel="noopener">https://github.com/HHHHhgqcdxhg/azurlane-painting</a><br>图片处理过程: 将图片缩小 -&gt; 将图片色彩聚类到16色 -&gt; 将聚类后的16色归到舰b指定的8色 -&gt; 合成画板图片</p>]]></content>
     
     <summary type="html">
     

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.purecucumber.club/azurlane-painting/</loc>
+    
+    <lastmod>2019-02-20T13:08:02.544Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.purecucumber.club/build-blog/</loc>
     
-    <lastmod>2019-02-20T06:41:49.641Z</lastmod>
+    <lastmod>2019-02-20T12:43:00.866Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/about/index.html</loc>
+    
+    <lastmod>2019-02-20T11:28:03.437Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>https://blog.purecucumber.club/py2exe/</loc>
     
     <lastmod>2019-02-20T06:33:22.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/about/index.html</loc>
-    
-    <lastmod>2019-02-20T05:31:43.579Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://blog.purecucumber.club/bot-help/</loc>
     
     <lastmod>2019-02-19T18:04:45.787Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/azurlane-painting/</loc>
-    
-    <lastmod>2019-02-19T12:14:49.184Z</lastmod>
     
   </url>
   

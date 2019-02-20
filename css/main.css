@@ -1202,6 +1202,7 @@ pre .javascript .function {
   position: absolute;
   top: 10px;
   left: 10px;
+  opacity: 0.7;
 }
 @media (max-width: 767px) {
   .site-nav-toggle {
@@ -1210,7 +1211,7 @@ pre .javascript .function {
 }
 .site-nav-toggle button {
   margin-top: 2px;
-  padding: 9px 10px;
+  padding: 9px 7px;
   background: transparent;
   border: none;
 }
@@ -1884,7 +1885,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0a8363;
+  background: #e54b39;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2815,11 +2816,15 @@ ul.breadcrumb li+li:last-child {
   display: none;
 }
 .btn-bar {
-  background-color: #fff;
+  background-color: #f6fcff;
 }
 .site-nav-toggle {
   left: 20px;
   top: 50%;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  background-color: #739eff;
   -webkit-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);

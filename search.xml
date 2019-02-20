@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[本站的搭建]]></title>
     <url>%2Fbuild-blog%2F</url>
-    <content type="text"><![CDATA[依赖本博客基于Hexo生成,选用Next.Mixins作为主题 正文主题不是很喜欢黑黑的颜色,就把css里颜色改了改,改成了蓝色的主题 写作工具VSC + MPE写md不要太爽(atom,sublime应该一样) 图床图床用的是七牛云上传图片至图床的工具是PicGo,同样不要太爽 deploy不是很清楚hexo clean和hexo generate的关系,索性每次deploy的时候都先hexo clean再hexo g再hexo d.因为很麻烦,就写了段C++做成个exe int main() { system("hexo clean"); system("hexo g"); system("hexo d"); return 0; } 之后就把编译出来的exe命名为d.exe放到项目根目录,之后每次deploy就./d就完事了]]></content>
+    <content type="text"><![CDATA[依赖本博客基于Hexo生成,选用Next.Mixins作为主题 正文主题不是很喜欢黑黑的颜色,就把css里颜色改了改,改成了蓝色的主题 写作工具VSC + MPE写md不要太爽(atom,sublime应该一样) 图床图床用的是七牛云上传图片至图床的工具是PicGo,同样不要太爽 deploy不是很清楚hexo clean和hexo generate的关系,索性每次deploy的时候都先hexo clean再hexo g再hexo d.因为很麻烦,就写了段C++做成个exe int main() { system("hexo clean"); system("hexo g"); system("hexo d"); return 0; } 之后就把编译出来的exe命名为d.exe放到项目根目录,之后每次deploy就./d就完事了 评论之前选用的livere,现在换成了Valine]]></content>
       <tags>
         <tag>markdown</tag>
       </tags>

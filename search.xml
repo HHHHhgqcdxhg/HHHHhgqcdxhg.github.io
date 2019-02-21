@@ -4,6 +4,9 @@
     <title><![CDATA[win32按键码]]></title>
     <url>%2Fvkcode%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147VK_CODE = &#123; 'backspace': 0x08, 'tab': 0x09, 'clear': 0x0C, 'enter': 0x0D, 'shift': 0x10, 'ctrl': 0x11, 'alt': 0x12, 'pause': 0x13, 'caps_lock': 0x14, 'esc': 0x1B, 'spacebar': 0x20, 'page_up': 0x21, 'page_down': 0x22, 'end': 0x23, 'home': 0x24, 'left_arrow': 0x25, 'up_arrow': 0x26, 'right_arrow': 0x27, 'down_arrow': 0x28, 'select': 0x29, 'print': 0x2A, 'execute': 0x2B, 'print_screen': 0x2C, 'ins': 0x2D, 'del': 0x2E, 'help': 0x2F, '0': 0x30, '1': 0x31, '2': 0x32, '3': 0x33, '4': 0x34, '5': 0x35, '6': 0x36, '7': 0x37, '8': 0x38, '9': 0x39, 'a': 0x41, 'b': 0x42, 'c': 0x43, 'd': 0x44, 'e': 0x45, 'f': 0x46, 'g': 0x47, 'h': 0x48, 'i': 0x49, 'j': 0x4A, 'k': 0x4B, 'l': 0x4C, 'm': 0x4D, 'n': 0x4E, 'o': 0x4F, 'p': 0x50, 'q': 0x51, 'r': 0x52, 's': 0x53, 't': 0x54, 'u': 0x55, 'v': 0x56, 'w': 0x57, 'x': 0x58, 'y': 0x59, 'z': 0x5A, 'numpad_0': 0x60, 'numpad_1': 0x61, 'numpad_2': 0x62, 'numpad_3': 0x63, 'numpad_4': 0x64, 'numpad_5': 0x65, 'numpad_6': 0x66, 'numpad_7': 0x67, 'numpad_8': 0x68, 'numpad_9': 0x69, 'multiply_key': 0x6A, 'add_key': 0x6B, 'separator_key': 0x6C, 'subtract_key': 0x6D, 'decimal_key': 0x6E, 'divide_key': 0x6F, 'F1': 0x70, 'F2': 0x71, 'F3': 0x72, 'F4': 0x73, 'F5': 0x74, 'F6': 0x75, 'F7': 0x76, 'F8': 0x77, 'F9': 0x78, 'F10': 0x79, 'F11': 0x7A, 'F12': 0x7B, 'F13': 0x7C, 'F14': 0x7D, 'F15': 0x7E, 'F16': 0x7F, 'F17': 0x80, 'F18': 0x81, 'F19': 0x82, 'F20': 0x83, 'F21': 0x84, 'F22': 0x85, 'F23': 0x86, 'F24': 0x87, 'num_lock': 0x90, 'scroll_lock': 0x91, 'left_shift': 0xA0, 'right_shift ': 0xA1, 'left_control': 0xA2, 'right_control': 0xA3, 'left_menu': 0xA4, 'right_menu': 0xA5, 'browser_back': 0xA6, 'browser_forward': 0xA7, 'browser_refresh': 0xA8, 'browser_stop': 0xA9, 'browser_search': 0xAA, 'browser_favorites': 0xAB, 'browser_start_and_home': 0xAC, 'volume_mute': 0xAD, 'volume_Down': 0xAE, 'volume_up': 0xAF, 'next_track': 0xB0, 'previous_track': 0xB1, 'stop_media': 0xB2, 'play/pause_media': 0xB3, 'start_mail': 0xB4, 'select_media': 0xB5, 'start_application_1': 0xB6, 'start_application_2': 0xB7, 'attn_key': 0xF6, 'crsel_key': 0xF7, 'exsel_key': 0xF8, 'play_key': 0xFA, 'zoom_key': 0xFB, 'clear_key': 0xFE, '+': 0xBB, ',': 0xBC, '-': 0xBD, '.': 0xBE, '/': 0xBF, ';': 0xBA, '[': 0xDB, '\\': 0xDC, ']': 0xDD, "'": 0xDE, "`": 0xC0&#125; win32按键码.留着一份省着每次再找了]]></content>
+      <categories>
+        <category>杂</category>
+      </categories>
       <tags>
         <tag>python</tag>
       </tags>
@@ -12,6 +15,9 @@
     <title><![CDATA[碧蓝航线翻牌游戏脚本]]></title>
     <url>%2Fblhx-fanpai4-45%2F</url>
     <content type="text"><![CDATA[匹配相同的牌时是裁下每张牌后,直接对比每张图片的数组是否相同翻牌的时候想要同时点两张牌,但是查了下adb好像没有支持mult touch,然后想到在模拟器上给每个牌的位置设置快捷键,翻牌的时候调用win32api点击对应的快捷键来翻牌.最终成绩4.45秒.b站视频:https://www.bilibili.com/video/av44287472/ 下面是完整代码.其中vkcode.VK_CODE是win32按键码映射表,在这篇博客有82~89行那些几个sleep的参数是试出来的,再小就容易出错了 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293#! /usr/bin/env python# -*- coding: utf-8 -*-import timeimport osimport cv2import numpy as npimport win32apiimport win32confrom vkcode import VK_CODEclass Blhx: def __init__(self, adbPATH, sharedPATH): self.adb = adbPATH self.sharedPATH = sharedPATH def getScreen(self, filePath="/sdcard/Pictures/tmp.png"): os.system(f"&#123;self.adb&#125; -e shell screencap -p &#123;filePath&#125;") time.sleep(0.5) return cv2.imread(f"&#123;self.sharedPATH&#125;\\tmp.png") def tap(self, X, Y): os.system(f"&#123;self.adb&#125; -e shell input tap &#123;X&#125; &#123;Y&#125;") def cutEvery(self, img): ims = [] matched = [] for y in range(3): for x in range(6): startX = 148 * x + 238 startY = 162 * y + 179 endX = startX + 90 endY = startY + 129 im = img[startY:endY, startX:endX, :] thisImInfo = (y, x, im) hasmatch = False for i, imgInfo in enumerate(ims): difference = cv2.subtract(im, imgInfo[2]) result = not np.any(difference) if result: hasmatch = True matched.append(imgInfo[:2]) matched.append(thisImInfo[:2]) del ims[i] continue if not hasmatch: ims.append(thisImInfo) return matchedkeyboardsMap = [ "QWERTY".lower(), "ASDFGH".lower(), "ZXCVBN".lower()]def mian(): blhx = Blhx(r"E:\programfiles\adb\adb.exe", "J:\ldmnqshare") blhx.tap(800, 485) time.sleep(1.1) print("jietu") im = blhx.getScreen() pos = blhx.cutEvery(im) ks = [] for i, p in enumerate(pos): k = keyboardsMap[p[0]][p[1]] ks.append(k) kl = ks.__len__() if not kl == 18: print("没匹配好") return time.sleep(1) for x in range(9): k0 = 2 * x k1 = k0 + 1 kNode0 = ks[k0] kNode1 = ks[k1] win32api.keybd_event(VK_CODE[kNode0], 0, 0, 0) time.sleep(0.04) win32api.keybd_event(VK_CODE[kNode1], 0, 0, 0) time.sleep(0.04) win32api.keybd_event(VK_CODE[kNode0], 0, win32con.KEYEVENTF_KEYUP, 0) time.sleep(0.04) win32api.keybd_event(VK_CODE[kNode1], 0, win32con.KEYEVENTF_KEYUP, 0) print("tap") time.sleep(0.375)if __name__ == '__main__': mian()]]></content>
+      <categories>
+        <category>碧蓝航线</category>
+      </categories>
       <tags>
         <tag>python</tag>
         <tag>碧蓝航线</tag>
@@ -21,6 +27,9 @@
     <title><![CDATA[Cuclasses]]></title>
     <url>%2FCuclasses%2F</url>
     <content type="text"><![CDATA[介绍Cuclasses是我正在写的python库,内容是集合了一些常用的类和方法 项目地址pypi(少有更新):https://pypi.org/project/cuclasses/github:https://github.com/HHHHhgqcdxhg/cuclasses 模块cuclasses.DottableDict顾名思义,能用 “.” 访问的dict.因为喜欢js访问对象属性的方式,可以用下标,也可以用点. cuclasses.singleton装饰器.被装饰的类为单例模式 cuclasses.CallableDict可以调用的dict,调用时返回自身. cuclasses.StrKeyDict在查询时把非字符串键转换为字符串的dict cuclasses.headerCopy2Dict因为在复制chrome开发者工具network里请求的header时很不方便,就弄了这个…把chrome里的headers复制进去,会转换成字典 123456789101112headerStr = """Accept: application/json, text/plain, */*Accept-Encoding: gzip, deflate, brAccept-Language: zh-CN,zh;q=0.9Connection: keep-aliveCookie: l=v; buvid3=08DBF55E-086D-4BE2-9FCB-4B60BFA5F05A140254infocHost: message.bilibili.comOrigin: https://www.bilibili.comReferer: https://www.bilibili.com/video/av9912938/?p=11User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36"""a = headerCopy2Dict(headerStr)print(a)#&gt;&gt;&gt; &#123;'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.9', 'Connection': 'keep-alive', 'Host': 'message.bilibili.com', 'Origin': 'https://www.bilibili.com', 'Referer': 'https://www.bilibili.com/video/av9912938/?p=11', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'&#125; cuclasses.timePrint上下文管理器.带时间戳的print.随时可指定时间格式 12345678910111213141516with timePrint() as print: print(0) # &gt;&gt;&gt; [2019-02-10 16:23:35] 0 print(1, strf="[%Y-%m-%d %H:%M:%S]1") # &gt;&gt;&gt; [2019-02-10 16:23:35]1 1with timePrint("[%Y-%m-%d %H:%M:%S]2") as print: print(2) # &gt;&gt;&gt; [2019-02-10 16:23:35]2 2 print(3, strf="[%Y-%m-%d %H:%M:%S]3") # &gt;&gt;&gt; [2019-02-10 16:23:35]3 3print(4)# &gt;&gt;&gt; 4 cuclasses.timeCount装饰器.接受两个参数.被装饰的函数将在执行后打印执行时间 12:param enable: 设为False则不计时,直接执行函数:param method: 可选择的计时所用的获取时间的函数.默认time.perf_counter,或者也可以选填time.time,python3.7可以按需选用time.perf_counter_ns 1234567@timeCount()def bar(): print(&#123;"a": "c"&#125;)bar()#&gt;&gt;&gt; &#123;'a': 'c'&#125;#&gt;&gt;&gt; func bar excuted in : 6.044444444444444e-05 cuclasses.Downloader下载器. 1234:param directory:下载到的目录:param urls:需要下载的资源目录:param threads:并行下载的线程数:param headers:请求头,默认为&#123;&quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36&quot;&#125; with open("xx.json","r") as f: data = json.load(f) d = Downloader(directory=r"E:\ACG\comic\general\どうして私が美術科に",urls=data) d.downloadAll()]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
       <tags>
         <tag>python</tag>
       </tags>
@@ -29,6 +38,9 @@
     <title><![CDATA[本站的搭建]]></title>
     <url>%2Fbuild-blog%2F</url>
     <content type="text"><![CDATA[依赖本博客基于Hexo生成,选用Next.Mixins作为主题 正文主题不是很喜欢黑黑的颜色,就把css里颜色改了改,改成了蓝色的主题 写作工具VSC + MPE写md不要太爽(atom,sublime应该一样) 图床图床用的是七牛云上传图片至图床的工具是PicGo,同样不要太爽现在是vs-picgo了,爽上加爽 deploy不是很清楚hexo clean和hexo generate的关系,索性每次deploy的时候都先hexo clean再hexo g再hexo d.因为很麻烦,就写了段C++做成个exe int main() { system("hexo clean"); system("hexo g"); system("hexo d"); return 0; } 之后就把编译出来的exe命名为d.exe放到项目根目录,之后每次deploy就./d就完事了 评论之前选用的livere,现在换成了Valine]]></content>
+      <categories>
+        <category>杂</category>
+      </categories>
       <tags>
         <tag>markdown</tag>
       </tags>
@@ -37,6 +49,9 @@
     <title><![CDATA[ｆｔｐ 三 次 握 手]]></title>
     <url>%2FsomeFTP%2F</url>
     <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>杂</category>
+      </categories>
       <tags>
         <tag>无厘头</tag>
       </tags>

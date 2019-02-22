@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.purecucumber.club/"/>
-  <updated>2019-02-22T15:10:02.138Z</updated>
+  <updated>2019-02-22T18:09:03.218Z</updated>
   <id>https://blog.purecucumber.club/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://blog.purecucumber.club/blhx-fanpai/"/>
     <id>https://blog.purecucumber.club/blhx-fanpai/</id>
     <published>2019-02-22T12:35:38.000Z</published>
-    <updated>2019-02-22T15:10:02.138Z</updated>
+    <updated>2019-02-22T18:09:03.218Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="游戏地址"><a href="#游戏地址" class="headerlink" title="游戏地址"></a>游戏地址</h2><p><a href="https://blog.purecucumber.club/azurlane-fanpai/dist/index.html">https://blog.purecucumber.club/azurlane-fanpai/dist/index.html</a>  </p><p>一下午撸出来的web复现的碧蓝航线翻牌小游戏.<br>一路写下来没遇到坑,但也没考虑性能.</p>]]></content>
+    <content type="html"><![CDATA[<p>git repo:<a href="https://github.com/HHHHhgqcdxhg/azurlane-fanpai" target="_blank" rel="noopener">https://github.com/HHHHhgqcdxhg/azurlane-fanpai</a><br>已部署在:<a href="https://blog.purecucumber.club/azurlane-fanpai/dist/index.html">https://blog.purecucumber.club/azurlane-fanpai/dist/index.html</a>  </p><p>一下午撸出来的web复现的碧蓝航线翻牌小游戏.<br>一路写下来没遇到坑,但也没考虑性能.  </p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;游戏地址&quot;&gt;&lt;a href=&quot;#游戏地址&quot; class=&quot;headerlink&quot; title=&quot;游戏地址&quot;&gt;&lt;/a&gt;游戏地址&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.purecucumber.club/azurlane-fanpai/dist/i
+        &lt;p&gt;git repo:&lt;a href=&quot;https://github.com/HHHHhgqcdxhg/azurlane-fanpai&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/HHHHhgqcdxhg/azurlan
       
     
     </summary>
@@ -116,9 +116,9 @@
       <category term="碧蓝航线" scheme="https://blog.purecucumber.club/categories/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF/"/>
     
     
-      <category term="碧蓝航线" scheme="https://blog.purecucumber.club/tags/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF/"/>
-    
       <category term="python" scheme="https://blog.purecucumber.club/tags/python/"/>
+    
+      <category term="碧蓝航线" scheme="https://blog.purecucumber.club/tags/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF/"/>
     
   </entry>
   

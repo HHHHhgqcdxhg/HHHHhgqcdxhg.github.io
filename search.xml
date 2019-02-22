@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[碧蓝航线翻牌小游戏复现]]></title>
     <url>%2Fblhx-fanpai%2F</url>
-    <content type="text"><![CDATA[游戏地址https://blog.purecucumber.club/azurlane-fanpai/dist/index.html 一下午撸出来的web复现的碧蓝航线翻牌小游戏.一路写下来没遇到坑,但也没考虑性能.]]></content>
+    <content type="text"><![CDATA[git repo:https://github.com/HHHHhgqcdxhg/azurlane-fanpai已部署在:https://blog.purecucumber.club/azurlane-fanpai/dist/index.html 一下午撸出来的web复现的碧蓝航线翻牌小游戏.一路写下来没遇到坑,但也没考虑性能.]]></content>
       <categories>
         <category>碧蓝航线</category>
       </categories>
@@ -42,8 +42,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>碧蓝航线</tag>
         <tag>python</tag>
+        <tag>碧蓝航线</tag>
       </tags>
   </entry>
   <entry>

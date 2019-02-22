@@ -1,3 +1,12 @@
+li {
+  list-style: none;
+  list-style-type: none;
+}
+li:before {
+  list-style: none;
+  list-style-type: none;
+  color: #f00;
+}
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif; /* 1 */
@@ -1072,8 +1081,8 @@ pre .javascript .function {
 }
 .pagination .page-number.current {
   color: #fff;
-  background: #f6fcff;
-  border-top-color: #f6fcff;
+  background: #739eff;
+  border-top-color: #739eff;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -1885,7 +1894,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff4e;
+  background: #7c2bd0;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2216,9 +2225,9 @@ pre .javascript .function {
   font-size: 16px;
 }
 .local-search-popup .search-keyword {
-  border-bottom: 1px dashed #f00;
+  border-bottom: 1px dashed #fea8ff;
   font-weight: bold;
-  color: #f00;
+  color: #fea8ff;
 }
 .local-search-popup .local-search-header {
   padding: 5px;

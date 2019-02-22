@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[blhx-fanpai]]></title>
+    <title><![CDATA[碧蓝航线翻牌小游戏复现]]></title>
     <url>%2Fblhx-fanpai%2F</url>
     <content type="text"><![CDATA[游戏地址https://blog.purecucumber.club/azurlane-fanpai/dist/index.html web复现的碧蓝航线翻牌小游戏.一路写下来没遇到坑,也没考虑性能.]]></content>
       <categories>
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>vue</tag>
         <tag>碧蓝航线</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -42,8 +42,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.purecucumber.club/"/>
-  <updated>2019-02-21T13:13:25.555Z</updated>
+  <updated>2019-02-22T05:21:42.882Z</updated>
   <id>https://blog.purecucumber.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>玩游戏 还愿</title>
+    <link href="https://blog.purecucumber.club/devotion/"/>
+    <id>https://blog.purecucumber.club/devotion/</id>
+    <published>2019-02-21T16:39:56.000Z</published>
+    <updated>2019-02-22T05:21:42.882Z</updated>
+    
+    <content type="html"><![CDATA[<p>真的吓人…变写博客边玩吧.</p><h2 id="游戏过程"><a href="#游戏过程" class="headerlink" title="游戏过程"></a>游戏过程</h2><ul><li>小女孩透过墙洞看爸爸撕写的字…想了想,以后写代码错到恼羞成怒了也只注释不删</li><li>弹珠迷宫真是绝了</li><li>被老婆追杀那里吓坏了.用手挡住屏幕看不到主要画面,然后一直都不知道要转头跑…回头翻了别人的视频才知道要跑…</li><li>拔舌头那里真心不敢看…依旧拿手遮屏幕</li></ul><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>第一次玩恐怖游戏来着,因为跟风就去玩了,吓得不轻.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;真的吓人…变写博客边玩吧.&lt;/p&gt;
+&lt;h2 id=&quot;游戏过程&quot;&gt;&lt;a href=&quot;#游戏过程&quot; class=&quot;headerlink&quot; title=&quot;游戏过程&quot;&gt;&lt;/a&gt;游戏过程&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;小女孩透过墙洞看爸爸撕写的字…想了想,以后写代码错到恼羞成怒了也只注释
+      
+    
+    </summary>
+    
+      <category term="游戏" scheme="https://blog.purecucumber.club/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+      <category term="游戏" scheme="https://blog.purecucumber.club/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>win32按键码</title>

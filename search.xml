@@ -127,11 +127,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[简历]]></title>
-    <url>%2Fcv-manjuu%2F</url>
-    <content type="text"><![CDATA[简历个人信息 孙齐宏/男/1998 本科/南京理工大学紫金学院软件工程专业大三在读 期望职位: 游戏客户端程序员 工作性质: 实习 Github: https://github.com/HHHHhgqcdxhg/ 博客: https://blog.purecucumber.club/ 联系方式: 电话:15150575130 Email: 2894700792@qq.com QQ: 2894700792 个人简介我是个课外经常写项目的在校生,业务代码编写技能比较有自信.图像处理,web开发,GUI开发,游戏开发,网络爬虫均有一定的项目经验.编程语言最擅长Python和JavaScript,C/C++/JAVA均在学校课程中有所学习.对自己的Python比较有自信,也有向pypi贡献开源库.对于招聘微博中提到的对C++/C#/Lua语言的需要,虽然我现在对这些语言没有特别熟练,但我相信编程的思想是一样的,当然,我也会在接下来的时间里不断的学习和锻炼自己来迎合蛮啾的需要.在学习和写项目中,我具备良好的编程习惯.在跟一些志同道合的朋友们一起写项目时,具备良好的团队精神.我是个死宅,热爱ACG文化,喜欢碧蓝航线.为了心爱老婆们会努力工作的! 项目经验azurlane-painting将图片或视频转换为如假包换的碧蓝航线绘图日记风格. azurlane-fanpai碧蓝航线记忆回廊翻牌小游戏的web复现. kirarafantasia wiki手游kirarafantasia的攻略wiki站(项目未开源),我负责了前端的脚本和页面的制作. bangumiDesktopAssistant桌面追番助手,是一次我自己比较满意的GUI开发.]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[python程序打包成exe]]></title>
     <url>%2Fpy2exe%2F</url>
     <content type="text"><![CDATA[前言用python写了个项目(在这)想发布出去给没有python环境的人用.试了pyinstaller,打包出来不能正常跑…于是心生淫技,将python环境跟项目放到一起,然后拿C++写几行程序,通过system call的方式调用python运行项目脚本,再将这个C++程序编译成exe… python环境的准备我首先试了拿虚拟环境,然后发现虚拟环境少了一堆dll…拿自己的python环境吧,一堆这个项目用不着的库,打包进去太大,挑出来太麻烦…索性另外装一个python.我本身环境是3.6.7版本的,又去另外装了个3.7.2版本.安装时注意把什么设置环境变量,向所有用户安装都取消了,留着pip就好,之后拿pip把包都装好,然后把整个python目录拷贝到项目根目录就完事了 准备一个exe这就比较野蛮…程序入口12345678910111213141516171819202122```C++#include &lt;iostream&gt;#include &lt;windows.h&gt;#include &lt;direct.h&gt; using namespace std;int main(int argc, char * argv[])&#123; string cwd = _getcwd(NULL, 0); string cmd = &quot;\\Python37-32\\python.exe __main__.py&quot;; cmd = cwd + cmd; for (int i = 1; i &lt; argc; i++) &#123; cmd += &quot; &quot;; cmd += argv[i]; &#125; const char *cmd_c_str = cmd.c_str(); // cout &lt;&lt; cmd_c_str&lt;&lt;endl; system(cmd_c_str); //system(&quot;pause&quot;); return 0;&#125; 编译好拿出来放到项目根目录就完事了]]></content>
@@ -141,6 +136,11 @@
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[简历]]></title>
+    <url>%2Fcv-manjuu%2F</url>
+    <content type="text"><![CDATA[简历个人信息 孙齐宏/男/1998 本科/南京理工大学紫金学院软件工程专业大三在读 期望职位: 游戏客户端程序员 工作性质: 实习 Github: https://github.com/HHHHhgqcdxhg/ 博客: https://blog.purecucumber.club/ 联系方式: 电话:15150575130 Email: 2894700792@qq.com QQ: 2894700792 个人简介我是个课外经常写项目的在校生,业务代码编写技能比较有自信.图像处理,web开发,GUI开发,游戏开发,网络爬虫均有一定的项目经验.编程语言最擅长Python和JavaScript,C/C++/JAVA均在学校课程中有所学习.对自己的Python比较有自信,也有向pypi贡献开源库.对于招聘微博中提到的对C++/C#/Lua语言的需要,虽然我现在对这些语言没有特别熟练,但我相信编程的思想是一样的,当然,我也会在接下来的时间里不断的学习和锻炼自己来迎合蛮啾的需要.在学习和写项目中,我具备良好的编程习惯.在跟一些志同道合的朋友们一起写项目时,具备良好的团队精神.我是个死宅,热爱ACG文化,喜欢碧蓝航线.为了心爱老婆们会努力工作的! 项目经验azurlane-painting将图片或视频转换为如假包换的碧蓝航线绘图日记风格. azurlane-fanpai碧蓝航线记忆回廊翻牌小游戏的web复现. kirarafantasia wiki手游kirarafantasia的攻略wiki站(项目未开源),我负责了前端的脚本和页面的制作. bangumiDesktopAssistant桌面追番助手,是一次我自己比较满意的GUI开发.]]></content>
   </entry>
   <entry>
     <title><![CDATA[桌面追番助手]]></title>

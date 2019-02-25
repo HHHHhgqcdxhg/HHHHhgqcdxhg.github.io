@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.purecucumber.club/"/>
-  <updated>2019-02-25T18:49:07.904Z</updated>
+  <updated>2019-02-22T18:09:03.218Z</updated>
   <id>https://blog.purecucumber.club/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>cv-manjuu</title>
-    <link href="https://blog.purecucumber.club/cv-manjuu/"/>
-    <id>https://blog.purecucumber.club/cv-manjuu/</id>
-    <published>2019-02-25T18:46:15.000Z</published>
-    <updated>2019-02-25T18:49:07.904Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h1><h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><ul><li>孙齐宏/男/1998  </li><li>本科/南京理工大学紫金学院软件工程专业大三在读  </li><li>期望职位: 游戏客户端程序员  </li><li>工作性质: 实习</li><li>Github: <a href="https://github.com/HHHHhgqcdxhg" target="_blank" rel="noopener">https://github.com/HHHHhgqcdxhg/</a>  </li><li>博客: <a href="https://blog.purecucumber.club/">https://blog.purecucumber.club/</a><br><img src="https://pic.ggemo.com/picgo/pic-ali-s.jpg" width="160"></li></ul><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul><li>电话:15150575130</li><li>Email: <a href="mailto:2894700792@qq.com" target="_blank" rel="noopener">2894700792@qq.com</a>  </li><li>QQ: 2894700792  </li></ul><h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>我是个课外经常写项目的在校生,业务代码编写技能比较有自信.图像处理,web开发,GUI开发,游戏开发,网络爬虫均有一定的项目经验.编程语言最擅长Python和JavaScript,C/C++/JAVA均在学校课程中有所学习.对自己的Python比较有自信,也有向pypi贡献开源库.<br>对于招聘微博中提到的对C++/C#/Lua语言的需要,虽然我现在对这些语言没有特别熟练,但我相信编程的思想是一样的,当然,我也会在接下来的时间里不断的学习和锻炼自己来迎合蛮啾的需要.<br>在学习和写项目中,我具备良好的编程习惯.在跟一些志同道合的朋友们一起写项目时,具备良好的团队精神.<br>我是个死宅,热爱ACG文化,喜欢碧蓝航线.为了心爱老婆们会努力工作的!</p><h2 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h2><h4 id="azurlane-painting"><a href="#azurlane-painting" class="headerlink" title="azurlane-painting"></a><a href="https://github.com/HHHHhgqcdxhg/azurlane-painting" target="_blank" rel="noopener">azurlane-painting</a></h4><p>将图片或视频转换为如假包换的碧蓝航线绘图日记风格.  </p><h4 id="azurlane-fanpai"><a href="#azurlane-fanpai" class="headerlink" title="azurlane-fanpai"></a><a href="https://github.com/HHHHhgqcdxhg/azurlane-fanpai" target="_blank" rel="noopener">azurlane-fanpai</a></h4><p>碧蓝航线记忆回廊翻牌小游戏的web复现.  </p><h4 id="kirarafantasia-wiki"><a href="#kirarafantasia-wiki" class="headerlink" title="kirarafantasia wiki"></a><a href="https://wiki.kirafan.moe/" target="_blank" rel="noopener">kirarafantasia wiki</a></h4><p>手游kirarafantasia的攻略wiki站(项目未开源),我负责了前端的脚本和页面的制作.  </p><h4 id="bangumiDesktopAssistant"><a href="#bangumiDesktopAssistant" class="headerlink" title="bangumiDesktopAssistant"></a><a href="https://github.com/HHHHhgqcdxhg/bangumiDesktopAssistant" target="_blank" rel="noopener">bangumiDesktopAssistant</a></h4><p>桌面追番助手,是一次我自己比较满意的GUI开发.  </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;简历&quot;&gt;&lt;a href=&quot;#简历&quot; class=&quot;headerlink&quot; title=&quot;简历&quot;&gt;&lt;/a&gt;简历&lt;/h1&gt;&lt;h2 id=&quot;个人信息&quot;&gt;&lt;a href=&quot;#个人信息&quot; class=&quot;headerlink&quot; title=&quot;个人信息&quot;&gt;&lt;/a&gt;个人信息&lt;/h
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>碧蓝航线翻牌小游戏复现</title>
@@ -137,9 +116,9 @@
       <category term="碧蓝航线" scheme="https://blog.purecucumber.club/categories/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF/"/>
     
     
-      <category term="碧蓝航线" scheme="https://blog.purecucumber.club/tags/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF/"/>
-    
       <category term="python" scheme="https://blog.purecucumber.club/tags/python/"/>
+    
+      <category term="碧蓝航线" scheme="https://blog.purecucumber.club/tags/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF/"/>
     
   </entry>
   
@@ -335,6 +314,27 @@
   </entry>
   
   <entry>
+    <title>简历</title>
+    <link href="https://blog.purecucumber.club/cv-manjuu/"/>
+    <id>https://blog.purecucumber.club/cv-manjuu/</id>
+    <published>2019-02-09T18:46:15.000Z</published>
+    <updated>2019-02-25T18:56:50.338Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h1><h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><ul><li>孙齐宏/男/1998  </li><li>本科/南京理工大学紫金学院软件工程专业大三在读  </li><li>期望职位: 游戏客户端程序员  </li><li>工作性质: 实习</li><li>Github: <a href="https://github.com/HHHHhgqcdxhg" target="_blank" rel="noopener">https://github.com/HHHHhgqcdxhg/</a>  </li><li>博客: <a href="https://blog.purecucumber.club/">https://blog.purecucumber.club/</a><br><img src="https://pic.ggemo.com/picgo/pic-ali-s.jpg" width="160"></li></ul><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul><li>电话:15150575130</li><li>Email: <a href="mailto:2894700792@qq.com" target="_blank" rel="noopener">2894700792@qq.com</a>  </li><li>QQ: 2894700792  </li></ul><h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>我是个课外经常写项目的在校生,业务代码编写技能比较有自信.图像处理,web开发,GUI开发,游戏开发,网络爬虫均有一定的项目经验.编程语言最擅长Python和JavaScript,C/C++/JAVA均在学校课程中有所学习.对自己的Python比较有自信,也有向pypi贡献开源库.<br>对于招聘微博中提到的对C++/C#/Lua语言的需要,虽然我现在对这些语言没有特别熟练,但我相信编程的思想是一样的,当然,我也会在接下来的时间里不断的学习和锻炼自己来迎合蛮啾的需要.<br>在学习和写项目中,我具备良好的编程习惯.在跟一些志同道合的朋友们一起写项目时,具备良好的团队精神.<br>我是个死宅,热爱ACG文化,喜欢碧蓝航线.为了心爱老婆们会努力工作的!</p><h2 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h2><h4 id="azurlane-painting"><a href="#azurlane-painting" class="headerlink" title="azurlane-painting"></a><a href="https://github.com/HHHHhgqcdxhg/azurlane-painting" target="_blank" rel="noopener">azurlane-painting</a></h4><p>将图片或视频转换为如假包换的碧蓝航线绘图日记风格.  </p><h4 id="azurlane-fanpai"><a href="#azurlane-fanpai" class="headerlink" title="azurlane-fanpai"></a><a href="https://github.com/HHHHhgqcdxhg/azurlane-fanpai" target="_blank" rel="noopener">azurlane-fanpai</a></h4><p>碧蓝航线记忆回廊翻牌小游戏的web复现.  </p><h4 id="kirarafantasia-wiki"><a href="#kirarafantasia-wiki" class="headerlink" title="kirarafantasia wiki"></a><a href="https://wiki.kirafan.moe/" target="_blank" rel="noopener">kirarafantasia wiki</a></h4><p>手游kirarafantasia的攻略wiki站(项目未开源),我负责了前端的脚本和页面的制作.  </p><h4 id="bangumiDesktopAssistant"><a href="#bangumiDesktopAssistant" class="headerlink" title="bangumiDesktopAssistant"></a><a href="https://github.com/HHHHhgqcdxhg/bangumiDesktopAssistant" target="_blank" rel="noopener">bangumiDesktopAssistant</a></h4><p>桌面追番助手,是一次我自己比较满意的GUI开发.  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;简历&quot;&gt;&lt;a href=&quot;#简历&quot; class=&quot;headerlink&quot; title=&quot;简历&quot;&gt;&lt;/a&gt;简历&lt;/h1&gt;&lt;h2 id=&quot;个人信息&quot;&gt;&lt;a href=&quot;#个人信息&quot; class=&quot;headerlink&quot; title=&quot;个人信息&quot;&gt;&lt;/a&gt;个人信息&lt;/h
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>python程序打包成exe</title>
     <link href="https://blog.purecucumber.club/py2exe/"/>
     <id>https://blog.purecucumber.club/py2exe/</id>
@@ -364,7 +364,7 @@
     <link href="https://blog.purecucumber.club/bangumiDesktopAssistant/"/>
     <id>https://blog.purecucumber.club/bangumiDesktopAssistant/</id>
     <published>2018-10-05T14:14:47.000Z</published>
-    <updated>2019-02-25T14:19:46.515Z</updated>
+    <updated>2019-02-25T18:56:18.831Z</updated>
     
     <content type="html"><![CDATA[<p>本项目git仓库:<a href="https://dev.tencent.com/u/hhhhhg/p/bangumiDesktopAssistant" target="_blank" rel="noopener">https://dev.tencent.com/u/hhhhhg/p/bangumiDesktopAssistant</a><br>尝试了打包成exe却做不到,所以应该只有装了python才能用了XD<br>python版本是3.6.4(因为用到了<a href="https://docs.python.org/3/whatsnew/3.6.html#pep-498-formatted-string-literals" target="_blank" rel="noopener">f前缀字符串</a>,所以大概需要至少3.6版本),操作系统只试了windows  </p><p>使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://git.dev.tencent.com/hhhhhg/bangumiDesktopAssistant.git</span><br><span class="line">cd bangumiDesktopAssistant</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">python __main__.py</span><br></pre></td></tr></table></figure></p><p>在任务栏找到图标(和项目头像是同一张图片),右键可进行追番编辑或者退出程序.<br>追番编辑工具按要求填入信息,可生成一份番剧信息,保存在src/db/bangumisInfo中,如果填入得当,不发生意外,则可正常使用.<br>遇到特殊情况(比如番剧停更)则需要手动改对应的json文件中的chapters部分…  </p><p>有番剧更新时,会播放音频,为src/audio/alarm.wav<br>透明度,配色等配置存在src/db/config.json中,可以轻易更改</p><p>配置好环境后,之后可以运行bangumi.bat来运行本工具,也可在注册表中将bangumi.bat设为开机自启<br>运行截图:  </p><table><thead><tr><th>1080p屏幕下unfocused状态表现</th><th>1080p屏幕下focused状态(鼠标悬停在之上时)表现</th></tr></thead><tbody><tr><td><img src="http://hhhhhg.coding.me/bangumiDesktopAssistant/src/img/readmeImg/1080pUnfocused.png" alt></td><td><img src="http://hhhhhg.coding.me/bangumiDesktopAssistant/src/img/readmeImg/1080pFocused.png" alt></td></tr></tbody></table><!--4k屏幕下unfocused状态表现:--><!--![4kUnfocused.png](http://hhhhhg.coding.me/bangumiDesktopAssistant/src/img/readmeImg/4kUnfocused.png)  --><!--4k屏幕下focused状态(鼠标悬停在之上)表现:--><!--![4kFocused.png](http://hhhhhg.coding.me/bangumiDesktopAssistant/src/img/readmeImg/4kFocused.png)  --><p>之前用tkinter写了两天了,察觉有点不好用,又换成了PyQt5.<br>耗资源方面,平常在后台运行就占用十几二十M内存</p>]]></content>
     

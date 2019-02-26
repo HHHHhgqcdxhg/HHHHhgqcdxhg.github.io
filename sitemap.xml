@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.purecucumber.club/Cuclasses/</loc>
+    
+    <lastmod>2019-02-26T05:10:04.715Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.purecucumber.club/devotion/</loc>
     
     <lastmod>2019-02-26T04:55:11.171Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://blog.purecucumber.club/build-blog/</loc>
     
     <lastmod>2019-02-21T13:12:55.838Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/Cuclasses/</loc>
-    
-    <lastmod>2019-02-21T13:12:53.962Z</lastmod>
     
   </url>
   

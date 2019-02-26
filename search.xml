@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Plus Ultra!]]></title>
+    <url>%2Fbokuhiro-movie%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>动漫</category>
+      </categories>
+      <tags>
+        <tag>动漫</tag>
+        <tag>我的英雄学院</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[碧蓝航线翻牌小游戏复现]]></title>
     <url>%2Fblhx-fanpai%2F</url>
     <content type="text"><![CDATA[git repo:https://github.com/HHHHhgqcdxhg/azurlane-fanpai已部署在:https://blog.purecucumber.club/azurlane-fanpai/dist/index.html 一下午撸出来的web复现的碧蓝航线翻牌小游戏.一路写下来没遇到坑,但也没考虑性能.]]></content>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.purecucumber.club/"/>
-  <updated>2019-02-22T18:09:03.218Z</updated>
+  <updated>2019-02-26T13:34:37.317Z</updated>
   <id>https://blog.purecucumber.club/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Plus Ultra!</title>
+    <link href="https://blog.purecucumber.club/bokuhiro-movie/"/>
+    <id>https://blog.purecucumber.club/bokuhiro-movie/</id>
+    <published>2019-02-26T13:33:25.000Z</published>
+    <updated>2019-02-26T13:34:37.317Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://pic.ggemo.com/picgo/007zFI1bly1g0e7fajnouj30u016khdu.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://pic.ggemo.com/picgo/007zFI1bly1g0e7fajnouj30u016khdu.jpg&quot; alt&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="动漫" scheme="https://blog.purecucumber.club/categories/%E5%8A%A8%E6%BC%AB/"/>
+    
+    
+      <category term="动漫" scheme="https://blog.purecucumber.club/tags/%E5%8A%A8%E6%BC%AB/"/>
+    
+      <category term="我的英雄学院" scheme="https://blog.purecucumber.club/tags/%E6%88%91%E7%9A%84%E8%8B%B1%E9%9B%84%E5%AD%A6%E9%99%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>碧蓝航线翻牌小游戏复现</title>

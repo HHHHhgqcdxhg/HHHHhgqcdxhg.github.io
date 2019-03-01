@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.purecucumber.club/about/index.html</loc>
+    
+    <lastmod>2019-03-01T01:42:13.019Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.purecucumber.club/azurlane-llk/</loc>
     
     <lastmod>2019-03-01T01:33:13.889Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>https://blog.purecucumber.club/build-blog/</loc>
     
     <lastmod>2019-02-21T13:12:55.838Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/about/index.html</loc>
-    
-    <lastmod>2019-02-21T13:11:59.340Z</lastmod>
     
   </url>
   

@@ -118,7 +118,7 @@
 <meta property="og:description" content="做了个自动玩连连看的脚本.github : https://github.com/HHHHhgqcdxhg/azurlane-linkup 图片整理将原图整理成以下格式    原图:   整理出:    1234567[[  0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.] [  0.  16.   2.   4.   1.   3.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/Screenshot_2019-03-01-19-24-27.png">
-<meta property="og:updated_time" content="2019-03-01T15:28:33.580Z">
+<meta property="og:updated_time" content="2019-03-01T15:32:47.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自动玩瓜游连连看的脚本">
 <meta name="twitter:description" content="做了个自动玩连连看的脚本.github : https://github.com/HHHHhgqcdxhg/azurlane-linkup 图片整理将原图整理成以下格式    原图:   整理出:    1234567[[  0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.] [  0.  16.   2.   4.   1.   3.">
@@ -429,7 +429,7 @@
                 
               
 
-              <time title="创建时间：2019-03-01 09:31:23 / 修改时间：23:28:33" itemprop="dateCreated datePublished" datetime="2019-03-01T09:31:23+08:00">2019-03-01</time>
+              <time title="创建时间：2019-03-01 09:31:23 / 修改时间：23:32:47" itemprop="dateCreated datePublished" datetime="2019-03-01T09:31:23+08:00">2019-03-01</time>
             
 
             
@@ -491,7 +491,7 @@
 <p>和<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">1</span>, <span class="number">6</span>], [<span class="number">1</span>, <span class="number">4</span>], [<span class="number">1</span>, <span class="number">7</span>], [<span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">9</span>], [<span class="number">1</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>], [<span class="number">1</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">9</span>], [<span class="number">2</span>, <span class="number">8</span>], [<span class="number">3</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">7</span>], [<span class="number">2</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">8</span>], [<span class="number">3</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">9</span>], [<span class="number">2</span>, <span class="number">5</span>], [<span class="number">4</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">6</span>], [<span class="number">4</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">6</span>], [<span class="number">4</span>, <span class="number">4</span>], [<span class="number">4</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">6</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">4</span>, <span class="number">7</span>], [<span class="number">1</span>, <span class="number">1</span>], [<span class="number">4</span>, <span class="number">8</span>], [<span class="number">1</span>, <span class="number">8</span>], [<span class="number">4</span>, <span class="number">9</span>], [<span class="number">2</span>, <span class="number">7</span>]]</span><br><span class="line"><span class="comment"># 这个数组每一项表示一组坐标,并且第 2 * i 个元素代表的图片和第 2 * i + 1 个元素代表的图片相同</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h2><h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>广度优先暴搜,搜索所有可以到达的图片块,判断目标是否在其中.<br>代码在源码中的<code>findLineFetch</code>方法和<code>pointSearch</code>方法,注释还写的蛮详细的,这里不再解释.  </p>
 <h4 id="实行点击"><a href="#实行点击" class="headerlink" title="实行点击:"></a>实行点击:</h4><p>跟上次的<a href="https://blog.purecucumber.club/blhx-fanpai4-45">翻牌游戏脚本</a>差不多</p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>今天在下pr,明天给传b站,是7秒8跑完.<br>追求极致的话应该能跑进7秒内,说不定能跑进6秒内,一定是我太菜了</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>7.80s视频: <a href="https://www.bilibili.com/video/av45062991/" target="_blank" rel="noopener">av45062991</a><br>7.80s留了视频,有一个7.27s的没录好…<br>追求极致的话应该能跑进7秒内,说不定能跑进6秒内,我做不到一定是因为我太菜了</p>
 <h4 id="时间浪费"><a href="#时间浪费" class="headerlink" title="时间浪费"></a>时间浪费</h4><ul>
 <li>截图耗时<br>  因为开局前截图会有数字遮挡,所以等数字消完,再进行截图.因为有一些IO操作,所以就很慢…</li>
 <li>算法耗时<br>  嘛,我这个算法是广度优先暴搜,应该比较慢.</li>

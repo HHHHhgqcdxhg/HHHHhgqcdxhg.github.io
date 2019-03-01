@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[azurlane-llk]]></title>
+    <url>%2Fazurlane-llk%2F</url>
+    <content type="text"><![CDATA[近期想做个自动玩连连看的脚本.大致思路:深度优先,回溯寻路,判断拐点数量有待实现]]></content>
+      <tags>
+        <tag>碧蓝航线</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Plus Ultra!]]></title>
     <url>%2Fbokuhiro-movie%2F</url>
     <content type="text"><![CDATA[]]></content>

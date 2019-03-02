@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.purecucumber.club/"/>
-  <updated>2019-03-01T15:32:47.134Z</updated>
+  <updated>2019-03-02T14:22:13.584Z</updated>
   <id>https://blog.purecucumber.club/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>chrome插件踩坑</title>
+    <link href="https://blog.purecucumber.club/chrome-crx/"/>
+    <id>https://blog.purecucumber.club/chrome-crx/</id>
+    <published>2019-03-02T14:21:44.000Z</published>
+    <updated>2019-03-02T14:22:13.584Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>自动玩瓜游连连看的脚本</title>

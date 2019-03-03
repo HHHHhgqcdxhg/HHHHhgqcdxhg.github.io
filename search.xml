@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python多重继承init的问题]]></title>
+    <url>%2Fpython-mult-inherit-init%2F</url>
+    <content type="text"><![CDATA[继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行self).__init__()``` 123456789101112131415161718```pythonclass A: def __init__(self): self.a = &quot;a&quot; class B: def __init__(self): self.b = &quot;b&quot;class C(A,B): def __init__(self): super(C, self).__init__()if __name__ == &apos;__main__&apos;: c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;&apos;a&apos;: &apos;a&apos;&#125; 可以看出问题了,C类只init了A类,并没有init B类解决方法:1234567891011121314151617181920class A: def __init__(self): self.a = "a"class B: def __init__(self): self.b = "b"class C(A, B): def __init__(self): A.__init__(self) B.__init__(self)if __name__ == '__main__': c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;'a': 'a', 'b': 'b'&#125;]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[chrome插件踩坑]]></title>
     <url>%2Fchrome-crx%2F</url>
     <content type="text"></content>
@@ -67,8 +75,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>碧蓝航线</tag>
         <tag>python</tag>
+        <tag>碧蓝航线</tag>
       </tags>
   </entry>
   <entry>

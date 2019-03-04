@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[chrome插件踩坑]]></title>
     <url>%2Fchrome-crx%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
     <title><![CDATA[自动玩瓜游连连看的脚本]]></title>

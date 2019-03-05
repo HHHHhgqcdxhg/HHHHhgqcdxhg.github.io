@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[musicFavorites]]></title>
+    <url>%2FmusicFavorites%2F</url>
+    <content type="text"><![CDATA[想着给把最喜欢,最常听的几首歌按风格分类,造了这么几个歌单 治愈 爱 静谧 朝气蓬勃 优美忧伤 对这些歌写点东西治愈urar很美好. 蝴蝶泉边同样很美好很温馨,更加了点回忆的感觉 Growing!就是让人撒娇的歌 爱Letter动画HandShaker的BGM中听到的.前面一段代表书信的常规内容,后面深深的感情喷涌而出.不像小情侣之间的爱,像是老夫老妻或者亲情的爱这封Letter不像情书而是像家书 LuvLetter情书.写情书和纠结要不要将情书送出去的过程,理解的是纠结着很痛苦然后没能送出去.中间有纠结的痛苦,也有想象的美好结局. 恋日推给我的,高潮部分很好听 愛唄当初看一个高木同学的AMV注意到的,很真情实感 小小恋歌同样是高木同学ed收录的当初觉得高桥李依版本的好听,比较甜美来着,后来还是觉得新垣结衣唱的好听,捎带沙哑点的声音很温柔很知性 さよならの夏啊 静谧Mountain stream高中时候学校就经常放的 陽だまり道とれんちょん悠哉日常大王的BGM ふるさとの匂い夏目友人帐的BGM 朝气蓬勃RYDEEN朝气蓬勃 优美忧伤おうちに帰りたいちいさな冒険者素晴的ed. Arrietty’s Song借东西的小人阿莉埃蒂的主题曲 春よ、来い看了一个潮学视频知道的…着实很好听 この感情は使命island的曲子 さよならの夏啊]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[python多重继承init的问题]]></title>
     <url>%2Fpython-mult-inherit-init%2F</url>
     <content type="text"><![CDATA[继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行self).__init__()```12345678910111213141516171819 ```pythonclass A: def __init__(self): self.a = &quot;a&quot; class B: def __init__(self): self.b = &quot;b&quot;class C(A,B): def __init__(self): super(C, self).__init__()if __name__ == &apos;__main__&apos;: c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;&apos;a&apos;: &apos;a&apos;&#125; 可以看出问题了,C类只init了A类,并没有init B类下面是我瞎摸出来的解决方法 1234567891011121314151617181920class A: def __init__(self): self.a = "a"class B: def __init__(self): self.b = "b"class C(A, B): def __init__(self): A.__init__(self) B.__init__(self)if __name__ == '__main__': c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;'a': 'a', 'b': 'b'&#125;]]></content>

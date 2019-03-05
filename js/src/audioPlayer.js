@@ -43,6 +43,18 @@ const ap = new APlayer({
             artist: '手嶌葵',
             url: 'https://music.163.com/song/media/outer/url?id=656405.mp3',
             cover: 'https://pic.ggemo.com/picgo/2267192976481272.jpg',
+        },
+        {
+            name: "urar",
+            artist: 'Chima',
+            url: 'https://music.163.com/song/media/outer/url?id=532776144.mp3',
+            cover: 'https://pic.ggemo.com/picgo/109951163117275948.jpg',
+        },
+        {
+            name: "Growing!",
+            artist: '佐藤しずく',
+            url: 'https://music.163.com/song/media/outer/url?id=653660.mp3',
+            cover: 'https://pic.ggemo.com/picgo/5905476952948165.jpg',
         }
     ]
 });

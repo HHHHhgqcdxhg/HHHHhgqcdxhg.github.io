@@ -23,25 +23,25 @@ const ap = new APlayer({
         {
             name: 'この感情は使命',
             artist: '安瀬聖',
-            url: 'http://music.163.com/song/media/outer/url?id=412951840.mp3',
+            url: 'https://music.163.com/song/media/outer/url?id=412951840.mp3',
             cover: 'https://pic.ggemo.com/picgo/19200771556072853.jpg',
         },
         {
             name: 'ちいさな冒険者',
             artist: '茅野爱衣/雨宫天',
-            url: 'http://music.163.com/song/media/outer/url?id=41645488.mp3',
+            url: 'https://music.163.com/song/media/outer/url?id=41645488.mp3',
             cover: 'https://pic.ggemo.com/picgo/3386495816508708.jpg',
         },
         {
             name: "Arrietty's Song",
             artist: 'Cecile Corbel',
-            url: 'http://music.163.com/song/media/outer/url?id=2324487.mp3',
+            url: 'https://music.163.com/song/media/outer/url?id=2324487.mp3',
             cover: 'https://pic.ggemo.com/picgo/1716337650959823.jpg',
         },
         {
             name: "さよならの夏",
             artist: '手嶌葵',
-            url: 'http://music.163.com/song/media/outer/url?id=656405.mp3',
+            url: 'https://music.163.com/song/media/outer/url?id=656405.mp3',
             cover: 'https://pic.ggemo.com/picgo/2267192976481272.jpg',
         }
     ]

@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[python多重继承init的问题]]></title>
     <url>%2Fpython-mult-inherit-init%2F</url>
-    <content type="text"><![CDATA[继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行self).__init__()```12345678910111213141516171819 ```pythonclass A: def __init__(self): self.a = &quot;a&quot; class B: def __init__(self): self.b = &quot;b&quot;class C(A,B): def __init__(self): super(C, self).__init__()if __name__ == &apos;__main__&apos;: c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;&apos;a&apos;: &apos;a&apos;&#125; 可以看出问题了,C类只init了A类,并没有init B类下面是我瞎摸出来的解决方法 1234567891011121314151617181920class A: def __init__(self): self.a = "a"class B: def __init__(self): self.b = "b"class C(A, B): def __init__(self): A.__init__(self) B.__init__(self)if __name__ == '__main__': c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;'a': 'a', 'b': 'b'&#125;]]></content>
+    <content type="text"><![CDATA[继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行1super(C, self).__init__() 12345678910111213141516class A: def __init__(self): self.a = "a" class B: def __init__(self): self.b = "b"class C(A,B): def __init__(self): super(C, self).__init__()if __name__ == '__main__': c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;'a': 'a'&#125; 可以看出问题了,C类只init了A类,并没有init B类下面是我瞎摸出来的解决方法 1234567891011121314151617181920class A: def __init__(self): self.a = "a"class B: def __init__(self): self.b = "b"class C(A, B): def __init__(self): A.__init__(self) B.__init__(self)if __name__ == '__main__': c = C() print(c.__dict__) # &gt;&gt;&gt; &#123;'a': 'a', 'b': 'b'&#125;]]></content>
       <tags>
         <tag>python</tag>
       </tags>
@@ -83,8 +83,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

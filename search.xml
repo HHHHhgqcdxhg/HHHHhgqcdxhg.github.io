@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[unity-learning]]></title>
+    <url>%2Funity-learning%2F</url>
+    <content type="text"><![CDATA[unity官方教程https://unity3d.com/cn/learn/tutorials现在在看一个beagining教程roll a ball material初探新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[蛮啾qq面试笔记]]></title>
+    <url>%2Fnote-interview-manjuu%2F</url>
+    <content type="text"><![CDATA[位运算可以节约传输和储存的空间 unity，c#，lua，opengl，渲染]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[加了几个音乐收藏夹]]></title>
     <url>%2FmusicFavorites%2F</url>
     <content type="text"><![CDATA[想着给把最喜欢,最常听的几首歌按风格分类,造了这么几个歌单 治愈 爱 静谧 朝气蓬勃 优美忧伤 对这些歌写点东西治愈urar很美好. 蝴蝶泉边同样很美好很温馨,更加了点回忆的感觉 Growing!就是让人撒娇的歌 爱Letter动画HandShaker的BGM中听到的.前面一段代表书信的常规内容,后面深深的感情喷涌而出.不像小情侣之间的爱,像是老夫老妻或者亲情的爱这封Letter不像情书而是像家书 LuvLetter情书.写情书和纠结要不要将情书送出去的过程,理解的是纠结着很痛苦然后没能送出去.中间有纠结的痛苦,也有想象的美好结局. 恋日推给我的,高潮部分很好听 愛唄当初看一个高木同学的AMV注意到的,很真情实感 小小恋歌同样是高木同学ed收录的当初觉得高桥李依版本的好听,比较甜美来着,后来还是觉得新垣结衣唱的好听,捎带沙哑点的声音很温柔很知性 さよならの夏啊 静谧Mountain stream高中时候学校就经常放的 陽だまり道とれんちょん悠哉日常大王的BGM ふるさとの匂い夏目友人帐的BGM 朝气蓬勃RYDEEN朝气蓬勃 优美忧伤おうちに帰りたいちいさな冒険者素晴的ed. Arrietty’s Song借东西的小人阿莉埃蒂的主题曲 春よ、来い看了一个潮学视频知道的…着实很好听 この感情は使命island的曲子 さよならの夏啊]]></content>
@@ -83,8 +93,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

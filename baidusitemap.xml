@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.purecucumber.club/note-interview/</loc>
+    <lastmod>2019-03-07</lastmod>
+  </url>  <url>
     <loc>https://blog.purecucumber.club/unity-learning/</loc>
     <lastmod>2019-03-06</lastmod>
-  </url>  <url>
-    <loc>https://blog.purecucumber.club/note-interview-manjuu/</loc>
-    <lastmod>2019-03-05</lastmod>
   </url>  <url>
     <loc>https://blog.purecucumber.club/python-mult-inherit-init/</loc>
     <lastmod>2019-03-05</lastmod>

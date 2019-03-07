@@ -3,11 +3,11 @@
   <entry>
     <title><![CDATA[unity-learning]]></title>
     <url>%2Funity-learning%2F</url>
-    <content type="text"><![CDATA[unity官方教程https://unity3d.com/cn/learn/tutorials现在在看一个beagining教程roll a ball material初探新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色]]></content>
+    <content type="text"><![CDATA[unity官方教程https://unity3d.com/cn/learn/tutorials现在在看一个beagining教程roll a ball material初探新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色 Update方法 Update方法在渲染每帧前被调用 FixedUpdate方法只有在执行有关物理计算之前才被调用 LateUpdate方法在所有Update方法执行完执行完之后执行]]></content>
   </entry>
   <entry>
-    <title><![CDATA[蛮啾qq面试笔记]]></title>
-    <url>%2Fnote-interview-manjuu%2F</url>
+    <title><![CDATA[面试笔记]]></title>
+    <url>%2Fnote-interview%2F</url>
     <content type="text"><![CDATA[位运算可以节约传输和储存的空间 unity，c#，lua，opengl，渲染]]></content>
   </entry>
   <entry>

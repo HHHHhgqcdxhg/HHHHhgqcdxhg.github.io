@@ -55,6 +55,12 @@ const ap = new APlayer({
             artist: '佐藤しずく',
             url: 'https://music.163.com/song/media/outer/url?id=653660.mp3',
             cover: 'https://pic.ggemo.com/picgo/5905476952948165.jpg',
+        },
+        {
+            name: "春よ、来い",
+            artist: '松任谷由実',
+            url: 'https://music.163.com/song/media/outer/url?id=615891.mp3',
+            cover: 'https://pic.ggemo.com/picgo/20190307084435.png',
         }
     ]
 });

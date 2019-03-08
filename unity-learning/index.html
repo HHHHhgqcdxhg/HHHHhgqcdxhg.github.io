@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="unity官方教程https://unity3d.com/cn/learn/tutorials现在在看一个beagining教程roll a ball material初探新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色 Update方法 Update方法在渲染每帧前被调用 FixedUpdate方法只有在执行有关物理计算之前才">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-06T15:48:30.438Z">
+<meta property="og:updated_time" content="2019-03-08T10:35:29.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unity-learning">
 <meta name="twitter:description" content="unity官方教程https://unity3d.com/cn/learn/tutorials现在在看一个beagining教程roll a ball material初探新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色 Update方法 Update方法在渲染每帧前被调用 FixedUpdate方法只有在执行有关物理计算之前才">
@@ -425,12 +425,24 @@
                 
               
 
-              <time title="创建时间：2019-03-06 22:34:54 / 修改时间：23:48:30" itemprop="dateCreated datePublished" datetime="2019-03-06T22:34:54+08:00">2019-03-06</time>
+              <time title="创建时间：2019-03-06 22:34:54" itemprop="dateCreated datePublished" datetime="2019-03-06T22:34:54+08:00">2019-03-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-08 18:35:29" itemprop="dateModified" datetime="2019-03-08T18:35:29+08:00">2019-03-08</time>
               
             
           </span>
@@ -482,8 +494,12 @@
 <h3 id="Update方法"><a href="#Update方法" class="headerlink" title="Update方法"></a>Update方法</h3><ul>
 <li>Update方法在渲染每帧前被调用</li>
 <li>FixedUpdate方法只有在执行有关物理计算之前才被调用</li>
-<li>LateUpdate方法在所有Update方法执行完执行完之后执行</li>
+<li>LateUpdate方法在所有Update方法执行完执行完之后执行<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h3>destroy更像是disable,不是直接摧毁<h3 id="静态和动态GameObject"><a href="#静态和动态GameObject" class="headerlink" title="静态和动态GameObject"></a>静态和动态GameObject</h3><h4 id="静态碰撞体"><a href="#静态碰撞体" class="headerlink" title="静态碰撞体"></a>静态碰撞体</h4>unity会计算场景内所有静态碰撞体的体积,并将信息保存在缓存内.因为静态碰撞体不需要移动,可以避免每帧重新计算这些信息,所以这是对的<br>每当静态碰撞体移动 旋转或缩放时,unity会重新计算这些静态碰撞体,然后更新静态碰撞体的缓存数据  <h4 id="动态碰撞体"><a href="#动态碰撞体" class="headerlink" title="动态碰撞体"></a>动态碰撞体</h4>重新计算缓存会耗费系统资源,但我们可以随意移动移动,旋转或缩放动态碰撞体,而且unity不会缓存他们的数据.unity会预测动态碰撞体的移动,所以在移动碰撞体之前,需要告诉unity它们是动态的.可以使用刚体组件来实现这种效果.  </li>
 </ul>
+<p>任何带有碰撞体和刚体组件的GameObject都会被认为是动态的.任何带有碰撞体却没有刚体组件的GameObject则被视为是静态的.<br>刚体选中”Is Kinematic”可以将刚体变成仅受脚本控制的刚体.kinematic刚体不受无力作用力的影响,但可以播放动画或通过Transform组件移动</p>
+<h3 id="几何图元绘制顺序"><a href="#几何图元绘制顺序" class="headerlink" title="几何图元绘制顺序"></a>几何图元绘制顺序</h3><h4 id="Sorting-Layer"><a href="#Sorting-Layer" class="headerlink" title="Sorting Layer"></a>Sorting Layer</h4><p>Sorting Layer序号越大的层越后绘制,因而会覆盖掉前面序号小的层上的几何图元<br>表示指定层在Tags and Layers视图Sorting Layers中的顺序<br>各层的绘制顺序是Default -&gt; Background -&gt; Character -&gt; Foreground -&gt; UI</p>
+<h4 id="Order-in-layer"><a href="#Order-in-layer" class="headerlink" title="Order in layer"></a>Order in layer</h4><p>在同一层调整几何图元的绘制深度.同样是序号大的覆盖序号小的  </p>
+<p>spirit Render组件中SortingLayer属性控制的是不同层之间的绘制顺序,而Order in Layer控制的是同层中物体的绘制顺序</p>
 
       
     </div>
@@ -763,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#material初探"><span class="nav-text">material初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update方法"><span class="nav-text">Update方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#material初探"><span class="nav-text">material初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update方法"><span class="nav-text">Update方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#destroy"><span class="nav-text">destroy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态和动态GameObject"><span class="nav-text">静态和动态GameObject</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态碰撞体"><span class="nav-text">静态碰撞体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态碰撞体"><span class="nav-text">动态碰撞体</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几何图元绘制顺序"><span class="nav-text">几何图元绘制顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorting-Layer"><span class="nav-text">Sorting Layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Order-in-layer"><span class="nav-text">Order in layer</span></a></li></ol></li></ol></div>
             
 
           </div>

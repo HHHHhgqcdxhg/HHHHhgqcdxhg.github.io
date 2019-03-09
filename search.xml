@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[夏目友人帐观影]]></title>
     <url>%2Fnazume-film%2F</url>
-    <content type="text"><![CDATA[听说到容莉枝不管好事还是坏事都要去那个祠堂参拜的时候,就心想着那是个树洞,结果还真是个真实树洞233 前半那个笹田演讲的时候放的BGM就是那首熟悉的ふるさとの匂い,直接掉泪 var ap = new APlayer({ element: document.getElementById("aplayer-cUdyqREG"), narrow: false, autoplay: false, showlrc: false, music: { title: "ふるさとの匂い", author: "吉森信", url: "https://music.163.com/song/media/outer/url?id=541853.mp3", pic: "https://pic.ggemo.com/picgo/20190307204921.png", lrc: "" } }); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 容莉枝阿姨在儿子死后的八年间没有很痛苦是很好的,穗之影做得好.真正可怜的是穗之影啊草. 看之前的剧情以为名取对夏目图谋不轨来着,这次看名取的心理活动,还是个好人.]]></content>
+    <content type="text"><![CDATA[听说到容莉枝不管好事还是坏事都要去那个祠堂参拜的时候,就心想着那是个树洞,结果还真是个真实树洞233 前半那个笹田演讲的时候放的BGM就是那首熟悉的ふるさとの匂い,直接掉泪 var ap = new APlayer({ element: document.getElementById("aplayer-vFWUFzPA"), narrow: false, autoplay: false, showlrc: false, music: { title: "ふるさとの匂い", author: "吉森信", url: "https://music.163.com/song/media/outer/url?id=541853.mp3", pic: "https://pic.ggemo.com/picgo/20190307204921.png", lrc: "" } }); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 容莉枝阿姨在儿子死后的八年间没有很痛苦是很好的,穗之影做得好.真正可怜的是穗之影啊草. 看之前的剧情以为名取对夏目图谋不轨来着,这次看名取的心理活动,还是个好人.]]></content>
       <categories>
         <category>动漫</category>
       </categories>
@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[unity-learning]]></title>
     <url>%2Funity-learning%2F</url>
-    <content type="text"><![CDATA[unity官方教程https://unity3d.com/cn/learn/tutorials现在在看一个beagining教程roll a ball material初探新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色 Update方法 Update方法在渲染每帧前被调用 FixedUpdate方法只有在执行有关物理计算之前才被调用 LateUpdate方法在所有Update方法执行完执行完之后执行destroydestroy更像是disable,不是直接摧毁静态和动态GameObject静态碰撞体unity会计算场景内所有静态碰撞体的体积,并将信息保存在缓存内.因为静态碰撞体不需要移动,可以避免每帧重新计算这些信息,所以这是对的每当静态碰撞体移动 旋转或缩放时,unity会重新计算这些静态碰撞体,然后更新静态碰撞体的缓存数据 动态碰撞体重新计算缓存会耗费系统资源,但我们可以随意移动移动,旋转或缩放动态碰撞体,而且unity不会缓存他们的数据.unity会预测动态碰撞体的移动,所以在移动碰撞体之前,需要告诉unity它们是动态的.可以使用刚体组件来实现这种效果. 任何带有碰撞体和刚体组件的GameObject都会被认为是动态的.任何带有碰撞体却没有刚体组件的GameObject则被视为是静态的.刚体选中”Is Kinematic”可以将刚体变成仅受脚本控制的刚体.kinematic刚体不受无力作用力的影响,但可以播放动画或通过Transform组件移动 几何图元绘制顺序Sorting LayerSorting Layer序号越大的层越后绘制,因而会覆盖掉前面序号小的层上的几何图元表示指定层在Tags and Layers视图Sorting Layers中的顺序各层的绘制顺序是Default -&gt; Background -&gt; Character -&gt; Foreground -&gt; UI Order in layer在同一层调整几何图元的绘制深度.同样是序号大的覆盖序号小的 spirit Render组件中SortingLayer属性控制的是不同层之间的绘制顺序,而Order in Layer控制的是同层中物体的绘制顺序]]></content>
+    <content type="text"><![CDATA[unity官方教程https://unity3d.com/cn/learn/tutorials现在在看一个beagining教程roll a ball material初探新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色 Update方法 Update方法在渲染每帧前被调用 FixedUpdate方法只有在执行有关物理计算之前才被调用 LateUpdate方法在所有Update方法执行完执行完之后执行destroydestroy更像是disable,不是直接摧毁静态和动态GameObject静态碰撞体unity会计算场景内所有静态碰撞体的体积,并将信息保存在缓存内.因为静态碰撞体不需要移动,可以避免每帧重新计算这些信息,所以这是对的每当静态碰撞体移动 旋转或缩放时,unity会重新计算这些静态碰撞体,然后更新静态碰撞体的缓存数据 动态碰撞体重新计算缓存会耗费系统资源,但我们可以随意移动移动,旋转或缩放动态碰撞体,而且unity不会缓存他们的数据.unity会预测动态碰撞体的移动,所以在移动碰撞体之前,需要告诉unity它们是动态的.可以使用刚体组件来实现这种效果. 任何带有碰撞体和刚体组件的GameObject都会被认为是动态的.任何带有碰撞体却没有刚体组件的GameObject则被视为是静态的.刚体选中”Is Kinematic”可以将刚体变成仅受脚本控制的刚体.kinematic刚体不受无力作用力的影响,但可以播放动画或通过Transform组件移动 几何图元绘制顺序Sorting LayerSorting Layer序号越大的层越后绘制,因而会覆盖掉前面序号小的层上的几何图元表示指定层在Tags and Layers视图Sorting Layers中的顺序各层的绘制顺序是Default -&gt; Background -&gt; Character -&gt; Foreground -&gt; UI Order in layer在同一层调整几何图元的绘制深度.同样是序号大的覆盖序号小的 spirit Render组件中SortingLayer属性控制的是不同层之间的绘制顺序,而Order in Layer控制的是同层中物体的绘制顺序 spine可算知道瓜游的小人都是什么了一开始下的spine3.7,然后于是又下了3.6.卸载旧版本插件好像是直接在project里把对应的删掉目力俾斯麦蛮好玩的]]></content>
   </entry>
   <entry>
     <title><![CDATA[面试笔记]]></title>
@@ -104,8 +104,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

@@ -54,6 +54,7 @@
 
 
 <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
+<link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
@@ -119,7 +120,7 @@
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190312014350.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190312104505.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190312105352.png">
-<meta property="og:updated_time" content="2019-03-12T07:57:16.986Z">
+<meta property="og:updated_time" content="2019-03-12T08:03:37.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shader学习">
 <meta name="twitter:description" content="资料 Shader编程教程-蛮牛 Unity User Manual    第一课 图形硬件简史与可编程管线课时总结 2003年开始正式进入可编程GPU阶段 GPU的并行处理能力强于CPU 目前GPU无法代替CPU    第二课 shader和渲染管线  GPU前段模块-&amp;gt;图源装配:过去只有集成在硬件当中的顶点着色器,现在可编程   光栅化:把计算机显卡当中运算的数据进行一个细分用于适配屏幕">
@@ -200,6 +201,12 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  <div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+  </div>
+
 
   
   
@@ -430,7 +437,7 @@
                 
               
 
-              <time title="创建时间：2019-03-12 01:42:25 / 修改时间：15:57:16" itemprop="dateCreated datePublished" datetime="2019-03-12T01:42:25+08:00">2019-03-12</time>
+              <time title="创建时间：2019-03-12 01:42:25 / 修改时间：16:03:37" itemprop="dateCreated datePublished" datetime="2019-03-12T01:42:25+08:00">2019-03-12</time>
             
 
             
@@ -564,6 +571,7 @@
 <li>Parallax Normal mapped Specular<br>  高光视差法线贴图  </li>
 </ul>
 <h2 id="Fixed-function-shader"><a href="#Fixed-function-shader" class="headerlink" title="Fixed function shader"></a>Fixed function shader</h2><p>固定功能的shader.功能有限但是性能很好  </p>
+<h2 id="Surface-Shader"><a href="#Surface-Shader" class="headerlink" title="Surface Shader"></a>Surface Shader</h2><p>Surface Shader无需编写pass通道</p>
 
       
     </div>
@@ -853,7 +861,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一课-图形硬件简史与可编程管线"><span class="nav-text">第一课 图形硬件简史与可编程管线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#课时总结"><span class="nav-text">课时总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二课-shader和渲染管线"><span class="nav-text">第二课 shader和渲染管线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shader和材质-贴图的关系"><span class="nav-text">shader和材质,贴图的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课时总结-1"><span class="nav-text">课时总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三课-shader的三大主流高级编程语言"><span class="nav-text">第三课 shader的三大主流高级编程语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四课-Unity-Shader的组织形式"><span class="nav-text">第四课 Unity Shader的组织形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shaderlab-语法基本结构"><span class="nav-text">Shaderlab 语法基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unity自带shader"><span class="nav-text">unity自带shader</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fixed-function-shader"><span class="nav-text">Fixed function shader</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一课-图形硬件简史与可编程管线"><span class="nav-text">第一课 图形硬件简史与可编程管线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#课时总结"><span class="nav-text">课时总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二课-shader和渲染管线"><span class="nav-text">第二课 shader和渲染管线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shader和材质-贴图的关系"><span class="nav-text">shader和材质,贴图的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课时总结-1"><span class="nav-text">课时总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三课-shader的三大主流高级编程语言"><span class="nav-text">第三课 shader的三大主流高级编程语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四课-Unity-Shader的组织形式"><span class="nav-text">第四课 Unity Shader的组织形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shaderlab-语法基本结构"><span class="nav-text">Shaderlab 语法基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unity自带shader"><span class="nav-text">unity自带shader</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fixed-function-shader"><span class="nav-text">Fixed function shader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Surface-Shader"><span class="nav-text">Surface Shader</span></a></li></ol></div>
             
 
           </div>
@@ -1392,6 +1400,15 @@
   
 
   
+
+
+  
+
+
+  <script src="/js/src/live2d.js?v=7.0.0"></script>
+
+  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
+
 
   
 

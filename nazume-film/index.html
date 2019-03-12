@@ -54,6 +54,7 @@
 
 
 <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
+<link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
@@ -198,6 +199,12 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  <div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+  </div>
+
 
   
   
@@ -501,12 +508,12 @@
         <ul>
 <li>听说到容莉枝不管好事还是坏事都要去那个祠堂参拜的时候,就心想着那是个树洞,结果还真是个真实树洞233</li>
 <li>前半那个笹田演讲的时候放的BGM就是那首熟悉的ふるさとの匂い,直接掉泪
-        <div id="aplayer-dKpJrDJm" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-YTtDVtzm" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-dKpJrDJm"),
+            element: document.getElementById("aplayer-YTtDVtzm"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -1328,6 +1335,15 @@
   
 
   
+
+
+  
+
+
+  <script src="/js/src/live2d.js?v=7.0.0"></script>
+
+  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
+
 
   
 

@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/**
+/**
  * EYHN 基于 live2d 官方 Live2DFramework.js 修改
  * 
  * Copyright © 2016 - 2017 EYHN

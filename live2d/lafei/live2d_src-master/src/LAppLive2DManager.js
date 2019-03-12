@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>import { Live2DFramework } from "./lib/Live2DFramework.js"
+import { Live2DFramework } from "./lib/Live2DFramework.js"
 import PlatformManager from "./PlatformManager"
 import LAppModel from "./LAppModel"
 import LAppDefine from "./LAppDefine"

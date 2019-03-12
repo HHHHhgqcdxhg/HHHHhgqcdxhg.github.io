@@ -53,8 +53,6 @@
 
 
 
-<link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
-<link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
@@ -192,6 +190,8 @@
   </style>
 </noscript>
 
+  <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
+<link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -917,6 +917,12 @@
         
       </div>
     </main>
+
+    <div class="waifu">
+      <div class="waifu-tips"></div>
+      <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+    </div>
+
     <div id="aplayer"></div>
     <footer id="footer" class="footer">
       <div class="footer-inner">
@@ -1437,8 +1443,9 @@
 
   <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
 
-
-  
+<script type="text/javascript">
+    loadlive2d("live2d", "./src/lafei/lafei.model3.json");
+</script>
 
   
   <script src="/js/src/js.cookie.js?v=7.0.0"></script>

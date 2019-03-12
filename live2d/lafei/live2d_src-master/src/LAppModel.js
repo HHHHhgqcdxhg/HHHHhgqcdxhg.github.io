@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>import {Live2DFramework, L2DBaseModel, L2DEyeBlink} from "./lib/Live2DFramework"
+import {Live2DFramework, L2DBaseModel, L2DEyeBlink} from "./lib/Live2DFramework"
 import ModelSettingJson from "./lib/ModelSettingJson"
 import LAppDefine from "./LAppDefine"
 import MatrixStack from "./lib/MatrixStack"

@@ -53,8 +53,6 @@
 
 
 
-<link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
-<link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
@@ -192,6 +190,8 @@
   </style>
 </noscript>
 
+  <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
+<link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -837,12 +837,24 @@ GPU前段模块-&gt;图源装配:过去只有集
                 
               
 
-              <time title="创建时间：2019-03-07 20:31:19 / 修改时间：20:57:50" itemprop="dateCreated datePublished" datetime="2019-03-07T20:31:19+08:00">2019-03-07</time>
+              <time title="创建时间：2019-03-07 20:31:19" itemprop="dateCreated datePublished" datetime="2019-03-07T20:31:19+08:00">2019-03-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-12 20:21:35" itemprop="dateModified" datetime="2019-03-12T20:21:35+08:00">2019-03-12</time>
               
             
           </span>
@@ -913,11 +925,8 @@ GPU前段模块-&gt;图源装配:过去只有集
               
 听说到容莉枝不管好事还是坏事都要去那个祠堂参拜的时候,就心想着那是个树洞,结果还真是个真实树洞233
 前半那个笹田演讲的时候放的BGM就是那首熟悉的ふるさとの匂い,直接掉泪
-        
-            
-        
-        
-          var ap = new
+容莉枝阿姨在儿子死后的八年间没有很痛苦是很好的,穗之影做得好.真正可怜的是穗之影啊草.
+看之前的剧情以为名取对夏目图谋不轨来
               ...
             </p>
           <!--noindex-->
@@ -4502,6 +4511,12 @@ repo : https://github.com/HHHHhgqcdxhg/azurlane-painting图片处理过程: 将�
         
       </div>
     </main>
+
+    <div class="waifu">
+      <div class="waifu-tips"></div>
+      <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+    </div>
+
     <div id="aplayer"></div>
     <footer id="footer" class="footer">
       <div class="footer-inner">
@@ -5022,8 +5037,9 @@ repo : https://github.com/HHHHhgqcdxhg/azurlane-painting图片处理过程: 将�
 
   <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
 
-
-  
+<script type="text/javascript">
+    loadlive2d("live2d", "./src/lafei/lafei.model3.json");
+</script>
 
   
   <script src="/js/src/js.cookie.js?v=7.0.0"></script>

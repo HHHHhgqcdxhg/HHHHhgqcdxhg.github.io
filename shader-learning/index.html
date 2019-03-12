@@ -108,21 +108,21 @@
 
 
 
-  <meta name="description" content="第二讲  GPU前段模块-&amp;gt;图源装配:过去只有集成在硬件当中的顶点着色器,现在可编程   光栅化:把计算机显卡当中运算的数据进行一个细分用于适配屏幕上具体的每一个像素的显示 像素运算:光栅化不等同于像素运算.像素运算最终反映的是颜色,光栅化过后得到的结果是帧缓存.这个过程中可以加入片段着色器. Vertex Processor顶点处理程序,运算的结果将会交给像素处理器 Frame Buffe">
+  <meta name="description" content="第一课 图形硬件简史与可编程管线课时总结 2003年开始正式进入可编程GPU阶段 GPU的并行处理能力强于CPU 目前GPU无法代替CPU第二课 shader和渲染管线 GPU前段模块-&amp;gt;图源装配:过去只有集成在硬件当中的顶点着色器,现在可编程   光栅化:把计算机显卡当中运算的数据进行一个细分用于适配屏幕上具体的每一个像素的显示 像素运算:光栅化不等同于像素运算.像素运算最终反映的是颜色,">
 <meta name="keywords" content="unity,图形学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shader学习">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-learning/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="第二讲  GPU前段模块-&amp;gt;图源装配:过去只有集成在硬件当中的顶点着色器,现在可编程   光栅化:把计算机显卡当中运算的数据进行一个细分用于适配屏幕上具体的每一个像素的显示 像素运算:光栅化不等同于像素运算.像素运算最终反映的是颜色,光栅化过后得到的结果是帧缓存.这个过程中可以加入片段着色器. Vertex Processor顶点处理程序,运算的结果将会交给像素处理器 Frame Buffe">
+<meta property="og:description" content="第一课 图形硬件简史与可编程管线课时总结 2003年开始正式进入可编程GPU阶段 GPU的并行处理能力强于CPU 目前GPU无法代替CPU第二课 shader和渲染管线 GPU前段模块-&amp;gt;图源装配:过去只有集成在硬件当中的顶点着色器,现在可编程   光栅化:把计算机显卡当中运算的数据进行一个细分用于适配屏幕上具体的每一个像素的显示 像素运算:光栅化不等同于像素运算.像素运算最终反映的是颜色,">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190312014350.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190312104505.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190312105352.png">
-<meta property="og:updated_time" content="2019-03-12T03:17:51.980Z">
+<meta property="og:updated_time" content="2019-03-12T03:41:32.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shader学习">
-<meta name="twitter:description" content="第二讲  GPU前段模块-&amp;gt;图源装配:过去只有集成在硬件当中的顶点着色器,现在可编程   光栅化:把计算机显卡当中运算的数据进行一个细分用于适配屏幕上具体的每一个像素的显示 像素运算:光栅化不等同于像素运算.像素运算最终反映的是颜色,光栅化过后得到的结果是帧缓存.这个过程中可以加入片段着色器. Vertex Processor顶点处理程序,运算的结果将会交给像素处理器 Frame Buffe">
+<meta name="twitter:description" content="第一课 图形硬件简史与可编程管线课时总结 2003年开始正式进入可编程GPU阶段 GPU的并行处理能力强于CPU 目前GPU无法代替CPU第二课 shader和渲染管线 GPU前段模块-&amp;gt;图源装配:过去只有集成在硬件当中的顶点着色器,现在可编程   光栅化:把计算机显卡当中运算的数据进行一个细分用于适配屏幕上具体的每一个像素的显示 像素运算:光栅化不等同于像素运算.像素运算最终反映的是颜色,">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190312014350.png">
 
 
@@ -430,7 +430,7 @@
                 
               
 
-              <time title="创建时间：2019-03-12 01:42:25 / 修改时间：11:17:51" itemprop="dateCreated datePublished" datetime="2019-03-12T01:42:25+08:00">2019-03-12</time>
+              <time title="创建时间：2019-03-12 01:42:25 / 修改时间：11:41:32" itemprop="dateCreated datePublished" datetime="2019-03-12T01:42:25+08:00">2019-03-12</time>
             
 
             
@@ -500,8 +500,10 @@
       
 
       
-        <h2 id="第二讲"><a href="#第二讲" class="headerlink" title="第二讲"></a>第二讲</h2><p><img src="https://pic.ggemo.com/picgo/20190312014350.png" alt="20190312014350.png"></p>
-<ul>
+        <h2 id="第一课-图形硬件简史与可编程管线"><a href="#第一课-图形硬件简史与可编程管线" class="headerlink" title="第一课 图形硬件简史与可编程管线"></a>第一课 图形硬件简史与可编程管线</h2><h3 id="课时总结"><a href="#课时总结" class="headerlink" title="课时总结"></a>课时总结</h3><ul>
+<li>2003年开始正式进入可编程GPU阶段</li>
+<li>GPU的并行处理能力强于CPU</li>
+<li>目前GPU无法代替CPU<h2 id="第二课-shader和渲染管线"><a href="#第二课-shader和渲染管线" class="headerlink" title="第二课 shader和渲染管线"></a>第二课 shader和渲染管线</h2><img src="https://pic.ggemo.com/picgo/20190312014350.png" alt="20190312014350.png"></li>
 <li>GPU前段模块-&gt;图源装配:<br>过去只有集成在硬件当中的顶点着色器,现在可编程  </li>
 <li>光栅化:<br>把计算机显卡当中运算的数据进行一个细分用于适配屏幕上具体的每一个像素的显示</li>
 <li>像素运算:<br>光栅化不等同于像素运算.像素运算最终反映的是颜色,光栅化过后得到的结果是帧缓存.这个过程中可以加入片段着色器.<br><img src="https://pic.ggemo.com/picgo/20190312104505.png" alt="20190312104505.png"></li>
@@ -526,8 +528,18 @@
 </ul>
 <p>可编程能力是两个部分,一部分是变换和光照,使用顶点shader编写顶点着色器<br>如何采样,计算颜色以及雾化处理等等,这部分放到片段着色器  </p>
 <p>unity当中,优化主要部分是减少游戏调用gpu渲染的调度次数.CPU搜集数据,产生GPU调度数据.这个过程是昂贵的.</p>
-<h3 id="shader和材质-贴图的关系"><a href="#shader和材质-贴图的关系" class="headerlink" title="shader和材质,贴图的关系"></a>shader和材质,贴图的关系</h3><p>shader实际上是一小段程序.负责将输入的顶点数据以指定的方式和输入的贴图或者颜色组合起来然后输出.<br>绘图单元可以依据这个输出将图像绘制到屏幕上.<br>输入的贴图或者颜色等,加上对应的shader,以及对shader]d特定的参数设置,将这些内容(shader及输入参数)打包存储在一起.得到的就是一个Material(材质).之后我们便可以将材质赋予三维物体来渲染(输出)了.  </p>
+<h3 id="shader和材质-贴图的关系"><a href="#shader和材质-贴图的关系" class="headerlink" title="shader和材质,贴图的关系"></a>shader和材质,贴图的关系</h3><p>shader实际上是一小段程序.负责将输入的顶点数据以指定的方式和输入的贴图或者颜色组合起来然后输出.<br>绘图单元可以依据这个输出将图像绘制到屏幕上.<br>输入的贴图或者颜色等,加上对应的shader,以及对shader]d特定的参数设置,将这些内容(shader及输入参数)打包存储在一起.得到的就是一个Material(材质).之后我们便可以将材质赋予三维物体来渲染(输出)了.</p>
 <p>材质好比引擎最终的商品,shader是生产这种商品的加工方法,而贴图是原材料.</p>
+<h3 id="课时总结-1"><a href="#课时总结-1" class="headerlink" title="课时总结"></a>课时总结</h3><ul>
+<li>Shader是图形可编程方案的程序片段</li>
+<li>渲染管线是一种计算机从数据到最终图形成像的形象描述</li>
+<li>材质是商品,shader是方法,贴图是材料</li>
+</ul>
+<h2 id="第三课-shader的三大主流高级编程语言"><a href="#第三课-shader的三大主流高级编程语言" class="headerlink" title="第三课 shader的三大主流高级编程语言"></a>第三课 shader的三大主流高级编程语言</h2><ul>
+<li>HLSL<br>  基于DirectX的High Level Shading Language</li>
+<li>GLSL<br>  基于OpenGL的OpenGL Shading Language</li>
+<li>CG<br>  NVIDIA公司的C for Graphic</li>
+</ul>
 
       
     </div>
@@ -817,7 +829,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第二讲"><span class="nav-text">第二讲</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shader和材质-贴图的关系"><span class="nav-text">shader和材质,贴图的关系</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一课-图形硬件简史与可编程管线"><span class="nav-text">第一课 图形硬件简史与可编程管线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#课时总结"><span class="nav-text">课时总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二课-shader和渲染管线"><span class="nav-text">第二课 shader和渲染管线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shader和材质-贴图的关系"><span class="nav-text">shader和材质,贴图的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课时总结-1"><span class="nav-text">课时总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三课-shader的三大主流高级编程语言"><span class="nav-text">第三课 shader的三大主流高级编程语言</span></a></li></ol></div>
             
 
           </div>

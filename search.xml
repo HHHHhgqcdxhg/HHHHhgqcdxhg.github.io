@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[夏目友人帐观影]]></title>
     <url>%2Fnazume-film%2F</url>
-    <content type="text"><![CDATA[听说到容莉枝不管好事还是坏事都要去那个祠堂参拜的时候,就心想着那是个树洞,结果还真是个真实树洞233 前半那个笹田演讲的时候放的BGM就是那首熟悉的ふるさとの匂い,直接掉泪 var ap = new APlayer({ element: document.getElementById("aplayer-hChkydWf"), narrow: false, autoplay: false, showlrc: false, music: { title: "ふるさとの匂い", author: "吉森信", url: "https://music.163.com/song/media/outer/url?id=541853.mp3", pic: "https://pic.ggemo.com/picgo/20190307204921.png", lrc: "" } }); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 容莉枝阿姨在儿子死后的八年间没有很痛苦是很好的,穗之影做得好.真正可怜的是穗之影啊草. 看之前的剧情以为名取对夏目图谋不轨来着,这次看名取的心理活动,还是个好人.]]></content>
+    <content type="text"><![CDATA[听说到容莉枝不管好事还是坏事都要去那个祠堂参拜的时候,就心想着那是个树洞,结果还真是个真实树洞233 前半那个笹田演讲的时候放的BGM就是那首熟悉的ふるさとの匂い,直接掉泪 var ap = new APlayer({ element: document.getElementById("aplayer-tXkGfJlI"), narrow: false, autoplay: false, showlrc: false, music: { title: "ふるさとの匂い", author: "吉森信", url: "https://music.163.com/song/media/outer/url?id=541853.mp3", pic: "https://pic.ggemo.com/picgo/20190307204921.png", lrc: "" } }); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 容莉枝阿姨在儿子死后的八年间没有很痛苦是很好的,穗之影做得好.真正可怜的是穗之影啊草. 看之前的剧情以为名取对夏目图谋不轨来着,这次看名取的心理活动,还是个好人.]]></content>
       <categories>
         <category>动漫</category>
       </categories>
@@ -122,8 +122,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

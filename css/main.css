@@ -1285,6 +1285,15 @@ pre .javascript .function {
   word-wrap: break-word;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+.post-body h2 {
+  color: #a05a00;
+}
+.post-body h3 {
+  color: #ff9090;
+}
+.post-body h4 {
+  color: #fbbaff;
+}
 .post-body .exturl .fa {
   font-size: 14px;
   margin-left: 4px;
@@ -1894,7 +1903,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #69ff85;
+  background: #4b882a;
 }
 .links-of-blogroll {
   font-size: 13px;

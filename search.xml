@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[shader-rumenjingyao]]></title>
+    <url>%2Fshader-rumenjingyao%2F</url>
+    <content type="text"><![CDATA[数学(?)点和矢量 点积(内积)和叉积(外积)内积Shader代码中使用dot(a,b)来进行矢量的点积运算. 1a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x + a y b y + a z b z 满足交换律和结合律.使用: 投影 单位矢量a,和一个长度不限制的矢量b,dot(a,b)得到b在a方向上带有符号的投影 外积外积的结果时矢量,并非标量. 1a X b = (a x , a y , a z ) X (b x , b y , b z ) = (a y b z - a z b y , a z b x - a x b z , a x b y - a y b x ) 例如:(1, 2, 3) X (−2, −1, 4) = ((2)(4) − (3)(−1), (3)(−2) − (1)(4), (1)(−1) − (2)(−2))= (8 − (−3), (−6) − 4, (−1) − (−4)) = (11, −10, 3)外积不满足交换律,即a X b不等于b X a.然而外积满足反交换律,即a X b = -(b X a)外积不满足结合律. 矩阵(matrix)矩阵运算矩阵乘法 矩阵乘法不满足交换律 AB不等于BA 矩阵乘法满足结合律 (AB)C = A(BC) shader中主要使用4x4矩阵来运算. 特殊矩阵方块矩阵(方阵)行和列数目相等的矩阵.三维渲染里,用的最多的是3x3和4x4的方阵 单位矩阵用In来表示.比如I3是3x3的单位矩阵. 转置矩阵(transposed matrix)转置矩阵实际是对原矩阵的一种运算,即转置运算.给定一个rXc的矩阵M,他的转置可以表示为MT(T为上标)(辣鸡MD).数学公式是:例如: 转置矩阵性质: 转置矩阵的转置等于原矩阵(废话) 矩阵的串接转置等于反向串接各个矩阵的转置 即: 逆矩阵给定一个矩阵M,用M-1(-1为上标)表示M的逆矩阵.MM-1为单位矩阵 矩阵可逆的条件: 矩阵为方块矩阵 矩阵的行列式不为零 虽说在学数学…但是也是shader开发里的数学…还是不去回忆具体怎么求逆矩阵了,交给程序去做=v= 逆矩阵的性质 逆矩阵的逆矩阵等于原矩阵 单位矩阵的逆矩阵是其本身 转置矩阵的逆矩阵等于逆矩阵的转置 即: 矩阵串接相乘后的逆矩阵等于反向串接各个矩阵的逆矩阵 即: 正交矩阵蒸饺正交是矩阵的一种属性.如果一个方阵M和它的转置矩阵的乘积是单位矩阵的话,我们说这个矩阵是正交的即:行矩阵or列矩阵?]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[win10-Insider-Preview]]></title>
+    <url>%2Fwin10-Insider-Preview%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[博客上放上live2d]]></title>
     <url>%2Fblog-live2d%2F</url>
     <content type="text"><![CDATA[很久前就看到在网站上挂个live2d,也有想法了,然而从昨晚才开始折腾.想在博客上放个舰b的live2d,结果试了好久,版本二到版本三,从民间到官方的web sdk都试了,就没有支持舰b的live2d的T_T最后妥协了下,选了有前车之鉴的药水制作师的live2d.最喜欢之前拿红宝石买来的樱花校服装了. 阿黑颜pio 参考: 猫与向日葵的博客 Cubism WebGL SDK]]></content>

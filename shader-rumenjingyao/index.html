@@ -124,7 +124,13 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190313222923.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190313223054.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190313223516.png">
-<meta property="og:updated_time" content="2019-03-13T14:37:08.131Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313225105.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314081017.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314081831.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314082140.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314082256.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314082409.png">
+<meta property="og:updated_time" content="2019-03-14T00:45:06.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shader-rumenjingyao">
 <meta name="twitter:description" content="数学(?)点和矢量  点积(内积)和叉积(外积)内积Shader代码中使用dot(a,b)来进行矢量的点积运算.   1a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x  + a y b y  + a z b z 满足交换律和结合律.使用:  投影  单位矢量a,和一个长度不限制的矢量b,dot(a,b)得到b在a方向上带有符号的投影">
@@ -443,12 +449,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-13 21:30:27 / 修改时间：22:37:08" itemprop="dateCreated datePublished" datetime="2019-03-13T21:30:27+08:00">2019-03-13</time>
+              <time title="创建时间：2019-03-13 21:30:27" itemprop="dateCreated datePublished" datetime="2019-03-13T21:30:27+08:00">2019-03-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-14 08:45:06" itemprop="dateModified" datetime="2019-03-14T08:45:06+08:00">2019-03-14</time>
               
             
           </span>
@@ -529,9 +547,14 @@ window.console.log=()=>{};
 <li>逆矩阵的逆矩阵等于原矩阵</li>
 <li>单位矩阵的逆矩阵是其本身</li>
 <li>转置矩阵的逆矩阵等于逆矩阵的转置<br>  即:<br>  <img src="https://pic.ggemo.com/picgo/20190313222923.png" alt="20190313222923.png"></li>
-<li>矩阵串接相乘后的逆矩阵等于<strong>反向</strong>串接各个矩阵的逆矩阵<br>  即:<br>  <img src="https://pic.ggemo.com/picgo/20190313223054.png" alt="20190313223054.png"><h4 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h4><del>蒸饺</del>正交是矩阵的一种属性.如果一个<strong>方阵</strong>M和它的<strong>转置矩阵</strong>的<strong>乘积</strong>是单位矩阵的话,我们说这个矩阵是正交的<br>即:<br><img src="https://pic.ggemo.com/picgo/20190313223516.png" alt="20190313223516.png"><h2 id="行矩阵or列矩阵"><a href="#行矩阵or列矩阵" class="headerlink" title="行矩阵or列矩阵?"></a>行矩阵or列矩阵?</h2></li>
+<li>矩阵串接相乘后的逆矩阵等于<strong>反向</strong>串接各个矩阵的逆矩阵<br>  即:<br>  <img src="https://pic.ggemo.com/picgo/20190313223054.png" alt="20190313223054.png"><h4 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h4><del>蒸饺</del>正交是矩阵的一种属性.如果一个<strong>方阵</strong>M和它的<strong>转置矩阵</strong>的<strong>乘积</strong>是单位矩阵的话,我们说这个矩阵是正交的<br>即:<br><img src="https://pic.ggemo.com/picgo/20190313223516.png" alt="20190313223516.png"><h3 id="行矩阵or列矩阵"><a href="#行矩阵or列矩阵" class="headerlink" title="行矩阵or列矩阵?"></a>行矩阵or列矩阵?</h3>书上p64<br>这里不说过程了.<br>结论是,unity中习惯把矢量转换成列矩阵,并放在矩阵的右侧进行计算.<h2 id="矩阵的几何意义-变换"><a href="#矩阵的几何意义-变换" class="headerlink" title="矩阵的几何意义: 变换"></a>矩阵的几何意义: 变换</h2><h3 id="变换的类型"><a href="#变换的类型" class="headerlink" title="变换的类型"></a>变换的类型</h3><h4 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h4>可以保留矢量加和标量乘的变换.用数学公式表达即是:<br><img src="https://pic.ggemo.com/picgo/20190313225105.png" alt="20190313225105.png"><br>上面的式子很抽象.<br>缩放就是一种线性变换.如f(x) = 2x,可以表示一个大小为2的统一缩放.<br>旋转也是一种线性变换 对于线性变换来说,仅仅使用3X3矩阵可以表示三维坐标下的所有线性变换.<br>线性变换除了包括旋转和缩放外,还包括<strong>错切</strong>,<strong>镜像</strong>,<strong>正交投影</strong>等.  </li>
 </ul>
-
+<h4 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h4><p>仅有线性变换是不够的,要考虑平移交换.如,f(x) = x + (1,0,0)这个变换就不是一个线性变换.<br>三维坐标下,我们不能用一个3x3的矩阵来表示一个平移变换.<br>这样,就有了仿射变换.<br>仿射变换是合并了线性变换和平移变换的变换类型.三维空间下的仿射变换可以用一个4x4的矩阵来表示.为此,我们需要把矢量扩展到四维空间下,这就是<strong>齐 次 坐 标 空 间</strong>(homogeneous space).<br>不知道是什么鸡儿玩意单好像以后有用的表<br><img src="https://pic.ggemo.com/picgo/20190314081017.png" alt="20190314081017.png"></p>
+<h3 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h3><p>因为3X3矩阵不能表示平移,所以我们用4x4矩阵.为此,我们还需要把原来的三维矢量转换成四维矢量,也就是<strong>齐次坐标</strong>(homogeneous coordinate).<br>对于一个点,从三维坐标转换为齐次坐标是将其w分量设为1,而对于方向矢量而言,需要把其w分量设为0.<br>这样的设置会导致,用一个4x4矩阵对一个点进行变换的时候,平移,缩放,旋转都会被施加于该点.但是如果用于变换一个方向矢量,平移的效果就会被忽略.  </p>
+<h3 id="分解基础变换矩阵"><a href="#分解基础变换矩阵" class="headerlink" title="分解基础变换矩阵"></a>分解基础变换矩阵</h3><p>我们可以把一个基础变换矩阵分解成4个组成部分.<br><img src="https://pic.ggemo.com/picgo/20190314081831.png" alt="20190314081831.png"><br>其中,左上角的M是一个用于旋转和缩放的三维矩阵.<br>t表示平移.<br>最后一行是固定的[0 0 0 1]  </p>
+<h4 id="平移矩阵"><a href="#平移矩阵" class="headerlink" title="平移矩阵"></a>平移矩阵</h4><p>M为单位矩阵时,整个4x4矩阵只代表平移.<br><img src="https://pic.ggemo.com/picgo/20190314082140.png" alt="20190314082140.png"><br>平移矩阵的逆矩阵就是反向平移的矩阵.<br><img src="https://pic.ggemo.com/picgo/20190314082256.png" alt="20190314082256.png">  </p>
+<h4 id="缩放矩阵"><a href="#缩放矩阵" class="headerlink" title="缩放矩阵"></a>缩放矩阵</h4><p><img src="https://pic.ggemo.com/picgo/20190314082409.png" alt="20190314082409.png"><br>如果缩放系数kx = ky = kz,我们把这样的缩放称为<strong>统一缩放</strong>否则称为非统一缩放.<br>直观上看,统一缩放就是等比缩放模型,而非统一缩放会拉伸或挤压模型.<br>统一缩放不会改变角度和比例信息,非统一缩放会改变模型相关的角度和比例.<br>在进行法线变换时,如果存在非统一缩放,直接用于变换顶点的变换矩阵的话,就会得到错误的结果.(正确的方法见4.7节(还没发货哦草))  </p>
+<h4 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h4>
       
     </div>
 
@@ -814,7 +837,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点和矢量"><span class="nav-text">点和矢量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点积-内积-和叉积-外积"><span class="nav-text">点积(内积)和叉积(外积)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内积"><span class="nav-text">内积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外积"><span class="nav-text">外积</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵-matrix"><span class="nav-text">矩阵(matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵运算"><span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法"><span class="nav-text">矩阵乘法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊矩阵"><span class="nav-text">特殊矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方块矩阵-方阵"><span class="nav-text">方块矩阵(方阵)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单位矩阵"><span class="nav-text">单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转置矩阵-transposed-matrix"><span class="nav-text">转置矩阵(transposed matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#转置矩阵性质"><span class="nav-text">转置矩阵性质:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆矩阵"><span class="nav-text">逆矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#矩阵可逆的条件"><span class="nav-text">矩阵可逆的条件:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逆矩阵的性质"><span class="nav-text">逆矩阵的性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正交矩阵"><span class="nav-text">正交矩阵</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行矩阵or列矩阵"><span class="nav-text">行矩阵or列矩阵?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点和矢量"><span class="nav-text">点和矢量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点积-内积-和叉积-外积"><span class="nav-text">点积(内积)和叉积(外积)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内积"><span class="nav-text">内积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外积"><span class="nav-text">外积</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵-matrix"><span class="nav-text">矩阵(matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵运算"><span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法"><span class="nav-text">矩阵乘法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊矩阵"><span class="nav-text">特殊矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方块矩阵-方阵"><span class="nav-text">方块矩阵(方阵)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单位矩阵"><span class="nav-text">单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转置矩阵-transposed-matrix"><span class="nav-text">转置矩阵(transposed matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#转置矩阵性质"><span class="nav-text">转置矩阵性质:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆矩阵"><span class="nav-text">逆矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#矩阵可逆的条件"><span class="nav-text">矩阵可逆的条件:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逆矩阵的性质"><span class="nav-text">逆矩阵的性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正交矩阵"><span class="nav-text">正交矩阵</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行矩阵or列矩阵"><span class="nav-text">行矩阵or列矩阵?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的几何意义-变换"><span class="nav-text">矩阵的几何意义: 变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变换的类型"><span class="nav-text">变换的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变换"><span class="nav-text">线性变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仿射变换"><span class="nav-text">仿射变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#齐次坐标"><span class="nav-text">齐次坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分解基础变换矩阵"><span class="nav-text">分解基础变换矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平移矩阵"><span class="nav-text">平移矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缩放矩阵"><span class="nav-text">缩放矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转矩阵"><span class="nav-text">旋转矩阵</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

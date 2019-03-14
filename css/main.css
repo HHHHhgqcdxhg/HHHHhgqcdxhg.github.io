@@ -1294,6 +1294,9 @@ pre .javascript .function {
 .post-body h4 {
   color: #fbbaff;
 }
+.post-body h5 {
+  color: #8cbeff;
+}
 .post-body .exturl .fa {
   font-size: 14px;
   margin-left: 4px;
@@ -1903,7 +1906,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1706ff;
+  background: #ff90ff;
 }
 .links-of-blogroll {
   font-size: 13px;

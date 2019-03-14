@@ -61,7 +61,7 @@ window.setInterval(showHitokoto,30000);
 
 function showHitokoto(){
   // $.getJSON('https://api.imjad.cn/hitokoto/?cat=&charset=utf-8&length=28&encode=json',function(result){
-    $.getJSON('https://v1.hitokoto.cn/c=a&encode=json&charset=utf-8',function(result){
+    $.getJSON('https://v1.hitokoto.cn?c=a&encode=json&charset=utf-8',function(result){
     showMessage(result.hitokoto, 5000);
   });
 }

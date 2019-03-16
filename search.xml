@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[bili-api]]></title>
     <url>%2Fbili-api%2F</url>
-    <content type="text"><![CDATA[url 描述 https://api.bilibili.com/x/relation/stat?vmid={uid} up粉丝数 https://api.bilibili.com/x/space/upstat?mid={uid} 观看量 https://api.bilibili.com/x/space/navnum?mid={uid} 投稿数量 https://api.bilibili.com/x/space/acc/info?mid={uid} 基本信息]]></content>
+    <content type="text"><![CDATA[url 描述 https://api.bilibili.com/x/relation/stat?vmid={uid} up粉丝数 https://api.bilibili.com/x/space/upstat?mid={uid} 观看量 https://api.bilibili.com/x/space/navnum?mid={uid} 投稿数量 https://api.bilibili.com/x/space/acc/info?mid={uid} 基本信息 https://api.bilibili.com/x/space/masterpiece?vmid={uid} 代表作]]></content>
   </entry>
   <entry>
     <title><![CDATA[shader入门精要-数学部分]]></title>
@@ -145,8 +145,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

@@ -110,24 +110,42 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="2019年3月16日15:27:03昨天仇静博往空间发了几张皂片真可爱啊… 2019年3月16日14:18:36就是这个时间,冬春之交容易胆碱性荨麻疹发作…极力避免出门 2019年3月14日23:25:08有没有什么blog模板可以用router的…音乐和live2d的挂件这种,压根不用每次点文章的时候重新加载呀…自己写又麻烦又没时间…蛋疼 2019年3月14日23:05:36找不到个好用的rss">
-<meta property="og:type" content="website">
-<meta property="og:title" content="balabala">
-<meta property="og:url" content="https://blog.purecucumber.club/balabala/index.html">
+  <meta name="description" content="数学(?)    点和矢量点积(内积)和叉积(外积)内积Shader代码中使用dot(a,b)来进行矢量的点积运算.   1a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x  + a y b y  + a z b z 满足交换律和结合律.使用:  投影  单位矢量a,和一个长度不限制的矢量b,dot(a,b)得到b在a方向上带有符号的投">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shader入门精要-数学部分">
+<meta property="og:url" content="https://blog.purecucumber.club/shader-r-math/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="2019年3月16日15:27:03昨天仇静博往空间发了几张皂片真可爱啊… 2019年3月16日14:18:36就是这个时间,冬春之交容易胆碱性荨麻疹发作…极力避免出门 2019年3月14日23:25:08有没有什么blog模板可以用router的…音乐和live2d的挂件这种,压根不用每次点文章的时候重新加载呀…自己写又麻烦又没时间…蛋疼 2019年3月14日23:05:36找不到个好用的rss">
+<meta property="og:description" content="数学(?)    点和矢量点积(内积)和叉积(外积)内积Shader代码中使用dot(a,b)来进行矢量的点积运算.   1a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x  + a y b y  + a z b z 满足交换律和结合律.使用:  投影  单位矢量a,和一个长度不限制的矢量b,dot(a,b)得到b在a方向上带有符号的投">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-16T07:35:58.140Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313215648.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313221834.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313221856.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313222114.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313222923.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313223054.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313223516.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190313225105.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314081017.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314081831.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314082140.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314082256.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314082409.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314084552.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314084627.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314084643.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190314085018.png">
+<meta property="og:updated_time" content="2019-03-14T01:35:36.940Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="balabala">
-<meta name="twitter:description" content="2019年3月16日15:27:03昨天仇静博往空间发了几张皂片真可爱啊… 2019年3月16日14:18:36就是这个时间,冬春之交容易胆碱性荨麻疹发作…极力避免出门 2019年3月14日23:25:08有没有什么blog模板可以用router的…音乐和live2d的挂件这种,压根不用每次点文章的时候重新加载呀…自己写又麻烦又没时间…蛋疼 2019年3月14日23:05:36找不到个好用的rss">
+<meta name="twitter:title" content="shader入门精要-数学部分">
+<meta name="twitter:description" content="数学(?)    点和矢量点积(内积)和叉积(外积)内积Shader代码中使用dot(a,b)来进行矢量的点积运算.   1a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x  + a y b y  + a z b z 满足交换律和结合律.使用:  投影  单位矢量a,和一个长度不限制的矢量b,dot(a,b)得到b在a方向上带有符号的投">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190313215648.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.purecucumber.club/balabala/">
+  <link rel="canonical" href="https://blog.purecucumber.club/shader-r-math/">
 
 
 
@@ -137,7 +155,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>balabala | 黄瓜养殖基地！</title>
+  <title>shader入门精要-数学部分 | 黄瓜养殖基地！</title>
   
 
 
@@ -317,7 +335,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-balabala menu-item-active">
+          <li class="menu-item menu-item-balabala">
 
     
     
@@ -388,78 +406,240 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.purecucumber.club/shader-r-math/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">balabala
-
-</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="2019年3月16日15-27-03"><a href="#2019年3月16日15-27-03" class="headerlink" title="2019年3月16日15:27:03"></a>2019年3月16日15:27:03</h2><p>昨天仇静博往空间发了几张皂片<br>真可爱啊…</p>
-<h2 id="2019年3月16日14-18-36"><a href="#2019年3月16日14-18-36" class="headerlink" title="2019年3月16日14:18:36"></a>2019年3月16日14:18:36</h2><p>就是这个时间,冬春之交容易胆碱性荨麻疹发作…极力避免出门</p>
-<h2 id="2019年3月14日23-25-08"><a href="#2019年3月14日23-25-08" class="headerlink" title="2019年3月14日23:25:08"></a>2019年3月14日23:25:08</h2><p>有没有什么blog模板可以用router的…音乐和live2d的挂件这种,压根不用每次点文章的时候重新加载呀…自己写又麻烦又没时间…蛋疼</p>
-<h2 id="2019年3月14日23-05-36"><a href="#2019年3月14日23-05-36" class="headerlink" title="2019年3月14日23:05:36"></a>2019年3月14日23:05:36</h2><p>找不到个好用的rss阅读器…</p>
-<h2 id="2019年3月10日19-13-08"><a href="#2019年3月10日19-13-08" class="headerlink" title="2019年3月10日19:13:08"></a>2019年3月10日19:13:08</h2><p>不知道往Github存unity项目厚道不厚道</p>
+          <h2 class="post-title" itemprop="name headline">shader入门精要-数学部分
 
+              
+            
+          </h2>
         
-      </div>
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-13 21:30:27" itemprop="dateCreated datePublished" datetime="2019-03-13T21:30:27+08:00">2019-03-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-14 09:35:36" itemprop="dateModified" datetime="2019-03-14T09:35:36+08:00">2019-03-14</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/shader-r-math/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/shader-r-math/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <ul>
+<li><a href="http://candycat1992.github.io/unity_shaders_book/unity_shaders_book_chapter_4.pdf" target="_blank" rel="noopener">数学(?)</a>  </li>
+</ul>
+<h2 id="点和矢量"><a href="#点和矢量" class="headerlink" title="点和矢量"></a>点和矢量</h2><h3 id="点积-内积-和叉积-外积"><a href="#点积-内积-和叉积-外积" class="headerlink" title="点积(内积)和叉积(外积)"></a>点积(内积)和叉积(外积)</h3><h4 id="内积"><a href="#内积" class="headerlink" title="内积"></a>内积</h4><p>Shader代码中使用dot(a,b)来进行矢量的点积运算.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x  + a y b y  + a z b z</span><br></pre></td></tr></table></figure>
+<p>满足交换律和结合律.<br>使用:</p>
+<ul>
+<li>投影<br>  单位矢量a,和一个长度不限制的矢量b,dot(a,b)得到b在a方向上带有符号的投影</li>
+</ul>
+<h4 id="外积"><a href="#外积" class="headerlink" title="外积"></a>外积</h4><p>外积的结果时矢量,并非标量.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a X b = (a x , a y , a z ) X (b x , b y , b z ) = (a y b z  - a z b y , a z b x  - a x b z , a x b y  - a y b x )</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic.ggemo.com/picgo/20190313215648.png" alt="20190313215648.png"><br>例如:<br>(1, 2, 3) X (−2, −1, 4) = ((2)(4) − (3)(−1), (3)(−2) − (1)(4), (1)(−1) − (2)(−2))<br>= (8 − (−3), (−6) − 4, (−1) − (−4)) = (11, −10, 3)<br>外积不满足交换律,即a X b不等于b X a.<br>然而外积满足反交换律,即a X b = -(b X a)<br>外积不满足结合律.</p>
+<h2 id="矩阵-matrix"><a href="#矩阵-matrix" class="headerlink" title="矩阵(matrix)"></a>矩阵(matrix)</h2><h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><h4 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h4><ul>
+<li>矩阵乘法不满足交换律<br>  AB不等于BA</li>
+<li>矩阵乘法满足结合律<br>  (AB)C = A(BC)</li>
+</ul>
+<p>shader中主要使用4x4矩阵来运算.</p>
+<h3 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h3><h4 id="方块矩阵-方阵"><a href="#方块矩阵-方阵" class="headerlink" title="方块矩阵(方阵)"></a>方块矩阵(方阵)</h4><p>行和列数目相等的矩阵.<br>三维渲染里,用的最多的是3x3和4x4的方阵  </p>
+<h4 id="单位矩阵"><a href="#单位矩阵" class="headerlink" title="单位矩阵"></a>单位矩阵</h4><p>用In来表示.比如I3是3x3的单位矩阵.</p>
+<h4 id="转置矩阵-transposed-matrix"><a href="#转置矩阵-transposed-matrix" class="headerlink" title="转置矩阵(transposed matrix)"></a>转置矩阵(transposed matrix)</h4><p>转置矩阵实际是对原矩阵的一种运算,即转置运算.给定一个rXc的矩阵M,他的转置可以表示为MT(T为上标)(辣鸡MD).数学公式是:<br><img src="https://pic.ggemo.com/picgo/20190313221834.png" alt="20190313221834.png"><br>例如:<br><img src="https://pic.ggemo.com/picgo/20190313221856.png" alt="20190313221856.png"></p>
+<h5 id="转置矩阵性质"><a href="#转置矩阵性质" class="headerlink" title="转置矩阵性质:"></a>转置矩阵性质:</h5><ul>
+<li>转置矩阵的转置等于原矩阵(废话)</li>
+<li>矩阵的串接转置等于反向串接各个矩阵的转置<br>  即:<br>  <img src="https://pic.ggemo.com/picgo/20190313222114.png" alt="20190313222114.png"></li>
+</ul>
+<h4 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h4><p>给定一个矩阵M,用M-1(-1为上标)表示M的逆矩阵.<br>MM-1为单位矩阵</p>
+<h5 id="矩阵可逆的条件"><a href="#矩阵可逆的条件" class="headerlink" title="矩阵可逆的条件:"></a>矩阵可逆的条件:</h5><ul>
+<li>矩阵为方块矩阵</li>
+<li>矩阵的行列式不为零</li>
+</ul>
+<p>虽说在学数学…但是也是shader开发里的数学…还是不去回忆具体怎么求逆矩阵了,交给程序去做=v=</p>
+<h5 id="逆矩阵的性质"><a href="#逆矩阵的性质" class="headerlink" title="逆矩阵的性质"></a>逆矩阵的性质</h5><ul>
+<li>逆矩阵的逆矩阵等于原矩阵</li>
+<li>单位矩阵的逆矩阵是其本身</li>
+<li>转置矩阵的逆矩阵等于逆矩阵的转置<br>  即:<br>  <img src="https://pic.ggemo.com/picgo/20190313222923.png" alt="20190313222923.png"></li>
+<li>矩阵串接相乘后的逆矩阵等于<strong>反向</strong>串接各个矩阵的逆矩阵<br>  即:<br>  <img src="https://pic.ggemo.com/picgo/20190313223054.png" alt="20190313223054.png">  </li>
+</ul>
+<h4 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h4><p><del>蒸饺</del>正交是矩阵的一种属性.如果一个<strong>方阵</strong>M和它的<strong>转置矩阵</strong>的<strong>乘积</strong>是单位矩阵的话,我们说这个矩阵是正交的<br>即:<br><img src="https://pic.ggemo.com/picgo/20190313223516.png" alt="20190313223516.png"></p>
+<h3 id="行矩阵or列矩阵"><a href="#行矩阵or列矩阵" class="headerlink" title="行矩阵or列矩阵?"></a>行矩阵or列矩阵?</h3><p>书上p64<br>这里不说过程了.<br>结论是,unity中习惯把矢量转换成列矩阵,并放在矩阵的右侧进行计算.  </p>
+<h2 id="矩阵的几何意义-变换"><a href="#矩阵的几何意义-变换" class="headerlink" title="矩阵的几何意义: 变换"></a>矩阵的几何意义: 变换</h2><h3 id="变换的类型"><a href="#变换的类型" class="headerlink" title="变换的类型"></a>变换的类型</h3><h4 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h4><p>可以保留矢量加和标量乘的变换.用数学公式表达即是:<br><img src="https://pic.ggemo.com/picgo/20190313225105.png" alt="20190313225105.png"><br>上面的式子很抽象.<br>缩放就是一种线性变换.如f(x) = 2x,可以表示一个大小为2的统一缩放.<br>旋转也是一种线性变换 对于线性变换来说,仅仅使用3X3矩阵可以表示三维坐标下的所有线性变换.<br>线性变换除了包括旋转和缩放外,还包括<strong>错切</strong>,<strong>镜像</strong>,<strong>正交投影</strong>等.  </p>
+<h4 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h4><p>仅有线性变换是不够的,要考虑平移交换.如,f(x) = x + (1,0,0)这个变换就不是一个线性变换.<br>三维坐标下,我们不能用一个3x3的矩阵来表示一个平移变换.<br>这样,就有了仿射变换.<br>仿射变换是合并了线性变换和平移变换的变换类型.三维空间下的仿射变换可以用一个4x4的矩阵来表示.为此,我们需要把矢量扩展到四维空间下,这就是<strong>齐 次 坐 标 空 间</strong>(homogeneous space).<br>不知道是什么鸡儿玩意单好像以后有用的表<br><img src="https://pic.ggemo.com/picgo/20190314081017.png" alt="20190314081017.png"></p>
+<h3 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h3><p>因为3X3矩阵不能表示平移,所以我们用4x4矩阵.为此,我们还需要把原来的三维矢量转换成四维矢量,也就是<strong>齐次坐标</strong>(homogeneous coordinate).<br>对于一个点,从三维坐标转换为齐次坐标是将其w分量设为1,而对于方向矢量而言,需要把其w分量设为0.<br>这样的设置会导致,用一个4x4矩阵对一个点进行变换的时候,平移,缩放,旋转都会被施加于该点.但是如果用于变换一个方向矢量,平移的效果就会被忽略.  </p>
+<h3 id="分解基础变换矩阵"><a href="#分解基础变换矩阵" class="headerlink" title="分解基础变换矩阵"></a>分解基础变换矩阵</h3><p>我们可以把一个基础变换矩阵分解成4个组成部分.<br><img src="https://pic.ggemo.com/picgo/20190314081831.png" alt="20190314081831.png"><br>其中,左上角的M是一个用于旋转和缩放的三维矩阵.<br>t表示平移.<br>最后一行是固定的[0 0 0 1]  </p>
+<h4 id="平移矩阵"><a href="#平移矩阵" class="headerlink" title="平移矩阵"></a>平移矩阵</h4><p>M为单位矩阵时,整个4x4矩阵只代表平移.<br><img src="https://pic.ggemo.com/picgo/20190314082140.png" alt="20190314082140.png"><br>平移矩阵的逆矩阵就是反向平移的矩阵.<br><img src="https://pic.ggemo.com/picgo/20190314082256.png" alt="20190314082256.png">  </p>
+<h4 id="缩放矩阵"><a href="#缩放矩阵" class="headerlink" title="缩放矩阵"></a>缩放矩阵</h4><p><img src="https://pic.ggemo.com/picgo/20190314082409.png" alt="20190314082409.png"><br>如果缩放系数kx = ky = kz,我们把这样的缩放称为<strong>统一缩放</strong>否则称为非统一缩放.<br>直观上看,统一缩放就是等比缩放模型,而非统一缩放会拉伸或挤压模型.<br>统一缩放不会改变角度和比例信息,非统一缩放会改变模型相关的角度和比例.<br>在进行法线变换时,如果存在非统一缩放,直接用于变换顶点的变换矩阵的话,就会得到错误的结果.(正确的方法见4.7节(还没发货哦草))  </p>
+<h4 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h4><h5 id="按x轴旋转"><a href="#按x轴旋转" class="headerlink" title="按x轴旋转:"></a>按x轴旋转:</h5><p><img src="https://pic.ggemo.com/picgo/20190314084552.png" alt="20190314084552.png">  </p>
+<h5 id="按y轴旋转"><a href="#按y轴旋转" class="headerlink" title="按y轴旋转"></a>按y轴旋转</h5><p><img src="https://pic.ggemo.com/picgo/20190314084627.png" alt="20190314084627.png"></p>
+<h5 id="按z轴旋转"><a href="#按z轴旋转" class="headerlink" title="按z轴旋转"></a>按z轴旋转</h5><p><img src="https://pic.ggemo.com/picgo/20190314084643.png" alt="20190314084643.png"></p>
+<h4 id="复合变换"><a href="#复合变换" class="headerlink" title="复合变换"></a>复合变换</h4><p>我们可以把平移,旋转,缩放结合起来,组成一个复杂的变换过程.<br>例如,可以对一个模型先进行大小为(2, 2, 2)的缩放,再绕y轴旋转30度,最后向z轴平移4个单位.<br>复合矩阵可以通过矩阵的串联来实现.<br>如:<br><img src="https://pic.ggemo.com/picgo/20190314085018.png" alt="20190314085018.png"><br>需要注意的是,因为矩阵的乘法不满足交换律,变换的结果是依赖于变换顺序的.<br>绝大多数情况下,我们约定变换的顺序是,先缩放,再旋转,最后平移.</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/win10-Insider-Preview/" rel="next" title="win10-Insider-Preview">
+                <i class="fa fa-chevron-left"></i> win10-Insider-Preview
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bili-api/" rel="prev" title="bili-api">
+                bili-api <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -689,7 +869,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年3月16日15-27-03"><span class="nav-text">2019年3月16日15:27:03</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年3月16日14-18-36"><span class="nav-text">2019年3月16日14:18:36</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年3月14日23-25-08"><span class="nav-text">2019年3月14日23:25:08</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年3月14日23-05-36"><span class="nav-text">2019年3月14日23:05:36</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年3月10日19-13-08"><span class="nav-text">2019年3月10日19:13:08</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点和矢量"><span class="nav-text">点和矢量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点积-内积-和叉积-外积"><span class="nav-text">点积(内积)和叉积(外积)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内积"><span class="nav-text">内积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外积"><span class="nav-text">外积</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵-matrix"><span class="nav-text">矩阵(matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵运算"><span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法"><span class="nav-text">矩阵乘法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊矩阵"><span class="nav-text">特殊矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方块矩阵-方阵"><span class="nav-text">方块矩阵(方阵)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单位矩阵"><span class="nav-text">单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转置矩阵-transposed-matrix"><span class="nav-text">转置矩阵(transposed matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#转置矩阵性质"><span class="nav-text">转置矩阵性质:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆矩阵"><span class="nav-text">逆矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#矩阵可逆的条件"><span class="nav-text">矩阵可逆的条件:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逆矩阵的性质"><span class="nav-text">逆矩阵的性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正交矩阵"><span class="nav-text">正交矩阵</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行矩阵or列矩阵"><span class="nav-text">行矩阵or列矩阵?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的几何意义-变换"><span class="nav-text">矩阵的几何意义: 变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变换的类型"><span class="nav-text">变换的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变换"><span class="nav-text">线性变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仿射变换"><span class="nav-text">仿射变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#齐次坐标"><span class="nav-text">齐次坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分解基础变换矩阵"><span class="nav-text">分解基础变换矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平移矩阵"><span class="nav-text">平移矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缩放矩阵"><span class="nav-text">缩放矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转矩阵"><span class="nav-text">旋转矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#按x轴旋转"><span class="nav-text">按x轴旋转:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按y轴旋转"><span class="nav-text">按y轴旋转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按z轴旋转"><span class="nav-text">按z轴旋转</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复合变换"><span class="nav-text">复合变换</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

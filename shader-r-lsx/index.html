@@ -113,15 +113,16 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="逐片元操作片元通过模板测试和深度测试后会进行合并合并是指,每个像素的信息会被存储在颜色缓冲,因此,当我们本次渲染时,要考虑新来的颜色和旧的颜色的混合">
+<meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shader入门精要-流水线部分">
+<meta property="og:title" content="《shader入门精要》笔记-第二章-渲染流水线">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-lsx/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="逐片元操作片元通过模板测试和深度测试后会进行合并合并是指,每个像素的信息会被存储在颜色缓冲,因此,当我们本次渲染时,要考虑新来的颜色和旧的颜色的混合">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-16T17:13:17.178Z">
+<meta property="og:updated_time" content="2019-03-17T14:17:40.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shader入门精要-流水线部分">
+<meta name="twitter:title" content="《shader入门精要》笔记-第二章-渲染流水线">
 <meta name="twitter:description" content="逐片元操作片元通过模板测试和深度测试后会进行合并合并是指,每个像素的信息会被存储在颜色缓冲,因此,当我们本次渲染时,要考虑新来的颜色和旧的颜色的混合">
 
 
@@ -139,7 +140,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>shader入门精要-流水线部分 | 黄瓜养殖基地！</title>
+  <title>《shader入门精要》笔记-第二章-渲染流水线 | 黄瓜养殖基地！</title>
   
 
 
@@ -427,7 +428,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">shader入门精要-流水线部分
+          <h2 class="post-title" itemprop="name headline">《shader入门精要》笔记-第二章-渲染流水线
 
               
             
@@ -454,7 +455,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-17 00:13:21 / 修改时间：01:13:17" itemprop="dateCreated datePublished" datetime="2019-03-17T00:13:21+08:00">2019-03-17</time>
+              <time title="创建时间：2019-03-17 00:13:21 / 修改时间：22:17:40" itemprop="dateCreated datePublished" datetime="2019-03-17T00:13:21+08:00">2019-03-17</time>
             
 
             
@@ -464,6 +465,24 @@ window.console.log=()=>{};
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/shader/" itemprop="url" rel="index"><span itemprop="name">shader</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -489,6 +508,24 @@ window.console.log=()=>{};
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">75</span>
+              
+
+              
+
+              
+            </div>
           
 
           
@@ -528,6 +565,16 @@ window.console.log=()=>{};
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/unity/" rel="tag"># unity</a>
+          
+            <a href="/tags/shader/" rel="tag"># shader</a>
+          
+            <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
+          
+        </div>
+      
 
       
       
@@ -547,8 +594,8 @@ window.console.log=()=>{};
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/shader-r-unity-shader/" rel="prev" title="shader入门精要-Unity Shader 基础">
-                shader入门精要-Unity Shader 基础 <i class="fa fa-chevron-right"></i>
+              <a href="/shader-r-unity-shader/" rel="prev" title="《shader入门精要》笔记-第三章-Unity Shader 基础">
+                《shader入门精要》笔记-第三章-Unity Shader 基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -656,7 +703,9 @@ window.console.log=()=>{};
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -701,7 +750,9 @@ window.console.log=()=>{};
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -826,6 +877,15 @@ window.console.log=()=>{};
   </span>
   <span class="author" itemprop="copyrightHolder">清纯的小黄瓜</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">34k</span>
   
 
   

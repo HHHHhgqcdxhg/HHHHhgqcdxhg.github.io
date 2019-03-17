@@ -11,7 +11,7 @@
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     mini: true,
-    autoplay: true,
+    autoplay: false,
     theme: '#FADFA3',
     loop: 'all',
     order: 'random',

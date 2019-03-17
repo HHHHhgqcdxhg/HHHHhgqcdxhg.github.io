@@ -113,15 +113,16 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="UnityShader概述unity中的shaderStandard Surface Shader会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板 Unlit Shader会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器 ImageEffect Shader为我们实现各种屏幕文件.这类Shader旨在利用GPU的并行性来进行一些">
+<meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shader入门精要-Unity Shader 基础">
+<meta property="og:title" content="《shader入门精要》笔记-第三章-Unity Shader 基础">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-unity-shader/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="UnityShader概述unity中的shaderStandard Surface Shader会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板 Unlit Shader会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器 ImageEffect Shader为我们实现各种屏幕文件.这类Shader旨在利用GPU的并行性来进行一些">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-17T09:34:30.326Z">
+<meta property="og:updated_time" content="2019-03-17T14:17:42.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shader入门精要-Unity Shader 基础">
+<meta name="twitter:title" content="《shader入门精要》笔记-第三章-Unity Shader 基础">
 <meta name="twitter:description" content="UnityShader概述unity中的shaderStandard Surface Shader会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板 Unlit Shader会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器 ImageEffect Shader为我们实现各种屏幕文件.这类Shader旨在利用GPU的并行性来进行一些">
 
 
@@ -139,7 +140,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>shader入门精要-Unity Shader 基础 | 黄瓜养殖基地！</title>
+  <title>《shader入门精要》笔记-第三章-Unity Shader 基础 | 黄瓜养殖基地！</title>
   
 
 
@@ -427,7 +428,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">shader入门精要-Unity Shader 基础
+          <h2 class="post-title" itemprop="name headline">《shader入门精要》笔记-第三章-Unity Shader 基础
 
               
             
@@ -454,7 +455,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-17 01:13:32 / 修改时间：17:34:30" itemprop="dateCreated datePublished" datetime="2019-03-17T01:13:32+08:00">2019-03-17</time>
+              <time title="创建时间：2019-03-17 01:13:32 / 修改时间：22:17:42" itemprop="dateCreated datePublished" datetime="2019-03-17T01:13:32+08:00">2019-03-17</time>
             
 
             
@@ -464,6 +465,24 @@ window.console.log=()=>{};
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/shader/" itemprop="url" rel="index"><span itemprop="name">shader</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -489,6 +508,24 @@ window.console.log=()=>{};
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.6k</span>
+              
+
+              
+
+              
+            </div>
           
 
           
@@ -661,6 +698,16 @@ window.console.log=()=>{};
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/unity/" rel="tag"># unity</a>
+          
+            <a href="/tags/shader/" rel="tag"># shader</a>
+          
+            <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
+          
+        </div>
+      
 
       
       
@@ -670,8 +717,8 @@ window.console.log=()=>{};
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/shader-r-lsx/" rel="next" title="shader入门精要-流水线部分">
-                <i class="fa fa-chevron-left"></i> shader入门精要-流水线部分
+              <a href="/shader-r-lsx/" rel="next" title="《shader入门精要》笔记-第二章-渲染流水线">
+                <i class="fa fa-chevron-left"></i> 《shader入门精要》笔记-第二章-渲染流水线
               </a>
             
           </div>
@@ -785,7 +832,9 @@ window.console.log=()=>{};
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -830,7 +879,9 @@ window.console.log=()=>{};
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -955,6 +1006,15 @@ window.console.log=()=>{};
   </span>
   <span class="author" itemprop="copyrightHolder">清纯的小黄瓜</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">34k</span>
   
 
   

@@ -113,7 +113,7 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="《shader入门精要》免费的第四章pdf    点和矢量点积(内积)和叉积(外积)内积Shader代码中使用dot(a,b)来进行矢量的点积运算.   1a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x  + a y b y  + a z b z 满足交换律和结合律.使用:  投影  单位矢量a,和一个长度不限制的矢量b,dot(a,">
-<meta name="keywords" content="unity,shader,《shader入门精要》">
+<meta name="keywords" content="shader,unity,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第四章-数学基础">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-math/index.html">
@@ -151,7 +151,12 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190317222356.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190317222609.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190317223446.png">
-<meta property="og:updated_time" content="2019-03-17T14:46:07.622Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190317225205.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190317225220.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190317225735.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190317230752.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190317231135.png">
+<meta property="og:updated_time" content="2019-03-17T15:44:46.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第四章-数学基础">
 <meta name="twitter:description" content="《shader入门精要》免费的第四章pdf    点和矢量点积(内积)和叉积(外积)内积Shader代码中使用dot(a,b)来进行矢量的点积运算.   1a·b = (a x , a y , a z ) ·(b x , b y , b z ) = a x b x  + a y b y  + a z b z 满足交换律和结合律.使用:  投影  单位矢量a,和一个长度不限制的矢量b,dot(a,">
@@ -504,7 +509,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-17 22:46:07" itemprop="dateModified" datetime="2019-03-17T22:46:07+08:00">2019-03-17</time>
+                <time title="修改时间：2019-03-17 23:44:46" itemprop="dateModified" datetime="2019-03-17T23:44:46+08:00">2019-03-17</time>
               
             
           </span>
@@ -563,7 +568,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.7k</span>
+                <span title="本文字数">6.4k</span>
               
 
               
@@ -653,14 +658,86 @@ window.console.log=()=>{};
 </blockquote>
 <p>任何不满足上述条件的图元都需要被剔除或者裁剪.<br><img src="https://pic.ggemo.com/picgo/20190317195140.png" alt="20190317195140.png"><br>通过此图还可以注意到,剪裁矩阵会改变空间的旋向性:空间从右手坐标系变换到了左手坐标系.  </p>
 <h4 id="2-正交投影"><a href="#2-正交投影" class="headerlink" title="2. 正交投影"></a>2. 正交投影</h4><p>和透视投影类似,在unity中,正交投影的六个人裁剪平面是由Camera组件中的参数和Game视图的横纵比共同决定的.<br><img src="https://pic.ggemo.com/picgo/20190317195733.png" alt="20190317195733.png"><br>由图看出,我们可以通过Camera组件的Size属性来改变视锥体竖直方向上的高度的一半,而Clipping Planes中的Near和Far参数可以控制视锥体的近剪裁平面和远剪裁平面距离摄像机的远近.这样,我们可以求出视锥体近剪裁平面和远剪裁平面的高度.即:<br><img src="https://pic.ggemo.com/picgo/20190317200115.png" alt="20190317200115.png"><br>同样,我们可以通过摄像机的横纵比得到横向信息.假设当前摄像机的横纵比为Aspect:<br><img src="https://pic.ggemo.com/picgo/20190317222215.png" alt="20190317222215.png">  </p>
-<p>现在我们根据已知的Near,Far,Size和Aspect的值来确定正交投影的裁剪矩阵.如下:<br><img src="https://pic.ggemo.com/picgo/20190317222356.png" alt="20190317222356.png"><br>推导见本章的扩展阅读<br>一个顶点和上述投影矩阵相乘后的结果如下:<br><img src="https://pic.ggemo.com/picgo/20190317222609.png" alt="20190317222609.png"><br>注意到,和透视投影不同,使用正交投影的投影矩阵对顶点变换后,其分量w依然为1.本质是因为投影矩阵最后一行的不同,透视投影的投影矩阵的最后一行是[0 0 -1 0],而正交投影的投影矩阵最后一行是[0 0 0 1].这样选择是为了为齐次除法做准备(具体在下一节中讲到)(我谔谔)  </p>
+<p>现在我们根据已知的Near,Far,Size和Aspect的值来确定正交投影的裁剪矩阵.如下:<br><img src="https://pic.ggemo.com/picgo/20190317222356.png" alt="20190317222356.png"><br>推导见本章的扩展阅读<br>一个顶点和上述投影矩阵相乘后的结果如下:<br><img src="https://pic.ggemo.com/picgo/20190317222609.png" alt="20190317222609.png"><br>注意到,和透视投影不同,使用正交投影的投影矩阵对顶点变换后,其分量w依然为1.本质是因为投影矩阵最后一行的不同,透视投影的投影矩阵的最后一行是[0 0 -1 0],而正交投影的投影矩阵最后一行是[0 0 0 1].这样选择是为了为齐次除法做准备(具体在下面讲到) </p>
 <p>判断一个变换后的顶点是否位于视锥体内使用的不等式和透视投影的一样.  </p>
 <p>同样,裁剪矩阵改变了空间的旋向性.可以注意到,经过正交投影变换后的顶点实际已经位于一个立方体内了.<br><img src="https://pic.ggemo.com/picgo/20190317223446.png" alt="20190317223446.png">  </p>
 <h3 id="屏幕空间"><a href="#屏幕空间" class="headerlink" title="屏幕空间"></a>屏幕空间</h3><p>经过了投影矩阵的变换后,我们可以进行剪裁工作.当完成了所有的剪裁工作后,就需要进行真正的投影了.也就是说,我们需要把视锥体投影到<strong>屏幕空间</strong>(screen space)中.经过这一步变换,我们会得到真正的像素位置,二非虚拟的三维坐标.  </p>
 <p>屏幕空间是一个二维空间,因此我们需要把顶点从剪裁空间投影到屏幕空间,来生成对应的2D坐标.这个过程分为两个步骤  </p>
 <ul>
-<li>首先,我们要进行标准<strong>齐次除法</strong>(homogeneous division),也被称为<strong>透视除法</strong>(perspective division).虽然这个步骤听起来陌生,但它实际上非常简单,就是用齐次坐标系</li>
+<li>首先,我们要进行标准<strong>齐次除法</strong>(homogeneous division),也被称为<strong>透视除法</strong>(perspective division).虽然这个步骤听起来陌生,但它实际上非常简单,就是用齐次坐标系的w分量去除以x,y,z分量.在OpenGL中,我们把这一步得到的坐标叫做<strong>归一化的设备坐标</strong>(Normalized Device Coordinate, NDC).经过这一步,我们可以把坐标从齐次剪裁坐标空间转换到NDC中.经过透视投影变换后的剪裁空间,经过齐次除法后会变换到一个立方体内.  </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>对于透视投影</th>
+<th>对于正交投影</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://pic.ggemo.com/picgo/20190317225205.png" alt="20190317225205.png"></td>
+<td><img src="https://pic.ggemo.com/picgo/20190317225220.png" alt="20190317225220.png"></td>
+</tr>
+<tr>
+<td>经过齐次除法后,透视投影的剪裁空间会变换到一个立方体</td>
+<td>对于正交投影来说,它的剪裁空间实际已经是一个立方体了,而且由于经过正交投影矩阵变换后的顶点的w分量是1,因此齐次除法并不会对顶点的x,y,z坐标产生影响</td>
+</tr>
+</tbody>
+</table>
+<p>经过齐次除法后,透视投影和正交投影的视锥体都变换到一个相同的立方体内.现在,我们可以根据变换后的x,y坐标来映射输出窗口的对应像素坐标.<br>这个映射的过程是一个缩放的过程.<br>齐次除法和屏幕映射的过程可以用下面的公式总结:<br><img src="https://pic.ggemo.com/picgo/20190317225735.png" alt="20190317225735.png"><br>上面式子对x和y分量进行了处理,而z分量会被用于深度缓冲.一个传统的方式是把clip z / clip w的值直接存进深度缓冲中,但这不是必须的.通常驱动的生产商会根据硬件来选择最好的存储格式.<br>此时clip w也并未抛弃,虽然它已经完成了它的主要工作–在齐次除法中作为分母来得到NDC,但它仍然会在后续的一些工作中起到重要作用.例如进行透视矫正差值(草,这又是什么玩意)  </p>
+<p>在Unity中,从剪裁空间到屏幕空间的转换是底层帮我们完成的.我们的顶点着色器只需要把顶点转换到剪裁空间即可.</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上就是一个顶点如何从模型空间最终转换到屏幕空间的全过程.<br><img src="https://pic.ggemo.com/picgo/20190317230752.png" alt="20190317230752.png">  </p>
+<p>顶点着色器的最基本的任务是把顶点坐标从模型空间转换到剪裁空间中.这对应了上图中的前三个顶点变换过程.而在片元着色器中,我们通常也可以得到该片元在屏幕空间的像素信息.我们会在4.9.3节中看到如何得到这些像素位置.  </p>
+<p>在Unity中,坐标系的旋向性也随着发生了改变.<br><img src="https://pic.ggemo.com/picgo/20190317231135.png" alt="20190317231135.png"><br>只有在观察空间使用了右手坐标系.  </p>
+<p>需要注意的是,这里仅仅给出的是一些最重要的坐标空间.还有一些空间在实际开发中也会遇到,如<strong>切线空间</strong>(tangent space).切线空间通常用于法线映射.  </p>
+<h2 id="法线变换"><a href="#法线变换" class="headerlink" title="法线变换"></a>法线变换</h2><p><strong>法线</strong>(normal),也被称为<strong>法矢量</strong>(normal vector).<br>在游戏中,模型的一个顶点往往会携带额外的信息,而顶点法线就是其中的一种信息.<br>当我们变换一个模型的时候,不仅要变换它的顶点,还需要变换它的法线,以便在后续的处理(如片元着色器)中计算光照等.<br>玛德这块数学公式太多了md不要表达,反正本来的这块内容就没多少去书上看吧.  </p>
+<h2 id="Unity-Shader的内置变量-数学篇"><a href="#Unity-Shader的内置变量-数学篇" class="headerlink" title="Unity Shader的内置变量(数学篇)"></a>Unity Shader的内置变量(数学篇)</h2><h3 id="变换矩阵"><a href="#变换矩阵" class="headerlink" title="变换矩阵"></a>变换矩阵</h3><p>这里是Unity5.2版本提供的所有内置变换矩阵.所有矩阵都是float4x4的.  </p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_Object2World</td>
+<td>当前的模型矩阵,用于将顶点/方向矢量从模型空间变换到世界空间</td>
+</tr>
+<tr>
+<td>_World2Object</td>
+<td>_Object2World的逆矩阵.用于将顶点/方向矢量从世界空间变换到模型空间</td>
+</tr>
+<tr>
+<td>UNITY_MATRIX_V</td>
+<td>当前的观察矩阵,用于将顶点/方向矢量从世界空间转换到观察空间</td>
+</tr>
+<tr>
+<td>UNITY_MATRIX_P</td>
+<td>当前的投影矩阵,用于将顶点/方向矢量从观察空间变换到剪裁空间</td>
+</tr>
+<tr>
+<td>UNITY_MATRIX_MV</td>
+<td>当前的模型矩阵·观察矩阵,用于将顶点/方向矢量从模型空间变换到观察空间</td>
+</tr>
+<tr>
+<td>UNITY_MATRIX_VP</td>
+<td>当前的观察矩阵·投影矩阵,用于将顶点/方向矢量从世界空间转换到剪裁空间</td>
+</tr>
+<tr>
+<td>UNITY_MATRIX_MVP</td>
+<td>当前的模型矩阵·观察矩阵·投影矩阵,用于将顶点/方向矢量从模型空间变换到剪裁空间</td>
+</tr>
+<tr>
+<td>UNITY_MATRIX_T_MV</td>
+<td>UNITY_MATRIX_MV的转置矩阵</td>
+</tr>
+<tr>
+<td>UNITY_MATRIX_IT_MV</td>
+<td>UNITY_MATRIX_MV的逆转置矩阵,用于将法线从模型空间变换到世界观察空间,也可用于得到UNITY_MATRIX_MV的逆矩阵</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -684,9 +761,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/unity/" rel="tag"># unity</a>
-          
             <a href="/tags/shader/" rel="tag"># shader</a>
+          
+            <a href="/tags/unity/" rel="tag"># unity</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           
@@ -962,7 +1039,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点和矢量"><span class="nav-text">点和矢量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点积-内积-和叉积-外积"><span class="nav-text">点积(内积)和叉积(外积)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内积"><span class="nav-text">内积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外积"><span class="nav-text">外积</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵-matrix"><span class="nav-text">矩阵(matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵运算"><span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法"><span class="nav-text">矩阵乘法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊矩阵"><span class="nav-text">特殊矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方块矩阵-方阵"><span class="nav-text">方块矩阵(方阵)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单位矩阵"><span class="nav-text">单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转置矩阵-transposed-matrix"><span class="nav-text">转置矩阵(transposed matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#转置矩阵性质"><span class="nav-text">转置矩阵性质:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆矩阵"><span class="nav-text">逆矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#矩阵可逆的条件"><span class="nav-text">矩阵可逆的条件:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逆矩阵的性质"><span class="nav-text">逆矩阵的性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正交矩阵"><span class="nav-text">正交矩阵</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行矩阵or列矩阵"><span class="nav-text">行矩阵or列矩阵?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的几何意义-变换"><span class="nav-text">矩阵的几何意义: 变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变换的类型"><span class="nav-text">变换的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变换"><span class="nav-text">线性变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仿射变换"><span class="nav-text">仿射变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#齐次坐标"><span class="nav-text">齐次坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分解基础变换矩阵"><span class="nav-text">分解基础变换矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平移矩阵"><span class="nav-text">平移矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缩放矩阵"><span class="nav-text">缩放矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转矩阵"><span class="nav-text">旋转矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#按x轴旋转"><span class="nav-text">按x轴旋转:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按y轴旋转"><span class="nav-text">按y轴旋转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按z轴旋转"><span class="nav-text">按z轴旋转</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复合变换"><span class="nav-text">复合变换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标空间"><span class="nav-text">坐标空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型空间"><span class="nav-text">模型空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#世界空间"><span class="nav-text">世界空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察空间"><span class="nav-text">观察空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪裁空间"><span class="nav-text">剪裁空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-透视投影"><span class="nav-text">1.透视投影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-正交投影"><span class="nav-text">2. 正交投影</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕空间"><span class="nav-text">屏幕空间</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点和矢量"><span class="nav-text">点和矢量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点积-内积-和叉积-外积"><span class="nav-text">点积(内积)和叉积(外积)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内积"><span class="nav-text">内积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外积"><span class="nav-text">外积</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵-matrix"><span class="nav-text">矩阵(matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵运算"><span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法"><span class="nav-text">矩阵乘法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊矩阵"><span class="nav-text">特殊矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方块矩阵-方阵"><span class="nav-text">方块矩阵(方阵)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单位矩阵"><span class="nav-text">单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转置矩阵-transposed-matrix"><span class="nav-text">转置矩阵(transposed matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#转置矩阵性质"><span class="nav-text">转置矩阵性质:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆矩阵"><span class="nav-text">逆矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#矩阵可逆的条件"><span class="nav-text">矩阵可逆的条件:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逆矩阵的性质"><span class="nav-text">逆矩阵的性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正交矩阵"><span class="nav-text">正交矩阵</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行矩阵or列矩阵"><span class="nav-text">行矩阵or列矩阵?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的几何意义-变换"><span class="nav-text">矩阵的几何意义: 变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变换的类型"><span class="nav-text">变换的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变换"><span class="nav-text">线性变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仿射变换"><span class="nav-text">仿射变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#齐次坐标"><span class="nav-text">齐次坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分解基础变换矩阵"><span class="nav-text">分解基础变换矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平移矩阵"><span class="nav-text">平移矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缩放矩阵"><span class="nav-text">缩放矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转矩阵"><span class="nav-text">旋转矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#按x轴旋转"><span class="nav-text">按x轴旋转:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按y轴旋转"><span class="nav-text">按y轴旋转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按z轴旋转"><span class="nav-text">按z轴旋转</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复合变换"><span class="nav-text">复合变换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标空间"><span class="nav-text">坐标空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型空间"><span class="nav-text">模型空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#世界空间"><span class="nav-text">世界空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察空间"><span class="nav-text">观察空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪裁空间"><span class="nav-text">剪裁空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-透视投影"><span class="nav-text">1.透视投影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-正交投影"><span class="nav-text">2. 正交投影</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕空间"><span class="nav-text">屏幕空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#法线变换"><span class="nav-text">法线变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity-Shader的内置变量-数学篇"><span class="nav-text">Unity Shader的内置变量(数学篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变换矩阵"><span class="nav-text">变换矩阵</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1002,7 +1079,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">34k</span>
+    <span title="站点总字数">36k</span>
   
 
   

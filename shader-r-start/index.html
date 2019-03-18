@@ -113,14 +113,14 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
-<meta name="keywords" content="unity,shader,《shader入门精要》">
+<meta name="keywords" content="shader,unity,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》-第五章-开始Unity Shader学习之旅">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-start/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T12:10:13.209Z">
+<meta property="og:updated_time" content="2019-03-18T13:01:07.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》-第五章-开始Unity Shader学习之旅">
 <meta name="twitter:description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
@@ -455,7 +455,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-18 14:08:47 / 修改时间：20:10:13" itemprop="dateCreated datePublished" datetime="2019-03-18T14:08:47+08:00">2019-03-18</time>
+              <time title="创建时间：2019-03-18 14:08:47 / 修改时间：21:01:07" itemprop="dateCreated datePublished" datetime="2019-03-18T14:08:47+08:00">2019-03-18</time>
             
 
             
@@ -519,7 +519,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">8.2k</span>
+                <span title="本文字数">9.9k</span>
               
 
               
@@ -713,7 +713,84 @@ window.console.log=()=>{};
 <h3 id="内置的变量"><a href="#内置的变量" class="headerlink" title="内置的变量"></a>内置的变量</h3><p>Unity还提供了用于访问时间,光照,雾效和环境光等目的的变量.<br>这些内置变量大多位于UnityShaderVariables.cginc中,与光照有关的内置变量还会位于Lighting.cginc, AutoLighting.cginc等文件中.<br>后面遇到再详细讲解</p>
 <h2 id="Unity提供的Cg-HLSL语义"><a href="#Unity提供的Cg-HLSL语义" class="headerlink" title="Unity提供的Cg/HLSL语义"></a>Unity提供的Cg/HLSL语义</h2><h3 id="语义"><a href="#语义" class="headerlink" title="语义"></a>语义</h3><p>语义就是一个赋给Shader的输入和输出的字符串,这个字符串表达了这个参数的含义.通俗地讲,这些语义可以让Shader知道从哪里读取数据,并把数据输出到哪里.<br>语义在Cg/HLSL的Shader流水线中是不可或缺的.需要注意的是,Unity并没有支持所有语义.  </p>
 <p>通常情况下,这些输入输出变量并不需要有特别的意义.也就是说,我们可以自行决定这些变量的用途.  </p>
-<p>在DX 10之后,有一种新的语义类型,就是<strong>系统数值语义</strong>(system-value semantics)</p>
+<p>在DX 10之后,有一种新的语义类型,就是<strong>系统数值语义</strong>(system-value semantics).这类语义是以SV开头的,SV代表的含义就是<strong>系统数值</strong>(system-value).这些语义在渲染流水线中有特殊的含义.例如我们用SV_POSITION语义去修饰顶点着色器的输出变量pos,那么就表示pos包含了可用于光栅化的变换后的顶点坐标.  </p>
+<p>这些语义修饰的变量时不可以随意赋值的,因为流水线需要使用它们来完成特定的目的.例如渲染引擎会把用SV_POSITION修饰的变量经过光栅化后显示在屏幕上.<br>有时会看到同一个变量在不同的Shader里面使用了不同的语义修饰.例如,一些Shader会使用POSITION而非SV_POSITION来修饰顶点着色器的输出.SV_POSITION是DirectX 10中新引入的系统数值语义,在绝大多数平台上,它和POSITION是等价的,但在某些平台(例如索尼PS4)上必须使用SV_POSITION来修饰顶点着色器的输出.否则无法让Shader正常工作.  </p>
+<p>因此,对于这些有特殊含义的变量我们最好使用SV开头的语义进行修饰.</p>
+<h3 id="Unity支持的语义"><a href="#Unity支持的语义" class="headerlink" title="Unity支持的语义"></a>Unity支持的语义</h3><h4 id="从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义"><a href="#从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义" class="headerlink" title="从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义"></a>从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义</h4><table>
+<thead>
+<tr>
+<th>语义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POSITION</td>
+<td>模型空间中的顶点位置,通常是float4类型</td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>顶点法线,通常是float3类型</td>
+</tr>
+<tr>
+<td>TANGENT</td>
+<td>顶点切线,通常是float4类型</td>
+</tr>
+<tr>
+<td>TEXCOORDn</td>
+<td>该顶点的纹理坐标.通常是float2或float4类型</td>
+</tr>
+<tr>
+<td>COLOR</td>
+<td>顶点颜色,通常是fixed4或者float4类型</td>
+</tr>
+</tbody>
+</table>
+<p>其中TEXCOORDn是指TEXCOORD0,TEXCOORD1…其中n的数目是和Shader Model有关的,例如一般在Shader Model2(即Unity默认编译到的Shader Model版本)和Shader Model3中,n等于8,而在Shader Model5中,n等于16.<br>通常情况下,一个模型的纹理坐标数一般不超过2,我们往往只使用TEXCOORD0和TEXCOORD1.<br>在Unity中内置的数据结构体appdata_full中,它最多使用了6个纹理坐标  </p>
+<h4 id="从顶点着色器传递数据给片元着色器时Unity使用的常用语义"><a href="#从顶点着色器传递数据给片元着色器时Unity使用的常用语义" class="headerlink" title="从顶点着色器传递数据给片元着色器时Unity使用的常用语义"></a>从顶点着色器传递数据给片元着色器时Unity使用的常用语义</h4><table>
+<thead>
+<tr>
+<th>语义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SV_POSITION</td>
+<td>裁剪空间中的顶点坐标,结构体中必须包含一个用该语义修饰的变量.</td>
+</tr>
+<tr>
+<td>COLOR0</td>
+<td>通常用于输出第一组颜色信息,但不是必须的</td>
+</tr>
+<tr>
+<td>COLOR1</td>
+<td>通常用于输出第二组颜色信息,但不是必须的</td>
+</tr>
+<tr>
+<td>TEXCOORD0~TEXCOORD7</td>
+<td>通常用于输出纹理坐标,但不是必须的</td>
+</tr>
+</tbody>
+</table>
+<p>上面的语义中,除了SV_POSITION是有特殊的含义外,其他语义对变量的含义没有明确的要求.也就是说,我们可以存储任意值到这些语义描述变量中.<br>通常,如果我们需要把一些自定义的数据从顶点着色器传递给片元着色器,一般选用TEXTURE0等  </p>
+<h4 id="片元着色器输出时Unity支持的常用语义"><a href="#片元着色器输出时Unity支持的常用语义" class="headerlink" title="片元着色器输出时Unity支持的常用语义"></a>片元着色器输出时Unity支持的常用语义</h4><table>
+<thead>
+<tr>
+<th>语义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SV_Target</td>
+<td>输出值将会存储到渲染目标(render target)中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="如何定义复杂的变量类型"><a href="#如何定义复杂的变量类型" class="headerlink" title="如何定义复杂的变量类型"></a>如何定义复杂的变量类型</h3><p>上面提到的语义绝大部分用于描述标量或矢量类型的变量<br>下面的代码给出了一个使用语义来修饰不同类型的变量的例子:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">v2f</span>&#123;</span></span><br><span class="line">    float4 pos : SV_POSITION;</span><br><span class="line">    fixed3 color0 : COLOR0;</span><br><span class="line">    fixed4 color1 : COLOR1;</span><br><span class="line">    half value0 : TEXCOORD0;</span><br><span class="line">    float2 value1 : TEXCOORD1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>关于何时使用哪些变量类型,我们会在5.7.1节给出一些建议.但需要注意的是,一个语义可以使用的寄存器只能处理4个浮点值.<br>因此,如果我们想要定义矩阵类型,如float3X4等变量就需要使用更多的空间.一种方法是,将这些变量拆分成多个变量,例如对于float4X4的矩阵类型,我们可以拆分成4个float类型的变量,每个变量存储了矩阵中的一行数据.</p>
 
       
     </div>
@@ -737,9 +814,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/unity/" rel="tag"># unity</a>
-          
             <a href="/tags/shader/" rel="tag"># shader</a>
+          
+            <a href="/tags/unity/" rel="tag"># unity</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           
@@ -1011,7 +1088,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的顶点-片元着色器"><span class="nav-text">最简单的顶点/片元着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点-片元着色器的基本结构"><span class="nav-text">顶点/片元着色器的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型数据从哪来"><span class="nav-text">模型数据从哪来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器和片元着色器的通信"><span class="nav-text">顶点着色器和片元着色器的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用属性"><span class="nav-text">如何使用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity内置文件和变量"><span class="nav-text">Unity内置文件和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的包含文件"><span class="nav-text">内置的包含文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的变量"><span class="nav-text">内置的变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity提供的Cg-HLSL语义"><span class="nav-text">Unity提供的Cg/HLSL语义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语义"><span class="nav-text">语义</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的顶点-片元着色器"><span class="nav-text">最简单的顶点/片元着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点-片元着色器的基本结构"><span class="nav-text">顶点/片元着色器的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型数据从哪来"><span class="nav-text">模型数据从哪来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器和片元着色器的通信"><span class="nav-text">顶点着色器和片元着色器的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用属性"><span class="nav-text">如何使用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity内置文件和变量"><span class="nav-text">Unity内置文件和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的包含文件"><span class="nav-text">内置的包含文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的变量"><span class="nav-text">内置的变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity提供的Cg-HLSL语义"><span class="nav-text">Unity提供的Cg/HLSL语义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语义"><span class="nav-text">语义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unity支持的语义"><span class="nav-text">Unity支持的语义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义"><span class="nav-text">从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从顶点着色器传递数据给片元着色器时Unity使用的常用语义"><span class="nav-text">从顶点着色器传递数据给片元着色器时Unity使用的常用语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#片元着色器输出时Unity支持的常用语义"><span class="nav-text">片元着色器输出时Unity支持的常用语义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何定义复杂的变量类型"><span class="nav-text">如何定义复杂的变量类型</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1051,7 +1128,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">47k</span>
+    <span title="站点总字数">49k</span>
   
 
   

@@ -120,7 +120,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T07:10:40.489Z">
+<meta property="og:updated_time" content="2019-03-18T12:10:13.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》-第五章-开始Unity Shader学习之旅">
 <meta name="twitter:description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
@@ -455,7 +455,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-18 14:08:47 / 修改时间：15:10:40" itemprop="dateCreated datePublished" datetime="2019-03-18T14:08:47+08:00">2019-03-18</time>
+              <time title="创建时间：2019-03-18 14:08:47 / 修改时间：20:10:13" itemprop="dateCreated datePublished" datetime="2019-03-18T14:08:47+08:00">2019-03-18</time>
             
 
             
@@ -519,7 +519,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3k</span>
+                <span title="本文字数">8.2k</span>
               
 
               
@@ -557,7 +557,164 @@ window.console.log=()=>{};
 <blockquote>
 <p>a表示<strong>应用</strong>(application),v表示顶点着色器(vertex shader),a2v的意思就是把数据从应用阶段传递到顶点着色器中.</p>
 </blockquote>
-<h3 id="顶点着色器和片元着色器的通信"><a href="#顶点着色器和片元着色器的通信" class="headerlink" title="顶点着色器和片元着色器的通信"></a>顶点着色器和片元着色器的通信</h3>
+<h3 id="顶点着色器和片元着色器的通信"><a href="#顶点着色器和片元着色器的通信" class="headerlink" title="顶点着色器和片元着色器的通信"></a>顶点着色器和片元着色器的通信</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Shader <span class="string">"Custom/Myshader"</span>&#123;</span><br><span class="line">    SubShader&#123;</span><br><span class="line">        Pass&#123;</span><br><span class="line">            CGPROGRAM</span><br><span class="line">            </span><br><span class="line">            <span class="meta">#<span class="meta-keyword">pragma</span> vertex vert</span></span><br><span class="line">            <span class="meta">#<span class="meta-keyword">pragma</span> fragment frag</span></span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">a2v</span> &#123;</span></span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 使用一个结构体来定义顶点着色器的输出</span></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span> &#123;</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">// SV_POSITION语义告诉Unity, pos里包含了顶点在剪裁空间中的位置信息  </span></span><br><span class="line">                float4 pos : SV_POSITION;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// COLOR0语义可以用于存储颜色信息</span></span><br><span class="line">                fixed3 color : COLOR0;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function">v2f <span class="title">vert</span><span class="params">(a2v v)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 声明输出的结构</span></span><br><span class="line">                v2f o;</span><br><span class="line">                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// v.normal包含了顶点的法线方向, 其分量在[-1.0, 1.0]</span></span><br><span class="line">                <span class="comment">// 下面的代码将分量范围映射到了[0.0, 1.0]</span></span><br><span class="line">                <span class="comment">// 存储到o.color中传递给片元着色器</span></span><br><span class="line">                o.color = v.normal * <span class="number">0.5</span> + float3(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">return</span> o; </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            fixed4 frag(v2f i) : SV_Target&#123;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 将插值后的i.color显示到屏幕上</span></span><br><span class="line">                <span class="keyword">return</span> fixed4(i.color, <span class="number">1.0</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面代码中,我们定义了一个v2f结构体在顶点着色器和片元着色器之间传递信息.<br>顶点着色器的输出结构中,必须包含一个语义为SV_POSITION的变量,否则渲染器会无法得到剪裁空间中的顶点坐标,也就无法将颜色渲染到屏幕上.  </p>
+<p>至此,我们完成了顶点着色器和片元着色器之间的通信.<br>需要注意的是,顶点着色器是逐顶点调用的,而片元着色器是逐片元调用的,所以片元着色器的输入实际上是<strong>把顶点着色器的输出进行插值得到的结果</strong>.</p>
+<h3 id="如何使用属性"><a href="#如何使用属性" class="headerlink" title="如何使用属性"></a>如何使用属性</h3><p>通过材质,我们可以方便地调节Unity Shader中的参数,从而随时调整材质的效果.<br>这些参数需要卸载Properties语义块中.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">Shader <span class="string">"Custom/Myshader"</span>&#123;</span><br><span class="line">    SubShader&#123;</span><br><span class="line">        Pass&#123;</span><br><span class="line">            CGPROGRAM</span><br><span class="line">            </span><br><span class="line">            <span class="meta">#<span class="meta-keyword">pragma</span> vertex vert</span></span><br><span class="line">            <span class="meta">#<span class="meta-keyword">pragma</span> fragment frag</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 在Cg代码中,我们需要定义一个与属性的名称和类型都匹配的变量</span></span><br><span class="line">            fixed4 _Color;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">a2v</span> &#123;</span></span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span> &#123;</span>  </span><br><span class="line">                float4 pos : SV_POSITION;</span><br><span class="line">                fixed3 color : COLOR0;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function">v2f <span class="title">vert</span><span class="params">(a2v v)</span></span>&#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);</span><br><span class="line">                o.color = v.normal * <span class="number">0.5</span> + float3(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>);</span><br><span class="line">                <span class="keyword">return</span> o; </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            fixed4 frag(v2f i) : SV_Target&#123;</span><br><span class="line">                float3 c = i.color;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 使用-Color属性控制输出颜色</span></span><br><span class="line">                c *= _Color.rgb;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> fixed4(c, <span class="number">1.0</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中,我们首先添加了Properties语义块,并在其中声明了一个属性_Color,它的类型是Color,初始值是(1.0, 1.0, 1.0, 1.0).<br>为了在Cg代码中使用,我们还需要在Cg代码片段中提前定义一个新的变量,这个变量的名称和类型必须与Properties中的属性定义相匹配  </p>
+<table>
+<thead>
+<tr>
+<th>ShaderLab属性类型</th>
+<th>Cg变量类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color, Vector</td>
+<td>float4, half4, fixed4</td>
+</tr>
+<tr>
+<td>Range, Float</td>
+<td>float, half, fixed</td>
+</tr>
+<tr>
+<td>2D</td>
+<td>sampler2D</td>
+</tr>
+<tr>
+<td>Cube</td>
+<td>samplerCube</td>
+</tr>
+<tr>
+<td>3D</td>
+<td>sampler3D</td>
+</tr>
+</tbody>
+</table>
+<p>有时会遇到uniform  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uniform fixed4 _Color;</span><br></pre></td></tr></table></figure>
+<p>uniform关键词是Cg中修饰变量和参数的一种修饰词,它仅仅用于提供一些关于该变量的初始值是如何指定和存储的相关信息.<br>在Unity Shader中,uniform关键词是可以省略的<br>(所以uniform到底是个啥啊草)  </p>
+<h2 id="Unity内置文件和变量"><a href="#Unity内置文件和变量" class="headerlink" title="Unity内置文件和变量"></a>Unity内置文件和变量</h2><p>为了方便开发者的编码过程,Unity提供了很多内置文件,这些文件包含了很多提前定义的变量,函数和宏等.  </p>
+<h3 id="内置的包含文件"><a href="#内置的包含文件" class="headerlink" title="内置的包含文件"></a>内置的包含文件</h3><p><strong>包含文件</strong>(include file),是类似于C++头文件的一种文件.在Unity中,它们的文件后缀是.cginc.<br>在编写shader时,我们可以用#include把这些文件包含进来,这样我们就可以使用Unity为我们提供的一些非常有用的变量和帮助函数.例如:  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CDPROGRAM</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"UnityCG.cginc"</span></span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>unity\Editor\Data\CGIncludes文件夹包含了一些内置组件或功能需要的UnityShader.  </p>
+<p>CDIncludes中主要的包含文件及它们的用处:</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UnityCG.cginc</td>
+<td>包含了最常使用的帮助函数,宏和结构体等</td>
+</tr>
+<tr>
+<td>UnityShaderVriables.cginc</td>
+<td>在编译Unity Shader时,会被自动包含进来.包含了许多内置的全局变量,如UNITY_MATRIX_MVP等</td>
+</tr>
+<tr>
+<td>Lighting.cginc</td>
+<td>包含了各种内置的关照模型,如果包含的是表面着色器的话会自动包含进来</td>
+</tr>
+<tr>
+<td>HLSLSupport.cginc</td>
+<td>在编译Unity Shader时,会被自动包含进来.声明了许多跨平台编译的宏和定义</td>
+</tr>
+</tbody>
+</table>
+<p>除这些之外,Unity5引入了许多新的重要的包含文件,如UnityShaderVariables.cginc, UnityStandardCore.cginc等,这些包含文件用于实现基于物理的渲染,我们会在18章再次遇到它们  </p>
+<p>UnityCG.cginc是我们最常接触的一个包含文件.它提供了很多结构体和函数方便我们编写Shader.例如,我们可以直接使用UnityCG.cginc中预定义的结构体作为顶点着色器的输入和输出.  </p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>包含的变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appdata_base</td>
+<td>可用于顶点着色器的输入</td>
+<td>顶点位置,顶点法线,第一组纹理坐标</td>
+</tr>
+<tr>
+<td>appdata_tan</td>
+<td>可用于顶点着色器的输入</td>
+<td>顶点位置,顶点切线,顶点法线,第一组纹理坐标</td>
+</tr>
+<tr>
+<td>appdata_full</td>
+<td>可用于顶点着色器的输入</td>
+<td>顶点位置,顶点切线,顶点法线,四组(或更多)纹理坐标</td>
+</tr>
+<tr>
+<td>appdata_img</td>
+<td>可用于顶点着色器的输入</td>
+<td>顶点位置,第一组纹理坐标</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>v2f_img</td>
+<td>可用于顶点着色器的输出</td>
+<td>裁剪空间中的位置</td>
+<td>纹理坐标</td>
+</tr>
+</tbody>
+</table>
+<p>除了结构体外,UnityCG.cginc也提供了一些常用的帮助函数  </p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float3 WorldSpaceViewDir(float4 v)</td>
+<td>输入一个模型空间中的顶点位置,返回<strong>世界空间</strong>中从该点到摄像机的观察方向  </td>
+</tr>
+<tr>
+<td>float3 ObjSpaceViewDir(float4 v)</td>
+<td>输入一个模型空间中的顶点位置,返回<strong>模型空间</strong>中该点到摄像机的观察方向</td>
+</tr>
+<tr>
+<td>float3 WorldSpaceLightDir(float4 v)</td>
+<td><strong>仅可用于前向渲染中</strong>.输入一个模型空间中的顶点位置,返回<strong>世界空间</strong>中从该点到光源的光照方向.没有被归一化</td>
+</tr>
+<tr>
+<td>float3 ObjSpaceLightDir(float4 v)</td>
+<td><strong>仅可用于前向渲染中</strong>.输入一个模型空间中的顶点位置,返回<strong>模型空间</strong>中从该点到光源的光照方向.没有被归一化</td>
+</tr>
+<tr>
+<td>float3 UnityObjectToWorldNormal(float3 norm)</td>
+<td>把法线方向从模型空间变换到世界空间中</td>
+</tr>
+<tr>
+<td>float3 UnityObjectToWorldDir(float3 dir)</td>
+<td>把方向矢量从模型空间变换到世界空间中</td>
+</tr>
+<tr>
+<td>float3 UnityWordToObjectDir(float3 dir)</td>
+<td>把方向矢量从世界空间变换到模型空间中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="内置的变量"><a href="#内置的变量" class="headerlink" title="内置的变量"></a>内置的变量</h3><p>Unity还提供了用于访问时间,光照,雾效和环境光等目的的变量.<br>这些内置变量大多位于UnityShaderVariables.cginc中,与光照有关的内置变量还会位于Lighting.cginc, AutoLighting.cginc等文件中.<br>后面遇到再详细讲解</p>
+<h2 id="Unity提供的Cg-HLSL语义"><a href="#Unity提供的Cg-HLSL语义" class="headerlink" title="Unity提供的Cg/HLSL语义"></a>Unity提供的Cg/HLSL语义</h2><h3 id="语义"><a href="#语义" class="headerlink" title="语义"></a>语义</h3><p>语义就是一个赋给Shader的输入和输出的字符串,这个字符串表达了这个参数的含义.通俗地讲,这些语义可以让Shader知道从哪里读取数据,并把数据输出到哪里.<br>语义在Cg/HLSL的Shader流水线中是不可或缺的.需要注意的是,Unity并没有支持所有语义.  </p>
+<p>通常情况下,这些输入输出变量并不需要有特别的意义.也就是说,我们可以自行决定这些变量的用途.  </p>
+<p>在DX 10之后,有一种新的语义类型,就是<strong>系统数值语义</strong>(system-value semantics)</p>
+
       
     </div>
 
@@ -854,7 +1011,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的顶点-片元着色器"><span class="nav-text">最简单的顶点/片元着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点-片元着色器的基本结构"><span class="nav-text">顶点/片元着色器的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型数据从哪来"><span class="nav-text">模型数据从哪来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器和片元着色器的通信"><span class="nav-text">顶点着色器和片元着色器的通信</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的顶点-片元着色器"><span class="nav-text">最简单的顶点/片元着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点-片元着色器的基本结构"><span class="nav-text">顶点/片元着色器的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型数据从哪来"><span class="nav-text">模型数据从哪来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器和片元着色器的通信"><span class="nav-text">顶点着色器和片元着色器的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用属性"><span class="nav-text">如何使用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity内置文件和变量"><span class="nav-text">Unity内置文件和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的包含文件"><span class="nav-text">内置的包含文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的变量"><span class="nav-text">内置的变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity提供的Cg-HLSL语义"><span class="nav-text">Unity提供的Cg/HLSL语义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语义"><span class="nav-text">语义</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -894,7 +1051,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">42k</span>
+    <span title="站点总字数">47k</span>
   
 
   

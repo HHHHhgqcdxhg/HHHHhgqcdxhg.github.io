@@ -113,14 +113,14 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
-<meta name="keywords" content="shader,unity,《shader入门精要》">
+<meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》-第五章-开始Unity Shader学习之旅">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-start/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T13:01:07.331Z">
+<meta property="og:updated_time" content="2019-03-18T15:16:00.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》-第五章-开始Unity Shader学习之旅">
 <meta name="twitter:description" content="最简单的顶点/片元着色器顶点/片元着色器的基本结构12345678910111213141516171819202122232425262728293031323334Shader &quot;MyShaderName&quot;&amp;#123;    Properties&amp;#123;        // 属性    &amp;#125;    SubShader&amp;#123;        // 针对显卡A的SubShader">
@@ -455,7 +455,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-18 14:08:47 / 修改时间：21:01:07" itemprop="dateCreated datePublished" datetime="2019-03-18T14:08:47+08:00">2019-03-18</time>
+              <time title="创建时间：2019-03-18 14:08:47 / 修改时间：23:16:00" itemprop="dateCreated datePublished" datetime="2019-03-18T14:08:47+08:00">2019-03-18</time>
             
 
             
@@ -519,7 +519,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">9.9k</span>
+                <span title="本文字数">12k</span>
               
 
               
@@ -791,6 +791,90 @@ window.console.log=()=>{};
 <h3 id="如何定义复杂的变量类型"><a href="#如何定义复杂的变量类型" class="headerlink" title="如何定义复杂的变量类型"></a>如何定义复杂的变量类型</h3><p>上面提到的语义绝大部分用于描述标量或矢量类型的变量<br>下面的代码给出了一个使用语义来修饰不同类型的变量的例子:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">v2f</span>&#123;</span></span><br><span class="line">    float4 pos : SV_POSITION;</span><br><span class="line">    fixed3 color0 : COLOR0;</span><br><span class="line">    fixed4 color1 : COLOR1;</span><br><span class="line">    half value0 : TEXCOORD0;</span><br><span class="line">    float2 value1 : TEXCOORD1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>关于何时使用哪些变量类型,我们会在5.7.1节给出一些建议.但需要注意的是,一个语义可以使用的寄存器只能处理4个浮点值.<br>因此,如果我们想要定义矩阵类型,如float3X4等变量就需要使用更多的空间.一种方法是,将这些变量拆分成多个变量,例如对于float4X4的矩阵类型,我们可以拆分成4个float类型的变量,每个变量存储了矩阵中的一行数据.</p>
+<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>书上P111</p>
+<h2 id="渲染平台的差异"><a href="#渲染平台的差异" class="headerlink" title="渲染平台的差异"></a>渲染平台的差异</h2><p>书上p115</p>
+<h2 id="Shader整洁"><a href="#Shader整洁" class="headerlink" title="Shader整洁"></a>Shader整洁</h2><h3 id="float-half还是fixed"><a href="#float-half还是fixed" class="headerlink" title="float, half还是fixed"></a>float, half还是fixed</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>精度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>最高精度浮点值,通常使用32位来存储</td>
+</tr>
+<tr>
+<td>half</td>
+<td>中等精度浮点值,通常使用16位来存储,精度是-60,000 ~ 60,000</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>最低精度浮点值,通常使用11位来存储,精度是-2.0~2.0</td>
+</tr>
+</tbody>
+</table>
+<p>上面的精度范围并不是绝对正确的,尤其是在不同平台和GPU上,他们的实际精度可能和上面给出的范围不一致.通常来讲.</p>
+<ul>
+<li>大多数现代的桌面GPU会把所有计算都按最高的浮点精度进行计算.也就是说,float,half,fixed在这些平台上实际是等价的.这意味着我们在PC上很难看出因为half和fixed精度不同而带来的不同.</li>
+<li>但在移动平台的GPU上,它们的确会有不同的精度范围.而且不用精度的浮点值的运算速度也会有差异.因此,我们应该确保在真正的移动平台上试验我们的Shader</li>
+<li>fixed精度实际上只在一些较旧的移动平台上有用,大多数现代GPU上,它们内部把fixed和half当成同样精度来对待.  </li>
+</ul>
+<p>尽管有上面的不同,单一个基本建议是,尽可能使用精度较低的类型,因为这可以优化Shader的性能,这一点在移动平台上尤其重要.从它们的大体的值域范围来看,我们可以使用</p>
+<ul>
+<li>fixed类型来存储颜色和单位矢量</li>
+<li>half存储更大的数据</li>
+<li>最差的情况再使用float</li>
+</ul>
+<p>如果我们的目标是移动平台,一定要确保在真实的手机上测试我们的Shader.<br>关于移动平台的优化技术,更多内容见16章</p>
+<h3 id="规范语法"><a href="#规范语法" class="headerlink" title="规范语法"></a>规范语法</h3><p>在5.6.2节,我们提到了DirectX平台对Shader的语义有更加严格的要求.这意味着,如果我们要发布到DirectX平台上就需要使用更严格的语法.<br>例如,使用和变量类型相匹配的参数数目来对变量进行初始化.  </p>
+<h3 id="避免不必要的计算"><a href="#避免不必要的计算" class="headerlink" title="避免不必要的计算"></a>避免不必要的计算</h3><p>如果我们毫无节制地在Shader(尤其是片元着色器)中进行了大量计算,那么我们可能很快就会收到Unity的错误提示:</p>
+<blockquote>
+<p>temporary register limit of 8 exceeded</p>
+</blockquote>
+<p>或</p>
+<blockquote>
+<p>Arithmetic instruction limit of 64 exceeded; 65 arithmetic instructions needed to compileprogram</p>
+</blockquote>
+<p>这样的错误太多是因为我们在Shader中进行了大量的运算,使得需要的临时寄存器数目或指令数目超过了当前可支持的数目.<br>不同的Shader Target,不同的着色器阶段,我们可使用的临时寄存器和指令数目都是不同的.  </p>
+<p>通常,我们可以通过指定更高级的Shader Target来消除这些错误.</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#pragma target2.0</td>
+<td>默认的Shader Target等级,相当于Direct3D上的Shader Model2.0,不支持对顶点纹理的采样,不支持显式的LOD纹理采样等</td>
+</tr>
+<tr>
+<td>#pragma target3.0</td>
+<td>相当于Direct3D 9 上的Shader Model 3.0, 支持对顶点纹理的采样等</td>
+</tr>
+<tr>
+<td>#pragma target4.0</td>
+<td>相当于Direct3D 10 上的Shader Model 4.0,支持几何着色器等</td>
+</tr>
+<tr>
+<td>#pragma target5.0</td>
+<td>相当于Direct3D11上的Shader Model 5.0</td>
+</tr>
+</tbody>
+</table>
+<p>Shader Model是由微软提出的一套规范,通俗地理解就是它们决定了Shader中各个特性和能力.这些特性和能力体现在Shader能使用的运算指令数目,寄存器个数等各个方面.Shader等级越高,Shader的能力就越大.  </p>
+<p>虽然更高级的Shader Target可以让我们使用更多的临时寄存器和运算指令,但一个更好的方法是尽可能减少Shader中的运算,或者通过预计算的方式来提供更多的数据.</p>
+<h3 id="慎用分支和循环语句"><a href="#慎用分支和循环语句" class="headerlink" title="慎用分支和循环语句"></a>慎用分支和循环语句</h3><p>if-else,for,while这些流程控制指令在GPU上的实现和在CPU上大不相同.在最坏的情况下,我们花在一个分支语句的时间相当于运行所有分支语句的时间.因此不提倡在Shader中使用流程控制语句.  </p>
+<p>如果我们的Shader中使用了大量的流程控制语句,那么这个Shader的性能可能会成倍下降.<br>一个解决方法是,我们应尽量把计算向流水线上端移动.例如把片段着色器中的计算放到顶点着色器中,或者直接在CPU中进行预计算,再把结果传递给Shader.  </p>
+<p>实在要用到分支语句时:</p>
+<ul>
+<li>分支判断语句中使用的条件变量最好是常数,即在Shader运行过程中不会发生变化.</li>
+<li>每个分支中包含的操作指令尽可能少</li>
+<li>分支嵌套层数尽可能少<h3 id="不要除以0"><a href="#不要除以0" class="headerlink" title="不要除以0"></a>不要除以0</h3>Shader中,除以0不会报错.注意.</li>
+</ul>
 
       
     </div>
@@ -814,9 +898,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/shader/" rel="tag"># shader</a>
-          
             <a href="/tags/unity/" rel="tag"># unity</a>
+          
+            <a href="/tags/shader/" rel="tag"># shader</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           
@@ -1088,7 +1172,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的顶点-片元着色器"><span class="nav-text">最简单的顶点/片元着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点-片元着色器的基本结构"><span class="nav-text">顶点/片元着色器的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型数据从哪来"><span class="nav-text">模型数据从哪来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器和片元着色器的通信"><span class="nav-text">顶点着色器和片元着色器的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用属性"><span class="nav-text">如何使用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity内置文件和变量"><span class="nav-text">Unity内置文件和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的包含文件"><span class="nav-text">内置的包含文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的变量"><span class="nav-text">内置的变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity提供的Cg-HLSL语义"><span class="nav-text">Unity提供的Cg/HLSL语义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语义"><span class="nav-text">语义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unity支持的语义"><span class="nav-text">Unity支持的语义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义"><span class="nav-text">从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从顶点着色器传递数据给片元着色器时Unity使用的常用语义"><span class="nav-text">从顶点着色器传递数据给片元着色器时Unity使用的常用语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#片元着色器输出时Unity支持的常用语义"><span class="nav-text">片元着色器输出时Unity支持的常用语义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何定义复杂的变量类型"><span class="nav-text">如何定义复杂的变量类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的顶点-片元着色器"><span class="nav-text">最简单的顶点/片元着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点-片元着色器的基本结构"><span class="nav-text">顶点/片元着色器的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型数据从哪来"><span class="nav-text">模型数据从哪来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器和片元着色器的通信"><span class="nav-text">顶点着色器和片元着色器的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用属性"><span class="nav-text">如何使用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity内置文件和变量"><span class="nav-text">Unity内置文件和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的包含文件"><span class="nav-text">内置的包含文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的变量"><span class="nav-text">内置的变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity提供的Cg-HLSL语义"><span class="nav-text">Unity提供的Cg/HLSL语义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语义"><span class="nav-text">语义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unity支持的语义"><span class="nav-text">Unity支持的语义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义"><span class="nav-text">从应用阶段传递模型数据给顶点着色器时Unity支持的常用语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从顶点着色器传递数据给片元着色器时Unity使用的常用语义"><span class="nav-text">从顶点着色器传递数据给片元着色器时Unity使用的常用语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#片元着色器输出时Unity支持的常用语义"><span class="nav-text">片元着色器输出时Unity支持的常用语义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何定义复杂的变量类型"><span class="nav-text">如何定义复杂的变量类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debug"><span class="nav-text">Debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染平台的差异"><span class="nav-text">渲染平台的差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shader整洁"><span class="nav-text">Shader整洁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#float-half还是fixed"><span class="nav-text">float, half还是fixed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范语法"><span class="nav-text">规范语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免不必要的计算"><span class="nav-text">避免不必要的计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慎用分支和循环语句"><span class="nav-text">慎用分支和循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要除以0"><span class="nav-text">不要除以0</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1128,7 +1212,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">49k</span>
+    <span title="站点总字数">51k</span>
   
 
   

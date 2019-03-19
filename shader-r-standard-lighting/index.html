@@ -113,7 +113,7 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="光照基础我们要模拟真实的光照环境来生成一张图像,需要考虑三种物理现象:    首先,光线从光源中被发射出来 然后,光线和场景中的一些物体相交: 一些光线被物体吸收了,而另一些光线被散射到其他方向   最后,摄像机吸收了一些光,产生了一张图像    光源在光学里,我们用辐照度(irradiance)来量化光.   对于平行光来说,它的辐照度可通过计算在垂直于l的单位面积上单位时间内穿过的量来得到.">
-<meta name="keywords" content="unity,shader,《shader入门精要》">
+<meta name="keywords" content="shader,unity,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》-第六章-Unity中的基础光照">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-standard-lighting/index.html">
@@ -121,7 +121,7 @@ window.console.log=()=>{};
 <meta property="og:description" content="光照基础我们要模拟真实的光照环境来生成一张图像,需要考虑三种物理现象:    首先,光线从光源中被发射出来 然后,光线和场景中的一些物体相交: 一些光线被物体吸收了,而另一些光线被散射到其他方向   最后,摄像机吸收了一些光,产生了一张图像    光源在光学里,我们用辐照度(irradiance)来量化光.   对于平行光来说,它的辐照度可通过计算在垂直于l的单位面积上单位时间内穿过的量来得到.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190319115203.png">
-<meta property="og:updated_time" content="2019-03-19T08:14:08.092Z">
+<meta property="og:updated_time" content="2019-03-19T08:31:45.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》-第六章-Unity中的基础光照">
 <meta name="twitter:description" content="光照基础我们要模拟真实的光照环境来生成一张图像,需要考虑三种物理现象:    首先,光线从光源中被发射出来 然后,光线和场景中的一些物体相交: 一些光线被物体吸收了,而另一些光线被散射到其他方向   最后,摄像机吸收了一些光,产生了一张图像    光源在光学里,我们用辐照度(irradiance)来量化光.   对于平行光来说,它的辐照度可通过计算在垂直于l的单位面积上单位时间内穿过的量来得到.">
@@ -457,7 +457,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-19 11:28:42 / 修改时间：16:14:08" itemprop="dateCreated datePublished" datetime="2019-03-19T11:28:42+08:00">2019-03-19</time>
+              <time title="创建时间：2019-03-19 11:28:42 / 修改时间：16:31:45" itemprop="dateCreated datePublished" datetime="2019-03-19T11:28:42+08:00">2019-03-19</time>
             
 
             
@@ -521,7 +521,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.8k</span>
+                <span title="本文字数">6k</span>
               
 
               
@@ -602,7 +602,8 @@ window.console.log=()=>{};
 </ul>
 <p>计算光源方向与法线的点积时,只有两者处于统一坐标空间下,他们的点积才有意义.<br>于是在这里我们选用世界空间.  </p>
 <p>在得到世界空间下的法线和光源方向后,我们需要对它们进行归一化操作;<br>在得到它们的点积的结果后,我们需要防止这个结果为负值.为此,我们选用saturate函数.<br>saturate函数是Cg提供的一种函数,它的作用是可以把参数截取到[0, 1]范围内.<br>再将 法线 与 光源方向 的 点积  与 光源的颜色 和 强度 以及 材质的漫反射颜色 相乘 得到 最终的漫反射光照部分  </p>
-<p>最后,将环境光与漫反射光部分相加,得到最终的光照结果</p>
+<p>最后,将环境光与漫反射光部分相加,得到最终的光照结果  </p>
+<p>思考:法线 与 光源方向 的 点积  与 光源的颜色 和 强度 以及 材质的漫反射颜色 相乘 的意义<br>我的理解: 法线 与 光源方向 的 点积 的结果,应该就是光源方向在法线方向上的投影值.<br>这个投影值的意义是<strong>漫反射的强度</strong>.顶点法线正对入射光线,漫反射效果最强.顶点法线与入射光线的夹角大于90度,则完全没有漫反射效果.之后再以强度与光源颜色和材质颜色相乘,得到漫反射颜色.</p>
 
       
     </div>
@@ -626,9 +627,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/unity/" rel="tag"># unity</a>
-          
             <a href="/tags/shader/" rel="tag"># shader</a>
+          
+            <a href="/tags/unity/" rel="tag"># unity</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           

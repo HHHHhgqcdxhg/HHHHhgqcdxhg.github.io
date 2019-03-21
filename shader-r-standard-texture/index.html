@@ -113,18 +113,23 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理">
-<meta name="keywords" content="unity,shader,《shader入门精要》">
+  <meta name="description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
+<meta name="keywords" content="shader,unity,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第七章-基础纹理">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-standard-texture/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理">
+<meta property="og:description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-21T00:17:58.782Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190321091817.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190321092454.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190321092516.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190321094748.png">
+<meta property="og:updated_time" content="2019-03-21T03:22:28.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第七章-基础纹理">
-<meta name="twitter:description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理">
+<meta name="twitter:description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190321091817.png">
 
 
 
@@ -456,7 +461,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：08:17:58" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
+              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：11:22:28" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
             
 
             
@@ -520,7 +525,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">168</span>
+                <span title="本文字数">4.1k</span>
               
 
               
@@ -546,7 +551,13 @@ window.console.log=()=>{};
       
         <p>纹理的最初目的是使用一张图片来控制模型的外观.使用<strong>纹理映射</strong>(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐<strong>纹素</strong>(texel)地控制模型的颜色  </p>
 <p>在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把<strong>纹理映射坐标</strong>(texture-mapping coordinates)存储在每个顶点上.  </p>
-<h2 id="单张纹理"><a href="#单张纹理" class="headerlink" title="单张纹理"></a>单张纹理</h2>
+<h2 id="单张纹理"><a href="#单张纹理" class="headerlink" title="单张纹理"></a>单张纹理</h2><h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">Shader <span class="string">"Custom/7.1"</span>&#123;</span><br><span class="line">    Properties &#123;</span><br><span class="line">        _Color (<span class="string">"Color Tint"</span>, Color) = (<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 声明一个2D纹理</span></span><br><span class="line">        _MainTex (<span class="string">"Main Tex"</span>, <span class="number">2</span>D) = <span class="string">"white"</span> &#123;&#125;</span><br><span class="line">        </span><br><span class="line">        _Specular (<span class="string">"Specular"</span>, Color) = (<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        _Gloss (<span class="string">"Gloss"</span>, Range(<span class="number">8.0</span>, <span class="number">256</span>)) = <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">    SubShader &#123;        </span><br><span class="line">        Pass &#123; </span><br><span class="line">            Tags &#123; <span class="string">"LightMode"</span>=<span class="string">"ForwardBase"</span> &#125;</span><br><span class="line">        </span><br><span class="line">            CGPROGRAM</span><br><span class="line">            </span><br><span class="line">            #pragma vertex vert</span><br><span class="line">            #pragma fragment frag</span><br><span class="line"></span><br><span class="line">            #include <span class="string">"Lighting.cginc"</span></span><br><span class="line">            </span><br><span class="line">            fixed4 _Color;</span><br><span class="line">            sampler2D _MainTex;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// _MainTex的名字不是随意起的,在Unity中我们使用纹理名_ST来声明某个纹理的属性.  </span></span><br><span class="line">            <span class="comment">// 其中ST是缩放(scale)和平移(translation)的缩写.  </span></span><br><span class="line">            <span class="comment">// 可以在材质面板的纹理属性调整这些值控制材质的平移和缩放.</span></span><br><span class="line">            float4 _MainTex_ST;</span><br><span class="line">            </span><br><span class="line">            fixed4 _Specular;</span><br><span class="line">            <span class="keyword">float</span> _Gloss;</span><br><span class="line">            </span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">a2v</span> &#123;</span></span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 会把第一组纹理存储到该变量中</span></span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line">            </span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span> &#123;</span></span><br><span class="line">                float4 pos : SV_POSITION;</span><br><span class="line">                float3 worldNormal : TEXCOORD0;</span><br><span class="line">                float3 worldPos : TEXCOORD1;</span><br><span class="line">                float2 uv : TEXCOORD2;</span><br><span class="line">            &#125;;</span><br><span class="line">            </span><br><span class="line">            <span class="function">v2f <span class="title">vert</span><span class="params">(a2v v)</span> </span>&#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">                </span><br><span class="line">                o.worldNormal = UnityObjectToWorldNormal(v.normal);</span><br><span class="line">                </span><br><span class="line">                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 使用纹理缩放和偏移属性对顶点纹理坐标进行变换</span></span><br><span class="line">                o.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;</span><br><span class="line">                <span class="comment">// 或使用unity的内置函数</span></span><br><span class="line">                <span class="comment">// o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">return</span> o;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            fixed4 frag(v2f i) : SV_Target &#123;</span><br><span class="line">                fixed3 worldNormal = normalize(i.worldNormal);</span><br><span class="line">                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 用tex2D对纹理进行采样</span></span><br><span class="line">                <span class="comment">// 第一个参数是需要被采样的纹理,第二个参数是float2类型的纹理坐标</span></span><br><span class="line">                <span class="comment">// 返回计算得到的纹素值</span></span><br><span class="line">                fixed3 albedo = tex2D(_MainTex, i.uv).rgb * _Color.rgb;</span><br><span class="line">                </span><br><span class="line">                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">                </span><br><span class="line">                fixed3 diffuse = _LightColor0.rgb * albedo * max(<span class="number">0</span>, dot(worldNormal, worldLightDir));</span><br><span class="line">                </span><br><span class="line">                fixed3 viewDir = normalize(UnityWorldSpaceViewDir(i.worldPos));</span><br><span class="line">                fixed3 halfDir = normalize(worldLightDir + viewDir);</span><br><span class="line">                fixed3 specular = _LightColor0.rgb * _Specular.rgb * <span class="built_in">pow</span>(max(<span class="number">0</span>, dot(worldNormal, halfDir)), _Gloss);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">return</span> fixed4(ambient + diffuse + specular, <span class="number">1.0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    FallBack <span class="string">"Specular"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic.ggemo.com/picgo/20190321091817.png" alt="20190321091817.png">  </p>
+<h3 id="纹理的属性"><a href="#纹理的属性" class="headerlink" title="纹理的属性"></a>纹理的属性</h3><h4 id="Texture-Type"><a href="#Texture-Type" class="headerlink" title="Texture Type"></a>Texture Type</h4><p>书上讲的TextureType好像过时了,现在是这样的:<br><img src="https://pic.ggemo.com/picgo/20190321092454.png" alt="20190321092454.png"> <img src="https://pic.ggemo.com/picgo/20190321092516.png" alt="20190321092516.png"><br>这里使用最普通的texture,在后面的法线纹理一节,我们会使用Normal map类型,在后面的章节中,我们还会看到Cubemap等高级纹理类型.<br>我们之所以要为纹理选择合适的类型,是因为只有这样才会让Unity知道我们的意图,为Unity Shader传递正确的纹理,并在一些情况下让Unity对该纹理进行优化  </p>
+<h4 id="Alpha-Source"><a href="#Alpha-Source" class="headerlink" title="Alpha Source"></a>Alpha Source</h4><p>如果选择了From Gray Scale,那么透明通道的值将会由每个像素的灰度值生成.<br>关于透明效果会在第8章讲到  </p>
+<h4 id="Wrap-Mode"><a href="#Wrap-Mode" class="headerlink" title="Wrap Mode"></a>Wrap Mode</h4><p>当纹理坐标超过[0, 1]返回后将会如何被平铺.<br>Repeat下,纹理将会重复.<br>Clamp下将会对纹理进行截取.  </p>
+<h4 id="Filter-Mode"><a href="#Filter-Mode" class="headerlink" title="Filter Mode"></a>Filter Mode</h4><p>决定了当纹理由于变换而产生拉伸时将会采用哪种滤波模式.<br>Filter Mode支持三种模式: Point, Bilinear, Trilinear.它们得到的图片滤波效果会依次提升,但需要消耗的性能也依次增大<br>纹理滤波会影响放大或缩小纹理时得到的图片的质量.<br><img src="https://pic.ggemo.com/picgo/20190321094748.png" alt="20190321094748.png"><br>纹理的缩小过程比放大更复杂一些.缩小时,原纹理中的多个像素将会对应一个目标像素.纹理缩小更加复杂的原因在于我们往往需要处理抗锯齿问题,一个最常使用的方法就是使用<strong>多级渐远纹理</strong>(mipmapping)技术.<br>多级渐远纹理技术将原纹理提前用滤波处理来得到很多更小的图像,形成一个图像金字塔,每一层都是对上一层图像降采样的结果.这样在实时运行时,就可以快速得到结果像素.<br>例如当摄像机较远的时候,可以直接使用较小的纹理.<br>缺点是需要使用一定空间用于存储这些多级渐远纹理,通常会多占33%的内存空间.<br>在Unity中,我们可以在纹理导入面板中,首先将texture type选择成advanced,再勾选Generate Mip Maps即可开启多级渐远纹理技术.</p>
+
       
     </div>
 
@@ -569,9 +580,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/unity/" rel="tag"># unity</a>
-          
             <a href="/tags/shader/" rel="tag"># shader</a>
+          
+            <a href="/tags/unity/" rel="tag"># unity</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           
@@ -843,7 +854,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单张纹理"><span class="nav-text">单张纹理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单张纹理"><span class="nav-text">单张纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纹理的属性"><span class="nav-text">纹理的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Texture-Type"><span class="nav-text">Texture Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Alpha-Source"><span class="nav-text">Alpha Source</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrap-Mode"><span class="nav-text">Wrap Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter-Mode"><span class="nav-text">Filter Mode</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -883,7 +894,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">66k</span>
+    <span title="站点总字数">70k</span>
   
 
   

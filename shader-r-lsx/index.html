@@ -113,18 +113,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="看完数学部分后再来写的 CPU流水线将数据加载到显存中 把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中设置渲染状态这些状态定义了场景中的网格是怎么被渲染的例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCallDraw Call是一个命令,发起方是CPU,接收方是GPU.这个命令仅仅会指">
-<meta name="keywords" content="shader,unity,《shader入门精要》">
+  <meta name="description" content="看完数学部分后再来写的 CPU流水线将数据加载到显存中 把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中    设置渲染状态这些状态定义了场景中的网格是怎么被渲染的例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态   调用DrawCallDraw Call是一个命令,发起方是CPU,接收方是GPU.这个命">
+<meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第二章-渲染流水线">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-lsx/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="看完数学部分后再来写的 CPU流水线将数据加载到显存中 把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中设置渲染状态这些状态定义了场景中的网格是怎么被渲染的例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCallDraw Call是一个命令,发起方是CPU,接收方是GPU.这个命令仅仅会指">
+<meta property="og:description" content="看完数学部分后再来写的 CPU流水线将数据加载到显存中 把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中    设置渲染状态这些状态定义了场景中的网格是怎么被渲染的例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态   调用DrawCallDraw Call是一个命令,发起方是CPU,接收方是GPU.这个命">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T03:15:10.629Z">
+<meta property="og:updated_time" content="2019-03-21T00:20:44.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第二章-渲染流水线">
-<meta name="twitter:description" content="看完数学部分后再来写的 CPU流水线将数据加载到显存中 把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中设置渲染状态这些状态定义了场景中的网格是怎么被渲染的例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCallDraw Call是一个命令,发起方是CPU,接收方是GPU.这个命令仅仅会指">
+<meta name="twitter:description" content="看完数学部分后再来写的 CPU流水线将数据加载到显存中 把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中    设置渲染状态这些状态定义了场景中的网格是怎么被渲染的例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态   调用DrawCallDraw Call是一个命令,发起方是CPU,接收方是GPU.这个命">
 
 
 
@@ -473,7 +473,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-18 11:15:10" itemprop="dateModified" datetime="2019-03-18T11:15:10+08:00">2019-03-18</time>
+                <time title="修改时间：2019-03-21 08:20:44" itemprop="dateModified" datetime="2019-03-21T08:20:44+08:00">2019-03-21</time>
               
             
           </span>
@@ -559,8 +559,10 @@ window.console.log=()=>{};
         <p>看完数学部分后再来写的</p>
 <h2 id="CPU流水线"><a href="#CPU流水线" class="headerlink" title="CPU流水线"></a>CPU流水线</h2><h3 id="将数据加载到显存中"><a href="#将数据加载到显存中" class="headerlink" title="将数据加载到显存中"></a>将数据加载到显存中</h3><ol>
 <li>把渲染所需所有数据从硬盘加载到系统内存中</li>
-<li>网格和纹理等数据又被加载到显存中<h3 id="设置渲染状态"><a href="#设置渲染状态" class="headerlink" title="设置渲染状态"></a>设置渲染状态</h3>这些状态定义了场景中的网格是怎么被渲染的<br>例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.<br>如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  <h3 id="调用DrawCall"><a href="#调用DrawCall" class="headerlink" title="调用DrawCall"></a>调用DrawCall</h3>Draw Call是一个命令,发起方是CPU,接收方是GPU.<br>这个命令仅仅会指向一个需要被渲染的图元的列表,而不再包含任何材质信息–因为已经在上个阶段完成了.  </li>
+<li>网格和纹理等数据又被加载到显存中  </li>
 </ol>
+<h3 id="设置渲染状态"><a href="#设置渲染状态" class="headerlink" title="设置渲染状态"></a>设置渲染状态</h3><p>这些状态定义了场景中的网格是怎么被渲染的<br>例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.<br>如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  </p>
+<h3 id="调用DrawCall"><a href="#调用DrawCall" class="headerlink" title="调用DrawCall"></a>调用DrawCall</h3><p>Draw Call是一个命令,发起方是CPU,接收方是GPU.<br>这个命令仅仅会指向一个需要被渲染的图元的列表,而不再包含任何材质信息–因为已经在上个阶段完成了.  </p>
 <p>当给定一个Draw Call时,GPU会根据渲染状态(材质,纹理,着色器等)和所有输入的顶点数据来进行计算,最终输出到屏幕</p>
 <h2 id="GPU流水线"><a href="#GPU流水线" class="headerlink" title="GPU流水线"></a>GPU流水线</h2><p>顶点数据 -&gt; 顶点着色器 -&gt; 曲面细分着色器 -&gt; 几何着色器 -&gt; 裁剪 -&gt; 屏幕映射 -&gt; 三角形设置 -&gt; 三角形遍历 -&gt; 片元着色器 -&gt; 逐片元操作 -&gt; 屏幕图像</p>
 <h3 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h3><p>顶点无法销毁或创建顶点,也不可以获得顶点之间的联系.例如,我们无法判断两个顶点是否处于同一个网格.正是因为这样的相互独立性,GPU可以利用本身的特性并行化处理每一个顶点,这意味着这一阶段的处理速度会更快.<br>顶点着色器需要完成的主要工作有:<strong>坐标变换</strong>和<strong>逐顶点光照</strong><br>当然除了这两个主要任务外,顶点着色器还可以输出后续阶段所需的数据.  </p>
@@ -606,9 +608,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/shader/" rel="tag"># shader</a>
-          
             <a href="/tags/unity/" rel="tag"># unity</a>
+          
+            <a href="/tags/shader/" rel="tag"># shader</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           

@@ -114,7 +114,7 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
-<meta name="keywords" content="unity,shader,《shader入门精要》">
+<meta name="keywords" content="shader,unity,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第七章-基础纹理">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-standard-texture/index.html">
@@ -127,7 +127,8 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321094748.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321112732.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321114924.png">
-<meta property="og:updated_time" content="2019-03-21T03:54:09.463Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190321152037.png">
+<meta property="og:updated_time" content="2019-03-21T08:55:19.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第七章-基础纹理">
 <meta name="twitter:description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
@@ -463,7 +464,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：11:54:09" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
+              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：16:55:19" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
             
 
             
@@ -527,7 +528,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.8k</span>
+                <span title="本文字数">7k</span>
               
 
               
@@ -567,7 +568,32 @@ window.console.log=()=>{};
 <p>通常,我们选择Bilinear滤波格式.需要注意的是,有时我们不希望纹理看起来是模糊的,例如一些类似棋盘的纹理,我们希望它是像素风的,这时我们可能会选用Point模式.  </p>
 <h4 id="纹理的最大尺寸和纹理模式"><a href="#纹理的最大尺寸和纹理模式" class="headerlink" title="纹理的最大尺寸和纹理模式"></a>纹理的最大尺寸和纹理模式</h4><p><img src="https://pic.ggemo.com/picgo/20190321114924.png" alt="20190321114924.png"><br>当我们在不同平台发布游戏时,需要考虑目标平台的纹理尺寸和质量问题.Unity允许我们为不同目标平台选择不同的分辨率.<br>如果导入的纹理大小超过了Max Texture Size的设置值,那么Unity将会把该纹理缩放为这个最大分辨率.<br>理想情况下,导入的纹理可以是非正方形的,单长宽应该是2的幂.如果使用了非2的幂的大小的纹理,那么这些纹理往往会占用更多的内存空间,而且CPU读取该纹理的速度也会下降.有一些平台甚至不支持这种NPOT纹理,这时Unity在内部会把它缩放成最近的2的幂大小.  </p>
 <p>而Format则决定了Unity内部使用哪种格式来存储该纹理.如果我们将Texture Type设置为Advanced,那么会有更多的Format供我们选择.  </p>
-<h2 id="凹凸映射"><a href="#凹凸映射" class="headerlink" title="凹凸映射"></a>凹凸映射</h2>
+<h2 id="凹凸映射"><a href="#凹凸映射" class="headerlink" title="凹凸映射"></a>凹凸映射</h2><p>凹凸映射的目的是使用一张纹理来修改模型表面的法线,以便模型提供更多的细节.<br>这种方法不会真的改变顶点位置,只是是模型看起来凹凸不平  </p>
+<h3 id="高度纹理"><a href="#高度纹理" class="headerlink" title="高度纹理"></a>高度纹理</h3><p>使用一张高度图来实现凹凸映射<br>高度图中存储的是<strong>强度值</strong>(intensity),它用于表示模型表面局部的海拔高度.  </p>
+<p>颜色越浅表明该位置的表面越向外凸起,越深表明该位置的表面越向里凹.  </p>
+<p>这种方法的优点是比较直观.我们可以从高度图明确的知道一个模型表面的凹凸情况.<br>缺点是计算更加复杂,在实时计算中不能直接得到表面法线,而是由像素的灰度值计算而得.因此需要消耗更多的性能.</p>
+<h3 id="法线纹理"><a href="#法线纹理" class="headerlink" title="法线纹理"></a>法线纹理</h3><p>法线纹理中存储的是表面的法线方向.由于法线方向的分量范围在[-1, 1],而像素的分量在[0, 1],因此我们需要做一个映射,通常使用的映射是: pixel = (normal + 1)/2  </p>
+<p>这要求我们在Shader中对法线纹理进行纹理采样后,还需要对结果进行一次反映射的过程,以得到原先的法线方向.反映射的过程实际就是使用上面映射函数的逆函数: normal = pixwl * 2 - 1  </p>
+<p>由于方向是相对于坐标空间来说的,那么法线纹理存在哪个坐标空间中呢?  </p>
+<h4 id="模型空间的法线纹理和切线空间的法线纹理"><a href="#模型空间的法线纹理和切线空间的法线纹理" class="headerlink" title="模型空间的法线纹理和切线空间的法线纹理"></a>模型空间的法线纹理和切线空间的法线纹理</h4><h5 id="模型空间的法线纹理"><a href="#模型空间的法线纹理" class="headerlink" title="模型空间的法线纹理"></a>模型空间的法线纹理</h5><p>object-space normal map<br>将修改后的模型空间的表面法线存储在一张纹理中.  </p>
+<h5 id="切线空间的法线纹理"><a href="#切线空间的法线纹理" class="headerlink" title="切线空间的法线纹理"></a>切线空间的法线纹理</h5><p>tangent-space normal space<br>对于模型的每个顶点,他都有一个属于自己的切线空间.<br>这个切线空间的原点就是顶点本身,而z轴就是顶点的法线方向,x轴是顶点的切线方向,而y轴可由法线和切线的叉积而得,也被称为<strong>副切线</strong>(bitangent).  </p>
+<h5 id="映射到纹理上的区别"><a href="#映射到纹理上的区别" class="headerlink" title="映射到纹理上的区别"></a>映射到纹理上的区别</h5><p><img src="https://pic.ggemo.com/picgo/20190321152037.png" alt="20190321152037.png"><br>从图可以看出,模型空间下的法线纹理看起来是五颜六色的,而是因为所有法线所在的坐标空间是同一个坐标空间,即模型空间,而每个点存储的法线方向是各异的.<br>有的是(0, 1, 0),映射后存储到纹理中就对应了RGB(0.5, 1, 0.5),浅绿色;有的是(0, -1, 0),映射后存储到纹理中对应了RGB(0.5,0,0.5)的紫色.  </p>
+<p>而切线空间下的法线纹理几乎全部都是浅蓝色.这是因为,每个发现方向所在的坐标空间是不一样的,即表面每点各自的切线空间.<br>这种法线纹理其实是存储了每个点在各自的切线空间中的法线扰动方向.<br>也就是说,如果一个点的法线方向不变,那么它在它的切线空间中,新法线方向就是z轴方向,即(0,0,1),经过映射后存储在纹理中就对应了RGB(0.5, 0.5, 1)的浅蓝色.</p>
+<h5 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h5><p>实际上,法线本身存储在哪个空间都是可以的,但问题是,我们的目的是计算光照而非单纯的计算法线.<br>而选择哪个空间,意味着我们需要把不同的信息转换到相应的坐标系中.<br>例如,如果选择了切线空间,我们需要把从法线纹理中得到的法线方向从切线空间转换到世界空间或其他空间中.  </p>
+<p>总体来说,用模型空间来存储法线的优点如下:  </p>
+<ul>
+<li>实现简单,更佳直观<br>  我们甚至不需要模型原始的法线和切线等信息,也就是说,计算更少.生成它也很简单.而如果要生成切线空间下的法线纹理,由于模型的切线一般是和UV方向相同,因此想要得到效果比较好的法线映射就要求纹理映射也是连续的</li>
+<li>边界平滑<br>  在纹理坐标的缝合处和尖锐的边角部分,可见的突变(缝隙)较少.这是因为模型空间下的法线纹理存储的是统一坐标系下的法线信息.因此在边界上通过插值得到的法线可以平滑变换.而切线空间下的法线纹理中的法线信息是依靠纹理坐标的方向得到的,可能会在边缘处或尖锐部分造成更多的可见缝合现象  </li>
+</ul>
+<p>但使用切线空间有更多优点:  </p>
+<ul>
+<li>自由度很高.<br>  模型空间下的法线纹理记录的是<strong>绝对</strong>的法线信息,仅可用于创建它时的那个模型,而应用到其他模型上效果就完全错误了.而切线空间下的法线纹理记录的是<strong>相对</strong>法线信息,即便把该纹理应用到一个完全不同的网格上,也可以得到一个合理的效果.  </li>
+<li>可进行UV动画.<br>  比如我们可以移动一个纹理的UV坐标来实现一个凹凸移动的效果,但使用模型空间下的法线纹理会得到完全错误的结果.这种UV动画经常在水或者火山熔岩这种类型的物体上会经常用到.</li>
+<li>可压缩<br>  由于切线空间下的法线纹理中法线z方向总是正方向,因此我们可以仅存储XY方向,而推导出Z方向.而模型空间下的法线纹理由于每个方向都是可能的,因此必须存储3个方向的值不可压缩.</li>
+</ul>
+<h3 id="实践-1"><a href="#实践-1" class="headerlink" title="实践"></a>实践</h3><h4 id="在切线空间下计算光照模型"><a href="#在切线空间下计算光照模型" class="headerlink" title="在切线空间下计算光照模型"></a>在切线空间下计算光照模型</h4><p>在片元着色器中通过纹理采样得到切线空间下的法线,然后再与切线空间下的视角,光照方向进行计算,得到最终的光照效果.<br>为此,我们需要在顶点着色器中把视角方向和光照方向从模型空间变换到切线空间中.即我们需要知道<strong>模型空间到切线空间的变换矩阵</strong>.这个矩阵的逆矩阵,即从切线空间变换到模型空间的变换矩阵,是很容易求得的: 我们在顶点着色器中按切线(x轴),副切线(y轴),法线(z轴)的顺序<strong>按列</strong>排列即可得到(数学原理见4.6.2节).在4.6.2节我们已经知道,如果一个变换仅存在旋转和平移变换,那么这个矩阵的转置矩阵就等于它的逆矩阵,而从切线空间到模型空间的变换正是符合这样的要求的变换.因此,我们把切线(x轴),副切线(y轴),法线(z轴)的顺序<strong>按行</strong>排列(因为转置了),即可得到模型空间到切线空间的变换矩阵.  </p>
+<p><code>`</code>C</p>
+
       
     </div>
 
@@ -590,9 +616,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/unity/" rel="tag"># unity</a>
-          
             <a href="/tags/shader/" rel="tag"># shader</a>
+          
+            <a href="/tags/unity/" rel="tag"># unity</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           
@@ -864,7 +890,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单张纹理"><span class="nav-text">单张纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纹理的属性"><span class="nav-text">纹理的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Texture-Type"><span class="nav-text">Texture Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Alpha-Source"><span class="nav-text">Alpha Source</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrap-Mode"><span class="nav-text">Wrap Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter-Mode"><span class="nav-text">Filter Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纹理的最大尺寸和纹理模式"><span class="nav-text">纹理的最大尺寸和纹理模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#凹凸映射"><span class="nav-text">凹凸映射</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单张纹理"><span class="nav-text">单张纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纹理的属性"><span class="nav-text">纹理的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Texture-Type"><span class="nav-text">Texture Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Alpha-Source"><span class="nav-text">Alpha Source</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrap-Mode"><span class="nav-text">Wrap Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter-Mode"><span class="nav-text">Filter Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纹理的最大尺寸和纹理模式"><span class="nav-text">纹理的最大尺寸和纹理模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#凹凸映射"><span class="nav-text">凹凸映射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高度纹理"><span class="nav-text">高度纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#法线纹理"><span class="nav-text">法线纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模型空间的法线纹理和切线空间的法线纹理"><span class="nav-text">模型空间的法线纹理和切线空间的法线纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模型空间的法线纹理"><span class="nav-text">模型空间的法线纹理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切线空间的法线纹理"><span class="nav-text">切线空间的法线纹理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#映射到纹理上的区别"><span class="nav-text">映射到纹理上的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何选择"><span class="nav-text">如何选择</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践-1"><span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在切线空间下计算光照模型"><span class="nav-text">在切线空间下计算光照模型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -904,7 +930,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">73k</span>
   
 
   

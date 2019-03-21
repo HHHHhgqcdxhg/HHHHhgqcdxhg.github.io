@@ -126,7 +126,8 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321092516.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321094748.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321112732.png">
-<meta property="og:updated_time" content="2019-03-21T03:41:12.893Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190321114924.png">
+<meta property="og:updated_time" content="2019-03-21T03:54:09.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第七章-基础纹理">
 <meta name="twitter:description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
@@ -462,7 +463,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：11:41:12" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
+              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：11:54:09" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
             
 
             
@@ -526,7 +527,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.5k</span>
+                <span title="本文字数">4.8k</span>
               
 
               
@@ -563,8 +564,10 @@ window.console.log=()=>{};
 <p>在内部实现上,Point模式使用了<strong>最邻近</strong>(nearest neighbor)滤波.在放大或缩小时,它的采样像素数目通常只有一个,因此图像看起来可能会有像素风格的效果.  </p>
 <p>而Bilinear滤波则使用了<strong>线性滤波</strong>,对于每个像素,它会找到四个临近像素,然后对它们进行线性插值混合后得到最终像素,因此图像看起来模糊了.  </p>
 <p>而Trilinear滤波几乎是和Bilinear一样的,只是Trilinear还会在多级渐远纹理之间进行了混合.如果一张纹理没有使用多级渐远纹理技术,那么Trilinear得到的结果就和Bilinear的完全一样了.  </p>
-<p>通常,我们选择Bilinear滤波格式.需要注意的是,有时我们不希望纹理看起来是模糊的,例如一些类似棋盘的纹理,我们希望它是像素风的,这时我们可能会选用Point模式.</p>
-
+<p>通常,我们选择Bilinear滤波格式.需要注意的是,有时我们不希望纹理看起来是模糊的,例如一些类似棋盘的纹理,我们希望它是像素风的,这时我们可能会选用Point模式.  </p>
+<h4 id="纹理的最大尺寸和纹理模式"><a href="#纹理的最大尺寸和纹理模式" class="headerlink" title="纹理的最大尺寸和纹理模式"></a>纹理的最大尺寸和纹理模式</h4><p><img src="https://pic.ggemo.com/picgo/20190321114924.png" alt="20190321114924.png"><br>当我们在不同平台发布游戏时,需要考虑目标平台的纹理尺寸和质量问题.Unity允许我们为不同目标平台选择不同的分辨率.<br>如果导入的纹理大小超过了Max Texture Size的设置值,那么Unity将会把该纹理缩放为这个最大分辨率.<br>理想情况下,导入的纹理可以是非正方形的,单长宽应该是2的幂.如果使用了非2的幂的大小的纹理,那么这些纹理往往会占用更多的内存空间,而且CPU读取该纹理的速度也会下降.有一些平台甚至不支持这种NPOT纹理,这时Unity在内部会把它缩放成最近的2的幂大小.  </p>
+<p>而Format则决定了Unity内部使用哪种格式来存储该纹理.如果我们将Texture Type设置为Advanced,那么会有更多的Format供我们选择.  </p>
+<h2 id="凹凸映射"><a href="#凹凸映射" class="headerlink" title="凹凸映射"></a>凹凸映射</h2>
       
     </div>
 
@@ -861,7 +864,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单张纹理"><span class="nav-text">单张纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纹理的属性"><span class="nav-text">纹理的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Texture-Type"><span class="nav-text">Texture Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Alpha-Source"><span class="nav-text">Alpha Source</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrap-Mode"><span class="nav-text">Wrap Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter-Mode"><span class="nav-text">Filter Mode</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单张纹理"><span class="nav-text">单张纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纹理的属性"><span class="nav-text">纹理的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Texture-Type"><span class="nav-text">Texture Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Alpha-Source"><span class="nav-text">Alpha Source</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrap-Mode"><span class="nav-text">Wrap Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter-Mode"><span class="nav-text">Filter Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纹理的最大尺寸和纹理模式"><span class="nav-text">纹理的最大尺寸和纹理模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#凹凸映射"><span class="nav-text">凹凸映射</span></a></li></ol></div>
             
 
           </div>
@@ -901,7 +904,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">70k</span>
+    <span title="站点总字数">71k</span>
   
 
   

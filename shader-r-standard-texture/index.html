@@ -114,7 +114,7 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
-<meta name="keywords" content="shader,unity,《shader入门精要》">
+<meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第七章-基础纹理">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-standard-texture/index.html">
@@ -125,7 +125,8 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321092454.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321092516.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190321094748.png">
-<meta property="og:updated_time" content="2019-03-21T03:22:28.943Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190321112732.png">
+<meta property="og:updated_time" content="2019-03-21T03:41:12.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第七章-基础纹理">
 <meta name="twitter:description" content="纹理的最初目的是使用一张图片来控制模型的外观.使用纹理映射(texture mapping)技术,我们可以把一张图片”黏”在模型表面,逐纹素(texel)地控制模型的颜色   在美工人员建模的时候,通常会在建模软件中利用纹理展开技术把纹理映射坐标(texture-mapping coordinates)存储在每个顶点上.   单张纹理实践123456789101112131415161718192">
@@ -461,7 +462,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：11:22:28" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
+              <time title="创建时间：2019-03-21 08:11:39 / 修改时间：11:41:12" itemprop="dateCreated datePublished" datetime="2019-03-21T08:11:39+08:00">2019-03-21</time>
             
 
             
@@ -525,7 +526,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.1k</span>
+                <span title="本文字数">4.5k</span>
               
 
               
@@ -556,7 +557,13 @@ window.console.log=()=>{};
 <h3 id="纹理的属性"><a href="#纹理的属性" class="headerlink" title="纹理的属性"></a>纹理的属性</h3><h4 id="Texture-Type"><a href="#Texture-Type" class="headerlink" title="Texture Type"></a>Texture Type</h4><p>书上讲的TextureType好像过时了,现在是这样的:<br><img src="https://pic.ggemo.com/picgo/20190321092454.png" alt="20190321092454.png"> <img src="https://pic.ggemo.com/picgo/20190321092516.png" alt="20190321092516.png"><br>这里使用最普通的texture,在后面的法线纹理一节,我们会使用Normal map类型,在后面的章节中,我们还会看到Cubemap等高级纹理类型.<br>我们之所以要为纹理选择合适的类型,是因为只有这样才会让Unity知道我们的意图,为Unity Shader传递正确的纹理,并在一些情况下让Unity对该纹理进行优化  </p>
 <h4 id="Alpha-Source"><a href="#Alpha-Source" class="headerlink" title="Alpha Source"></a>Alpha Source</h4><p>如果选择了From Gray Scale,那么透明通道的值将会由每个像素的灰度值生成.<br>关于透明效果会在第8章讲到  </p>
 <h4 id="Wrap-Mode"><a href="#Wrap-Mode" class="headerlink" title="Wrap Mode"></a>Wrap Mode</h4><p>当纹理坐标超过[0, 1]返回后将会如何被平铺.<br>Repeat下,纹理将会重复.<br>Clamp下将会对纹理进行截取.  </p>
-<h4 id="Filter-Mode"><a href="#Filter-Mode" class="headerlink" title="Filter Mode"></a>Filter Mode</h4><p>决定了当纹理由于变换而产生拉伸时将会采用哪种滤波模式.<br>Filter Mode支持三种模式: Point, Bilinear, Trilinear.它们得到的图片滤波效果会依次提升,但需要消耗的性能也依次增大<br>纹理滤波会影响放大或缩小纹理时得到的图片的质量.<br><img src="https://pic.ggemo.com/picgo/20190321094748.png" alt="20190321094748.png"><br>纹理的缩小过程比放大更复杂一些.缩小时,原纹理中的多个像素将会对应一个目标像素.纹理缩小更加复杂的原因在于我们往往需要处理抗锯齿问题,一个最常使用的方法就是使用<strong>多级渐远纹理</strong>(mipmapping)技术.<br>多级渐远纹理技术将原纹理提前用滤波处理来得到很多更小的图像,形成一个图像金字塔,每一层都是对上一层图像降采样的结果.这样在实时运行时,就可以快速得到结果像素.<br>例如当摄像机较远的时候,可以直接使用较小的纹理.<br>缺点是需要使用一定空间用于存储这些多级渐远纹理,通常会多占33%的内存空间.<br>在Unity中,我们可以在纹理导入面板中,首先将texture type选择成advanced,再勾选Generate Mip Maps即可开启多级渐远纹理技术.</p>
+<h4 id="Filter-Mode"><a href="#Filter-Mode" class="headerlink" title="Filter Mode"></a>Filter Mode</h4><p>决定了当纹理由于变换而产生拉伸时将会采用哪种滤波模式.<br>Filter Mode支持三种模式: Point, Bilinear, Trilinear.它们得到的图片滤波效果会依次提升,但需要消耗的性能也依次增大<br>纹理滤波会影响放大或缩小纹理时得到的图片的质量.<br><img src="https://pic.ggemo.com/picgo/20190321094748.png" alt="20190321094748.png"><br>纹理的缩小过程比放大更复杂一些.缩小时,原纹理中的多个像素将会对应一个目标像素.纹理缩小更加复杂的原因在于我们往往需要处理抗锯齿问题,一个最常使用的方法就是使用<strong>多级渐远纹理</strong>(mipmapping)技术.<br>多级渐远纹理技术将原纹理提前用滤波处理来得到很多更小的图像,形成一个图像金字塔,每一层都是对上一层图像降采样的结果.这样在实时运行时,就可以快速得到结果像素.<br>例如当摄像机较远的时候,可以直接使用较小的纹理.<br>缺点是需要使用一定空间用于存储这些多级渐远纹理,通常会多占33%的内存空间.<br>在Unity中,我们可以在纹理导入面板中,首先将texture type选择成advanced,再勾选Generate Mip Maps即可开启多级渐远纹理技术.  </p>
+<hr>
+<p><img src="https://pic.ggemo.com/picgo/20190321112732.png" alt="20190321112732.png"><br>这张图是,从一个倾斜角度观察一个网格结构的地板时,使用不同的Filter Mode(同时也使用了多级渐远纹理技术)得到的效果.  </p>
+<p>在内部实现上,Point模式使用了<strong>最邻近</strong>(nearest neighbor)滤波.在放大或缩小时,它的采样像素数目通常只有一个,因此图像看起来可能会有像素风格的效果.  </p>
+<p>而Bilinear滤波则使用了<strong>线性滤波</strong>,对于每个像素,它会找到四个临近像素,然后对它们进行线性插值混合后得到最终像素,因此图像看起来模糊了.  </p>
+<p>而Trilinear滤波几乎是和Bilinear一样的,只是Trilinear还会在多级渐远纹理之间进行了混合.如果一张纹理没有使用多级渐远纹理技术,那么Trilinear得到的结果就和Bilinear的完全一样了.  </p>
+<p>通常,我们选择Bilinear滤波格式.需要注意的是,有时我们不希望纹理看起来是模糊的,例如一些类似棋盘的纹理,我们希望它是像素风的,这时我们可能会选用Point模式.</p>
 
       
     </div>
@@ -580,9 +587,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/shader/" rel="tag"># shader</a>
-          
             <a href="/tags/unity/" rel="tag"># unity</a>
+          
+            <a href="/tags/shader/" rel="tag"># shader</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           

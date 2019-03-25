@@ -121,7 +121,7 @@ window.console.log=()=>{};
 <meta property="og:description" content="ffmpeg下载地址: https://www.bilibili.com/read/cv1083415/youtube-dl下载地址: https://www.bilibili.com/read/cv1083415/   123456789101112131415161718192021222324252627282930import os,platformdef liveTrans(fromPa">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/QQ图片20190325184115.png">
-<meta property="og:updated_time" content="2019-03-25T10:51:59.355Z">
+<meta property="og:updated_time" content="2019-03-25T10:54:24.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="油管直播转推流到B站">
 <meta name="twitter:description" content="ffmpeg下载地址: https://www.bilibili.com/read/cv1083415/youtube-dl下载地址: https://www.bilibili.com/read/cv1083415/   123456789101112131415161718192021222324252627282930import os,platformdef liveTrans(fromPa">
@@ -457,7 +457,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-25 18:40:21 / 修改时间：18:51:59" itemprop="dateCreated datePublished" datetime="2019-03-25T18:40:21+08:00">2019-03-25</time>
+              <time title="创建时间：2019-03-25 18:40:21 / 修改时间：18:54:24" itemprop="dateCreated datePublished" datetime="2019-03-25T18:40:21+08:00">2019-03-25</time>
             
 
             
@@ -503,7 +503,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.3k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -529,7 +529,9 @@ window.console.log=()=>{};
       
         <p>ffmpeg下载地址: <a href="https://www.bilibili.com/read/cv1083415/" target="_blank" rel="noopener">https://www.bilibili.com/read/cv1083415/</a><br>youtube-dl下载地址: <a href="https://www.bilibili.com/read/cv1083415/" target="_blank" rel="noopener">https://www.bilibili.com/read/cv1083415/</a>  </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,platform</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">liveTrans</span><span class="params">(fromPath, toPath, ffmpegPath, youtubeDlPATH)</span>:</span></span><br><span class="line"></span><br><span class="line">    getRealFromPathCMD = youtubeDlPATH + <span class="string">" -g "</span> + fromPath</span><br><span class="line">    realFromPath = os.popen(getRealFromPathCMD).read().strip()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> platformName[:<span class="number">7</span>] == <span class="string">"Windows"</span>:</span><br><span class="line">        postCMD = ffmpegPath + <span class="string">' -i "'</span> + realFromPath + <span class="string">'" -vcodec copy -acodec aac -f flv "'</span> + toPath + <span class="string">'"'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        postCMD = ffmpegPath + <span class="string">' -i "'</span> + realFromPath + <span class="string">'" -c:v copy -c:a aac -b:a 320k -ar 44100 -strict -2 -f flv "'</span> + toPath + <span class="string">'"'</span></span><br><span class="line">    os.system(postCMD)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    platformName = platform.platform()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> platformName[:<span class="number">7</span>] == <span class="string">"Windows"</span>:</span><br><span class="line">        ffmpegPATH = <span class="string">r"D:\ProgramFiles\ffmpeg\bin\ffmpeg.exe"</span></span><br><span class="line">        youtubeDlPATH = <span class="string">r"D:\ProgramFiles\ffmpeg\bin\youtube-dl.exe"</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ffmpegPATH = <span class="string">"ffmpeg"</span></span><br><span class="line">        youtubeDlPATH = <span class="string">"youtube-dl"</span></span><br><span class="line"></span><br><span class="line">    ffmpegPath = <span class="string">"ffmpeg"</span></span><br><span class="line">    youtubeDlPath = <span class="string">"youtube-dl"</span></span><br><span class="line">    liveTrans(fromPath=<span class="string">"frompath here"</span>,</span><br><span class="line">              toPath=<span class="string">"toPath here"</span>,</span><br><span class="line">              ffmpegPath=ffmpegPATH, youtubeDlPATH=youtubeDlPATH)</span><br></pre></td></tr></table></figure>
-<p>emm,结果windows下报错连接不上youtube那个流的链接…新租的centos倒是可以…不知道是windows下的ffmpeg命令错了还是那个流不走代理…<br><img src="https://pic.ggemo.com/picgo/QQ图片20190325184115.png" alt="QQ图片20190325184115.png"></p>
+<p>emm,结果windows下报错连接不上youtube那个流的链接…新租的centos倒是可以…不知道是windows下的ffmpeg命令错了还是那个流不走代理…<br><img src="https://pic.ggemo.com/picgo/QQ图片20190325184115.png" alt="QQ图片20190325184115.png">  </p>
+<p>centos下安装ffmpeg和youtube-dl:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br><span class="line">sudo rpm –import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">sudo rpm –import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro</span><br><span class="line">sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm</span><br><span class="line">yum install -y ffmpeg</span><br><span class="line"></span><br><span class="line">wget http://youtube-dl.org/latest/youtube-dl -O /usr/local/bin/youtube-dl</span><br><span class="line">chmod a+x /usr/local/bin/youtube-dl</span><br></pre></td></tr></table></figure>
 
       
     </div>

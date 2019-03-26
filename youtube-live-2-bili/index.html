@@ -121,7 +121,7 @@ window.console.log=()=>{};
 <meta property="og:description" content="ffmpeg下载地址: http://ffmpeg.zeranoe.com/builds/youtube-dl下载地址: http://www.youtube-dl.org/   123456789101112131415161718192021222324252627282930import os,platformdef liveTrans(fromPath, toPath, ffmpegPat">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/QQ图片20190325184115.png">
-<meta property="og:updated_time" content="2019-03-25T11:23:21.190Z">
+<meta property="og:updated_time" content="2019-03-25T13:20:15.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="油管直播转推流到B站">
 <meta name="twitter:description" content="ffmpeg下载地址: http://ffmpeg.zeranoe.com/builds/youtube-dl下载地址: http://www.youtube-dl.org/   123456789101112131415161718192021222324252627282930import os,platformdef liveTrans(fromPath, toPath, ffmpegPat">
@@ -457,7 +457,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-25 18:40:21 / 修改时间：19:23:21" itemprop="dateCreated datePublished" datetime="2019-03-25T18:40:21+08:00">2019-03-25</time>
+              <time title="创建时间：2019-03-25 18:40:21 / 修改时间：21:20:15" itemprop="dateCreated datePublished" datetime="2019-03-25T18:40:21+08:00">2019-03-25</time>
             
 
             
@@ -503,7 +503,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">2k</span>
               
 
               
@@ -532,6 +532,8 @@ window.console.log=()=>{};
 <p>emm,结果windows下报错连接不上youtube那个流的链接…新租的centos倒是可以…不知道是windows下的ffmpeg命令错了还是那个流不走代理…<br><img src="https://pic.ggemo.com/picgo/QQ图片20190325184115.png" alt="QQ图片20190325184115.png">  </p>
 <p>centos下安装ffmpeg和youtube-dl:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br><span class="line">sudo rpm –import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">sudo rpm –import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro</span><br><span class="line">sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm</span><br><span class="line">yum install -y ffmpeg</span><br><span class="line"></span><br><span class="line">wget http://youtube-dl.org/latest/youtube-dl -O /usr/local/bin/youtube-dl</span><br><span class="line">chmod a+x /usr/local/bin/youtube-dl</span><br></pre></td></tr></table></figure>
+<p>ffmpeg支持多个输出,linux下postCMD改为这个,边推流边保存到本地.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">postCMD = ffmpegPath + &apos; -i &quot;&apos; + realFromPath + &apos;&quot; -c:v copy -c:a aac -b:a 320k -ar 44100 -strict -2 -f flv &quot;&apos; + toPath + &apos;&quot;&apos; + &apos; -c:v copy -c:a aac -b:a 320k -ar 44100 -strict -2 -f flv &quot;./tmp.flv&quot;&apos;</span><br></pre></td></tr></table></figure>
 <p>参考: <a href="https://www.bilibili.com/read/cv1083415/" target="_blank" rel="noopener">https://www.bilibili.com/read/cv1083415/</a>  </p>
 
       
@@ -834,7 +836,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">99k</span>
+    <span title="站点总字数">100k</span>
   
 
   

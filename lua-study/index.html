@@ -121,7 +121,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="Lua语法基础Lua令牌标记Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号.   1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;) 注释Lua的注释以1234```lua---[[这里是注释]]print(&amp;quot;23333&amp;quot;) Lua变量根据变量范围,Lua变量有三种类型:    全局变量  所有变量被声明为全局变量,除">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T13:22:20.786Z">
+<meta property="og:updated_time" content="2019-04-01T13:28:53.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lua-study">
 <meta name="twitter:description" content="Lua语法基础Lua令牌标记Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号.   1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;) 注释Lua的注释以1234```lua---[[这里是注释]]print(&amp;quot;23333&amp;quot;) Lua变量根据变量范围,Lua变量有三种类型:    全局变量  所有变量被声明为全局变量,除">
@@ -456,7 +456,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-04-01 20:10:45 / 修改时间：21:22:20" itemprop="dateCreated datePublished" datetime="2019-04-01T20:10:45+08:00">2019-04-01</time>
+              <time title="创建时间：2019-04-01 20:10:45 / 修改时间：21:28:53" itemprop="dateCreated datePublished" datetime="2019-04-01T20:10:45+08:00">2019-04-01</time>
             
 
             
@@ -520,7 +520,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2k</span>
+                <span title="本文字数">2.2k</span>
               
 
               
@@ -689,7 +689,9 @@ window.console.log=()=>{};
 <li>再次评估条件.如果为真,则循环执行并且过程自身重复(循环体,然后递增步骤,然后再次调节).条件变为false后,for循环终止</li>
 </ul>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>…这语法…我佛辣<br>顺便试了一下,lua用不着游标卡尺…</p>
+<p>…这语法…我佛辣<br>顺便试了一下,lua用不着游标卡尺…  </p>
+<h3 id="repeat…until循环"><a href="#repeat…until循环" class="headerlink" title="repeat…until循环"></a>repeat…until循环</h3><p>与在顶部测试循环条件的for和while不同,lua的repeat…until循环在底部检查循环的条件.<br>repeat…until循环类似while循环,但是repeat…until循环保证至少执行一次.  </p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">100</span></span><br><span class="line"><span class="keyword">repeat</span></span><br><span class="line">    x = x + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"><span class="keyword">until</span> x &gt; <span class="number">10</span></span><br><span class="line"><span class="comment">---[[101]]</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -987,7 +989,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua语法基础"><span class="nav-text">Lua语法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua令牌标记"><span class="nav-text">Lua令牌标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua变量"><span class="nav-text">Lua变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua变量声明和定义"><span class="nav-text">Lua变量声明和定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua数据类型"><span class="nav-text">Lua数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type函数"><span class="nav-text">type函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua运算符"><span class="nav-text">Lua运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂项运算符"><span class="nav-text">杂项运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua的循环"><span class="nav-text">Lua的循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-text">for循环</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua语法基础"><span class="nav-text">Lua语法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua令牌标记"><span class="nav-text">Lua令牌标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua变量"><span class="nav-text">Lua变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua变量声明和定义"><span class="nav-text">Lua变量声明和定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua数据类型"><span class="nav-text">Lua数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type函数"><span class="nav-text">type函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua运算符"><span class="nav-text">Lua运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂项运算符"><span class="nav-text">杂项运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua的循环"><span class="nav-text">Lua的循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat…until循环"><span class="nav-text">repeat…until循环</span></a></li></ol></li></ol></div>
             
 
           </div>

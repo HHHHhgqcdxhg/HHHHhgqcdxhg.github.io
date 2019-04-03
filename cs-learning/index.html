@@ -536,8 +536,8 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="c数据类型"><a class="markdownIt-Anchor" href="#c数据类型"></a> C#数据类型</h2>
-<h3 id="值类型"><a class="markdownIt-Anchor" href="#值类型"></a> 值类型</h3>
+        <h2 id="c%23%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#c数据类型"></a> C#数据类型</h2>
+<h3 id="%E5%80%BC%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#值类型"></a> 值类型</h3>
 <table>
 <thead>
 <tr>
@@ -628,25 +628,25 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<h3 id="引用类型"><a class="markdownIt-Anchor" href="#引用类型"></a> 引用类型</h3>
-<h4 id="object类型"><a class="markdownIt-Anchor" href="#object类型"></a> Object类型</h4>
+<h3 id="%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#引用类型"></a> 引用类型</h3>
+<h4 id="object%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#object类型"></a> Object类型</h4>
 <p><strong>对象(Object)类型</strong>是C#通用类型系统中所有数据类型的终极基类.<br>
 Object类可以被分配给任何其他类型的值.但是在分配之前,需要先进行类型转换.<br>
 当一个值类型转换为对象类型时,被称为<strong>装箱</strong>,当一个对象类型转换为值类型时,被称为<strong>拆箱</strong></p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> obj;</span><br><span class="line">obj = <span class="number">100</span>; <span class="comment">// 这是装箱</span></span><br></pre></td></tr></table></figure>
-<h4 id="dynamic类型"><a class="markdownIt-Anchor" href="#dynamic类型"></a> Dynamic类型</h4>
+<h4 id="dynamic%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#dynamic类型"></a> Dynamic类型</h4>
 <p><strong>动态(Dynamic)类型</strong>变量可以存储任何类型</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dynamic</span> a = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="string类型"><a class="markdownIt-Anchor" href="#string类型"></a> String类型</h4>
+<h4 id="string%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#string类型"></a> String类型</h4>
 <p><strong>字符串(String)类型</strong>允许给变量分配任何字符串值.<br>
 C#的字符串只能是双引号,不能单引号.<br>
 字符串前面加@,则该字符串的转义符()将被当做普通字符对待(就像python字符串前面加r似的)</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">"a\nb"</span>);</span><br><span class="line"><span class="comment">// a</span></span><br><span class="line"><span class="comment">// b</span></span><br><span class="line">Console.WriteLine(<span class="string">@"a\nb"</span>);</span><br><span class="line"><span class="comment">// a\nb</span></span><br></pre></td></tr></table></figure>
-<h4 id="指针类型"><a class="markdownIt-Anchor" href="#指针类型"></a> 指针类型</h4>
+<h4 id="%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#指针类型"></a> 指针类型</h4>
 <p>**指针类型(Pointer types)**变量存储另一种类型的内存地址.<br>
 当一个代码块使用 unsafe 修饰符标记时，C#允许在函数中使用指针变量。不安全代码或非托管代码是指使用了指针变量的代码块。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* cptr;</span><br></pre></td></tr></table></figure>
-<h2 id="类型转换"><a class="markdownIt-Anchor" href="#类型转换"></a> 类型转换</h2>
+<h2 id="%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><a class="markdownIt-Anchor" href="#类型转换"></a> 类型转换</h2>
 <p>类型转换从根本上说是类型铸造,或者说是把数据从一种类型转换到另一种类型.<br>
 在C#中,类型转换有两种形式:</p>
 <ul>
@@ -655,23 +655,23 @@ C#的字符串只能是双引号,不能单引号.<br>
 <li>显式类型转换<br>
 即强制类型转换.需要强制转换运算符,可能会造成数据丢失</li>
 </ul>
-<h3 id="类型转换方法"><a class="markdownIt-Anchor" href="#类型转换方法"></a> 类型转换方法</h3>
+<h3 id="%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95"><a class="markdownIt-Anchor" href="#类型转换方法"></a> 类型转换方法</h3>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">bool</span> b = Convert.ToBoolean(i);</span><br><span class="line">Console.Write(b);</span><br><span class="line"><span class="comment">// True</span></span><br></pre></td></tr></table></figure>
-<h2 id="循环"><a class="markdownIt-Anchor" href="#循环"></a> 循环</h2>
-<h3 id="foreach循环"><a class="markdownIt-Anchor" href="#foreach循环"></a> foreach循环</h3>
+<h2 id="%E5%BE%AA%E7%8E%AF"><a class="markdownIt-Anchor" href="#循环"></a> 循环</h2>
+<h3 id="foreach%E5%BE%AA%E7%8E%AF"><a class="markdownIt-Anchor" href="#foreach循环"></a> foreach循环</h3>
 <p>使用foreach可以迭代数组或者一个集合对象</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] i = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">114</span>, <span class="number">514</span>, <span class="number">1919</span>, <span class="number">810</span>&#125;;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> a <span class="keyword">in</span> i)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(a);</span><br><span class="line">    <span class="comment">// 1145141919810</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="封装"><a class="markdownIt-Anchor" href="#封装"></a> 封装</h2>
+<h2 id="%E5%B0%81%E8%A3%85"><a class="markdownIt-Anchor" href="#封装"></a> 封装</h2>
 <h3 id="public"><a class="markdownIt-Anchor" href="#public"></a> Public</h3>
 <h3 id="private"><a class="markdownIt-Anchor" href="#private"></a> Private</h3>
 <h3 id="protected"><a class="markdownIt-Anchor" href="#protected"></a> Protected</h3>
 <p>允许子类访问它的基类的成员函数和成员变量.</p>
 <h3 id="internal"><a class="markdownIt-Anchor" href="#internal"></a> Internal</h3>
 <p>允许一个类将其成员变量和成员函数暴露给<strong>当前函数</strong>中的其他函数和对象</p>
-<h2 id="方法"><a class="markdownIt-Anchor" href="#方法"></a> 方法</h2>
-<h3 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h3>
+<h2 id="%E6%96%B9%E6%B3%95"><a class="markdownIt-Anchor" href="#方法"></a> 方法</h2>
+<h3 id="%E5%AE%9A%E4%B9%89"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h3>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Access Specifier&gt; &lt;Return Type&gt; &lt;Method Name&gt;(Parameter List)</span><br><span class="line">&#123;</span><br><span class="line">   Method Body</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="参数传递"><a class="markdownIt-Anchor" href="#参数传递"></a> 参数传递</h3>
+<h3 id="%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><a class="markdownIt-Anchor" href="#参数传递"></a> 参数传递</h3>
 <table>
 <thead>
 <tr>
@@ -694,7 +694,7 @@ C#的字符串只能是双引号,不能单引号.<br>
 </tr>
 </tbody>
 </table>
-<h4 id="按值传递"><a class="markdownIt-Anchor" href="#按值传递"></a> 按值传递</h4>
+<h4 id="%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92"><a class="markdownIt-Anchor" href="#按值传递"></a> 按值传递</h4>
 <p>传参的默认方式.</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -992,7 +992,7 @@ C#的字符串只能是双引号,不能单引号.<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#c数据类型"><span class="nav-text"> C#数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#值类型"><span class="nav-text"> 值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-text"> 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#object类型"><span class="nav-text"> Object类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dynamic类型"><span class="nav-text"> Dynamic类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string类型"><span class="nav-text"> String类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针类型"><span class="nav-text"> 指针类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-text"> 类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换方法"><span class="nav-text"> 类型转换方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-text"> 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#foreach循环"><span class="nav-text"> foreach循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-text"> 封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public"><span class="nav-text"> Public</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#private"><span class="nav-text"> Private</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#protected"><span class="nav-text"> Protected</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#internal"><span class="nav-text"> Internal</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-text"> 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-text"> 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数传递"><span class="nav-text"> 参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按值传递"><span class="nav-text"> 按值传递</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#c%23%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text"> C#数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B"><span class="nav-text"> 值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text"> 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#object%E7%B1%BB%E5%9E%8B"><span class="nav-text"> Object类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dynamic%E7%B1%BB%E5%9E%8B"><span class="nav-text"> Dynamic类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string%E7%B1%BB%E5%9E%8B"><span class="nav-text"> String类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="nav-text"> 指针类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text"> 类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95"><span class="nav-text"> 类型转换方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF"><span class="nav-text"> 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#foreach%E5%BE%AA%E7%8E%AF"><span class="nav-text"> foreach循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-text"> 封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public"><span class="nav-text"> Public</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#private"><span class="nav-text"> Private</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#protected"><span class="nav-text"> Protected</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#internal"><span class="nav-text"> Internal</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-text"> 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text"> 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-text"> 参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92"><span class="nav-text"> 按值传递</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

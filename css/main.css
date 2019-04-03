@@ -1378,25 +1378,18 @@ pre .javascript .function {
 .posts-expand .post-body h4 .header-anchor,
 .posts-expand .post-body h5 .header-anchor,
 .posts-expand .post-body h6 .header-anchor {
-  float: right;
-  margin-left: 10px;
-  color: #f6fcff;
+  float: left !important;
+  margin-left: -10px !important;
+  color: inherit;
   border-bottom-style: none;
   visibility: hidden;
-}
-.posts-expand .post-body h2 .header-anchor:hover,
-.posts-expand .post-body h3 .header-anchor:hover,
-.posts-expand .post-body h4 .header-anchor:hover,
-.posts-expand .post-body h5 .header-anchor:hover,
-.posts-expand .post-body h6 .header-anchor:hover {
-  color: inherit;
 }
 .posts-expand .post-body h2:hover .header-anchor,
 .posts-expand .post-body h3:hover .header-anchor,
 .posts-expand .post-body h4:hover .header-anchor,
 .posts-expand .post-body h5:hover .header-anchor,
 .posts-expand .post-body h6:hover .header-anchor {
-  visibility: visible;
+  visibility: visible !important;
 }
 .posts-expand .post-body ul > li {
   list-style: circle;
@@ -1907,7 +1900,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #39ffff;
+  background: #ffcf69;
 }
 .links-of-blogroll {
   font-size: 13px;

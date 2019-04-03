@@ -112,18 +112,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="🔖 UnityShader概述  🔖 unity中的shader  🔖 Standard Surface Shader 会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板  🔖 Unlit Shader 会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器  🔖 ImageEffect Shader 为我们实现各种屏幕文件">
+  <meta name="description" content="UnityShader概述  unity中的shader  Standard Surface Shader 会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板  Unlit Shader 会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器  ImageEffect Shader 为我们实现各种屏幕文件.这类Shader旨在利用GP">
 <meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第3章-Unity Shader 基础">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-unity-shader/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="🔖 UnityShader概述  🔖 unity中的shader  🔖 Standard Surface Shader 会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板  🔖 Unlit Shader 会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器  🔖 ImageEffect Shader 为我们实现各种屏幕文件">
+<meta property="og:description" content="UnityShader概述  unity中的shader  Standard Surface Shader 会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板  Unlit Shader 会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器  ImageEffect Shader 为我们实现各种屏幕文件.这类Shader旨在利用GP">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-24T13:01:48.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第3章-Unity Shader 基础">
-<meta name="twitter:description" content="🔖 UnityShader概述  🔖 unity中的shader  🔖 Standard Surface Shader 会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板  🔖 Unlit Shader 会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器  🔖 ImageEffect Shader 为我们实现各种屏幕文件">
+<meta name="twitter:description" content="UnityShader概述  unity中的shader  Standard Surface Shader 会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板  Unlit Shader 会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器  ImageEffect Shader 为我们实现各种屏幕文件.这类Shader旨在利用GP">
 
 
 
@@ -531,7 +531,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.7k</span>
+                <span title="本文字数">4.6k</span>
               
 
               
@@ -555,20 +555,20 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="unityshader%E6%A6%82%E8%BF%B0"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#unityshader%E6%A6%82%E8%BF%B0" aria-hidden="true">🔖</a> UnityShader概述</h2>
-<h3 id="unity%E4%B8%AD%E7%9A%84shader"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#unity%E4%B8%AD%E7%9A%84shader" aria-hidden="true">🔖</a> unity中的shader</h3>
-<h4 id="standard-surface-shader"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#standard-surface-shader" aria-hidden="true">🔖</a> Standard Surface Shader</h4>
+        <h2 id="unityshader%E6%A6%82%E8%BF%B0"><a class="markdownIt-Anchor" href="#unityshader概述"></a> UnityShader概述</h2>
+<h3 id="unity%E4%B8%AD%E7%9A%84shader"><a class="markdownIt-Anchor" href="#unity中的shader"></a> unity中的shader</h3>
+<h4 id="standard-surface-shader"><a class="markdownIt-Anchor" href="#standard-surface-shader"></a> Standard Surface Shader</h4>
 <p>会产生一个包含了标准光照模型(使用了Unity5中新添加的基于物理的渲染方法,详见第18章)的表面着色器模板</p>
-<h4 id="unlit-shader"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#unlit-shader" aria-hidden="true">🔖</a> Unlit Shader</h4>
+<h4 id="unlit-shader"><a class="markdownIt-Anchor" href="#unlit-shader"></a> Unlit Shader</h4>
 <p>会产生一个不含光照(单包含雾化效果)的基本顶点/片段着色器</p>
-<h4 id="imageeffect-shader"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#imageeffect-shader" aria-hidden="true">🔖</a> ImageEffect Shader</h4>
+<h4 id="imageeffect-shader"><a class="markdownIt-Anchor" href="#imageeffect-shader"></a> ImageEffect Shader</h4>
 <p>为我们实现各种屏幕文件.这类Shader旨在利用GPU的并行性来进行一些与常规渲染流水线无关的计算,而不在这本书的讨论范围内(草)</p>
-<h2 id="unityshader%E7%9A%84%E7%BB%93%E6%9E%84"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#unityshader%E7%9A%84%E7%BB%93%E6%9E%84" aria-hidden="true">🔖</a> UnityShader的结构</h2>
-<h3 id="subshader"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#subshader" aria-hidden="true">🔖</a> SubShader</h3>
+<h2 id="unityshader%E7%9A%84%E7%BB%93%E6%9E%84"><a class="markdownIt-Anchor" href="#unityshader的结构"></a> UnityShader的结构</h2>
+<h3 id="subshader"><a class="markdownIt-Anchor" href="#subshader"></a> SubShader</h3>
 <p>Subshader中定义了一系列的Pass一级可选的状态和标签的设置.</p>
 <p>每个Pass定义了一次完整的渲染流程,但如果pass的数目过多,往往会造成渲染性能的下降.因此,我们应尽量使用小数目的Pass.</p>
 <p>状态和标签同样可以在Pass声明.不同的是,SubShader中的一些标签设定是特定的.也就是说,这些标签设置和Pass中使用的标签是不一样的.而对于状态设置来说,其使用的语法是相同的.但是,如果我们在SubShader中进行了这些设置,那么将会用于所有Pass</p>
-<h4 id="%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE" aria-hidden="true">🔖</a> 状态设置</h4>
+<h4 id="%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE"><a class="markdownIt-Anchor" href="#状态设置"></a> 状态设置</h4>
 <p>ShaderLab提供了一系列渲染状态的设置指令,这些指令可以设置显卡的各种状态.例如是否开启混合/深度测试等.</p>
 <table>
 <thead>
@@ -602,7 +602,7 @@ window.console.log=()=>{};
 </tbody>
 </table>
 <p>当在SubShader块中设置了这些渲染状态时,将会应用到所有Pass,如果我们不想这样,可以在Pass语义块中单独进行上面的设置.</p>
-<h4 id="subshader%E6%A0%87%E7%AD%BE"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#subshader%E6%A0%87%E7%AD%BE" aria-hidden="true">🔖</a> SubShader标签</h4>
+<h4 id="subshader%E6%A0%87%E7%AD%BE"><a class="markdownIt-Anchor" href="#subshader标签"></a> SubShader标签</h4>
 <p>SubShader的标签是一个键值对,他的键和值都是字符串类型.<br>
 标签结构如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tags &#123; &quot;TagName1&quot; = &quot;Value1&quot; &quot;TagName2&quot; = &quot;Value2&quot; &#125;</span><br></pre></td></tr></table></figure>
@@ -652,7 +652,7 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<h4 id="pass%E8%AF%AD%E4%B9%89%E5%9D%97"><a class="markdownIt-Anchor" href="#-10"></a> <a class="header-anchor" href="#pass%E8%AF%AD%E4%B9%89%E5%9D%97" aria-hidden="true">🔖</a> Pass语义块</h4>
+<h4 id="pass%E8%AF%AD%E4%B9%89%E5%9D%97"><a class="markdownIt-Anchor" href="#pass语义块"></a> Pass语义块</h4>
 <p>Pass语义块包含的语义如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Pass &#123;</span><br><span class="line">  [Name]</span><br><span class="line">  [Tags]</span><br><span class="line">  // Other Code</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>首先,我们可以在Pass中定义该Pass的名称,例如</p>
@@ -689,13 +689,13 @@ window.console.log=()=>{};
 <li>GrabPass<br>
 负责抓取屏幕并将结果存储在一张纹理中,以用于后续的Pass处理(详见10.2.2节)</li>
 </ul>
-<h4 id="fallback"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#fallback" aria-hidden="true">🔖</a> FallBack</h4>
+<h4 id="fallback"><a class="markdownIt-Anchor" href="#fallback"></a> FallBack</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FallBack &quot;name&quot;</span><br><span class="line">FallBack Off</span><br><span class="line"></span><br><span class="line">FallBack &quot;VertexLit&quot;</span><br></pre></td></tr></table></figure>
 <p>事实上,FallBack还会影响阴影的投射.在渲染阴影纹理时,Unity会在每个UnityShader中寻找一个阴影投射的Pass.通常情况下,我们不用自己专门实现一个阴影投射的Pass,这是因为FallBack使用内置Shader中包含了这样一个通用Pass.</p>
 <p>因此,为每个UnityShader设置正确的FallBack是非常重要的.</p>
-<h2 id="unityshader%E7%9A%84%E5%BD%A2%E5%BC%8F"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#unityshader%E7%9A%84%E5%BD%A2%E5%BC%8F" aria-hidden="true">🔖</a> UnityShader的形式</h2>
+<h2 id="unityshader%E7%9A%84%E5%BD%A2%E5%BC%8F"><a class="markdownIt-Anchor" href="#unityshader的形式"></a> UnityShader的形式</h2>
 <p>尽管UnityShader可以做的事情非常多(如设置渲染状态等),但其最重要的任务还是指定各种着色器所需的代码.这些着色器代码可以写在Shader语义块中(表面着色器的做法),也可以写在Pass语义块中(顶点/片元着色器和固定函数着色器的做法).</p>
-<h3 id="%E8%A1%A8%E9%9D%A2%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#-13"></a> <a class="header-anchor" href="#%E8%A1%A8%E9%9D%A2%E7%9D%80%E8%89%B2%E5%99%A8" aria-hidden="true">🔖</a> 表面着色器</h3>
+<h3 id="%E8%A1%A8%E9%9D%A2%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#表面着色器"></a> 表面着色器</h3>
 <p><strong>Surface Shader</strong><br>
 是Unity自己创造的一种着色器代码类型.它需要的代码量很少,Unity在背后做了很多工作,单渲染代价比较大.当给Unity提供一个表面着色器的时候,它在背后仍旧会将它转换成对应飞顶点/片元着色器.</p>
 <p>它存在的价值在于,Unity为我们处理了很多光照细节,使得我们不需要再操心这些烦人的事情.<br>
@@ -703,12 +703,12 @@ window.console.log=()=>{};
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;Custom/sur&quot;</span><br><span class="line">&#123;</span><br><span class="line">  SubShader&#123;</span><br><span class="line">    Tags &#123;&quot;RenderType&quot; = &quot;Opaque&quot;&#125;</span><br><span class="line">    CGPROGRAM</span><br><span class="line">    #pragma surface surf Lambert</span><br><span class="line">    struct Input &#123;</span><br><span class="line">      float4 color:COLOR;</span><br><span class="line">    &#125;;</span><br><span class="line">    void surf(Input In, inout SurfaceOutput o) &#123;</span><br><span class="line">      o.Albedo = 1;</span><br><span class="line">    &#125;</span><br><span class="line">    ENDCG</span><br><span class="line">  &#125;</span><br><span class="line">  Fallback &quot;Diffuse&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述程序可以看出,表面着色器被定义在SubShader语义块(而非Pass语义块)中的CGPROGRAM和ENDCG之间.原因是,表面着色器不需要关心开发者使用多少个Pass,每个Pass如何渲染等问题,Unity会在背后去帮我们做好这些事情.我们要做的只是告诉它,“用这些纹理去填充颜色,用这个法线纹理去填充法线,使用Lambert光照模型”</p>
 <p>CGPROGRAM和ENDCG之间的代码是使用Cg/HLSL编写的,也就是说,我们需要把Cg/HLSL语言嵌套在ShaderLab中.值得注意的是,这里的Cg/HLSL是Unity经过封装后提供的,它的标准语法和标准的Cg/HLSL几乎一样,但还是有细微不同.例如有些原生的函数和用法Unity并没有提供支持.</p>
-<h3 id="%E9%A1%B6%E7%82%B9%2F%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#-14"></a> <a class="header-anchor" href="#%E9%A1%B6%E7%82%B9%2F%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8" aria-hidden="true">🔖</a> 顶点/片元着色器</h3>
+<h3 id="%E9%A1%B6%E7%82%B9%2F%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#顶点片元着色器"></a> 顶点/片元着色器</h3>
 <p><strong>Vertex/Fragment Shader</strong><br>
 更加复杂,但灵活性更高.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;Custom/vertexfragment&quot;</span><br><span class="line">&#123;</span><br><span class="line">  SubShader&#123;</span><br><span class="line">    Pass &#123;</span><br><span class="line">      CGPROGRAM</span><br><span class="line"></span><br><span class="line">      #pragma vertex vert</span><br><span class="line">      #pragma fragment frag</span><br><span class="line"></span><br><span class="line">      float4 vert(float4 v : position) : SV_POSITION&#123;</span><br><span class="line">        return mul(UNITY_MATRIX_MVP, v);</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      float4 frag() : SV_Target&#123;</span><br><span class="line">        return fixed4(1.0,0.0,0.0,1.0);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      ENDCG</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>和表面着色器类似,顶点/片元着色器的代码也需要定义在CGPROGRAM和ENDCG中间.但不同的是,顶点/片元着色器是写在Pass语义块中的,而非SubShader语义块内.原因是我们需要自己定义每个Pass需要使用的Shader代码.虽然我们可能需要编写更多的代码,但带来的好处是灵活性很高.更重要的是,我们可以控制渲染的实现细节.</p>
-<h3 id="%E5%9B%BA%E5%AE%9A%E5%87%BD%E6%95%B0%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#-15"></a> <a class="header-anchor" href="#%E5%9B%BA%E5%AE%9A%E5%87%BD%E6%95%B0%E7%9D%80%E8%89%B2%E5%99%A8" aria-hidden="true">🔖</a> 固定函数着色器</h3>
+<h3 id="%E5%9B%BA%E5%AE%9A%E5%87%BD%E6%95%B0%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#固定函数着色器"></a> 固定函数着色器</h3>
 <p><strong>Fixed Function Shader</strong><br>
 弃子,现在不怎么用的着色器<br>
 上面两种着色器都是用了可编程管线.而对于一些较旧的设备,它们不支持可编程管线着色器,因此,我们就需要使用固定函数着色器.<br>
@@ -1018,7 +1018,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#unityshader%E6%A6%82%E8%BF%B0"><span class="nav-text"> 🔖 UnityShader概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unity%E4%B8%AD%E7%9A%84shader"><span class="nav-text"> 🔖 unity中的shader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#standard-surface-shader"><span class="nav-text"> 🔖 Standard Surface Shader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unlit-shader"><span class="nav-text"> 🔖 Unlit Shader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#imageeffect-shader"><span class="nav-text"> 🔖 ImageEffect Shader</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unityshader%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-text"> 🔖 UnityShader的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#subshader"><span class="nav-text"> 🔖 SubShader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE"><span class="nav-text"> 🔖 状态设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#subshader%E6%A0%87%E7%AD%BE"><span class="nav-text"> 🔖 SubShader标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pass%E8%AF%AD%E4%B9%89%E5%9D%97"><span class="nav-text"> 🔖 Pass语义块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fallback"><span class="nav-text"> 🔖 FallBack</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unityshader%E7%9A%84%E5%BD%A2%E5%BC%8F"><span class="nav-text"> 🔖 UnityShader的形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E9%9D%A2%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> 🔖 表面着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E7%82%B9%2F%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> 🔖 顶点/片元着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%87%BD%E6%95%B0%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> 🔖 固定函数着色器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#unityshader%E6%A6%82%E8%BF%B0"><span class="nav-text"> UnityShader概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unity%E4%B8%AD%E7%9A%84shader"><span class="nav-text"> unity中的shader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#standard-surface-shader"><span class="nav-text"> Standard Surface Shader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unlit-shader"><span class="nav-text"> Unlit Shader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#imageeffect-shader"><span class="nav-text"> ImageEffect Shader</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unityshader%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-text"> UnityShader的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#subshader"><span class="nav-text"> SubShader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE"><span class="nav-text"> 状态设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#subshader%E6%A0%87%E7%AD%BE"><span class="nav-text"> SubShader标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pass%E8%AF%AD%E4%B9%89%E5%9D%97"><span class="nav-text"> Pass语义块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fallback"><span class="nav-text"> FallBack</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unityshader%E7%9A%84%E5%BD%A2%E5%BC%8F"><span class="nav-text"> UnityShader的形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E9%9D%A2%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> 表面着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E7%82%B9%2F%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> 顶点/片元着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%87%BD%E6%95%B0%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> 固定函数着色器</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1058,7 +1058,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">128k</span>
+    <span title="站点总字数">127k</span>
   
 
   

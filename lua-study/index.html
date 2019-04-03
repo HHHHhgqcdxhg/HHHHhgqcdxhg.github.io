@@ -113,18 +113,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="Lua语法基础Lua令牌标记Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号.   1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;) 注释Lua的注释以—开头结尾   12--- 这里是注释print(&quot;23333&quot;) Lua变量根据变量范围,Lua变量有三种类型:    全局变量  所有变量被声明为全局变量,除非明确声明为局域变量">
+  <meta name="description" content="Lua语法基础  Lua令牌标记 Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号. 1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;)  注释 Lua的注释以—开头结尾 12--- 这里是注释print(&quot;23333&quot;)  Lua变量 根据变量范围,Lua变量有三种类型:  全局变量 所有变量被声明为全局变量,除非明确声明为局域变量 局">
 <meta name="keywords" content="lua">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lua-study">
 <meta property="og:url" content="https://blog.purecucumber.club/lua-study/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="Lua语法基础Lua令牌标记Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号.   1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;) 注释Lua的注释以—开头结尾   12--- 这里是注释print(&quot;23333&quot;) Lua变量根据变量范围,Lua变量有三种类型:    全局变量  所有变量被声明为全局变量,除非明确声明为局域变量">
+<meta property="og:description" content="Lua语法基础  Lua令牌标记 Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号. 1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;)  注释 Lua的注释以—开头结尾 12--- 这里是注释print(&quot;23333&quot;)  Lua变量 根据变量范围,Lua变量有三种类型:  全局变量 所有变量被声明为全局变量,除非明确声明为局域变量 局">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-04-02T06:29:18.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lua-study">
-<meta name="twitter:description" content="Lua语法基础Lua令牌标记Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号.   1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;) 注释Lua的注释以—开头结尾   12--- 这里是注释print(&quot;23333&quot;) Lua变量根据变量范围,Lua变量有三种类型:    全局变量  所有变量被声明为全局变量,除非明确声明为局域变量">
+<meta name="twitter:description" content="Lua语法基础  Lua令牌标记 Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号. 1io.write(&quot;Hello World, from&quot;,_VERSION,&quot;\n&quot;)  注释 Lua的注释以—开头结尾 12--- 这里是注释print(&quot;23333&quot;)  Lua变量 根据变量范围,Lua变量有三种类型:  全局变量 所有变量被声明为全局变量,除非明确声明为局域变量 局">
 
 
 
@@ -556,26 +556,35 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="Lua语法基础"><a href="#Lua语法基础" class="headerlink" title="Lua语法基础"></a>Lua语法基础</h2><h3 id="Lua令牌标记"><a href="#Lua令牌标记" class="headerlink" title="Lua令牌标记"></a>Lua令牌标记</h3><p>Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号.  </p>
+        <h2 id="lua语法基础"><a class="markdownIt-Anchor" href="#lua语法基础"></a> Lua语法基础</h2>
+<h3 id="lua令牌标记"><a class="markdownIt-Anchor" href="#lua令牌标记"></a> Lua令牌标记</h3>
+<p>Lua程序由各种标记组成,标记可是关键字,标识符,常量,字符串或符号.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">io</span>.<span class="built_in">write</span>(<span class="string">"Hello World, from"</span>,<span class="built_in">_VERSION</span>,<span class="string">"\n"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>Lua的注释以—开头结尾  </p>
+<h3 id="注释"><a class="markdownIt-Anchor" href="#注释"></a> 注释</h3>
+<p>Lua的注释以—开头结尾</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--- 这里是注释</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"23333"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Lua变量"><a href="#Lua变量" class="headerlink" title="Lua变量"></a>Lua变量</h2><p>根据变量范围,Lua变量有三种类型:  </p>
+<h2 id="lua变量"><a class="markdownIt-Anchor" href="#lua变量"></a> Lua变量</h2>
+<p>根据变量范围,Lua变量有三种类型:</p>
 <ul>
-<li><strong>全局变量</strong><br>  所有变量被声明为全局变量,除非明确声明为局域变量  </li>
-<li><strong>局域变量</strong><br>  当变量指定类型为local时,其单位受函数范围的限制</li>
-<li><strong>表字段</strong><br>  这是一种特殊类型的变量,可以保存nil之外的任何对象</li>
+<li><strong>全局变量</strong><br>
+所有变量被声明为全局变量,除非明确声明为局域变量</li>
+<li><strong>局域变量</strong><br>
+当变量指定类型为local时,其单位受函数范围的限制</li>
+<li><strong>表字段</strong><br>
+这是一种特殊类型的变量,可以保存nil之外的任何对象</li>
 </ul>
-<h3 id="Lua变量声明和定义"><a href="#Lua变量声明和定义" class="headerlink" title="Lua变量声明和定义"></a>Lua变量声明和定义</h3><p>变量定义告诉解释器为变量创建存储的位置和数量,变量具有可选类型,并且包含该类型一个活多个变量的列表(吐槽: 要跟python列表弄混了)  </p>
+<h3 id="lua变量声明和定义"><a class="markdownIt-Anchor" href="#lua变量声明和定义"></a> Lua变量声明和定义</h3>
+<p>变量定义告诉解释器为变量创建存储的位置和数量,变量具有可选类型,并且包含该类型一个活多个变量的列表(吐槽: 要跟python列表弄混了)</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span> variable_list</span><br></pre></td></tr></table></figure>
-<p>这里,type是可选的本地或全局类型.而variable_list可以包含一个或多个由逗号分隔的标识符名称.  </p>
+<p>这里,type是可选的本地或全局类型.而variable_list可以包含一个或多个由逗号分隔的标识符名称.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> i,j</span><br><span class="line"><span class="keyword">local</span> i</span><br><span class="line"><span class="keyword">local</span> a,c</span><br></pre></td></tr></table></figure>
-<p>变量可以在声明时初始化:  </p>
+<p>变量可以在声明时初始化:</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">c, d = <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">e,f = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(e,f)</span><br><span class="line"><span class="comment">--- 4    nil</span></span><br><span class="line"><span class="comment">--- 注意这里只赋给了e,没有赋给f</span></span><br></pre></td></tr></table></figure>
-<p>Lua可以像py那样平行赋值  </p>
+<p>Lua可以像py那样平行赋值</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">a, b = b, a</span><br><span class="line"><span class="built_in">print</span>(a, b)</span><br><span class="line"><span class="comment">--- 1	0</span></span><br></pre></td></tr></table></figure>
-<h2 id="Lua数据类型"><a href="#Lua数据类型" class="headerlink" title="Lua数据类型"></a>Lua数据类型</h2><p>Lua是一种动态类型语言,即 变量没有类型,只有值有类型  </p>
-<p>数据类型:  </p>
+<h2 id="lua数据类型"><a class="markdownIt-Anchor" href="#lua数据类型"></a> Lua数据类型</h2>
+<p>Lua是一种动态类型语言,即 变量没有类型,只有值有类型</p>
+<p>数据类型:</p>
 <table>
 <thead>
 <tr>
@@ -618,9 +627,11 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<h3 id="type函数"><a href="#type函数" class="headerlink" title="type函数"></a>type函数</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">0</span>))</span><br><span class="line"><span class="comment">---number</span></span><br></pre></td></tr></table></figure>
+<h3 id="type函数"><a class="markdownIt-Anchor" href="#type函数"></a> type函数</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">0</span>))</span><br><span class="line"><span class="comment">---number</span></span><br></pre></td></tr></table></figure>
 <p>默认情况下,在分配值或初始化之前,所有变量都指向nil.</p>
-<h3 id="Lua字符串"><a href="#Lua字符串" class="headerlink" title="Lua字符串"></a>Lua字符串</h3><p>Lua字符串可以用三种形式初始化  </p>
+<h3 id="lua字符串"><a class="markdownIt-Anchor" href="#lua字符串"></a> Lua字符串</h3>
+<p>Lua字符串可以用三种形式初始化</p>
 <ul>
 <li>单引号之间的字符串</li>
 </ul>
@@ -634,7 +645,8 @@ window.console.log=()=>{};
 </ul>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[[lua hhhhhhhh</span></span><br><span class="line"><span class="string">aaaaaaa]]</span></span><br></pre></td></tr></table></figure>
 <p>[[和]]之间的字符串可以换行,类似py的三个引号的字符串</p>
-<h4 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h4><table>
+<h4 id="字符串操作"><a class="markdownIt-Anchor" href="#字符串操作"></a> 字符串操作</h4>
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -663,7 +675,7 @@ window.console.log=()=>{};
 <td>返回参数的倒序字符串</td>
 </tr>
 <tr>
-<td>string.format(“Some String %d %s”,12,”ccc”)</td>
+<td>string.format(“Some String %d %s”,12,“ccc”)</td>
 <td>格式化字符串</td>
 </tr>
 <tr>
@@ -679,16 +691,19 @@ window.console.log=()=>{};
 <td>返回参数字符串重复n次后的结果</td>
 </tr>
 <tr>
-<td>..</td>
-<td>..运算链接两个字符串</td>
+<td>…</td>
+<td>…运算链接两个字符串</td>
 </tr>
 </tbody>
 </table>
-<h3 id="Lua数组"><a href="#Lua数组" class="headerlink" title="Lua数组"></a>Lua数组</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">array = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">0</span>])</span><br><span class="line"><span class="comment">--- nil</span></span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">1</span>])</span><br><span class="line"><span class="comment">--- a</span></span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">2</span>])</span><br><span class="line"><span class="comment">--- b</span></span><br></pre></td></tr></table></figure>
-<p>Lua数组的索引是从1开始的…  </p>
-<p>Lua数组接受负数和0索引  </p>
+<h3 id="lua数组"><a class="markdownIt-Anchor" href="#lua数组"></a> Lua数组</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">array = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">0</span>])</span><br><span class="line"><span class="comment">--- nil</span></span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">1</span>])</span><br><span class="line"><span class="comment">--- a</span></span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">2</span>])</span><br><span class="line"><span class="comment">--- b</span></span><br></pre></td></tr></table></figure>
+<p>Lua数组的索引是从1开始的…</p>
+<p>Lua数组接受负数和0索引</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array = &#123;&#125;</span><br><span class="line">array[<span class="number">-1</span>] = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">-1</span>])</span><br><span class="line"><span class="comment">--- 10</span></span><br></pre></td></tr></table></figure>
-<h2 id="Lua运算符"><a href="#Lua运算符" class="headerlink" title="Lua运算符"></a>Lua运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>以下是Lua语言支持的所有算术运算符.假设变量A=10, B=20</p>
+<h2 id="lua运算符"><a class="markdownIt-Anchor" href="#lua运算符"></a> Lua运算符</h2>
+<h3 id="算术运算符"><a class="markdownIt-Anchor" href="#算术运算符"></a> 算术运算符</h3>
+<p>以下是Lua语言支持的所有算术运算符.假设变量A=10, B=20</p>
 <table>
 <thead>
 <tr>
@@ -735,9 +750,14 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><p>关系运算符<br>==, &gt;, &lt;, &gt;=, &lt;=等,跟其他语言差不多.<br>注意不等于是~=,而非!=</p>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>and, or, not,和python用起来差不多,只是lua的not只能用于处理布尔值,没有像python那样的a not == b,只能not a == b  </p>
-<h3 id="杂项运算符"><a href="#杂项运算符" class="headerlink" title="杂项运算符"></a>杂项运算符</h3><table>
+<h3 id="关系运算符"><a class="markdownIt-Anchor" href="#关系运算符"></a> 关系运算符</h3>
+<p>关系运算符<br>
+==, &gt;, &lt;, &gt;=, &lt;=等,跟其他语言差不多.<br>
+注意不等于是~=,而非!=</p>
+<h3 id="逻辑运算符"><a class="markdownIt-Anchor" href="#逻辑运算符"></a> 逻辑运算符</h3>
+<p>and, or, not,和python用起来差不多,只是lua的not只能用于处理布尔值,没有像python那样的a not == b,只能not a == b</p>
+<h3 id="杂项运算符"><a class="markdownIt-Anchor" href="#杂项运算符"></a> 杂项运算符</h3>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">运算符</th>
@@ -747,68 +767,92 @@ window.console.log=()=>{};
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">..</td>
-<td>连接两个字符串.惊了,连接字符串不能用+的,只能用这个..</td>
-<td>“草草草”..”我饿饿” : 草草草我饿饿</td>
+<td style="text-align:center">…</td>
+<td>连接两个字符串.惊了,连接字符串不能用+的,只能用这个…</td>
+<td>“草草草”…“我饿饿” : 草草草我饿饿</td>
 </tr>
 <tr>
 <td style="text-align:center">#</td>
 <td>返回字符串或表长度的一元运算符</td>
-<td>#”abc” : 3</td>
+<td>#“abc” : 3</td>
 </tr>
 </tbody>
 </table>
-<h2 id="Lua的循环"><a href="#Lua的循环" class="headerlink" title="Lua的循环"></a>Lua的循环</h2><h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(condition)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  statement(s)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="lua的循环"><a class="markdownIt-Anchor" href="#lua的循环"></a> Lua的循环</h2>
+<h3 id="while循环"><a class="markdownIt-Anchor" href="#while循环"></a> while循环</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(condition)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  statement(s)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>( a &lt; <span class="number">20</span> )</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">   <span class="built_in">print</span>(<span class="string">"value of a:"</span>, a)</span><br><span class="line">   a = a + <span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>(惊了,lua不支持a += 1这种)  </p>
-<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> init, <span class="built_in">max</span>/<span class="built_in">min</span> value, increment</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">   statement(s)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中:  </p>
+<p>(惊了,lua不支持a += 1这种)</p>
+<h3 id="for循环"><a class="markdownIt-Anchor" href="#for循环"></a> for循环</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> init, <span class="built_in">max</span>/<span class="built_in">min</span> value, increment</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">   statement(s)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中:</p>
 <ul>
 <li>init首先执行,只执行一次,此步骤允许声明和初始化任何循环控制变量(什么任何?)</li>
-<li>接下来执行max/min.这是循环继续执行的最大值或最小值.它在内部创建条件检查,以比较初始值和最大/最小值  </li>
-<li>在执行for循环体之后,控制流会跳回increment/decrement语句.此语句用于更新循环控制变量.  </li>
+<li>接下来执行max/min.这是循环继续执行的最大值或最小值.它在内部创建条件检查,以比较初始值和最大/最小值</li>
+<li>在执行for循环体之后,控制流会跳回increment/decrement语句.此语句用于更新循环控制变量.</li>
 <li>再次评估条件.如果为真,则循环执行并且过程自身重复(循环体,然后递增步骤,然后再次调节).条件变为false后,for循环终止</li>
 </ul>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>…这语法…我佛辣<br>顺便试了一下,lua用不着游标卡尺…  </p>
-<h3 id="repeat…until循环"><a href="#repeat…until循环" class="headerlink" title="repeat…until循环"></a>repeat…until循环</h3><p>与在顶部测试循环条件的for和while不同,lua的repeat…until循环在底部检查循环的条件.<br>repeat…until循环类似while循环,但是repeat…until循环保证至少执行一次.  </p>
+<p>…这语法…我佛辣<br>
+顺便试了一下,lua用不着游标卡尺…</p>
+<h3 id="repeatuntil循环"><a class="markdownIt-Anchor" href="#repeatuntil循环"></a> repeat…until循环</h3>
+<p>与在顶部测试循环条件的for和while不同,lua的repeat…until循环在底部检查循环的条件.<br>
+repeat…until循环类似while循环,但是repeat…until循环保证至少执行一次.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">100</span></span><br><span class="line"><span class="keyword">repeat</span></span><br><span class="line">    x = x + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"><span class="keyword">until</span> x &gt; <span class="number">10</span></span><br><span class="line"><span class="comment">---101</span></span><br></pre></td></tr></table></figure>
-<h3 id="循环控制声明"><a href="#循环控制声明" class="headerlink" title="循环控制声明"></a>循环控制声明</h3><p>有break,好像没有continue  </p>
-<h2 id="Lua流程控制"><a href="#Lua流程控制" class="headerlink" title="Lua流程控制"></a>Lua流程控制</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(boolean)</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    dosomething</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="循环控制声明"><a class="markdownIt-Anchor" href="#循环控制声明"></a> 循环控制声明</h3>
+<p>有break,好像没有continue</p>
+<h2 id="lua流程控制"><a class="markdownIt-Anchor" href="#lua流程控制"></a> Lua流程控制</h2>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(boolean)</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    dosomething</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(boolean)</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    dosomething</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    dosomething</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if(boolean)</span><br><span class="line">then</span><br><span class="line">    dosomgthing</span><br><span class="line">elseif(boolean)</span><br><span class="line">then</span><br><span class="line">    dosomething</span><br><span class="line">else</span><br><span class="line">    sosomething</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>注意: elseif后面需要then,else后面没有  </p>
-<h2 id="Lua函数"><a href="#Lua函数" class="headerlink" title="Lua函数"></a>Lua函数</h2><p>Lua中编程语言中的方法定义一般形式如下:  </p>
+<p>注意: elseif后面需要then,else后面没有</p>
+<h2 id="lua函数"><a class="markdownIt-Anchor" href="#lua函数"></a> Lua函数</h2>
+<p>Lua中编程语言中的方法定义一般形式如下:</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">optional_function_scope <span class="function"><span class="keyword">function</span> <span class="title">function_name</span><span class="params">( argument1, argument2, argument3........, </span></span></span><br><span class="line"><span class="function"><span class="params">argumentn)</span></span></span><br><span class="line"></span><br><span class="line">function_body</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result_params_comma_separated</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>可选函数范围<br>  使用local关键字来限制函数范围或者忽略该部分,使之成为一个全局函数</li>
-<li>函数名称<br>  函数的实体名称</li>
+<li>可选函数范围<br>
+使用local关键字来限制函数范围或者忽略该部分,使之成为一个全局函数</li>
+<li>函数名称<br>
+函数的实体名称</li>
 <li>参数</li>
 <li>函数主体</li>
 <li>返回</li>
 </ul>
-<p>示例:max函数  </p>
+<p>示例:max函数</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span><span class="params">(num1, num2)</span></span></span><br><span class="line">   <span class="keyword">if</span> (num1 &gt; num2) <span class="keyword">then</span></span><br><span class="line">      result = num1;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">      result = num2;</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line">   <span class="keyword">return</span> result;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(<span class="number">1</span>,<span class="number">255</span>))</span><br></pre></td></tr></table></figure>
-<h3 id="可变参数函数"><a href="#可变参数函数" class="headerlink" title="可变参数函数"></a>可变参数函数</h3><p>使用…作为参数在lua中创建具有可变参数的函数.  </p>
+<h3 id="可变参数函数"><a class="markdownIt-Anchor" href="#可变参数函数"></a> 可变参数函数</h3>
+<p>使用…作为参数在lua中创建具有可变参数的函数.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span><span class="params">(...)</span></span></span><br><span class="line">   result = <span class="number">0</span></span><br><span class="line">   <span class="keyword">local</span> <span class="built_in">arg</span> = &#123;...&#125;</span><br><span class="line">   <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">ipairs</span>(<span class="built_in">arg</span>) <span class="keyword">do</span></span><br><span class="line">      result = result + v</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line">   <span class="keyword">return</span> result/#<span class="built_in">arg</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The average is"</span>,average(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-<h2 id="Lua迭代器"><a href="#Lua迭代器" class="headerlink" title="Lua迭代器"></a>Lua迭代器</h2><h3 id="迭代器泛型"><a href="#迭代器泛型" class="headerlink" title="迭代器泛型"></a>迭代器泛型</h3><p>迭代器泛型提供集合中每个元素的键值对.  </p>
+<h2 id="lua迭代器"><a class="markdownIt-Anchor" href="#lua迭代器"></a> Lua迭代器</h2>
+<h3 id="迭代器泛型"><a class="markdownIt-Anchor" href="#迭代器泛型"></a> 迭代器泛型</h3>
+<p>迭代器泛型提供集合中每个元素的键值对.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">array = &#123; <span class="string">"a"</span>, <span class="string">"b"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">ipairs</span>(array)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(k, v)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">--- 1	a</span></span><br><span class="line"><span class="comment">--- 2	b</span></span><br></pre></td></tr></table></figure>
-<p>上面这个例子使用了Lua提供的默认的ipairs迭代器<br>在Lua中,使用函数来表示迭代器.基于这些迭代器函数中的状态维护,有两种主要类型:  </p>
-<h3 id="无状态迭代器"><a href="#无状态迭代器" class="headerlink" title="无状态迭代器"></a>无状态迭代器</h3><p>这类迭代器不会保留任何状态.  </p>
+<p>上面这个例子使用了Lua提供的默认的ipairs迭代器<br>
+在Lua中,使用函数来表示迭代器.基于这些迭代器函数中的状态维护,有两种主要类型:</p>
+<h3 id="无状态迭代器"><a class="markdownIt-Anchor" href="#无状态迭代器"></a> 无状态迭代器</h3>
+<p>这类迭代器不会保留任何状态.</p>
 <p>md.这个教程写的什么jb,以后再看</p>
-<h2 id="Lua表"><a href="#Lua表" class="headerlink" title="Lua表"></a>Lua表</h2><p>表是lua中唯一可用的数据结构.使用表可用创建不同的类型,比如数组和字典.<br>Lua使用关联数组,不仅可用数字编制索引,还可以使用除nil之外的字符串编制索引.  </p>
+<h2 id="lua表"><a class="markdownIt-Anchor" href="#lua表"></a> Lua表</h2>
+<p>表是lua中唯一可用的数据结构.使用表可用创建不同的类型,比如数组和字典.<br>
+Lua使用关联数组,不仅可用数字编制索引,还可以使用除nil之外的字符串编制索引.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;&#125;</span><br><span class="line">a[<span class="string">"a"</span>] = <span class="number">233</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">"a"</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="表示和用法"><a href="#表示和用法" class="headerlink" title="表示和用法"></a>表示和用法</h3><p>表称为对象,它既不是值也不是变量.Lua是哟构造函数{}来创建一个空表.  </p>
-<h3 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h3><h4 id="表连接"><a href="#表连接" class="headerlink" title="表连接"></a>表连接</h4><p>使用concat函数连接表  </p>
+<h3 id="表示和用法"><a class="markdownIt-Anchor" href="#表示和用法"></a> 表示和用法</h3>
+<p>表称为对象,它既不是值也不是变量.Lua是哟构造函数{}来创建一个空表.</p>
+<h3 id="表操作"><a class="markdownIt-Anchor" href="#表操作"></a> 表操作</h3>
+<h4 id="表连接"><a class="markdownIt-Anchor" href="#表连接"></a> 表连接</h4>
+<p>使用concat函数连接表</p>
 <blockquote>
-<p>table.concat (table [, sep [, i [, j]]])  </p>
+<p>table.concat (table [, sep [, i [, j]]])</p>
 </blockquote>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fruits = &#123; <span class="string">"bbb"</span>, <span class="string">"ccc"</span>, <span class="string">"ddd"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(fruits))</span><br><span class="line"><span class="comment">--- bbbcccddd</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(fruits, <span class="string">", "</span>))</span><br><span class="line"><span class="comment">--- bbb, ccc, ddd</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(fruits, <span class="string">", "</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"><span class="comment">--- ccc, ddd</span></span><br></pre></td></tr></table></figure>
-<h4 id="插入和删除"><a href="#插入和删除" class="headerlink" title="插入和删除"></a>插入和删除</h4><blockquote>
-<p>table.insert (table, [pos,] value)<br>table.remove (table [, pos])</p>
+<h4 id="插入和删除"><a class="markdownIt-Anchor" href="#插入和删除"></a> 插入和删除</h4>
+<blockquote>
+<p>table.insert (table, [pos,] value)<br>
+table.remove (table [, pos])</p>
 </blockquote>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">arr = &#123; <span class="string">"bbb"</span>, <span class="string">"ccc"</span>, <span class="string">"ddd"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">insert</span>(arr,<span class="string">"aaa"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br><span class="line"><span class="comment">--- bbb ccc ddd aaa</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">insert</span>(arr,<span class="number">1</span>,<span class="string">"eee"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br><span class="line"><span class="comment">--- eee bbb ccc ddd aaa</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">remove</span>(arr)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br><span class="line"><span class="comment">--- eee bbb ccc ddd</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">remove</span>(arr, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br><span class="line"><span class="comment">--- eee bbb ddd</span></span><br></pre></td></tr></table></figure>
-<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = &#123; <span class="string">"e"</span>, <span class="string">"b"</span>, <span class="string">"d"</span>, <span class="string">"c"</span>, <span class="string">"a"</span> &#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">sort</span>(arr)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="排序"><a class="markdownIt-Anchor" href="#排序"></a> 排序</h4>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = &#123; <span class="string">"e"</span>, <span class="string">"b"</span>, <span class="string">"d"</span>, <span class="string">"c"</span>, <span class="string">"a"</span> &#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">sort</span>(arr)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">concat</span>(arr,<span class="string">" "</span>))</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1106,7 +1150,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua语法基础"><span class="nav-text">Lua语法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua令牌标记"><span class="nav-text">Lua令牌标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua变量"><span class="nav-text">Lua变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua变量声明和定义"><span class="nav-text">Lua变量声明和定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua数据类型"><span class="nav-text">Lua数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type函数"><span class="nav-text">type函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua字符串"><span class="nav-text">Lua字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串操作"><span class="nav-text">字符串操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua数组"><span class="nav-text">Lua数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua运算符"><span class="nav-text">Lua运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂项运算符"><span class="nav-text">杂项运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua的循环"><span class="nav-text">Lua的循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat…until循环"><span class="nav-text">repeat…until循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环控制声明"><span class="nav-text">循环控制声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua流程控制"><span class="nav-text">Lua流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua函数"><span class="nav-text">Lua函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可变参数函数"><span class="nav-text">可变参数函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua迭代器"><span class="nav-text">Lua迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器泛型"><span class="nav-text">迭代器泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无状态迭代器"><span class="nav-text">无状态迭代器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua表"><span class="nav-text">Lua表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示和用法"><span class="nav-text">表示和用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表操作"><span class="nav-text">表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表连接"><span class="nav-text">表连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入和删除"><span class="nav-text">插入和删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lua语法基础"><span class="nav-text"> Lua语法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lua令牌标记"><span class="nav-text"> Lua令牌标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-text"> 注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua变量"><span class="nav-text"> Lua变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lua变量声明和定义"><span class="nav-text"> Lua变量声明和定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua数据类型"><span class="nav-text"> Lua数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type函数"><span class="nav-text"> type函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lua字符串"><span class="nav-text"> Lua字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串操作"><span class="nav-text"> 字符串操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lua数组"><span class="nav-text"> Lua数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua运算符"><span class="nav-text"> Lua运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-text"> 算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-text"> 关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-text"> 逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂项运算符"><span class="nav-text"> 杂项运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua的循环"><span class="nav-text"> Lua的循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-text"> while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-text"> for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeatuntil循环"><span class="nav-text"> repeat…until循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环控制声明"><span class="nav-text"> 循环控制声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua流程控制"><span class="nav-text"> Lua流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua函数"><span class="nav-text"> Lua函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可变参数函数"><span class="nav-text"> 可变参数函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua迭代器"><span class="nav-text"> Lua迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器泛型"><span class="nav-text"> 迭代器泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无状态迭代器"><span class="nav-text"> 无状态迭代器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua表"><span class="nav-text"> Lua表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示和用法"><span class="nav-text"> 表示和用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表操作"><span class="nav-text"> 表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表连接"><span class="nav-text"> 表连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入和删除"><span class="nav-text"> 插入和删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序"><span class="nav-text"> 排序</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1146,7 +1190,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">126k</span>
+    <span title="站点总字数">127k</span>
   
 
   

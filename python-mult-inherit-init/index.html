@@ -113,18 +113,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.b">
+  <meta name="description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行 1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python多重继承init的问题">
 <meta property="og:url" content="https://blog.purecucumber.club/python-mult-inherit-init/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.b">
+<meta property="og:description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行 1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-05T16:56:16.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python多重继承init的问题">
-<meta name="twitter:description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.b">
+<meta name="twitter:description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行 1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.">
 
 
 
@@ -538,9 +538,11 @@ window.console.log=()=>{};
       
 
       
-        <p>继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(C, self).__init__()</span><br></pre></td></tr></table></figure></p>
+        <p>继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(C, self).__init__()</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="string">"a"</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.b = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A,B)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(C, self).__init__()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    c = C()</span><br><span class="line">    print(c.__dict__)</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt; &#123;'a': 'a'&#125;</span></span><br></pre></td></tr></table></figure>
-<p>可以看出问题了,C类只init了A类,并没有init B类<br>下面是我瞎摸出来的解决方法  </p>
+<p>可以看出问题了,C类只init了A类,并没有init B类<br>
+下面是我瞎摸出来的解决方法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="string">"a"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.b = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A, B)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        A.__init__(self)</span><br><span class="line">        B.__init__(self)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    c = C()</span><br><span class="line">    print(c.__dict__)</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt; &#123;'a': 'a', 'b': 'b'&#125;</span></span><br></pre></td></tr></table></figure>
 
       
@@ -857,7 +859,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">126k</span>
+    <span title="站点总字数">127k</span>
   
 
   

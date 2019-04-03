@@ -113,13 +113,13 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="Unity中,有两种方式实现透明效果: 一种是透明度测试(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是透明度混合(Alpha Blending)   对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的深度缓冲(depth-buffer,也称z-buffer)的存在.在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪">
+  <meta name="description" content="Unity中,有两种方式实现透明效果: 一种是透明度测试(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是透明度混合(Alpha Blending) 对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的深度缓冲(depth-buffer,也称z-buffer)的存在. 在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪些">
 <meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第8章-透明效果">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-alpha-effect/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="Unity中,有两种方式实现透明效果: 一种是透明度测试(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是透明度混合(Alpha Blending)   对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的深度缓冲(depth-buffer,也称z-buffer)的存在.在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪">
+<meta property="og:description" content="Unity中,有两种方式实现透明效果: 一种是透明度测试(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是透明度混合(Alpha Blending) 对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的深度缓冲(depth-buffer,也称z-buffer)的存在. 在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪些">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190323084257.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190323093519.png">
@@ -128,7 +128,7 @@ window.console.log=()=>{};
 <meta property="og:updated_time" content="2019-03-24T13:01:17.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第8章-透明效果">
-<meta name="twitter:description" content="Unity中,有两种方式实现透明效果: 一种是透明度测试(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是透明度混合(Alpha Blending)   对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的深度缓冲(depth-buffer,也称z-buffer)的存在.在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪">
+<meta name="twitter:description" content="Unity中,有两种方式实现透明效果: 一种是透明度测试(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是透明度混合(Alpha Blending) 对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的深度缓冲(depth-buffer,也称z-buffer)的存在. 在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪些">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190323084257.png">
 
 
@@ -561,27 +561,43 @@ window.console.log=()=>{};
       
 
       
-        <p>Unity中,有两种方式实现透明效果: 一种是<strong>透明度测试</strong>(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是<strong>透明度混合</strong>(Alpha Blending)  </p>
-<p>对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的<strong>深度缓冲</strong>(depth-buffer,也称z-buffer)的存在.<br>在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪些部分会被遮挡.  </p>
-<p>如果想要实现透明度效果,需要关闭深度写入.  </p>
+        <p>Unity中,有两种方式实现透明效果: 一种是<strong>透明度测试</strong>(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是<strong>透明度混合</strong>(Alpha Blending)</p>
+<p>对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的<strong>深度缓冲</strong>(depth-buffer,也称z-buffer)的存在.<br>
+在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪些部分会被遮挡.</p>
+<p>如果想要实现透明度效果,需要关闭深度写入.</p>
 <p>透明度测试和透明度混合的原理如下:</p>
 <ul>
-<li>透明度测试<br>  采用一种”极其霸道”的机制,只要一个片元的透明度不满足条件(通常是小于某个阈值),那么它对应的片元就会被舍弃.被舍弃的片元将不会再做任何处理,也不会对颜色缓冲区造成影响.透明度测试是不需要关闭深度写入的,它和其他不透明物体最大的不同在于它会根据透明度舍弃一些片元.虽然简单,但其产生的效果会很极端:要么完全透明,要么不透明.</li>
-<li>透明度混合<br>  这种方法可以得到真正的半透明的效果.他会使用当前片元的透明度作为混合因子,与已经存储到颜色缓冲中的颜色进行混合,得到新的颜色.但是,透明度混合需要关闭深度写入,但没有关闭深度测试,这意味着如果使用透明度混合去渲染一个片元的话时,还是会比较它和当前缓冲区中的深度值.也就是说,对于透明度混合来说,深度缓冲是只读的.  </li>
+<li>透明度测试<br>
+采用一种&quot;极其霸道&quot;的机制,只要一个片元的透明度不满足条件(通常是小于某个阈值),那么它对应的片元就会被舍弃.被舍弃的片元将不会再做任何处理,也不会对颜色缓冲区造成影响.透明度测试是不需要关闭深度写入的,它和其他不透明物体最大的不同在于它会根据透明度舍弃一些片元.虽然简单,但其产生的效果会很极端:要么完全透明,要么不透明.</li>
+<li>透明度混合<br>
+这种方法可以得到真正的半透明的效果.他会使用当前片元的透明度作为混合因子,与已经存储到颜色缓冲中的颜色进行混合,得到新的颜色.但是,透明度混合需要关闭深度写入,但没有关闭深度测试,这意味着如果使用透明度混合去渲染一个片元的话时,还是会比较它和当前缓冲区中的深度值.也就是说,对于透明度混合来说,深度缓冲是只读的.</li>
 </ul>
-<h2 id="渲染顺序"><a href="#渲染顺序" class="headerlink" title="渲染顺序"></a>渲染顺序</h2><h3 id="关闭深度写入很重要"><a href="#关闭深度写入很重要" class="headerlink" title="关闭深度写入很重要"></a>关闭深度写入很重要</h3><p>使用透明度混合时,如果不关闭深度写入:<br>如果一个半透明表面背后的表面本是可以透过前面的表面被我妈看到的,但由于深度测试时判断结果是前面的半透明表面距离摄像机更近,导致后面的表面将会被剔除,我们无法透过半透明表面看到后面的物体了.<br>但是,我们破坏了深度缓冲的工作机制,而这是一个非常非常糟糕的事情,尽管我们不得不这样做: 关闭深度写入导致渲染顺序变得非常重要</p>
-<h3 id="不同的渲染顺序会得到的结果"><a href="#不同的渲染顺序会得到的结果" class="headerlink" title="不同的渲染顺序会得到的结果"></a>不同的渲染顺序会得到的结果</h3><p>假设场景里有两个物体:A和B,其中A是半透明物体,B是不透明物体,如图所示<br><img src="https://pic.ggemo.com/picgo/20190323084257.png" alt="20190323084257.png">  </p>
+<h2 id="渲染顺序"><a class="markdownIt-Anchor" href="#渲染顺序"></a> 渲染顺序</h2>
+<h3 id="关闭深度写入很重要"><a class="markdownIt-Anchor" href="#关闭深度写入很重要"></a> 关闭深度写入很重要</h3>
+<p>使用透明度混合时,如果不关闭深度写入:<br>
+如果一个半透明表面背后的表面本是可以透过前面的表面被我妈看到的,但由于深度测试时判断结果是前面的半透明表面距离摄像机更近,导致后面的表面将会被剔除,我们无法透过半透明表面看到后面的物体了.<br>
+但是,我们破坏了深度缓冲的工作机制,而这是一个非常非常糟糕的事情,尽管我们不得不这样做: 关闭深度写入导致渲染顺序变得非常重要</p>
+<h3 id="不同的渲染顺序会得到的结果"><a class="markdownIt-Anchor" href="#不同的渲染顺序会得到的结果"></a> 不同的渲染顺序会得到的结果</h3>
+<p>假设场景里有两个物体:A和B,其中A是半透明物体,B是不透明物体,如图所示<br>
+<img src="https://pic.ggemo.com/picgo/20190323084257.png" alt="20190323084257.png"></p>
 <ul>
-<li>第一种情况:先渲染B,再渲染A<br>  由于不透明物体开启了深度测试和深度写入,而因此我们的深度缓存中没有任何有效数据,因此B首先会写入颜色缓冲和深度缓冲.随后我们渲染透明物体A,仍会进行深度测试,而我们发现A比B距离摄像头更近,所以我们会使用A的带透明度颜色和B的颜色进行混合,得到正确的半透明效果</li>
-<li>第二种情况:先渲染A,再渲染B<br>  渲染A时,深度缓冲中没有任何有效数据,因此A直接写入颜色缓冲.但不会写入深度缓冲.等渲染B时,进行深度测试的时候,深度缓冲中没有任何有效数据,会直接覆盖A的颜色,从视觉上来看,B出现在了A的前面,而这是错误的.</li>
+<li>第一种情况:先渲染B,再渲染A<br>
+由于不透明物体开启了深度测试和深度写入,而因此我们的深度缓存中没有任何有效数据,因此B首先会写入颜色缓冲和深度缓冲.随后我们渲染透明物体A,仍会进行深度测试,而我们发现A比B距离摄像头更近,所以我们会使用A的带透明度颜色和B的颜色进行混合,得到正确的半透明效果</li>
+<li>第二种情况:先渲染A,再渲染B<br>
+渲染A时,深度缓冲中没有任何有效数据,因此A直接写入颜色缓冲.但不会写入深度缓冲.等渲染B时,进行深度测试的时候,深度缓冲中没有任何有效数据,会直接覆盖A的颜色,从视觉上来看,B出现在了A的前面,而这是错误的.</li>
 </ul>
 <p>因此,渲染引擎一般都会对物体进行排序,再渲染.常见方法是:</p>
 <ol>
-<li>先渲染所有不透明物体,并对他们开启深度测试和深度写入;  </li>
+<li>先渲染所有不透明物体,并对他们开启深度测试和深度写入;</li>
 <li>再把半透明物体按它们距离摄像机的远近排序,然后按照从后往前的顺序渲染这些半透明物体,并开启它们的深度测试(但关闭深度写入);</li>
 </ol>
-<p>但是,这种方法仍然存在问题:<br>第二步中的渲染顺序,是依靠距离摄像机的深度判断的,而深度缓冲中的值其实是像素级别的,但是我们需要对物体级别进行排序.如图,会得到3个物体循环的情况.<br><img src="https://pic.ggemo.com/picgo/20190323093519.png" alt="20190323093519.png"><br>尽管总有一些情况打乱我们的阵脚,但由于上述方法足够有效且容易实现,因此大多数游戏引擎都选用的这种方法.</p>
-<h2 id="Unity-Shader的渲染顺序"><a href="#Unity-Shader的渲染顺序" class="headerlink" title="Unity Shader的渲染顺序"></a>Unity Shader的渲染顺序</h2><p>Unity为解决渲染问题提供了<strong>渲染队列</strong>(render queue)这一方案.我们可以使用Subshader的Queen标签来决定我们的模型将归于哪个渲染队列.<br>Unity在内部使用了一系列整数索引来表示每个渲染队列,索引号越小就越先被渲染.在Unity5中,Unity提前定义了5个渲染队列.  </p>
+<p>但是,这种方法仍然存在问题:<br>
+第二步中的渲染顺序,是依靠距离摄像机的深度判断的,而深度缓冲中的值其实是像素级别的,但是我们需要对物体级别进行排序.如图,会得到3个物体循环的情况.<br>
+<img src="https://pic.ggemo.com/picgo/20190323093519.png" alt="20190323093519.png"><br>
+尽管总有一些情况打乱我们的阵脚,但由于上述方法足够有效且容易实现,因此大多数游戏引擎都选用的这种方法.</p>
+<h2 id="unity-shader的渲染顺序"><a class="markdownIt-Anchor" href="#unity-shader的渲染顺序"></a> Unity Shader的渲染顺序</h2>
+<p>Unity为解决渲染问题提供了<strong>渲染队列</strong>(render queue)这一方案.我们可以使用Subshader的Queen标签来决定我们的模型将归于哪个渲染队列.<br>
+Unity在内部使用了一系列整数索引来表示每个渲染队列,索引号越小就越先被渲染.在Unity5中,Unity提前定义了5个渲染队列.</p>
 <table>
 <thead>
 <tr>
@@ -599,7 +615,7 @@ window.console.log=()=>{};
 <tr>
 <td>Geometry</td>
 <td>2000</td>
-<td>默认渲染队列,大多数物体使用这个队列,不透明物体使用这个队列.  </td>
+<td>默认渲染队列,大多数物体使用这个队列,不透明物体使用这个队列.</td>
 </tr>
 <tr>
 <td>AlphaTest</td>
@@ -618,14 +634,17 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<p>因此,我们想要通过透明度测试实现透明效果,代码中应该包含类似下面的代码:  </p>
+<p>因此,我们想要通过透明度测试实现透明效果,代码中应该包含类似下面的代码:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SubShader &#123;</span><br><span class="line">    Tags&#123;<span class="string">"Queue"</span> = <span class="string">"AlphaTest"</span>&#125;</span><br><span class="line">    Pass&#123;</span><br><span class="line">        <span class="comment">// ......</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果我们想通过透明度混合来实现透明效果,代码中应该包含类似下面的代码:  </p>
+<p>如果我们想通过透明度混合来实现透明效果,代码中应该包含类似下面的代码:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SubShader &#123;</span><br><span class="line">    Tags&#123;<span class="string">"Queue"</span> = <span class="string">"Transparent"</span>&#125;</span><br><span class="line">    Pass&#123;</span><br><span class="line">        ZWrite Off</span><br><span class="line">        <span class="comment">// ......</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中,ZWrite Off用于关闭深度写入.我们可以把它写在Pass或SubShader中.</p>
-<h2 id="透明度测试"><a href="#透明度测试" class="headerlink" title="透明度测试"></a>透明度测试</h2><p>目测用的不多,先不看  </p>
-<h2 id="透明度混合"><a href="#透明度混合" class="headerlink" title="透明度混合"></a>透明度混合</h2><p>会使用当前片元的透明度作为混合因子,与已经存储在颜色缓冲中的颜色进行混合,得到新的颜色.  </p>
-<p>为了进行混合,我们需要使用Unity提供的混合命令–Blend.<br>Blend是Unity提供的设置混合模式的命令.想要实现半透明效果就要把当前自身的颜色和已经存在于颜色缓冲中的颜色进行混合,混合时使用的函数就是由该指令决定的.  </p>
+<h2 id="透明度测试"><a class="markdownIt-Anchor" href="#透明度测试"></a> 透明度测试</h2>
+<p>目测用的不多,先不看</p>
+<h2 id="透明度混合"><a class="markdownIt-Anchor" href="#透明度混合"></a> 透明度混合</h2>
+<p>会使用当前片元的透明度作为混合因子,与已经存储在颜色缓冲中的颜色进行混合,得到新的颜色.</p>
+<p>为了进行混合,我们需要使用Unity提供的混合命令–Blend.<br>
+Blend是Unity提供的设置混合模式的命令.想要实现半透明效果就要把当前自身的颜色和已经存在于颜色缓冲中的颜色进行混合,混合时使用的函数就是由该指令决定的.</p>
 <table>
 <thead>
 <tr>
@@ -640,11 +659,11 @@ window.console.log=()=>{};
 </tr>
 <tr>
 <td>Blend SrcFactor DstFactor</td>
-<td>开启混合,并设置混合因子.片元颜色会乘以SrcFactor,而已存在于颜色缓冲区的颜色会乘以DstFactor,然后把两者相加存入缓存.  </td>
+<td>开启混合,并设置混合因子.片元颜色会乘以SrcFactor,而已存在于颜色缓冲区的颜色会乘以DstFactor,然后把两者相加存入缓存.</td>
 </tr>
 <tr>
 <td>Blend SrcFactor DstFactor, SrcFactorA DstFactorA</td>
-<td>和上面几乎一样,只是使用不同因子来混合透明通道  </td>
+<td>和上面几乎一样,只是使用不同因子来混合透明通道</td>
 </tr>
 <tr>
 <td>BlendOp BlendOption</td>
@@ -652,25 +671,44 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<p>在本节中我们使用第二种语义来混合,需要注意的是,这个命令在设置混合因子的同时也开启了混合模式.  </p>
-<h3 id="实践-透明度混合"><a href="#实践-透明度混合" class="headerlink" title="实践: 透明度混合"></a>实践: 透明度混合</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Upgrade <span class="doctag">NOTE:</span> replaced '_Object2World' with 'unity_ObjectToWorld'</span></span><br><span class="line"></span><br><span class="line">Shader <span class="string">"Custom/8.4"</span></span><br><span class="line">&#123;</span><br><span class="line">    Properties</span><br><span class="line">    &#123;</span><br><span class="line">        _Color (<span class="string">"Color"</span>, Color) = (<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        _MainTex (<span class="string">"Albedo (RGB)"</span>, <span class="number">2</span>D) = <span class="string">"white"</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// AlphaScale用来控制整体透明度</span></span><br><span class="line">        _AlphaScale(<span class="string">"Alpha Scale"</span>,Range(<span class="number">0</span>,<span class="number">1</span>)) = <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    SubShader</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Queue标签指定队列</span></span><br><span class="line">        <span class="comment">// RenderType标签设置为Transparent,用来指明该Shader是一个使用了透明度混合的Shader.RenderType标签通常被用于着色器替换功能.</span></span><br><span class="line">        <span class="comment">// IgnoreProject标签设为True,意味着整个Subshader不受投影器(Projectors)影响.</span></span><br><span class="line">        Tags &#123; <span class="string">"Queue"</span>=<span class="string">"TransParent"</span> <span class="string">"IgnoreProject"</span>=<span class="string">"True"</span> <span class="string">"RenderType"</span>=<span class="string">"Transparent"</span> &#125;</span><br><span class="line">        </span><br><span class="line">        Pass&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 把LightMode标签设为ForwardBase,是为了让Unity能够按前向渲染路径的方式为我们正确提供各个光照变量.</span></span><br><span class="line">            Tags &#123;<span class="string">"LightMode"</span>=<span class="string">"ForwardBase"</span>&#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 关闭深度写入</span></span><br><span class="line">            ZWrite Off</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 设置混合模式</span></span><br><span class="line">            Blend SrcAlpha OneMinusSrcAlpha</span><br><span class="line"></span><br><span class="line">            CGPROGRAM</span><br><span class="line">            #pragma vertex vert </span><br><span class="line">            #pragma fragment frag </span><br><span class="line">            #include <span class="string">"Lighting.cginc"</span></span><br><span class="line"></span><br><span class="line">            fixed4 _Color;</span><br><span class="line">            sampler2D _MainTex;</span><br><span class="line">            float4 _MainTex_ST;</span><br><span class="line">            fixed _AlphaScale;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">a2v</span>&#123;</span></span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span>&#123;</span></span><br><span class="line">                float4 pos : SV_POSITION;</span><br><span class="line">                float3 worldNormal : TEXCOORD0;</span><br><span class="line">                float3 worldPos : TEXCOORD1;</span><br><span class="line">                <span class="keyword">float</span> uv : TEXCOORD2;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="function">v2f <span class="title">vert</span><span class="params">(a2v v)</span></span>&#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">                o.worldNormal = UnityObjectToWorldNormal(v.normal);</span><br><span class="line">                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line">                o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);</span><br><span class="line">                <span class="keyword">return</span> o;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fixed4 frag(v2f i) : SV_TARGET&#123;</span><br><span class="line">                fixed3 worldNormal = normalize(i.worldNormal);</span><br><span class="line">                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));</span><br><span class="line">                fixed4 texColor = tex2D(_MainTex, i.uv);</span><br><span class="line">                fixed3 albedo = texColor.rgb * _Color.rgb;</span><br><span class="line">                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">                fixed3 diffuse = _LightColor0.rgb * albedo * max(<span class="number">0</span>, dot(worldNormal, worldLightDir));</span><br><span class="line"></span><br><span class="line">                <span class="comment">// alpha的值</span></span><br><span class="line">                <span class="keyword">return</span> fixed4(ambient + diffuse,texColor.a * _AlphaScale);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    FallBack <span class="string">"Diffuse"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当模型自身有复杂的遮挡关系或包含了复杂的非凸网格的时候,就会有各种各样因为排序错误而产生的错误的排序效果.<br><img src="https://pic.ggemo.com/picgo/20190323121138.png" alt="20190323121138.png">  </p>
-<h2 id="开启深度写入的半透明效果"><a href="#开启深度写入的半透明效果" class="headerlink" title="开启深度写入的半透明效果"></a>开启深度写入的半透明效果</h2><p>上面的问题都是由于关闭了深度写入造成的,因为这样我们无法对模型进行像素级别的深度排序.<br>这是,我们可以想办法重新利用深度写入,让模型可以想半透明物体一样进行淡入淡出(淡入淡出什么鬼???).这就是下面的内容.  </p>
-<p>对于上面的问题,一种解决方法是<strong>使用两个Pass</strong>来渲染模型:<br>一个Pass开启深度写入,但不输出颜色,它的目的仅仅是为了把该模型写入深度缓冲中;<br>第二个Pass进行正常的透明度混合,由于上一个Pass已经得到了逐像素的正确的深度信息,该Pass就可以按照像素级别的深度排序的结果进行透明渲染.<br>但这种方法的缺点在于,多使用一个Pass会对性能造成一定的影响.  </p>
-<p>代码只需要在上面的那份代码中新加一个Pass即可,加在原Pass的上面  </p>
+<p>在本节中我们使用第二种语义来混合,需要注意的是,这个命令在设置混合因子的同时也开启了混合模式.</p>
+<h3 id="实践-透明度混合"><a class="markdownIt-Anchor" href="#实践-透明度混合"></a> 实践: 透明度混合</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Upgrade <span class="doctag">NOTE:</span> replaced '_Object2World' with 'unity_ObjectToWorld'</span></span><br><span class="line"></span><br><span class="line">Shader <span class="string">"Custom/8.4"</span></span><br><span class="line">&#123;</span><br><span class="line">    Properties</span><br><span class="line">    &#123;</span><br><span class="line">        _Color (<span class="string">"Color"</span>, Color) = (<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        _MainTex (<span class="string">"Albedo (RGB)"</span>, <span class="number">2</span>D) = <span class="string">"white"</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// AlphaScale用来控制整体透明度</span></span><br><span class="line">        _AlphaScale(<span class="string">"Alpha Scale"</span>,Range(<span class="number">0</span>,<span class="number">1</span>)) = <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    SubShader</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Queue标签指定队列</span></span><br><span class="line">        <span class="comment">// RenderType标签设置为Transparent,用来指明该Shader是一个使用了透明度混合的Shader.RenderType标签通常被用于着色器替换功能.</span></span><br><span class="line">        <span class="comment">// IgnoreProject标签设为True,意味着整个Subshader不受投影器(Projectors)影响.</span></span><br><span class="line">        Tags &#123; <span class="string">"Queue"</span>=<span class="string">"TransParent"</span> <span class="string">"IgnoreProject"</span>=<span class="string">"True"</span> <span class="string">"RenderType"</span>=<span class="string">"Transparent"</span> &#125;</span><br><span class="line">        </span><br><span class="line">        Pass&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 把LightMode标签设为ForwardBase,是为了让Unity能够按前向渲染路径的方式为我们正确提供各个光照变量.</span></span><br><span class="line">            Tags &#123;<span class="string">"LightMode"</span>=<span class="string">"ForwardBase"</span>&#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 关闭深度写入</span></span><br><span class="line">            ZWrite Off</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 设置混合模式</span></span><br><span class="line">            Blend SrcAlpha OneMinusSrcAlpha</span><br><span class="line"></span><br><span class="line">            CGPROGRAM</span><br><span class="line">            #pragma vertex vert </span><br><span class="line">            #pragma fragment frag </span><br><span class="line">            #include <span class="string">"Lighting.cginc"</span></span><br><span class="line"></span><br><span class="line">            fixed4 _Color;</span><br><span class="line">            sampler2D _MainTex;</span><br><span class="line">            float4 _MainTex_ST;</span><br><span class="line">            fixed _AlphaScale;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">a2v</span>&#123;</span></span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span>&#123;</span></span><br><span class="line">                float4 pos : SV_POSITION;</span><br><span class="line">                float3 worldNormal : TEXCOORD0;</span><br><span class="line">                float3 worldPos : TEXCOORD1;</span><br><span class="line">                <span class="keyword">float</span> uv : TEXCOORD2;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="function">v2f <span class="title">vert</span><span class="params">(a2v v)</span></span>&#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">                o.worldNormal = UnityObjectToWorldNormal(v.normal);</span><br><span class="line">                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line">                o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);</span><br><span class="line">                <span class="keyword">return</span> o;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fixed4 frag(v2f i) : SV_TARGET&#123;</span><br><span class="line">                fixed3 worldNormal = normalize(i.worldNormal);</span><br><span class="line">                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));</span><br><span class="line">                fixed4 texColor = tex2D(_MainTex, i.uv);</span><br><span class="line">                fixed3 albedo = texColor.rgb * _Color.rgb;</span><br><span class="line">                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">                fixed3 diffuse = _LightColor0.rgb * albedo * max(<span class="number">0</span>, dot(worldNormal, worldLightDir));</span><br><span class="line"></span><br><span class="line">                <span class="comment">// alpha的值</span></span><br><span class="line">                <span class="keyword">return</span> fixed4(ambient + diffuse,texColor.a * _AlphaScale);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    FallBack <span class="string">"Diffuse"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当模型自身有复杂的遮挡关系或包含了复杂的非凸网格的时候,就会有各种各样因为排序错误而产生的错误的排序效果.<br>
+<img src="https://pic.ggemo.com/picgo/20190323121138.png" alt="20190323121138.png"></p>
+<h2 id="开启深度写入的半透明效果"><a class="markdownIt-Anchor" href="#开启深度写入的半透明效果"></a> 开启深度写入的半透明效果</h2>
+<p>上面的问题都是由于关闭了深度写入造成的,因为这样我们无法对模型进行像素级别的深度排序.<br>
+这是,我们可以想办法重新利用深度写入,让模型可以想半透明物体一样进行淡入淡出(淡入淡出什么鬼???).这就是下面的内容.</p>
+<p>对于上面的问题,一种解决方法是<strong>使用两个Pass</strong>来渲染模型:<br>
+一个Pass开启深度写入,但不输出颜色,它的目的仅仅是为了把该模型写入深度缓冲中;<br>
+第二个Pass进行正常的透明度混合,由于上一个Pass已经得到了逐像素的正确的深度信息,该Pass就可以按照像素级别的深度排序的结果进行透明渲染.<br>
+但这种方法的缺点在于,多使用一个Pass会对性能造成一定的影响.</p>
+<p>代码只需要在上面的那份代码中新加一个Pass即可,加在原Pass的上面</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Pass&#123;</span><br><span class="line">    ZWrite On </span><br><span class="line">    ColorMask <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ColorMask用于设置颜色通道的写掩码(write mask),它的语义如下:  </p>
+<p>ColorMask用于设置颜色通道的写掩码(write mask),它的语义如下:</p>
 <blockquote>
 <p>ColorMask RGB | A | 0 | 其他任何R, G, B, A的组合</p>
 </blockquote>
-<p>当ColorMask设为0时,意味着该Pass不写入任何颜色通道,即不会输出任何颜色.  </p>
-<h2 id="ShaderLab的混合命令"><a href="#ShaderLab的混合命令" class="headerlink" title="ShaderLab的混合命令"></a>ShaderLab的混合命令</h2><p>上面已经用了Blend命令进行混合,实际上混合还有其他很多用处,不仅仅是透明度混合.  </p>
-<h4 id="混合的原理"><a href="#混合的原理" class="headerlink" title="混合的原理"></a>混合的原理</h4><p>当片元着色器产生一个颜色的时候,可以选择与颜色缓存中的颜色进行混合,这样一来,混合就和两个操作数有关:<strong>源颜色</strong>(source color)和<strong>目标颜色</strong>(destination color).  </p>
-<p>源颜色,用S表示,指的是片元着色器产生的颜色值;<br>目标颜色,用D表示,指的是从颜色缓冲中读取到的颜色值.<br>对它们进行混合后得到输出颜色,用O表示,它会重新写入到颜色缓存中.  </p>
+<p>当ColorMask设为0时,意味着该Pass不写入任何颜色通道,即不会输出任何颜色.</p>
+<h2 id="shaderlab的混合命令"><a class="markdownIt-Anchor" href="#shaderlab的混合命令"></a> ShaderLab的混合命令</h2>
+<p>上面已经用了Blend命令进行混合,实际上混合还有其他很多用处,不仅仅是透明度混合.</p>
+<h4 id="混合的原理"><a class="markdownIt-Anchor" href="#混合的原理"></a> 混合的原理</h4>
+<p>当片元着色器产生一个颜色的时候,可以选择与颜色缓存中的颜色进行混合,这样一来,混合就和两个操作数有关:<strong>源颜色</strong>(source color)和<strong>目标颜色</strong>(destination color).</p>
+<p>源颜色,用S表示,指的是片元着色器产生的颜色值;<br>
+目标颜色,用D表示,指的是从颜色缓冲中读取到的颜色值.<br>
+对它们进行混合后得到输出颜色,用O表示,它会重新写入到颜色缓存中.</p>
 <p>需要注意的是,当我们谈及混合中的源颜色, 目标颜色和输出颜色时,他们都包含了<strong>RGBA四个通道</strong>,而并非仅仅的RGB通道.</p>
-<h4 id="开启混合"><a href="#开启混合" class="headerlink" title="开启混合"></a>开启混合</h4><p>在Unity中,当我们使用Blend(Blend Off除外)命令时,除了设置混合状态外也开启的混合.  </p>
-<h3 id="混合的等式和参数"><a href="#混合的等式和参数" class="headerlink" title="混合的等式和参数"></a>混合的等式和参数</h3><p>混合是一个逐片元的操作,而且它是不可编程的,但是是高度可配置的.<br>我们可以设置混合时使用的运算操作,混合因子等来影响混合.  </p>
-<p>从源颜色S和目标颜色D得到输出颜色O必须适用一个等式来计算,这个等式叫做<strong>混合等式</strong>(Blending equation).<br>当进行混合时,我们需要使用两个混合等式,一个用于混合RGB通道,一个用于混合A通道.<br>当设置混合状态时,我们实际上设置的是混合等式中的<strong>操作</strong>和<strong>因子</strong><br>在默认情况下,混合等式使用的操作都是加操作(我们也可以使用其他操作),我们只需要再设置一下混合因子即可.<br>由于需要两个等式,每个等式有两个因子(一个用于和源颜色相乘,一个用于和目标颜色相乘),因此一共需要4个因子.<br>下面是ShaderLab中设置混合因子的命令  </p>
+<h4 id="开启混合"><a class="markdownIt-Anchor" href="#开启混合"></a> 开启混合</h4>
+<p>在Unity中,当我们使用Blend(Blend Off除外)命令时,除了设置混合状态外也开启的混合.</p>
+<h3 id="混合的等式和参数"><a class="markdownIt-Anchor" href="#混合的等式和参数"></a> 混合的等式和参数</h3>
+<p>混合是一个逐片元的操作,而且它是不可编程的,但是是高度可配置的.<br>
+我们可以设置混合时使用的运算操作,混合因子等来影响混合.</p>
+<p>从源颜色S和目标颜色D得到输出颜色O必须适用一个等式来计算,这个等式叫做<strong>混合等式</strong>(Blending equation).<br>
+当进行混合时,我们需要使用两个混合等式,一个用于混合RGB通道,一个用于混合A通道.<br>
+当设置混合状态时,我们实际上设置的是混合等式中的<strong>操作</strong>和<strong>因子</strong><br>
+在默认情况下,混合等式使用的操作都是加操作(我们也可以使用其他操作),我们只需要再设置一下混合因子即可.<br>
+由于需要两个等式,每个等式有两个因子(一个用于和源颜色相乘,一个用于和目标颜色相乘),因此一共需要4个因子.<br>
+下面是ShaderLab中设置混合因子的命令</p>
 <table>
 <thead>
 <tr>
@@ -689,7 +727,7 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<p>第一个命令只提供了两个因子,这意味着使用同样混合因子来混合RGB通道和A通道,即此时SrcFactorA等于SrcFactor, DstFactorA等于DstFactor.  </p>
+<p>第一个命令只提供了两个因子,这意味着使用同样混合因子来混合RGB通道和A通道,即此时SrcFactorA等于SrcFactor, DstFactorA等于DstFactor.</p>
 <p>这些混合因子的值可以取以下:</p>
 <table>
 <thead>
@@ -741,7 +779,8 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<h3 id="混合操作"><a href="#混合操作" class="headerlink" title="混合操作"></a>混合操作</h3><p>可以使用ShaderLab的<strong>BlendOp BlendOption</strong>命令,来选择不同的混合操作  </p>
+<h3 id="混合操作"><a class="markdownIt-Anchor" href="#混合操作"></a> 混合操作</h3>
+<p>可以使用ShaderLab的<strong>BlendOp BlendOption</strong>命令,来选择不同的混合操作</p>
 <table>
 <thead>
 <tr>
@@ -752,28 +791,29 @@ window.console.log=()=>{};
 <tbody>
 <tr>
 <td>Add</td>
-<td>将混合后的源颜色和目的颜色相加.是默认的混合操作.使用的混合等式是:<br>O(rgb) = SrcFactor <em> S(rgb) + DstFactor </em> D(rgb)<br>O(a) = SrcFactor <em> S(a) + DstFactor </em> D(a)</td>
+<td>将混合后的源颜色和目的颜色相加.是默认的混合操作.使用的混合等式是:<br>O(rgb) = SrcFactor * S(rgb) + DstFactor * D(rgb)<br>O(a) = SrcFactor * S(a) + DstFactor * D(a)</td>
 </tr>
 <tr>
 <td>Sub</td>
-<td>用混合后的源颜色减去混合后的目标颜色.使用的混合等式是:<br>O(rgb) = SrcFactor <em> S(rgb) - DstFactor </em> D(rgb)<br>O(a) = SrcFactor <em> S(a) - DstFactor </em> D(a)</td>
+<td>用混合后的源颜色减去混合后的目标颜色.使用的混合等式是:<br>O(rgb) = SrcFactor * S(rgb) - DstFactor * D(rgb)<br>O(a) = SrcFactor * S(a) - DstFactor * D(a)</td>
 </tr>
 <tr>
 <td>RevSub</td>
-<td>用混合后的目标颜色减去混合后的源颜色.使用的混合等式是:<br>O(rgb) = DstFactor <em> D(rgb) - SrcFactor </em> S(rgb)<br>O(a) = DstFactor <em> D(a) - SrcFactor </em> S(a) </td>
+<td>用混合后的目标颜色减去混合后的源颜色.使用的混合等式是:<br>O(rgb) = DstFactor * D(rgb) - SrcFactor * S(rgb)<br>O(a) = DstFactor * D(a) - SrcFactor * S(a)</td>
 </tr>
 <tr>
 <td>Min</td>
-<td>使用源颜色和目标颜色中的较小值,是<strong>逐分量</strong>比较的.使用的混合等式是<br>O(rgba) = (min(S(r), D(r), min(S(g), D(g), min(S(b), D(b), min(S(a), D(a)))</td>
+<td>使用源颜色和目标颜色中的较小值,是<strong>逐分量</strong>比较的.使用的混合等式是<br>O(rgba) = (min(S®, D®, min(S(g), D(g), min(S(b), D(b), min(S(a), D(a)))</td>
 </tr>
 <tr>
 <td>Max</td>
-<td>使用源颜色和目标颜色中的较大值,是<strong>逐分量</strong>比较的.使用的混合等式是<br>O(rgba) = (max(S(r), D(r), max(S(g), D(g), max(S(b), D(b), max(S(a), D(a)))</td>
+<td>使用源颜色和目标颜色中的较大值,是<strong>逐分量</strong>比较的.使用的混合等式是<br>O(rgba) = (max(S®, D®, max(S(g), D(g), max(S(b), D(b), max(S(a), D(a)))</td>
 </tr>
 </tbody>
 </table>
-<p>混合因子命令通常是与混合因子命令一起工作的.但使用Min或Max混合操作时,混合因子实际上是不起任何作用的  </p>
-<h3 id="常见的混合类型"><a href="#常见的混合类型" class="headerlink" title="常见的混合类型"></a>常见的混合类型</h3><p>通过混合操作和混合因子命令的组合,可以得到一些类似PhotoShop混合模式中的混合效果.  </p>
+<p>混合因子命令通常是与混合因子命令一起工作的.但使用Min或Max混合操作时,混合因子实际上是不起任何作用的</p>
+<h3 id="常见的混合类型"><a class="markdownIt-Anchor" href="#常见的混合类型"></a> 常见的混合类型</h3>
+<p>通过混合操作和混合因子命令的组合,可以得到一些类似PhotoShop混合模式中的混合效果.</p>
 <table>
 <thead>
 <tr>
@@ -820,14 +860,25 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<p><img src="https://pic.ggemo.com/picgo/20190323134011.png" alt="20190323134011.png">  </p>
-<h2 id="双面渲染的透明效果"><a href="#双面渲染的透明效果" class="headerlink" title="双面渲染的透明效果"></a>双面渲染的透明效果</h2><p>现实生活中,如果一个物体是透明的,意味着我们不仅可以透过它看到其它物体的样子,也可以看到它的内部结构.<br>但在前面实现的透明效果中,我们无法观察到正方体的内部及其背面的形状.<br>这是因为,默认情况下,渲染引擎剔除了物体背面的渲染图元,而只渲染了物体的正面.<br>可以使用<strong>Cull</strong>指令来控制需要剔除哪个面的图元<br>在Unity中,Cull指令的语法如下:  </p>
+<p><img src="https://pic.ggemo.com/picgo/20190323134011.png" alt="20190323134011.png"></p>
+<h2 id="双面渲染的透明效果"><a class="markdownIt-Anchor" href="#双面渲染的透明效果"></a> 双面渲染的透明效果</h2>
+<p>现实生活中,如果一个物体是透明的,意味着我们不仅可以透过它看到其它物体的样子,也可以看到它的内部结构.<br>
+但在前面实现的透明效果中,我们无法观察到正方体的内部及其背面的形状.<br>
+这是因为,默认情况下,渲染引擎剔除了物体背面的渲染图元,而只渲染了物体的正面.<br>
+可以使用<strong>Cull</strong>指令来控制需要剔除哪个面的图元<br>
+在Unity中,Cull指令的语法如下:</p>
 <blockquote>
 <p>Cull Back | Front | Off</p>
 </blockquote>
-<p>如果设置为Back,则背对摄像机的渲染图元不会被渲染,也就是默认情况下的剔除状态;<br>如果设为Front,则朝向摄像机的渲染图元不会被渲染;<br>如果设置为Off,就会关闭剔除功能,所有图元都会被渲染,但由于这时需要渲染的图元数目会成倍增加,因此除非是用于特殊效果(例如这里的透明效果),通常情况下是不会关闭剔除功能的.  </p>
-<h3 id="实践-透明度混合的双面渲染"><a href="#实践-透明度混合的双面渲染" class="headerlink" title="实践: 透明度混合的双面渲染"></a>实践: 透明度混合的双面渲染</h3><p>我们想要得到正确的透明效果,渲染顺序是十分重要的,我们要保证图元要从前往后渲染.<br>对于透明度测试来说,由于我们没有关闭深度写入,所以可以利用深度缓冲按逐像素的细粒度进行深度排序,从而保证渲染的正确性.<br>然而透明度混合要关闭深度写入…我们就需要小心控制渲染顺序来得到正确的深度关系.<br>如果我们直接关闭剔除功能,我们就无法保证同一个物体的正面和背面渲染图元的渲染顺序,就有可能得到错误的半透明效果.  </p>
-<p>为此,我们选择把双面渲染的工作分为两个Pass: 第一个Pass只渲染背面,第二个Pass只渲染正面,由于Unity会顺序执行SubShader中的各个Pass,因此我们可以保证背面总是在正面之前被渲染.  </p>
+<p>如果设置为Back,则背对摄像机的渲染图元不会被渲染,也就是默认情况下的剔除状态;<br>
+如果设为Front,则朝向摄像机的渲染图元不会被渲染;<br>
+如果设置为Off,就会关闭剔除功能,所有图元都会被渲染,但由于这时需要渲染的图元数目会成倍增加,因此除非是用于特殊效果(例如这里的透明效果),通常情况下是不会关闭剔除功能的.</p>
+<h3 id="实践-透明度混合的双面渲染"><a class="markdownIt-Anchor" href="#实践-透明度混合的双面渲染"></a> 实践: 透明度混合的双面渲染</h3>
+<p>我们想要得到正确的透明效果,渲染顺序是十分重要的,我们要保证图元要从前往后渲染.<br>
+对于透明度测试来说,由于我们没有关闭深度写入,所以可以利用深度缓冲按逐像素的细粒度进行深度排序,从而保证渲染的正确性.<br>
+然而透明度混合要关闭深度写入…我们就需要小心控制渲染顺序来得到正确的深度关系.<br>
+如果我们直接关闭剔除功能,我们就无法保证同一个物体的正面和背面渲染图元的渲染顺序,就有可能得到错误的半透明效果.</p>
+<p>为此,我们选择把双面渲染的工作分为两个Pass: 第一个Pass只渲染背面,第二个Pass只渲染正面,由于Unity会顺序执行SubShader中的各个Pass,因此我们可以保证背面总是在正面之前被渲染.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line">Shader <span class="string">"Custom/8.4"</span></span><br><span class="line">&#123;</span><br><span class="line">    Properties</span><br><span class="line">    &#123;</span><br><span class="line">        _Color (<span class="string">"Color"</span>, Color) = (<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        _MainTex (<span class="string">"Albedo (RGB)"</span>, <span class="number">2</span>D) = <span class="string">"white"</span> &#123;&#125;</span><br><span class="line">        _AlphaScale(<span class="string">"Alpha Scale"</span>,Range(<span class="number">0</span>,<span class="number">1</span>)) = <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    SubShader</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        Tags &#123; <span class="string">"Queue"</span>=<span class="string">"TransParent"</span> <span class="string">"IgnoreProject"</span>=<span class="string">"True"</span> <span class="string">"RenderType"</span>=<span class="string">"Transparent"</span> &#125;</span><br><span class="line">        </span><br><span class="line">        Pass&#123;</span><br><span class="line">            Tags &#123;<span class="string">"LightMode"</span>=<span class="string">"ForwardBase"</span>&#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 剔除前面</span></span><br><span class="line">            Cull Front</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 全是原Pass</span></span><br><span class="line">            ZWrite Off</span><br><span class="line">            Blend SrcAlpha OneMinusSrcAlpha</span><br><span class="line"></span><br><span class="line">            CGPROGRAM</span><br><span class="line">            #pragma vertex vert </span><br><span class="line">            #pragma fragment frag </span><br><span class="line">            #include <span class="string">"Lighting.cginc"</span></span><br><span class="line"></span><br><span class="line">            fixed4 _Color;</span><br><span class="line">            sampler2D _MainTex;</span><br><span class="line">            float4 _MainTex_ST;</span><br><span class="line">            fixed _AlphaScale;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">a2v</span>&#123;</span></span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span>&#123;</span></span><br><span class="line">                float4 pos : SV_POSITION;</span><br><span class="line">                float3 worldNormal : TEXCOORD0;</span><br><span class="line">                float3 worldPos : TEXCOORD1;</span><br><span class="line">                <span class="keyword">float</span> uv : TEXCOORD2;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="function">v2f <span class="title">vert</span><span class="params">(a2v v)</span></span>&#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">                o.worldNormal = UnityObjectToWorldNormal(v.normal);</span><br><span class="line">                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line">                o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);</span><br><span class="line">                <span class="keyword">return</span> o;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fixed4 frag(v2f i) : SV_TARGET&#123;</span><br><span class="line">                fixed3 worldNormal = normalize(i.worldNormal);</span><br><span class="line">                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));</span><br><span class="line">                fixed4 texColor = tex2D(_MainTex, i.uv);</span><br><span class="line">                fixed3 albedo = texColor.rgb * _Color.rgb;</span><br><span class="line">                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">                fixed3 diffuse = _LightColor0.rgb * albedo * max(<span class="number">0</span>, dot(worldNormal, worldLightDir));</span><br><span class="line">                <span class="keyword">return</span> fixed4(ambient + diffuse,texColor.a * _AlphaScale);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Pass&#123;</span><br><span class="line">            Tags &#123;<span class="string">"LightMode"</span>=<span class="string">"ForwardBase"</span>&#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 剔除后面</span></span><br><span class="line">            Cull Back</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 原Pass</span></span><br><span class="line">            ZWrite Off</span><br><span class="line">            Blend SrcAlpha OneMinusSrcAlpha</span><br><span class="line"></span><br><span class="line">            CGPROGRAM</span><br><span class="line">            #pragma vertex vert </span><br><span class="line">            #pragma fragment frag </span><br><span class="line">            #include <span class="string">"Lighting.cginc"</span></span><br><span class="line"></span><br><span class="line">            fixed4 _Color;</span><br><span class="line">            sampler2D _MainTex;</span><br><span class="line">            float4 _MainTex_ST;</span><br><span class="line">            fixed _AlphaScale;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">a2v</span>&#123;</span></span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span>&#123;</span></span><br><span class="line">                float4 pos : SV_POSITION;</span><br><span class="line">                float3 worldNormal : TEXCOORD0;</span><br><span class="line">                float3 worldPos : TEXCOORD1;</span><br><span class="line">                <span class="keyword">float</span> uv : TEXCOORD2;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="function">v2f <span class="title">vert</span><span class="params">(a2v v)</span></span>&#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">                o.worldNormal = UnityObjectToWorldNormal(v.normal);</span><br><span class="line">                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line">                o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);</span><br><span class="line">                <span class="keyword">return</span> o;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fixed4 frag(v2f i) : SV_TARGET&#123;</span><br><span class="line">                fixed3 worldNormal = normalize(i.worldNormal);</span><br><span class="line">                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));</span><br><span class="line">                fixed4 texColor = tex2D(_MainTex, i.uv);</span><br><span class="line">                fixed3 albedo = texColor.rgb * _Color.rgb;</span><br><span class="line">                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">                fixed3 diffuse = _LightColor0.rgb * albedo * max(<span class="number">0</span>, dot(worldNormal, worldLightDir));</span><br><span class="line">                <span class="keyword">return</span> fixed4(ambient + diffuse,texColor.a * _AlphaScale);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    FallBack <span class="string">"Diffuse"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -1134,7 +1185,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染顺序"><span class="nav-text">渲染顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭深度写入很重要"><span class="nav-text">关闭深度写入很重要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同的渲染顺序会得到的结果"><span class="nav-text">不同的渲染顺序会得到的结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity-Shader的渲染顺序"><span class="nav-text">Unity Shader的渲染顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#透明度测试"><span class="nav-text">透明度测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#透明度混合"><span class="nav-text">透明度混合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践-透明度混合"><span class="nav-text">实践: 透明度混合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启深度写入的半透明效果"><span class="nav-text">开启深度写入的半透明效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ShaderLab的混合命令"><span class="nav-text">ShaderLab的混合命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#混合的原理"><span class="nav-text">混合的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启混合"><span class="nav-text">开启混合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合的等式和参数"><span class="nav-text">混合的等式和参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合操作"><span class="nav-text">混合操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的混合类型"><span class="nav-text">常见的混合类型</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#双面渲染的透明效果"><span class="nav-text">双面渲染的透明效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践-透明度混合的双面渲染"><span class="nav-text">实践: 透明度混合的双面渲染</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染顺序"><span class="nav-text"> 渲染顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭深度写入很重要"><span class="nav-text"> 关闭深度写入很重要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同的渲染顺序会得到的结果"><span class="nav-text"> 不同的渲染顺序会得到的结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unity-shader的渲染顺序"><span class="nav-text"> Unity Shader的渲染顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#透明度测试"><span class="nav-text"> 透明度测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#透明度混合"><span class="nav-text"> 透明度混合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践-透明度混合"><span class="nav-text"> 实践: 透明度混合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启深度写入的半透明效果"><span class="nav-text"> 开启深度写入的半透明效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shaderlab的混合命令"><span class="nav-text"> ShaderLab的混合命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#混合的原理"><span class="nav-text"> 混合的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启混合"><span class="nav-text"> 开启混合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合的等式和参数"><span class="nav-text"> 混合的等式和参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合操作"><span class="nav-text"> 混合操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的混合类型"><span class="nav-text"> 常见的混合类型</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#双面渲染的透明效果"><span class="nav-text"> 双面渲染的透明效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践-透明度混合的双面渲染"><span class="nav-text"> 实践: 透明度混合的双面渲染</span></a></li></ol></li></div>
             
 
           </div>
@@ -1174,7 +1225,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">126k</span>
+    <span title="站点总字数">127k</span>
   
 
   

@@ -1017,6 +1017,35 @@ TODO: 看到这里,我就觉得跟我想要应聘的公司的工作不怎么搭�
   <script src="/js/src/audioPlayer.js?v=7.0.0"></script>
 
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'abgCMwLj6Q2FQ0U7C6eJfmGj-gzGzoHsz',
+    appKey: '7sSygwY7BsaQc1XoaVzrCFIg',
+    placeholder: '给小黄瓜个留言吧~最好填上昵称和邮箱哦',
+    avatar: 'identicon',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
 
 
   

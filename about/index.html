@@ -10,10 +10,8 @@
 
 
 
-  
 
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
 <head><meta name="generator" content="Hexo 3.8.0">
 <script>
@@ -26,13 +24,6 @@ window.console.log=()=>{};
 <link rel="shortcut icon" type="image/x-icon" href="https://blog.purecucumber.club/blog_favicon.ico"> 
 
 
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2">
 
 
 
@@ -96,7 +87,7 @@ window.console.log=()=>{};
     fastclick: true,
     lazyload: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"flipXIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"flipXIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -156,16 +147,6 @@ window.console.log=()=>{};
 
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?f7e369e7cc158cb7664d49b4b363cc35";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
 
 
 
@@ -197,7 +178,6 @@ window.console.log=()=>{};
   </style>
 </noscript>
 
-  <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
 <link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 </head>
 
@@ -797,7 +777,6 @@ window.console.log=()=>{};
       </div>
     </main>
 
-    <div id="aplayer"></div>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
@@ -940,44 +919,8 @@ window.console.log=()=>{};
   <script src="/js/src/bootstrap.js?v=7.0.0"></script>
 
 
-  
-  
-
-
-  <script src="/js/src/APlayer.min.js?v=7.0.0"></script>
-
-  <script src="/js/src/audioPlayer.js?v=7.0.0"></script>
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'abgCMwLj6Q2FQ0U7C6eJfmGj-gzGzoHsz',
-    appKey: '7sSygwY7BsaQc1XoaVzrCFIg',
-    placeholder: '给小黄瓜个留言吧~最好填上昵称和邮箱哦',
-    avatar: 'identicon',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1409,16 +1352,5 @@ window.console.log=()=>{};
   </script>
 
 
-
-  
-
-
-  <script src="/js/src/live2d.js?v=7.0.0"></script>
-
-  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
-
-<script type="text/javascript">
-    loadlive2d("live2d", "../src/pio/model.json");
-</script>
 </body>
 </html>

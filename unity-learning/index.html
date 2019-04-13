@@ -10,10 +10,8 @@
 
 
 
-  
 
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
 <head><meta name="generator" content="Hexo 3.8.0">
 <script>
@@ -26,13 +24,6 @@ window.console.log=()=>{};
 <link rel="shortcut icon" type="image/x-icon" href="https://blog.purecucumber.club/blog_favicon.ico"> 
 
 
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2">
 
 
 
@@ -96,7 +87,7 @@ window.console.log=()=>{};
     fastclick: true,
     lazyload: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"flipXIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"flipXIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -113,21 +104,21 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="unity官方教程https://unity3d.com/cn/learn/tutorials 现在在看一个beagining教程roll a ball  § material初探 新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色  § Update方法  § Update方法 Update方法在渲染每帧前被调用   § Fix">
+  <meta name="description" content="unity官方教程https://unity3d.com/cn/learn/tutorials 现在在看一个beagining教程roll a ball  § material初探 新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色  § Update方法  § Update方法 Update方法在渲染每帧前被调用  § Fixe">
 <meta name="keywords" content="unity">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习unity">
 <meta property="og:url" content="https://blog.purecucumber.club/unity-learning/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="unity官方教程https://unity3d.com/cn/learn/tutorials 现在在看一个beagining教程roll a ball  § material初探 新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色  § Update方法  § Update方法 Update方法在渲染每帧前被调用   § Fix">
+<meta property="og:description" content="unity官方教程https://unity3d.com/cn/learn/tutorials 现在在看一个beagining教程roll a ball  § material初探 新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色  § Update方法  § Update方法 Update方法在渲染每帧前被调用  § Fixe">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190309001942.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190309001751.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190309230735.png">
-<meta property="og:updated_time" content="2019-04-12T16:53:32.805Z">
+<meta property="og:updated_time" content="2019-04-12T16:56:59.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习unity">
-<meta name="twitter:description" content="unity官方教程https://unity3d.com/cn/learn/tutorials 现在在看一个beagining教程roll a ball  § material初探 新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色  § Update方法  § Update方法 Update方法在渲染每帧前被调用   § Fix">
+<meta name="twitter:description" content="unity官方教程https://unity3d.com/cn/learn/tutorials 现在在看一个beagining教程roll a ball  § material初探 新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色  § Update方法  § Update方法 Update方法在渲染每帧前被调用  § Fixe">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190309001942.png">
 
 
@@ -161,16 +152,6 @@ window.console.log=()=>{};
 
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?f7e369e7cc158cb7664d49b4b363cc35";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
 
 
 
@@ -202,7 +183,6 @@ window.console.log=()=>{};
   </style>
 </noscript>
 
-  <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
 <link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 </head>
 
@@ -477,7 +457,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-13 00:53:32" itemprop="dateModified" datetime="2019-04-13T00:53:32+08:00">2019-04-13</time>
+                <time title="修改时间：2019-04-13 00:56:59" itemprop="dateModified" datetime="2019-04-13T00:56:59+08:00">2019-04-13</time>
               
             
           </span>
@@ -566,14 +546,11 @@ window.console.log=()=>{};
 <p>新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色</p>
 <h2 id="update%E6%96%B9%E6%B3%95"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#update%E6%96%B9%E6%B3%95" aria-hidden="true">§</a> Update方法</h2>
 <h3 id="update%E6%96%B9%E6%B3%95-2"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#update%E6%96%B9%E6%B3%95-2" aria-hidden="true">§</a> Update方法</h3>
-<pre><code>Update方法在渲染每帧前被调用
-</code></pre>
+<p>Update方法在渲染每帧前被调用</p>
 <h3 id="fixedupdate"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#fixedupdate" aria-hidden="true">§</a> FixedUpdate</h3>
-<pre><code>FixedUpdate方法只有在执行有关物理计算之前才被调用
-</code></pre>
+<p>FixedUpdate方法只有在执行有关物理计算之前才被调用</p>
 <h3 id="lateupdate"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#lateupdate" aria-hidden="true">§</a> LateUpdate</h3>
-<pre><code>LateUpdate方法在所有Update方法执行完执行完之后执行
-</code></pre>
+<p>LateUpdate方法在所有Update方法执行完执行完之后执行</p>
 <h2 id="%E9%9D%99%E6%80%81%E5%92%8C%E5%8A%A8%E6%80%81gameobject"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E9%9D%99%E6%80%81%E5%92%8C%E5%8A%A8%E6%80%81gameobject" aria-hidden="true">§</a> 静态和动态GameObject</h2>
 <h3 id="%E9%9D%99%E6%80%81%E7%A2%B0%E6%92%9E%E4%BD%93"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E9%9D%99%E6%80%81%E7%A2%B0%E6%92%9E%E4%BD%93" aria-hidden="true">§</a> 静态碰撞体</h3>
 <p>unity会计算场景内所有静态碰撞体的体积,并将信息保存在缓存内.因为静态碰撞体不需要移动,可以避免每帧重新计算这些信息,所以这是对的<br>
@@ -587,7 +564,7 @@ window.console.log=()=>{};
 <p>Sorting Layer序号越大的层越后绘制,因而会覆盖掉前面序号小的层上的几何图元<br>
 表示指定层在Tags and Layers视图Sorting Layers中的顺序<br>
 各层的绘制顺序是Default -&gt; Background -&gt; Character -&gt; Foreground -&gt; UI</p>
-<h4 id="order-in-layer"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#order-in-layer" aria-hidden="true">§</a> Order in layer</h4>
+<h3 id="order-in-layer"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#order-in-layer" aria-hidden="true">§</a> Order in layer</h3>
 <p>在同一层调整几何图元的绘制深度.同样是序号大的覆盖序号小的</p>
 <p>spirit Render组件中SortingLayer属性控制的是不同层之间的绘制顺序,而Order in Layer控制的是同层中物体的绘制顺序</p>
 <h2 id="spine"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#spine" aria-hidden="true">§</a> spine</h2>
@@ -905,7 +882,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#material%E5%88%9D%E6%8E%A2"><span class="nav-text"> § material初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update%E6%96%B9%E6%B3%95"><span class="nav-text"> § Update方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#update%E6%96%B9%E6%B3%95-2"><span class="nav-text"> § Update方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fixedupdate"><span class="nav-text"> § FixedUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lateupdate"><span class="nav-text"> § LateUpdate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%92%8C%E5%8A%A8%E6%80%81gameobject"><span class="nav-text"> § 静态和动态GameObject</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text"> § 静态碰撞体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text"> § 动态碰撞体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F"><span class="nav-text"> § 几何图元绘制顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sorting-layer"><span class="nav-text"> § Sorting Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#order-in-layer"><span class="nav-text"> § Order in layer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spine"><span class="nav-text"> § spine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u!p!d!a!t!e!"><span class="nav-text"> § U!P!D!A!T!E!</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#material%E5%88%9D%E6%8E%A2"><span class="nav-text"> § material初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update%E6%96%B9%E6%B3%95"><span class="nav-text"> § Update方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#update%E6%96%B9%E6%B3%95-2"><span class="nav-text"> § Update方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fixedupdate"><span class="nav-text"> § FixedUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lateupdate"><span class="nav-text"> § LateUpdate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%92%8C%E5%8A%A8%E6%80%81gameobject"><span class="nav-text"> § 静态和动态GameObject</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text"> § 静态碰撞体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text"> § 动态碰撞体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F"><span class="nav-text"> § 几何图元绘制顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sorting-layer"><span class="nav-text"> § Sorting Layer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-in-layer"><span class="nav-text"> § Order in layer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spine"><span class="nav-text"> § spine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u!p!d!a!t!e!"><span class="nav-text"> § U!P!D!A!T!E!</span></a></li></ol></div>
             
 
           </div>
@@ -928,7 +905,6 @@ window.console.log=()=>{};
       </div>
     </main>
 
-    <div id="aplayer"></div>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
@@ -1071,44 +1047,8 @@ window.console.log=()=>{};
   <script src="/js/src/bootstrap.js?v=7.0.0"></script>
 
 
-  
-  
-
-
-  <script src="/js/src/APlayer.min.js?v=7.0.0"></script>
-
-  <script src="/js/src/audioPlayer.js?v=7.0.0"></script>
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'abgCMwLj6Q2FQ0U7C6eJfmGj-gzGzoHsz',
-    appKey: '7sSygwY7BsaQc1XoaVzrCFIg',
-    placeholder: '给小黄瓜个留言吧~最好填上昵称和邮箱哦',
-    avatar: 'identicon',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1540,16 +1480,5 @@ window.console.log=()=>{};
   </script>
 
 
-
-  
-
-
-  <script src="/js/src/live2d.js?v=7.0.0"></script>
-
-  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
-
-<script type="text/javascript">
-    loadlive2d("live2d", "../src/pio/model.json");
-</script>
 </body>
 </html>

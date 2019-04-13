@@ -10,10 +10,8 @@
 
 
 
-  
 
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
 <head><meta name="generator" content="Hexo 3.8.0">
 <script>
@@ -26,13 +24,6 @@ window.console.log=()=>{};
 <link rel="shortcut icon" type="image/x-icon" href="https://blog.purecucumber.club/blog_favicon.ico"> 
 
 
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2">
 
 
 
@@ -96,7 +87,7 @@ window.console.log=()=>{};
     fastclick: true,
     lazyload: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"flipXIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"flipXIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -114,7 +105,7 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="看完数学部分后再来写的  § CPU流水线  § 将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   § 设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  § 调用DrawCall Draw Call是一个命令,发起方是C">
-<meta name="keywords" content="shader,unity,《shader入门精要》">
+<meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第2章-渲染流水线">
 <meta property="og:url" content="https://blog.purecucumber.club/shader-r-lsx/index.html">
@@ -157,16 +148,6 @@ window.console.log=()=>{};
 
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?f7e369e7cc158cb7664d49b4b363cc35";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
 
 
 
@@ -198,7 +179,6 @@ window.console.log=()=>{};
   </style>
 </noscript>
 
-  <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
 <link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
 </head>
 
@@ -643,9 +623,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/shader/" rel="tag"># shader</a>
-          
             <a href="/tags/unity/" rel="tag"># unity</a>
+          
+            <a href="/tags/shader/" rel="tag"># shader</a>
           
             <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
           
@@ -948,7 +928,6 @@ window.console.log=()=>{};
       </div>
     </main>
 
-    <div id="aplayer"></div>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
@@ -1091,44 +1070,8 @@ window.console.log=()=>{};
   <script src="/js/src/bootstrap.js?v=7.0.0"></script>
 
 
-  
-  
-
-
-  <script src="/js/src/APlayer.min.js?v=7.0.0"></script>
-
-  <script src="/js/src/audioPlayer.js?v=7.0.0"></script>
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'abgCMwLj6Q2FQ0U7C6eJfmGj-gzGzoHsz',
-    appKey: '7sSygwY7BsaQc1XoaVzrCFIg',
-    placeholder: '给小黄瓜个留言吧~最好填上昵称和邮箱哦',
-    avatar: 'identicon',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1560,16 +1503,5 @@ window.console.log=()=>{};
   </script>
 
 
-
-  
-
-
-  <script src="/js/src/live2d.js?v=7.0.0"></script>
-
-  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
-
-<script type="text/javascript">
-    loadlive2d("live2d", "../src/pio/model.json");
-</script>
 </body>
 </html>

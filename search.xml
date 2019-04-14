@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Unity with MVC - How to Level Up Your Game Development]]></title>
+    <url>%2Funity-with-mvc-how-to-level-up-your-game-development%2F</url>
+    <content type="text"><![CDATA[没有找到好的国内的unity mvc的资料,国外的找到了这个. 自己翻译下,功力尚浅望轻喷.(页面最下面有评论板块) 原文地址: https://www.toptal.com/unity-unity3d/unity-with-mvc-how-to-level-up-your-game-development (以括号开头和结尾的代码块为译者的注释和吐槽) 程序猿经常从经典的Hello World着手开始学习.从那开始,项目越做越大.每个新挑战都指向一个重要的课题: 项目越大,就越乱. 不久后,就可以看到大小团队不会随意的不顾一切的做项目.代码应该被维护且能长时间持续使用.你工作过的公司不会只要你联系方式而是每次需要修或改善代码的时候叫你(然而你不希望这样). 这就是软件设计模式存在的理由;他们利用简单的规则来操控一个软甲工程的整体架构.他们使一个或多个程序猿把一个大项目的部分分开成一些核心部分来写,并且用一个标准化的方法来组织,使得遇到不熟悉的代码的部分时能消除混乱 如果所有人都遵守这些规则,就会使传统代码能更好的维护和操纵,并且新的代码可以更灵活地添加进去.规划开发的方法论花费的时间更少.Since problems don’t come in one flavor, there isn’t a silver bullet design pattern.你必须仔细考虑每个模式的优点和缺点,然后找到最适合拿来解决手头的问题的. 在这份教程中,我会结合我在Unity游戏开发平台和Model-View-Controller(MVC)模式上的经验.在我七年的开发中,我与我乱成一锅粥的游戏开发正面对决中,我利用设计模式得到了很好的代码结构和开发速度. 我一开始会讲一些uninty的基础架构:Entity-Component模式.然后我会解释MVC如何适应它,并且用一些模拟的项目来解释它. § 动机 在软件相关的文献中,我们可以找到一大堆关于设计模式的.纵然他们有一系列规则,开发者仍然经常需要做一些小的改动来使设计模式能更适应他们独特的问题. 这种&quot;程序编制的自由性&quot;证明了我们找不到一个单一的,确定的方法来设计软件.所以,这篇文章不应是解决你问题的终极方案,而是展示两种流行的设计模式:Entity-Component和Model-View-Controlle的效益和发展潜力. § Entity-Component Pattern Entity-Component(EC)是一种设计模式,我们首先定义组成应用的元素们的层级(Entities),然后定义将要被包含的特征和数据(Components).在更多的&quot;程序猿&quot;看来,一个Entity可以是一个包含了有0个或多个Components的对象.让我们这样描述一个Entity: some-entity [component0, component1, ...] 这里是一个简单的EC树的例子: 1234567891011- app [Application] - game [Game] - player [KeyboardInput, Renderer] - enemies - spider [SpiderAI, Renderer] - ogre [OgreAI, Renderer] ui [UI] - hud [HUD, MouseInput, Renderer] - pause-menu [PauseMenu, MouseInput, Renderer] - victory-modal [VictoryModal, MouseInput, Renderer] - defeat-modal [DefeatModal, MouseInput, Renderer]]]></content>
+      <tags>
+        <tag>unity</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[bili_bangumi_style-id]]></title>
     <url>%2Fbili-bangumi-style-id%2F</url>
     <content type="text"><![CDATA[id 描述 9 少女 16 日常 141 萝莉]]></content>

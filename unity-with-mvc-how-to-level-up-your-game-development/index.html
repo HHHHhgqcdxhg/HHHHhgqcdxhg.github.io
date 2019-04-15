@@ -112,10 +112,18 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="没有找到好的国内的unity mvc的资料,国外的找到了这个. 自己翻译下,功力尚浅望轻喷.(页面最下面有评论板块) 原文地址: https://www.toptal.com/unity-unity3d/unity-with-mvc-how-to-level-up-your-game-development  (以括号开头和结尾的代码块为译者的注释和吐槽) 程序猿经常从经典的Hello Worl">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T14:08:14.899Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190414221244.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190414222558.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190414232815.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190414232850.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190414233458.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190415001843.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190415003635.png">
+<meta property="og:updated_time" content="2019-04-14T18:04:30.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity with MVC - How to Level Up Your Game Development">
 <meta name="twitter:description" content="没有找到好的国内的unity mvc的资料,国外的找到了这个. 自己翻译下,功力尚浅望轻喷.(页面最下面有评论板块) 原文地址: https://www.toptal.com/unity-unity3d/unity-with-mvc-how-to-level-up-your-game-development  (以括号开头和结尾的代码块为译者的注释和吐槽) 程序猿经常从经典的Hello Worl">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190414221244.png">
 
 
 
@@ -442,12 +450,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-04-14 20:57:05 / 修改时间：22:08:14" itemprop="dateCreated datePublished" datetime="2019-04-14T20:57:05+08:00">2019-04-14</time>
+              <time title="创建时间：2019-04-14 20:57:05" itemprop="dateCreated datePublished" datetime="2019-04-14T20:57:05+08:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-15 02:04:30" itemprop="dateModified" datetime="2019-04-15T02:04:30+08:00">2019-04-15</time>
               
             
           </span>
@@ -488,7 +508,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">5.7k</span>
               
 
               
@@ -522,20 +542,109 @@ window.console.log=()=>{};
 <p>项目越大,就越乱.</p>
 <p>不久后,就可以看到大小团队不会随意的不顾一切的做项目.代码应该被维护且能长时间持续使用.你工作过的公司不会只要你联系方式而是每次需要修或改善代码的时候叫你(然而你不希望这样).</p>
 <p>这就是<a href="https://www.toptal.com/agile/ultimate-introduction-to-agile-project-management" target="_blank" rel="noopener">软件设计模式</a>存在的理由;他们利用简单的规则来操控一个软甲工程的整体架构.他们使一个或多个程序猿把一个大项目的部分分开成一些核心部分来写,并且用一个标准化的方法来组织,使得遇到不熟悉的代码的部分时能消除混乱</p>
-<p>如果所有人都遵守这些规则,就会使传统代码能更好的维护和操纵,并且新的代码可以更灵活地添加进去.规划开发的方法论花费的时间更少.Since problems don’t come in one flavor, there isn’t a silver bullet design pattern.你必须仔细考虑每个模式的优点和缺点,然后找到最适合拿来解决手头的问题的.</p>
+<p>如果所有人都遵守这些规则,就会使legacy代码能更好的维护和操纵,并且新的代码可以更灵活地添加进去.规划开发的方法论花费的时间更少.Since problems don’t come in one flavor, there isn’t a silver bullet design pattern.你必须仔细考虑每个模式的优点和缺点,然后找到最适合拿来解决手头的问题的.</p>
 <p>在这份教程中,我会结合我在<a href="http://unity3d.com/" target="_blank" rel="noopener">Unity游戏开发平台</a>和Model-View-Controller(MVC)模式上的经验.在我七年的开发中,我与我乱成一锅粥的游戏开发正面对决中,我利用设计模式得到了很好的代码结构和开发速度.</p>
 <p>我一开始会讲一些uninty的基础架构:Entity-Component模式.然后我会解释MVC如何适应它,并且用一些模拟的项目来解释它.</p>
 <h2 id="%E5%8A%A8%E6%9C%BA"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E5%8A%A8%E6%9C%BA" aria-hidden="true">§</a> 动机</h2>
 <p>在软件相关的文献中,我们可以找到一大堆关于设计模式的.纵然他们有一系列规则,开发者仍然经常需要做一些小的改动来使设计模式能更适应他们独特的问题.</p>
 <p>这种&quot;程序编制的自由性&quot;证明了我们找不到一个单一的,确定的方法来设计软件.所以,这篇文章不应是解决你问题的终极方案,而是展示两种流行的设计模式:Entity-Component和Model-View-Controlle的效益和发展潜力.</p>
-<h2 id="entity-component-pattern"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#entity-component-pattern" aria-hidden="true">§</a> Entity-Component Pattern</h2>
+<h2 id="entity-component%E6%A8%A1%E5%BC%8F"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#entity-component%E6%A8%A1%E5%BC%8F" aria-hidden="true">§</a> Entity-Component模式</h2>
 <p>Entity-Component(EC)是一种设计模式,我们首先定义组成应用的元素们的层级(Entities),然后定义将要被包含的特征和数据(Components).在更多的&quot;程序猿&quot;看来,一个Entity可以是一个包含了有0个或多个Components的对象.让我们这样描述一个Entity:</p>
 <code>
 some-entity [component0, component1, ...]
 </code>
 <p>这里是一个简单的EC树的例子:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- app [Application]</span><br><span class="line">    - game [Game]</span><br><span class="line">        - player [KeyboardInput, Renderer]</span><br><span class="line">        - enemies</span><br><span class="line">            - spider [SpiderAI, Renderer]</span><br><span class="line">            - ogre [OgreAI, Renderer]</span><br><span class="line">        ui [UI]</span><br><span class="line">            - hud [HUD, MouseInput, Renderer]</span><br><span class="line">            - pause-menu [PauseMenu, MouseInput, Renderer]</span><br><span class="line">            - victory-modal [VictoryModal, MouseInput, Renderer]</span><br><span class="line">            - defeat-modal [DefeatModal, MouseInput, Renderer]</span><br></pre></td></tr></table></figure>
-
+<p>EC在缓解多重继承的问题方面是一个好的模式,当一个复杂的类结构引出问题时,例如<a href="https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem" target="_blank" rel="noopener">钻石问题</a>: 一个类D,继承自两个类,B和C,而B和C继承自同一个类A,这时就会引发冲突,因为B和C会不同地修改A的属性.<br>
+<img src="https://pic.ggemo.com/picgo/20190414221244.png" alt="20190414221244.png"></p>
+<p>因为在游戏开发中继承应用很广泛,所以这种问题会很常见.</p>
+<p>通过分解小的Component的属性和数据操作器,可以使他们可以附加在不同的Entitiy上并重用,而不用依赖于复杂的继承关系(顺便,这不只是C#或JavaScript,Unity常用的语言的特征).</p>
+<h3 id="entity-component%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%8D%E8%B6%B3"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#entity-component%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%8D%E8%B6%B3" aria-hidden="true">§</a> Entity-Component模式的不足</h3>
+<p>EC在OOP之上一个层面,EC有利于整理和更好的组织你的代码架构.然而,在大项目中,我们仍然&quot;太过随意&quot;然后我们会发现自己身处一个&quot;属性海洋&quot;,可能会费一段艰苦的时光来找到对的Entity和Component,或搞清楚它们应该如何相互影响.一个给定的任务中会有无穷种组合Entity和Component的方式.<br>
+<img src="https://pic.ggemo.com/picgo/20190414222558.png" alt="20190414222558.png"></p>
+<p>一个摆脱混乱的途径是在Entity-Component之上添加一些的额外的参考.比如,我喜欢的一种考虑软件的方式是将其差分成三种不同的类别:</p>
+<ul>
+<li>一些处理原数据,允许创建,读取,更新,删除和查找(也就是<a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" target="_blank" rel="noopener">CRUD</a>).</li>
+<li>另一些实现一些接口来和其他元素相互作用,检测他们范围内相关的事件并且当发生是触发通知.</li>
+<li>最后,一些元素负责接收这些通知,制定事务逻辑决策,并决定如何操作数据.</li>
+</ul>
+<p>幸运的是,我们已经有表现得符合这些需求的设计模式了.</p>
+<h2 id="model-view-controller(mvc)%E6%A8%A1%E5%BC%8F"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#model-view-controller(mvc)%E6%A8%A1%E5%BC%8F" aria-hidden="true">§</a> Model-View-Controller(MVC)模式</h2>
+<p><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank" rel="noopener"> Model-View-Controller pattern</a>(MVC)模式将软件分成三个主要模块:Models (数据CRUD), Views (界面/事件检测) and Controllers (决策/处理).MVC实施起来足够灵活,即使是建立在ECS 或OOP之上.</p>
+<p>游戏和UI的开发有通常的工作流程: 等待用户输入,或其他的触发条件,向合适的地方发送这些通知,决定如何响应,并做出相应的数据操作.这些行为清楚地展现了MVC应用的兼容性.</p>
+<p>这种方法论引入了其他的抽象层,会对软件规划有帮助,并且允许新的程序猿应对一个就算很大的代码库.通过将思考过程分离成数据,接口和决策可以减少必须通过查找来添加或修改功能的源文件.</p>
+<h2 id="unity%E5%92%8Cec"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#unity%E5%92%8Cec" aria-hidden="true">§</a> Unity和EC</h2>
+<p>让我们仔细看看unity预先给我们了什么.<br>
+Unity是一个建立在EC上的开发平台,所有的Entity都是<code>GameObject</code>的实例,它们的属性可以使他们&quot;可见&quot;,“可移动”,“可交互”,等等,都是由继承<code>Component</code>的类提供的.</p>
+<p>Unity editor的<strong>Hierarchy面板</strong>和<strong>Inspector面板</strong>提供了装配你的应用的强大的方法,用比通常情况下更少的代码来附加组件,配置它们的初始化状态和引导你的游戏.</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://pic.ggemo.com/picgo/20190414232815.png" alt="Hierarchy Panel with four GameObjects on the right"></th>
+<th><img src="https://pic.ggemo.com/picgo/20190414232850.png" alt="Inspector Panel with a GameObject’s components"></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p>尽管如此,我们讨论过的,我们会遇到&quot;太多属性&quot;的问题并且发现我们身处一个庞大的层级中,属性分散在各个地方,使开发者更加难以存活.</p>
+<p>按MVC的方式思考,我们可以按事物的功能将它们分类,使我们的应用的结构像下面这个例子这样:<br>
+<img src="https://pic.ggemo.com/picgo/20190414233458.png" alt="20190414233458.png"></p>
+<h3 id="%E5%B0%86mvc%E6%89%93%E9%80%A0%E8%BF%9B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E5%B0%86mvc%E6%89%93%E9%80%A0%E8%BF%9B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" aria-hidden="true">§</a> 将MVC打造进游戏开发环境</h3>
+<p>现在我要介绍两种简单的 一般的MVC模式的变种,可以将其打造进我曾用MVC建立Unity项目时遇到的特殊的情况:</p>
+<ol>
+<li>MVC的类容易散布在代码里
+<ul>
+<li>在Unity中,开发者通常必须拖拽对象来获取它们,或者使用类似<code>GetComponent( … )</code>的笨重的查找语句来获取对象</li>
+<li>如果Unity崩溃了或者一些bug使所有的拖拽来的引用丢失了,会使该死的引用丢失接连发生.</li>
+<li>必须使用一个独特的根引用对象,通过它来使<strong>Application</strong>中的所有对象可获取和重新获得.</li>
+</ul>
+</li>
+<li>一些元素封装了一些 一般的,需要高度重用的,不能自然地分类到Model,View或Controller中的功能.我简单地叫它们<strong>组件</strong>.它们也是Entity-Component中的&quot;Components&quot;的概念但是在MVC框架中仅仅作为辅助者.
+<ul>
+<li>例如,一个<code>Rotator</code>组件,只会按照角速度旋转物体,但不会通知,存储,或决定任何事.</li>
+</ul>
+</li>
+</ol>
+<p>为了帮助缓解两种问题,我提出了一种魔改的设计模式,我叫它<strong>AMVCC</strong>,或Application-Model-View-Controller-Component.<br>
+<img src="https://pic.ggemo.com/picgo/20190415001843.png" alt="20190415001843.png"></p>
+<ul>
+<li><strong>Application</strong><br>
+你的应用的单独的入口,是所有决定性的实例和依赖应用的数据的容器</li>
+<li><strong>MVC</strong><br>
+到目前为止你应该知道的. 😃</li>
+<li><strong>Component</strong><br>
+可复用的,小的,容易被包含的脚本</li>
+</ul>
+<h2 id="%E4%BE%8B%E5%AD%90%3A-10-bounces"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E4%BE%8B%E5%AD%90%3A-10-bounces" aria-hidden="true">§</a> 例子: 10 Bounces</h2>
+<p>作为一个简单的例子,让我们来看下一个简单的被叫做<strong><em>10 Bounces</em></strong>的游戏,在此我会使用AMVCC模式的核心要素</p>
+<p>这个游戏的结构很简单: 一个带有一个<code>SphereCollider</code>和一个<code>Rigidbody</code>的<code>Ball</code>(将会在&quot;Play&quot;之后开始下落),一个当做地面的<code>Cube</code>和5个搭建AMVCC的脚本</p>
+<h2 id="hierarchy"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#hierarchy" aria-hidden="true">§</a> Hierarchy</h2>
+<p>在写代码之前,我通常会从hierarchy开始并创建我的类和物件的大纲.通常遵守这个新的AMVCC风格.<br>
+<img src="https://pic.ggemo.com/picgo/20190415003635.png" alt="20190415003635.png"></p>
+<p>我们可以看到,<code>view</code> GameObject包含了所有的可见的元素,和其他的包含了<code>View</code> 脚本的物件<code>(???)</code>.<br>
+<code>model</code>和<code>controller</code>组件在一些小项目中通常只包含他们各自的脚本.在大项目中,他们会包含 包含了各自的脚本的GameObjects.</p>
+<p>当其他人拿到你的项目希望看到:</p>
+<ul>
+<li><strong>数据</strong>:<br>
+查看<code>application &gt; model &gt; …</code></li>
+<li><strong>逻辑/工作流程</strong>:<br>
+查看<code>application &gt; controller &gt; …</code></li>
+<li><strong>渲染/接口/监听器</strong>:<br>
+查看<code>application &gt; view &gt; …</code></li>
+</ul>
+<p>如果所有的团队都遵从这些简单的规则,遗产项目将不再成为问题<code>(我谔谔)</code></p>
+<p>需要注意的是,<code>Component</code>没有固定的容器,它们非常灵活,可以在开发者空闲的时候附加到不同的元素上.</p>
+<h3 id="%E5%86%99%E8%84%9A%E6%9C%AC"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E5%86%99%E8%84%9A%E6%9C%AC" aria-hidden="true">§</a> 写脚本</h3>
+<blockquote>
+<p><strong>注意</strong>:下面的脚本都是真实世界的实现的抽象版本.一个详细的实现对渲染有太多好处.然而,如果你想浏览更多,<a href="https://bitbucket.org/eduardo_costa/thelab-unity-mvc/overview" target="_blank" rel="noopener">点击这里</a>查看我的个人的Unity MVC框架,<em>Unity MVC</em>.你可以找到大多数应用需要的实现AMVCC结构框架的核心classe.</p>
+</blockquote>
+<p>让我们来看一下构成<em>10 Bounces</em>的脚本的结构.</p>
+<p>在开始之前,因为和常见的Unity的工作流程不同,让我们先简略地阐明脚本和GameObjects是如何共同工作的.在Unity中,“组件”,在Entity-Component的概念中,由<code>MonoBehaviour</code>类表现.一个组件要在运行时存在,开发者需要将其拖拽入一个GameObject(在Entity-Component模式中的&quot;Entity&quot;)或者用<code>AddComponent<yourmonobehaviour>()</yourmonobehaviour></code>命令.在此之后,脚本就会被实例化并且准备好在执行时使用.</p>
+<p>首先,我们定义<code>Application</code>类(AMVCC中的&quot;A&quot;),作为主要的类,包含所有实例化的游戏元素的引用.我们也可以创建一个辅助的基类叫<code>Element</code>,让我们能拿到Application实例和他的子元素的MVC实例.<code>(子元素的MVC实例是什么鬼啊晕了晕了)</code></p>
+<p>考虑到这一点,让我们开始定义<code>Application</code>类(AMVCC中的&quot;A&quot;),将要包含一个独特的实例.在它里面,三个变量<code>model</code>,<code>view</code>,和<code>controller</code>,将在运行时给我么提供所有的MVC实例的接入点.这些变量需要是包含 想要的脚本的<code>public</code>引用的<code>MonoBehaviour</code>.</p>
+<p>之后,我们也要创建一个辅助基类叫做<code>Element</code>,来给我们提供Application的实例.</p>
+<p>注意这两个类都要继承<code>MonoBehaviour</code>,他们是将要被附加到GameObject “Entities&quot;上的&quot;组件”.</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BounceApplication.cs</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Base class for all elements in this application.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BounceElement</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// Gives access to the application and all instances.</span></span><br><span class="line">   <span class="keyword">public</span> BounceApplication app &#123; <span class="keyword">get</span> &#123; <span class="keyword">return</span> GameObject.FindObjectOfType&lt;BounceApplication&gt;(); &#125;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 10 Bounces Entry Point.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BounceApplication</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// Reference to the root instances of the MVC.</span></span><br><span class="line">   <span class="keyword">public</span> BounceModel model;</span><br><span class="line">   <span class="keyword">public</span> BounceView view;</span><br><span class="line">   <span class="keyword">public</span> BounceController controller;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Init things here</span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span> &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -836,7 +945,7 @@ some-entity [component0, component1, ...]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA"><span class="nav-text"> § 动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#entity-component-pattern"><span class="nav-text"> § Entity-Component Pattern</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA"><span class="nav-text"> § 动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#entity-component%E6%A8%A1%E5%BC%8F"><span class="nav-text"> § Entity-Component模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#entity-component%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="nav-text"> § Entity-Component模式的不足</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-view-controller(mvc)%E6%A8%A1%E5%BC%8F"><span class="nav-text"> § Model-View-Controller(MVC)模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unity%E5%92%8Cec"><span class="nav-text"> § Unity和EC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86mvc%E6%89%93%E9%80%A0%E8%BF%9B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text"> § 将MVC打造进游戏开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%3A-10-bounces"><span class="nav-text"> § 例子: 10 Bounces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hierarchy"><span class="nav-text"> § Hierarchy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E8%84%9A%E6%9C%AC"><span class="nav-text"> § 写脚本</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -876,7 +985,7 @@ some-entity [component0, component1, ...]
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">132k</span>
+    <span title="站点总字数">136k</span>
   
 
   

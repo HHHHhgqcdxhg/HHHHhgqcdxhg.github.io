@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.purecucumber.club/unity-with-mvc-how-to-level-up-your-game-development/</loc>
-    <lastmod>2019-04-15</lastmod>
+    <lastmod>2019-04-16</lastmod>
   </url>  <url>
     <loc>https://blog.purecucumber.club/unity-learning/</loc>
     <lastmod>2019-04-13</lastmod>
@@ -52,10 +52,10 @@
     <loc>https://blog.purecucumber.club/shader-r-standard-texture/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.purecucumber.club/shader-r-start/</loc>
+    <loc>https://blog.purecucumber.club/shader-r-standard-lighting/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.purecucumber.club/shader-r-standard-lighting/</loc>
+    <loc>https://blog.purecucumber.club/shader-r-start/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>https://blog.purecucumber.club/shader-r-lsx/</loc>

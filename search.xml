@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[AMVCC设计模式的理解]]></title>
     <url>%2Fnote-AMVCC%2F</url>
-    <content type="text"><![CDATA[§ 对比以前前端MVVM设计模式做出理解 § MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作. § MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的model拆成model和controller两层. controller层会使用和更改数据,但不会存储数据.存储数据交给model层. 个人理解,这样做的好处是条理更清晰,比如所有取数据,都在APP.Model.someData,并且在Unity中调整变量值的地方更加集中,容易管理. § Controller的switch-case 这里的&quot;避免庞大的switch-case&quot;仅为代码书写上,不会显得太多switch-case,实际执行的逻辑上还是该多少还是多少.]]></content>
+    <content type="text"><![CDATA[§ 对比以前前端MVVM设计模式做出理解 § MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作. § MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的model拆成model和controller两层. controller层会使用和更改数据,但不会存储数据.存储数据交给model层. 个人理解,这样做的好处是条理更清晰,比如所有取数据,都在APP.Model.someData,并且在Unity中调整变量值的地方更加集中,容易管理.Unity传统的EC模型相对于MVC,在脚本之间互相调用和互相传参十分麻烦. § Controller的switch-case 这里的&quot;避免庞大的switch-case&quot;仅为代码书写上,不会显得太多switch-case,实际执行的逻辑上还是该多少还是多少.]]></content>
       <tags>
         <tag>Unity</tag>
         <tag>设计模式</tag>
@@ -316,8 +316,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

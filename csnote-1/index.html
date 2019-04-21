@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="C#中的所有Object的派生类都是引用类型 byte，short，int，long，float，double，decimal，char，bool 和 struct 统称为值类型 这里注意,结构体为值类型而类都是引用类型.">
+  <meta name="description" content="之前玩python的时候就有点在意但是没仔细学…只知道python是简单值传值,复杂值传引用.  § C#中的值类型和引用类型 C#中的所有Object的派生类都是引用类型 byte，short，int，long，float，double，decimal，char，bool和struct统称为值类型 这里注意,结构体为值类型而类都是引用类型.  § 值类型和引用类型的区别 以下部分参考了知乎这篇文">
 <meta name="keywords" content="csharp,unity">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#笔记-值类型与引用类型">
 <meta property="og:url" content="https://blog.purecucumber.club/csnote-1/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="C#中的所有Object的派生类都是引用类型 byte，short，int，long，float，double，decimal，char，bool 和 struct 统称为值类型 这里注意,结构体为值类型而类都是引用类型.">
+<meta property="og:description" content="之前玩python的时候就有点在意但是没仔细学…只知道python是简单值传值,复杂值传引用.  § C#中的值类型和引用类型 C#中的所有Object的派生类都是引用类型 byte，short，int，long，float，double，decimal，char，bool和struct统称为值类型 这里注意,结构体为值类型而类都是引用类型.  § 值类型和引用类型的区别 以下部分参考了知乎这篇文">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-21T19:32:21.885Z">
+<meta property="og:updated_time" content="2019-04-21T19:57:02.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#笔记-值类型与引用类型">
-<meta name="twitter:description" content="C#中的所有Object的派生类都是引用类型 byte，short，int，long，float，double，decimal，char，bool 和 struct 统称为值类型 这里注意,结构体为值类型而类都是引用类型.">
+<meta name="twitter:description" content="之前玩python的时候就有点在意但是没仔细学…只知道python是简单值传值,复杂值传引用.  § C#中的值类型和引用类型 C#中的所有Object的派生类都是引用类型 byte，short，int，long，float，double，decimal，char，bool和struct统称为值类型 这里注意,结构体为值类型而类都是引用类型.  § 值类型和引用类型的区别 以下部分参考了知乎这篇文">
 
 
 
@@ -442,7 +442,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-04-22 03:29:15 / 修改时间：03:32:21" itemprop="dateCreated datePublished" datetime="2019-04-22T03:29:15+08:00">2019-04-22</time>
+              <time title="创建时间：2019-04-22 03:29:15 / 修改时间：03:57:02" itemprop="dateCreated datePublished" datetime="2019-04-22T03:29:15+08:00">2019-04-22</time>
             
 
             
@@ -506,7 +506,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">112</span>
+                <span title="本文字数">944</span>
               
 
               
@@ -530,9 +530,31 @@ window.console.log=()=>{};
       
 
       
-        <p>C#中的所有Object的派生类都是引用类型<br>
-byte，short，int，long，float，double，decimal，char，bool 和 struct 统称为值类型</p>
+        <p>之前玩python的时候就有点在意但是没仔细学…只知道python是简单值传值,复杂值传引用.</p>
+<h2 id="c%23%E4%B8%AD%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#c%23%E4%B8%AD%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B" aria-hidden="true">§</a> C#中的值类型和引用类型</h2>
+<p>C#中的所有Object的派生类都是引用类型<br>
+byte，short，int，long，float，double，decimal，char，bool和struct统称为值类型</p>
 <p>这里注意,结构体为值类型而类都是引用类型.</p>
+<h2 id="%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB" aria-hidden="true">§</a> 值类型和引用类型的区别</h2>
+<p>以下部分参考了知乎<a href="https://zhuanlan.zhihu.com/p/61925255" target="_blank" rel="noopener">这篇文章</a>并加上自己的理解</p>
+<ol>
+<li>值类型的数据存储在内存的栈中,引用类型的数据存储在内存的堆中.而内存单元中只存放堆中对象的地址,因此值类型存取速度快,引用类型存取速度慢</li>
+<li>值类型表示实际数据,引用类型表示指向存储在内存堆中的数据的指针或引用</li>
+<li>值类型继承自System.ValueType,引用类型继承自System.Object</li>
+<li>栈的内存分配是自动释放；而堆在.NET中会有GC来释放</li>
+<li>值类型没法继承,没法用接口来引用(虽然泛型+接口解决部分问题)</li>
+</ol>
+<p>以下参考知乎:<a href="https://www.zhihu.com/question/265506096/answer/313575464" target="_blank" rel="noopener">C# 引用类型相比于值类型意义何在? - Nanry的回答 - 知乎</a></p>
+<p>百度百科引用类型的解释:</p>
+<blockquote>
+<p>引用类型 由类型的实际值引用（类似于指针）表示的数据类型。如果为某个变量分配一个引用类型，则该变量将引用（或“指向”）原始值。不创建任何副本。引用类型包括类、接口、委托和装箱值类型。</p>
+</blockquote>
+<p>值类型并不是在程序启动时就全部分配在栈上的,而是一直在入栈出栈操作,所以正常情况下由于入栈出栈的操作,不会超过栈空间的限制,超过了就是引起非常内存访问了<code>(如果是static是不是一开始就全部分配在栈上呢?)</code></p>
+<p>C#的值类型就是存在栈中的.值类型是轻量级的类型,因为在大多数情况下,值类型的的实例都分配在线程栈中,因此它不受垃圾回收的控制,缓解了托管堆中的压力,减少了应用程序的垃圾回收的次数,提高性能.<code>(栈中存的数据可以自动清理,堆中的数据要依靠GC)</code></p>
+<p>顺便,有一种编程技巧极其容易因为栈空间不足而导致非常内存访问的情况,那就是递归.如果你在一个递归方法中使用了值类型,并且递归次数过多,经常会发生栈溢出的异常。</p>
+<p>下面是两个,上面的那个答主提到的扩展阅读,以后再看<br>
+<a href="https://www.jb51.net/article/67035.htm" target="_blank" rel="noopener">一看就懂：图解C#中的值类型、引用类型、栈、堆、ref、out</a><br>
+<a href="https://www.cnblogs.com/zmlctt/p/3987181.html" target="_blank" rel="noopener">栈大小和内存分部问题</a></p>
 
       
     </div>
@@ -630,8 +652,17 @@ byte，short，int，long，float，double，decimal，char，bool 和 struct �
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -825,6 +856,23 @@ byte，short，int，long，float，double，decimal，char，bool 和 struct �
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#c%23%E4%B8%AD%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text"> § C#中的值类型和引用类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text"> § 值类型和引用类型的区别</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -858,7 +906,7 @@ byte，short，int，long，float，double，decimal，char，bool 和 struct �
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">128k</span>
+    <span title="站点总字数">129k</span>
   
 
   

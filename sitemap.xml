@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.purecucumber.club/csnote-1/</loc>
+    
+    <lastmod>2019-04-21T19:32:21.885Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/shader-learning/</loc>
+    
+    <lastmod>2019-04-21T19:25:29.817Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/unity-with-mvc-how-to-level-up-your-game-development/</loc>
+    
+    <lastmod>2019-04-21T12:34:04.254Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.purecucumber.club/bot-help/</loc>
     
     <lastmod>2019-04-20T16:26:54.316Z</lastmod>
@@ -51,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/unity-with-mvc-how-to-level-up-your-game-development/</loc>
-    
-    <lastmod>2019-04-16T13:45:39.845Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.purecucumber.club/unity-learning/</loc>
     
     <lastmod>2019-04-13T20:58:46.833Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>https://blog.purecucumber.club/src/waifu-tips.json</loc>
     
     <lastmod>2019-04-13T17:46:02.668Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/screen-post-processing-effects/</loc>
-    
-    <lastmod>2019-04-12T16:49:52.496Z</lastmod>
     
   </url>
   
@@ -156,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/shader-r-start/</loc>
+    <loc>https://blog.purecucumber.club/shader-r-standard-lighting/</loc>
     
     <lastmod>2019-03-24T13:01:47.426Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/shader-r-standard-lighting/</loc>
+    <loc>https://blog.purecucumber.club/shader-r-start/</loc>
     
     <lastmod>2019-03-24T13:01:47.426Z</lastmod>
     
@@ -187,13 +194,6 @@
     <loc>https://blog.purecucumber.club/azurlane-anime-tweet-preview/</loc>
     
     <lastmod>2019-03-23T11:31:45.185Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/shader-learning/</loc>
-    
-    <lastmod>2019-03-21T00:12:03.085Z</lastmod>
     
   </url>
   
@@ -254,14 +254,14 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/mingshi/motions/main_3.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/mingshi/motions/main_3.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.741Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/motions/main_3.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/mingshi/motions/main_3.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.741Z</lastmod>
     
@@ -275,13 +275,6 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/touch_head.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.728Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.purecucumber.club/src/mingshi/motions/touch_head.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.728Z</lastmod>
@@ -290,6 +283,13 @@
   
   <url>
     <loc>https://blog.purecucumber.club/mingshi/motions/touch_head.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.728Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/touch_head.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.728Z</lastmod>
     
@@ -324,13 +324,6 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/motions/gold.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.702Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.purecucumber.club/mingshi/motions/gold.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.702Z</lastmod>
@@ -338,7 +331,14 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/motions/home.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/mingshi/motions/gold.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.702Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/home.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.694Z</lastmod>
     
@@ -352,7 +352,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/home.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/mingshi/motions/home.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.694Z</lastmod>
     
@@ -380,14 +380,14 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/mingshi/motions/diamond.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/mingshi/motions/diamond.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.674Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/motions/diamond.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/mingshi/motions/diamond.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.674Z</lastmod>
     
@@ -401,7 +401,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/motions/complete.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/mingshi/motions/complete.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.661Z</lastmod>
     
@@ -415,7 +415,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/mingshi/motions/complete.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/mingshi/motions/complete.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.661Z</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/touch_special.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/mingshi/motions/touch_special.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.628Z</lastmod>
     
@@ -457,16 +457,9 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/mingshi/motions/touch_special.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/touch_special.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.628Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/mingshi/motions/touch_body.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.612Z</lastmod>
     
   </url>
   
@@ -479,6 +472,13 @@
   
   <url>
     <loc>https://blog.purecucumber.club/live2d/mingshi/motions/touch_body.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.612Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/mingshi/motions/touch_body.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.612Z</lastmod>
     
@@ -527,7 +527,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/mail.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/mingshi/motions/mail.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.583Z</lastmod>
     
@@ -541,7 +541,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/motions/mail.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/mingshi/motions/mail.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.583Z</lastmod>
     
@@ -569,13 +569,6 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/motions/login.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.560Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.purecucumber.club/mingshi/motions/login.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.560Z</lastmod>
@@ -586,6 +579,20 @@
     <loc>https://blog.purecucumber.club/live2d/mingshi/motions/login.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.560Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/src/mingshi/motions/login.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.560Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/mingshi/motions/idle.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.546Z</lastmod>
     
   </url>
   
@@ -604,14 +611,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/mingshi/motions/idle.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.546Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.purecucumber.club/src/mingshi/mingshi.physics3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/mingshi/mingshi.physics3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.205Z</lastmod>
     
@@ -625,7 +625,7 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/mingshi/mingshi.physics3.json</loc>
+    <loc>https://blog.purecucumber.club/src/mingshi/mingshi.physics3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.205Z</lastmod>
     
@@ -660,13 +660,6 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/motions/login.motion3.json</loc>
-    
-    <lastmod>2019-03-12T10:30:01.972Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.purecucumber.club/src/lafei/motions/login.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.972Z</lastmod>
@@ -674,9 +667,9 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/motions/main_3.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/lafei/motions/login.motion3.json</loc>
     
-    <lastmod>2019-03-12T10:30:01.962Z</lastmod>
+    <lastmod>2019-03-12T10:30:01.972Z</lastmod>
     
   </url>
   
@@ -688,14 +681,21 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/lafei/motions/mission.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/lafei/motions/main_3.motion3.json</loc>
+    
+    <lastmod>2019-03-12T10:30:01.962Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/live2d/lafei/motions/mission.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.951Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/motions/mission.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/lafei/motions/mission.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.951Z</lastmod>
     
@@ -730,13 +730,6 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/lafei/motions/touch_body.motion3.json</loc>
-    
-    <lastmod>2019-03-12T10:30:01.920Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.purecucumber.club/live2d/lafei/motions/touch_body.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.920Z</lastmod>
@@ -744,9 +737,9 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/motions/touch_head.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/lafei/motions/touch_body.motion3.json</loc>
     
-    <lastmod>2019-03-12T10:30:01.913Z</lastmod>
+    <lastmod>2019-03-12T10:30:01.920Z</lastmod>
     
   </url>
   
@@ -758,9 +751,9 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/motions/touch_special.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/lafei/motions/touch_head.motion3.json</loc>
     
-    <lastmod>2019-03-12T10:30:01.901Z</lastmod>
+    <lastmod>2019-03-12T10:30:01.913Z</lastmod>
     
   </url>
   
@@ -772,14 +765,21 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/lafei/motions/idle.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/lafei/motions/touch_special.motion3.json</loc>
+    
+    <lastmod>2019-03-12T10:30:01.901Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/live2d/lafei/motions/idle.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.892Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/motions/idle.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/lafei/motions/idle.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.892Z</lastmod>
     
@@ -814,14 +814,14 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/src/lafei/motions/complete.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/live2d/lafei/motions/complete.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.855Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/motions/complete.motion3.json</loc>
+    <loc>https://blog.purecucumber.club/src/lafei/motions/complete.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.855Z</lastmod>
     
@@ -975,13 +975,6 @@
   </url>
   
   <url>
-    <loc>https://blog.purecucumber.club/live2d/lafei/live2d_src-master/src/dev.html</loc>
-    
-    <lastmod>2018-01-04T06:08:18.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.purecucumber.club/live2d/lafei/live2d_src-master/src/insert.html</loc>
     
     <lastmod>2018-01-04T06:08:18.000Z</lastmod>
@@ -990,6 +983,13 @@
   
   <url>
     <loc>https://blog.purecucumber.club/live2d/lafei/live2d_src-master/README.html</loc>
+    
+    <lastmod>2018-01-04T06:08:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.purecucumber.club/live2d/lafei/live2d_src-master/src/dev.html</loc>
     
     <lastmod>2018-01-04T06:08:18.000Z</lastmod>
     

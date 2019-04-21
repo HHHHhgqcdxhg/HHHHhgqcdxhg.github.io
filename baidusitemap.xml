@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.purecucumber.club/csnote-1/</loc>
+    <lastmod>2019-04-21</lastmod>
+  </url>  <url>
+    <loc>https://blog.purecucumber.club/shader-learning/</loc>
+    <lastmod>2019-04-21</lastmod>
+  </url>  <url>
+    <loc>https://blog.purecucumber.club/unity-with-mvc-how-to-level-up-your-game-development/</loc>
+    <lastmod>2019-04-21</lastmod>
+  </url>  <url>
     <loc>https://blog.purecucumber.club/bot-help/</loc>
     <lastmod>2019-04-20</lastmod>
   </url>  <url>
@@ -13,14 +22,8 @@
     <loc>https://blog.purecucumber.club/note-AMVCC/</loc>
     <lastmod>2019-04-19</lastmod>
   </url>  <url>
-    <loc>https://blog.purecucumber.club/unity-with-mvc-how-to-level-up-your-game-development/</loc>
-    <lastmod>2019-04-16</lastmod>
-  </url>  <url>
     <loc>https://blog.purecucumber.club/unity-learning/</loc>
     <lastmod>2019-04-13</lastmod>
-  </url>  <url>
-    <loc>https://blog.purecucumber.club/screen-post-processing-effects/</loc>
-    <lastmod>2019-04-12</lastmod>
   </url>  <url>
     <loc>https://blog.purecucumber.club/bili-bangumi-style-id/</loc>
     <lastmod>2019-04-09</lastmod>
@@ -69,9 +72,6 @@
   </url>  <url>
     <loc>https://blog.purecucumber.club/azurlane-anime-tweet-preview/</loc>
     <lastmod>2019-03-23</lastmod>
-  </url>  <url>
-    <loc>https://blog.purecucumber.club/shader-learning/</loc>
-    <lastmod>2019-03-21</lastmod>
   </url>  <url>
     <loc>https://blog.purecucumber.club/bili-api/</loc>
     <lastmod>2019-03-15</lastmod>

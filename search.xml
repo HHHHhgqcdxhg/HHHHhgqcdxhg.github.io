@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[C#笔记-值类型与引用类型]]></title>
+    <title><![CDATA[CSharp笔记-值类型与引用类型]]></title>
     <url>%2Fcsnote-1%2F</url>
     <content type="text"><![CDATA[之前玩python的时候就有点在意但是没仔细学…只知道python是简单值传值,复杂值传引用. § C#中的值类型和引用类型 C#中的所有Object的派生类都是引用类型 byte，short，int，long，float，double，decimal，char，bool和struct统称为值类型 这里注意,结构体为值类型而类都是引用类型. § 值类型和引用类型的区别 以下部分参考了知乎这篇文章并加上自己的理解 值类型的数据存储在内存的栈中,引用类型的数据存储在内存的堆中.而内存单元中只存放堆中对象的地址,因此值类型存取速度快,引用类型存取速度慢 值类型表示实际数据,引用类型表示指向存储在内存堆中的数据的指针或引用 值类型继承自System.ValueType,引用类型继承自System.Object 栈的内存分配是自动释放；而堆在.NET中会有GC来释放 值类型没法继承,没法用接口来引用(虽然泛型+接口解决部分问题) 以下参考知乎:C# 引用类型相比于值类型意义何在? - Nanry的回答 - 知乎 百度百科引用类型的解释: 引用类型 由类型的实际值引用（类似于指针）表示的数据类型。如果为某个变量分配一个引用类型，则该变量将引用（或“指向”）原始值。不创建任何副本。引用类型包括类、接口、委托和装箱值类型。 值类型并不是在程序启动时就全部分配在栈上的,而是一直在入栈出栈操作,所以正常情况下由于入栈出栈的操作,不会超过栈空间的限制,超过了就是引起非常内存访问了(如果是static是不是一开始就全部分配在栈上呢?) C#的值类型就是存在栈中的.值类型是轻量级的类型,因为在大多数情况下,值类型的的实例都分配在线程栈中,因此它不受垃圾回收的控制,缓解了托管堆中的压力,减少了应用程序的垃圾回收的次数,提高性能.(栈中存的数据可以自动清理,堆中的数据要依靠GC) 顺便,有一种编程技巧极其容易因为栈空间不足而导致非常内存访问的情况,那就是递归.如果你在一个递归方法中使用了值类型,并且递归次数过多,经常会发生栈溢出的异常。 下面是两个,上面的那个答主提到的扩展阅读,以后再看 一看就懂：图解C#中的值类型、引用类型、栈、堆、ref、out 栈大小和内存分部问题 顺便引出的以后再看的问题: 栈和堆 尾递归优化]]></content>
       <categories>
@@ -238,11 +238,8 @@
     <url>%2Funity-learning%2F</url>
     <content type="text"><![CDATA[unity官方教程https://unity3d.com/cn/learn/tutorials 现在在看一个beagining教程roll a ball § material初探 新建material,选择颜色后,将material拖到gameObject上,gameObject就会变成对应的颜色 § Update方法 § Update方法 Update方法在渲染每帧前被调用 § FixedUpdate FixedUpdate方法只有在执行有关物理计算之前才被调用 § LateUpdate LateUpdate方法在所有Update方法执行完执行完之后执行 § 静态和动态GameObject § 静态碰撞体 unity会计算场景内所有静态碰撞体的体积,并将信息保存在缓存内.因为静态碰撞体不需要移动,可以避免每帧重新计算这些信息,所以这是对的 每当静态碰撞体移动 旋转或缩放时,unity会重新计算这些静态碰撞体,然后更新静态碰撞体的缓存数据 § 动态碰撞体 重新计算缓存会耗费系统资源,但我们可以随意移动移动,旋转或缩放动态碰撞体,而且unity不会缓存他们的数据.unity会预测动态碰撞体的移动,所以在移动碰撞体之前,需要告诉unity它们是动态的.可以使用刚体组件来实现这种效果. 任何带有碰撞体和刚体组件的GameObject都会被认为是动态的.任何带有碰撞体却没有刚体组件的GameObject则被视为是静态的. 刚体选中&quot;Is Kinematic&quot;可以将刚体变成仅受脚本控制的刚体.kinematic刚体不受无力作用力的影响,但可以播放动画或通过Transform组件移动 § 几何图元绘制顺序 § Sorting Layer Sorting Layer序号越大的层越后绘制,因而会覆盖掉前面序号小的层上的几何图元 表示指定层在Tags and Layers视图Sorting Layers中的顺序 各层的绘制顺序是Default -&gt; Background -&gt; Character -&gt; Foreground -&gt; UI § Order in layer 在同一层调整几何图元的绘制深度.同样是序号大的覆盖序号小的 spirit Render组件中SortingLayer属性控制的是不同层之间的绘制顺序,而Order in Layer控制的是同层中物体的绘制顺序 § spine 可算知道瓜游的小人都是什么了 一开始下的spine3.7,然后 于是又下了3.6. 卸载旧版本插件好像是直接在project里把对应的删掉 目力俾斯麦 蛮好玩的 § U!P!D!A!T!E! 写unity程序跟平常写其他程序一个很不一样的思想就是unity的每帧都会执行的update. 平时写程序如果遇到时间相关的,就要考虑sleep,然后就要考虑阻塞,考虑协程或多线程. 而unity不一样.利用unity的update机制可以很轻易的管理时间.]]></content>
       <categories>
-        <category>unity</category>
+        <category>作废归档</category>
       </categories>
-      <tags>
-        <tag>unity</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[面试笔记]]></title>

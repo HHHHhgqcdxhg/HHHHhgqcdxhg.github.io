@@ -112,7 +112,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="§ 影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-23T06:58:00.229Z">
+<meta property="og:updated_time" content="2019-04-23T07:46:46.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第16章-Unity中的渲染优化">
 <meta name="twitter:description" content="§ 影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主">
@@ -442,7 +442,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-04-23 14:05:03 / 修改时间：14:58:00" itemprop="dateCreated datePublished" datetime="2019-04-23T14:05:03+08:00">2019-04-23</time>
+              <time title="创建时间：2019-04-23 14:05:03 / 修改时间：15:46:46" itemprop="dateCreated datePublished" datetime="2019-04-23T14:05:03+08:00">2019-04-23</time>
             
 
             
@@ -506,7 +506,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.4k</span>
+                <span title="本文字数">3.4k</span>
               
 
               
@@ -613,8 +613,42 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 因此,批处理的思想很简单,就是在每次调用drawcall时尽可能多的处理多个物体.</p>
 <p><strong>使用同一材质的物体</strong>可以一起批处理.这是因为,对于使用同一材质的物体,他们之间的不同仅仅在于顶点数据上的差距.<br>
 我们可以把这些顶点合并在一起发给GPU,就可以完成一次批处理.</p>
-<p>Unity中支持两种批处理:一种是动态批处理,一种是静态批处理.<br>
-对于动态批处理来说,优点是一切处理都是由Unity自动完成的,不需要我们做任何操作,而且物体是可以移动的,但缺点是,限制很多,可能一不小心</p>
+<p>Unity中支持两种批处理:一种是动态批处理,一种是静态批处理.</p>
+<p>对于动态批处理来说,优点是一切处理都是由Unity自动完成的,不需要我们做任何操作,而且物体是可以移动的,但缺点是,限制很多,可能一不小心就会破坏了这种机制,导致Unity无法动态批处理一些使用了相同材质的物体.</p>
+<p>而对于静态批处理来说,它的优点是自由度很高,限制很少;但缺点是可能会占用更多的内存,而且经过静态批处理后的所有物体都不可以再移动了(即便在脚本中尝试改变物体的位置也是无效的).</p>
+<h3 id="%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86" aria-hidden="true">§</a> 动态批处理</h3>
+<p>如果场景中有一些模型共享了同一个材质并满足一些条件,Unity就会自动把它们进行批处理,从而只花费一个drawcall就可以渲染所有模型.<br>
+动态批处理的基本原理是,每一帧都可以进行批处理的模型网格进行合并,再把合并后的模型数据传递给GPU,然后使用同一材质对其渲染.<br>
+除了实现方便,动态批处理的另一好处是,经过批处理的物体仍然可以移动,这是由于在处理每帧时Unity都会重新合并一次网格.</p>
+<p>虽然Unity动态批处理不需要我们进行额外的工作,但只有满足条件的模型和材质才可以被动态批处理.需要注意的是,随着Unity版本的变化,这些条件也有一些改变.<br>
+在本节中,我们给出一些主要的条件限制:</p>
+<ul>
+<li>能够进行动态批处理的网格的顶点属性规模要小于900.<br>
+例如,如果shader中需要使用顶点位置,发信和纹理坐标这三个顶点属性,那么要想让模型能够被动态批处理,它的顶点数目不能超过300.需要注意的是,这个数字在未来有可能会发生变化,因此不需要依赖这个数据.</li>
+<li>一般来说,所有对象都需要使用同一个缩放尺度<br>
+一个例外情况是,如果所有物体都是用了不同的非统一缩放,那么它们也是可以被动态批处理的.但在Unity5中,这种对模型缩放的限制已经不存在了.</li>
+<li>使用光照纹理(lightmap)的物体需要小心处理.<br>
+这些物体需要额外的渲染参数,例如,在光照纹理上的索引,偏移量和缩放信息等.因此,为了让这些物体可以被动态批处理,我们需要保证它们指向光照纹理中的同一个位置(?)</li>
+<li>多Pass的Shader会中断批处理.<br>
+在前向渲染中,我们有时需要使用额外的pass来为模型添加更多的光照效果,但这样一来模型就不会被动态批处理了.</li>
+</ul>
+<p>动态批处理的限制比较多,例如很多时候,我们的模型数据往往会超过900的顶点属性限制.这种时候依赖动态批处理来减少drawcall显然已经不能满足我们的需求了.</p>
+<h3 id="%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86" aria-hidden="true">§</a> 静态批处理</h3>
+<p>相对于动态批处理来说,静态批处理适用于任何大小的几何模型.<br>
+它的原理是.只在运行开始阶段,把需要进行静态批处理的模型合并到一个新的网格中,这意味着模型不可以在运行时被移动.但由于他只需要进行一次合并操作,比动态批处理更加高效.</p>
+<p>静态批处理的一个缺点在于,他往往需要更大的内存来存储合并后的几何结构.<br>
+这是因为,如果在静态批处理前一些物体共享了相同的网格,那么在内存中每一个物体都会对应一个该网格的复制品,即一个网格会变成多个网格再发给GPU.如果这类使用同一网格的对象很多,那么这就会成为一个性能瓶颈了.<br>
+例如,如果再一个使用了1000个相同树模型的森林中使用了静态批处理,那么就会使用1000倍的内存,这会导致严重的内存影响.<br>
+这种时候,解决方法要么忍受这种牺牲内存换取性能的做法,要么不使用静态批处理,而使用动态批处理技术(但要小心控制模型的顶点数和属性数目),或者自己编写批处理方法.</p>
+<p>在内部实现上,Unity首先将这些静态物体变换到世界空间下,然后为他们构建一个更大的顶点和索引缓存.<br>
+对于使用了同一材质的物体,静态批处理只需要调用一个drawcall就可以绘制全部物体.<br>
+而对于使用了不同材质的物体,静态批处理同样可以提升渲染性能,尽管这些物体仍然需要调用多个drawcall,但静态批处理可以减少这些drawcall之间的状态切换,而这些切换往往是费时的操作.</p>
+<h3 id="%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8" aria-hidden="true">§</a> 共享材质</h3>
+<p>从之前的内容可以看出,无论是动态批处理还是静态批处理,都要求模型之间需要共享同一个材质.但不同的模型之间总会需要不同的渲染属性,例如,使用不同的纹理,颜色等.这时,我们需要一些策略 来尽可能地合并材质.</p>
+<p>如果两个材质之间只有使用的纹理不用,我们可以把这些纹理合并到一张更大的文立中,这张更大的纹理被称为一个图集(atlas).<br>
+一旦使用了同一张纹理,我们就可以使用同一个材质,再使用不同的采样坐标对纹理采样及可.</p>
+<p>但有时,除了纹理不同外,不同的物体在材质上还有一些微笑的参数变化,例如,颜色不同,某些浮点属性不同.但是,不管动态批处理还是静态批处理,它们的掐你都是要使用同一个材质.<br>
+是同一个,而不是使用了同一种shader的材质,也就是说它们指向的材质必须是同一个实体.这意味着,只要我们调整了参数,就会影响到所有使用这个材质的对象.那么想要微小的调整,一个常用的方法就是使用网格的顶点数据(最常见的就是顶点颜色数据)来存储这些参数.</p>
 
       
     </div>
@@ -926,7 +960,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-text"> § 影响性能的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91drawcall%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少drawcall数目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-text"> § 影响性能的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91drawcall%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少drawcall数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 动态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 静态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8"><span class="nav-text"> § 共享材质</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -966,7 +1000,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">150k</span>
+    <span title="站点总字数">152k</span>
   
 
   

@@ -13,5 +13,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://blog.purecucumber.club/sitemap.xml
-Sitemap: https://blog.purecucumber.club/baidusitemap.xml
+Sitemap: https://blog.ggemo.com/sitemap.xml
+Sitemap: https://blog.ggemo.com/baidusitemap.xml

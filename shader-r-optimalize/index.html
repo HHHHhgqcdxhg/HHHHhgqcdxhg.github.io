@@ -21,7 +21,7 @@ window.console.log=()=>{};
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#739eff">
-<link rel="shortcut icon" type="image/x-icon" href="https://blog.purecucumber.club/blog_favicon.ico"> 
+<link rel="shortcut icon" type="image/x-icon" href="https://blog.ggemo.com/blog_favicon.ico"> 
 
 
 
@@ -108,11 +108,11 @@ window.console.log=()=>{};
 <meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第16章-Unity中的渲染优化">
-<meta property="og:url" content="https://blog.purecucumber.club/shader-r-optimalize/index.html">
+<meta property="og:url" content="https://blog.ggemo.com/shader-r-optimalize/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="§ 影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-23T07:46:46.672Z">
+<meta property="og:updated_time" content="2019-04-30T03:27:29.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第16章-Unity中的渲染优化">
 <meta name="twitter:description" content="§ 影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主">
@@ -122,7 +122,7 @@ window.console.log=()=>{};
 
 
 
-  <link rel="canonical" href="https://blog.purecucumber.club/shader-r-optimalize/">
+  <link rel="canonical" href="https://blog.ggemo.com/shader-r-optimalize/">
 
 
 
@@ -147,6 +147,16 @@ window.console.log=()=>{};
   </script>
 
 
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f7e369e7cc158cb7664d49b4b363cc35";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -179,14 +189,14 @@ window.console.log=()=>{};
   </style>
 </noscript>
 
-  <link rel="stylesheet" href="https://blog.purecucumber.club/src/APlayer.min.css">
-<link rel="stylesheet" href="https://blog.purecucumber.club/src/live2d.css">
+  <link rel="stylesheet" href="https://blog.ggemo.com/src/APlayer.min.css">
+<link rel="stylesheet" href="https://blog.ggemo.com/src/live2d.css">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
   
   <div id="feed" style>
-    <a href="https://blog.purecucumber.club/feed/"><img width="150px" src="https://pic.ggemo.com/picgo/bot-feed-zfb-any.png"></a>
+    <a href="https://blog.ggemo.com/feed/"><img width="150px" src="https://pic.ggemo.com/picgo/bot-feed-zfb-any.png"></a>
     <div style="float:left;height:40px;width:150px;font-size:18px;padding-top:2px;padding-left:35px;background:linear-gradient(90deg,#946ce6,#7e5fd9);border-radius: 0.166666666666667rem;align-self: center;cursor: pointer;line-height: 1;box-sizing: border-box;font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;"><span style="line-height:40px;color: white !important">￥ 爱发电</span></div>
   </div>
 
@@ -398,7 +408,7 @@ window.console.log=()=>{};
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.purecucumber.club/shader-r-optimalize/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/shader-r-optimalize/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="清纯的小黄瓜">
@@ -442,12 +452,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-04-23 14:05:03 / 修改时间：15:46:46" itemprop="dateCreated datePublished" datetime="2019-04-23T14:05:03+08:00">2019-04-23</time>
+              <time title="创建时间：2019-04-23 14:05:03" itemprop="dateCreated datePublished" datetime="2019-04-23T14:05:03+08:00">2019-04-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-30 11:27:29" itemprop="dateModified" datetime="2019-04-30T11:27:29+08:00">2019-04-30</time>
               
             
           </span>
@@ -506,7 +528,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.4k</span>
+                <span title="本文字数">5.8k</span>
               
 
               
@@ -649,6 +671,48 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 一旦使用了同一张纹理,我们就可以使用同一个材质,再使用不同的采样坐标对纹理采样及可.</p>
 <p>但有时,除了纹理不同外,不同的物体在材质上还有一些微笑的参数变化,例如,颜色不同,某些浮点属性不同.但是,不管动态批处理还是静态批处理,它们的掐你都是要使用同一个材质.<br>
 是同一个,而不是使用了同一种shader的材质,也就是说它们指向的材质必须是同一个实体.这意味着,只要我们调整了参数,就会影响到所有使用这个材质的对象.那么想要微小的调整,一个常用的方法就是使用网格的顶点数据(最常见的就是顶点颜色数据)来存储这些参数.</p>
+<p>(这里还有一段较详细的,以后再看)</p>
+<h3 id="%E6%89%B9%E5%A4%84%E7%90%86%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" aria-hidden="true">§</a> 批处理的注意事项</h3>
+<ul>
+<li>尽可能选择静态批处理,但时刻小心对内存的消耗,并且记住经过静态批处理的物体不可以再被移动</li>
+<li>如果无法进行静态批处理,而要使用动态批处理的话,那么请小心上面提到的各种限制.<br>
+例如,尽可能让这样的物体少并且尽可能让这些物体包含少量的顶点属性和顶点数目.</li>
+<li>对于游戏中的小道具,例如捡拾的金币等,可以使用动态批处理</li>
+<li>对于包含动画这类物体,我们无法全部使用静态批处理,但其中如果有不动的部分,可以把这部分标识为&quot;Static&quot;</li>
+</ul>
+<p>除了上述的提示外,在使用批处理时还有一些需要注意的地方.<br>
+由于批处理需要把多个模型变换到世界空间下再合并它们,因此,如果shader中存在一些基于模型空间下的坐标的运算,那么往往会得到错误的结果.一个解决方法是在shader中使用DisableBatching标签强制使用该Shader的材质不被批处理.<br>
+另一个需要注意的是,使用半透明材质的物体 通常需要使用严格的从后往前的绘制顺序来保证透明混合的正确性.对于这些物体,Unity会首先保证它们的绘制顺序,再尝试对它们进行批处理.这意味着,当绘制顺序无法满足时,批处理无法在这些物体上被成功应用.</p>
+<h2 id="%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E7%9A%84%E9%A1%B6%E7%82%B9%E6%95%B0%E7%9B%AE"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E7%9A%84%E9%A1%B6%E7%82%B9%E6%95%B0%E7%9B%AE" aria-hidden="true">§</a> 减少需要的顶点数目</h2>
+<h3 id="%E4%BC%98%E5%8C%96%E5%87%A0%E4%BD%95%E4%BD%93"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#%E4%BC%98%E5%8C%96%E5%87%A0%E4%BD%95%E4%BD%93" aria-hidden="true">§</a> 优化几何体</h3>
+<p>Unity中显示的顶点数目往往要多余建模软件里显示的顶点数.通常Unity中显示的数目要大很多.我们真正应该关心的是Unity中显示的数目.</p>
+<p>三维软件更多的是站在我们人类的角度理解顶点的,即组成几何体的每一个点就是一个单独的点.<br>
+而Unity是站在GPU的角度上去计算顶点的.<br>
+在GPU看来,有时需要把一个顶点拆分成两个或更多的顶点.这种将顶点一分为多的原因主要有两个:一是为了<strong>分离纹理坐标</strong>(uv splits),另一个是为了**产生平滑的边界88(smoothing splits).它们的本质,其实都是对于GPU来说,顶点的每一个属性和顶点之间必须是一对一的关系.而分类纹理坐标,是因为建模时的一个顶点的纹理坐标有多个.<br>
+例如,对于一个正方体,它的六个面之间虽然使用了一些相同的点,但在不同面上,同一个顶点的纹理坐标可能并不相同.对于GPU来说,这是不可理解的.因此,它必须把这个顶点拆分成多个具有不同纹理坐标的顶点.<br>
+而平滑边界也是类似,不同的是,此时一个顶点可能会对应多个法线信息和切线信息.和通常是因为我们要决定一个边时一条硬边(hard edge)还是一条平滑边(smooth edge)</p>
+<p>对于GPU来说,它本质只关心有多少个顶点.因此,尽可能减少顶点数其实才是我们真正需要关心的事情.因此,最后一条几何体优化建议是:移除不必要的硬边以及纹理衔接,避免边界平滑和纹理分离.</p>
+<h3 id="%E6%A8%A1%E5%9E%8B%E7%9A%84lod%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84lod%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 模型的LOD算法</h3>
+<p>另一个减少顶点数的方法是使用LOD技术.这种技术是,当一个物体离摄像机很远时,模型上的很多细节是无法被察觉到的.因此,LOD允许当对象逐渐远离摄像机时,减少模型上的面片数量,从而提高性能.</p>
+<p>在Unity中,我们可以使用LOD Group组件来为一个物体构建一个LOD.我们需要为同一个对象准备多个包含不同细节程度的模型,然后把他们赋给LOD Group组件中的不同等级,Unity就会自动判断当前位置上需要使用哪个等级的模型</p>
+<h3 id="%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%E6%8A%80%E6%9C%AF"><a class="markdownIt-Anchor" href="#-10"></a> <a class="header-anchor" href="#%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%E6%8A%80%E6%9C%AF" aria-hidden="true">§</a> 遮挡剔除技术</h3>
+<p>遮挡剔除(Occlusion culling)可以用来消除那些在其他物体后面看不到的物件,这意味着资源不会浪费在那些看不到的顶点上.进而提升性能.</p>
+<p>我们需要把遮挡剔除和摄像机的视锥体剔除(Frustum Culling)区分开来.<br>
+视锥体剔除只会剔除掉那些不在摄像机的视野范围内的对象,但不会判断视野中是否有物体被其他物体挡住.而遮挡剔除会使用一个虚拟的摄像机来遍历场景,从而构建一个潜在氪金的对象集合层级结构.<br>
+在运行时刻,每个摄像机将会使用这个数据来识别哪些物体是可见的,而哪些物体被其他物体挡住不可见.使用遮挡剔除技术,我们需要进行一系列额外的处理工作,具体步骤参见Unity手册相关内容(docs.unity3d/Manual/OcclusionCulling.heml)</p>
+<p>模型的LOD技术和遮挡剔除技术可以同时减少CPU和GPU的负荷.CPU可以提交更少的drawcall,而GPU需要处理的顶点和片元数目也减少了.</p>
+<h2 id="%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%89%87%E5%85%83%E6%95%B0%E7%9B%AE"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%89%87%E5%85%83%E6%95%B0%E7%9B%AE" aria-hidden="true">§</a> 减少需要处理的片元数目</h2>
+<p>另一个造成GPU瓶颈的是需要处理过多片元.这部分优化的重点在于减少overdraw.简单来说,overdraw指的就是 同一个像素被绘制多次.</p>
+<p>Unity中Scene视图左上方的下拉菜单中选中Overdraw即可查看overdraw.<br>
+实际上,这里的视图只是提供了查看物体相互遮挡的层数,并不是真正的最终屏幕绘制的overdraw.也就是说,可以理解为它显示的是,如果没有任何深度测试和其他优化策略时的overdraw.<br>
+这种视图通过吧所有游戏对象都渲染成一个透明的轮廓,透过查看透明颜色的累积程度来判断物体之间的遮挡.</p>
+<h3 id="%E6%8E%A7%E5%88%B6%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#%E6%8E%A7%E5%88%B6%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F" aria-hidden="true">§</a> 控制绘制顺序</h3>
+<p>为了最大限度避免overdraw,一个重要的优化策略就是控制绘制顺序.<br>
+由于深度测试的存在,如果我们可以保证物体都是从前往后绘制的,那么就可以很大程度上减少overdraw.这是因为,在后面绘制的物体由于无法通过深度测试,因此就不会再进行后面的渲染处理.</p>
+<p>在Unity中,那些渲染队列数目小于2500(如&quot;Background&quot;“Geometry&quot;和&quot;AlphaTest”)的对象都被认为是不透明(opaque)的物体,这些物体总体上是从前往后绘制的,而使用其他的队列(如&quot;ransparent&quot;&quot;Overlay&quot;等)的物体则是从后往前绘制的.这意味着,我们可以尽可能地把物体的队列设置为不透明的渲染队列,而尽量避免使用半透明队列.</p>
+<p>好无聊了这块以后再来看</p>
+<h3 id="%E6%97%B6%E5%88%BB%E8%AD%A6%E6%83%95%E6%AC%A7%E6%98%8E%E7%89%A9%E4%BD%93"><a class="markdownIt-Anchor" href="#-13"></a> <a class="header-anchor" href="#%E6%97%B6%E5%88%BB%E8%AD%A6%E6%83%95%E6%AC%A7%E6%98%8E%E7%89%A9%E4%BD%93" aria-hidden="true">§</a> 时刻警惕欧明物体</h3>
+<h3 id="%E5%87%8F%E5%B0%91%E5%AE%9E%E6%97%B6%E5%85%89%E7%85%A7%E5%92%8C%E9%98%B4%E5%BD%B1"><a class="markdownIt-Anchor" href="#-14"></a> <a class="header-anchor" href="#%E5%87%8F%E5%B0%91%E5%AE%9E%E6%97%B6%E5%85%89%E7%85%A7%E5%92%8C%E9%98%B4%E5%BD%B1" aria-hidden="true">§</a> 减少实时光照和阴影</h3>
 
       
     </div>
@@ -964,7 +1028,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-text"> § 影响性能的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91drawcall%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少drawcall数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 动态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 静态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8"><span class="nav-text"> § 共享材质</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-text"> § 影响性能的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91drawcall%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少drawcall数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 动态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 静态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8"><span class="nav-text"> § 共享材质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text"> § 批处理的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E7%9A%84%E9%A1%B6%E7%82%B9%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少需要的顶点数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%87%A0%E4%BD%95%E4%BD%93"><span class="nav-text"> § 优化几何体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84lod%E7%AE%97%E6%B3%95"><span class="nav-text"> § 模型的LOD算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%E6%8A%80%E6%9C%AF"><span class="nav-text"> § 遮挡剔除技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%89%87%E5%85%83%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少需要处理的片元数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F"><span class="nav-text"> § 控制绘制顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%88%BB%E8%AD%A6%E6%83%95%E6%AC%A7%E6%98%8E%E7%89%A9%E4%BD%93"><span class="nav-text"> § 时刻警惕欧明物体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E5%AE%9E%E6%97%B6%E5%85%89%E7%85%A7%E5%92%8C%E9%98%B4%E5%BD%B1"><span class="nav-text"> § 减少实时光照和阴影</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1004,7 +1068,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">152k</span>
+    <span title="站点总字数">154k</span>
   
 
   

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
+    <lastmod>2019-05-02</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/unity-with-mvc-how-to-level-up-your-game-development/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
@@ -10,13 +13,13 @@
     <loc>https://blog.ggemo.com/bot-help/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
-    <lastmod>2019-04-30</lastmod>
-  </url>  <url>
     <loc>https://blog.ggemo.com/azurlane-llk/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/bili-bot-help/</loc>
+    <lastmod>2019-04-30</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/anime-want2watch/</loc>
@@ -76,10 +79,10 @@
     <loc>https://blog.ggemo.com/shader-r-standard-texture/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-lsx/</loc>

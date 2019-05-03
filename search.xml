@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[website-prepare]]></title>
+    <url>%2Fwebsite-prepare%2F</url>
+    <content type="text"><![CDATA[后端 nginx django 存储 腾讯云对象存储 审核 七牛云内容安全 数据库 mysql 前端 vue element-ui 需要学习 分布式 消息队列]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[云服务薅羊毛]]></title>
     <url>%2Fhaoyangmao-cloudService%2F</url>
     <content type="text"><![CDATA[§ 免费 § 腾讯云 https://cloud.tencent.com/act/free 下面的更多产品与服务 § 重点总结 产品 免费额度 对象存储 企业用户每月1TB标准存储空间，个人用户每月50GB标准存储空间，6个月免费体验时长 CDN 每月10G免费流量，新用户更有连续6个月50GB免费流量 鉴黄 2000张/天 DDoS 防护 抵御2G DDos攻击 § 七牛云 https://www.qiniu.com/events/free § 重点总结 产品 免费额度 对象存储 • 标准存储免费空间 10 GB• 每月免费上传流量 无上限• 10 万次 PUT/月，100 万次 GET/月 CDN 10 GB/月 内容安全 • 免费鉴黄额度 6 万张• 免费鉴暴恐额度 6 万张• 免费政治敏感人物识别额度 6 万张 § 阿里云 https://free.aliyun.com/ntms/free/personal.html § 重点总结 产品 免费额度 短信服务 100条 § 华为云 https://activity.huaweicloud.com/free_product/index.html]]></content>

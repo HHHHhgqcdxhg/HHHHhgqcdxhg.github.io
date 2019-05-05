@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[django-deploy]]></title>
+    <url>%2Fdjango-deploy%2F</url>
+    <content type="text"><![CDATA[最终的命令是这样的: 1uwsgi --http :8000 --chdir /root/ggemo_django/ggemo_django --home=/usr/local/python3 --wsgi-file /root/ggemo_djgo/ggemo_django/wsgi.py 期间有不少坑. 要在wsgi.py中将项目地址加入python运行环境 1sys.path.append(os.path.split(os.path.dirname(__file__))[0]) 之后,会提示sqlite版本不够,下载下来新版本后,python的sqlite3库识别不到新的sqlite.之后按照https://superuser.com/questions/1425212/where-does-django-look-for-sqlite-instance-sqlite-3-8-3-or-later-is-required?rq=1说的,将export LD_LIBRARY_PATH=&quot;/usr/local/lib&quot;原封不动写入环境变量,就好了.]]></content>
+      <tags>
+        <tag>ggemo日志</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[website-prepare]]></title>
     <url>%2Fwebsite-prepare%2F</url>
-    <content type="text"><![CDATA[后端 nginx django 存储 腾讯云对象存储 审核 七牛云内容安全 数据库 mysql 前端 vue element-ui ant-ui? iView? 需要学习 分布式 消息队列 vuex nuxt]]></content>
+    <content type="text"><![CDATA[后端 nginx django 存储 腾讯云对象存储 审核 七牛云内容安全 数据库 mysql 前端 vue element-ui ant-ui? iView? 需要学习 分布式 消息队列 vuex nuxt docker]]></content>
   </entry>
   <entry>
     <title><![CDATA[云服务薅羊毛]]></title>
@@ -369,8 +378,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>碧蓝航线</tag>
         <tag>python</tag>
+        <tag>碧蓝航线</tag>
       </tags>
   </entry>
   <entry>

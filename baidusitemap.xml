@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.ggemo.com/django-deploy/</loc>
-    <lastmod>2019-05-05</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/website-prepare/</loc>
-    <lastmod>2019-05-04</lastmod>
+    <loc>https://blog.ggemo.com/nuxt-understanding/</loc>
+    <lastmod>2019-05-08</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/bot-help/</loc>
-    <lastmod>2019-05-03</lastmod>
+    <lastmod>2019-05-07</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/website-prepare/</loc>
+    <lastmod>2019-05-06</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/django-deploy/</loc>
+    <lastmod>2019-05-05</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
     <lastmod>2019-05-02</lastmod>
@@ -85,10 +88,10 @@
     <loc>https://blog.ggemo.com/shader-r-standard-texture/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-lsx/</loc>

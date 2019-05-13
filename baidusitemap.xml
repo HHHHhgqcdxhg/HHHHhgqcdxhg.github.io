@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.ggemo.com/bili-bot/</loc>
+    <lastmod>2019-05-13</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/bili-bot-release-log/</loc>
+    <lastmod>2019-05-13</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
     <lastmod>2019-05-11</lastmod>
   </url>  <url>
@@ -22,13 +28,10 @@
     <loc>https://blog.ggemo.com/shader-r-optimalize/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/bili-bot-help/</loc>
+    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/azurlane-llk/</loc>
-    <lastmod>2019-04-30</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/anime-want2watch/</loc>
@@ -63,9 +66,6 @@
   </url>  <url>
     <loc>https://blog.ggemo.com/cs-learning/</loc>
     <lastmod>2019-04-05</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/bili-bot-release-log/</loc>
-    <lastmod>2019-04-02</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/lua-study/</loc>
     <lastmod>2019-04-02</lastmod>

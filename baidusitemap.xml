@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.ggemo.com/bili-bot/</loc>
-    <lastmod>2019-05-13</lastmod>
+    <lastmod>2019-05-14</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/feed/</loc>
+    <lastmod>2019-05-14</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/bili-bot-release-log/</loc>
     <lastmod>2019-05-13</lastmod>
@@ -52,9 +55,6 @@
     <loc>https://blog.ggemo.com/shader-learning/</loc>
     <lastmod>2019-04-21</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/feed/</loc>
-    <lastmod>2019-04-20</lastmod>
-  </url>  <url>
     <loc>https://blog.ggemo.com/note-AMVCC/</loc>
     <lastmod>2019-04-19</lastmod>
   </url>  <url>
@@ -88,10 +88,10 @@
     <loc>https://blog.ggemo.com/shader-r-standard-texture/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-lsx/</loc>

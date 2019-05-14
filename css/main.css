@@ -373,6 +373,7 @@ blockquote {
   padding: 0 15px;
   color: #666;
   border-left: 4px solid #7bff79;
+  background-image: linear-gradient(to left, #fff5df 0%, #e4feff 100%);
 }
 blockquote cite::before {
   content: "-";
@@ -1913,7 +1914,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff65;
+  background: #4b4e5d;
 }
 .links-of-blogroll {
   font-size: 13px;

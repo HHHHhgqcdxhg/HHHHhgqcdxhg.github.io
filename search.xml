@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[婊"EZ不好玩"]]></title>
-    <url>%2Fbiao-ezbhw%2F</url>
-    <content type="text"><![CDATA[强烈主观观点.详细经过见详细截图 率先挑事: 图0-0 用&quot;都有错&quot;来使自己的率先挑事显得不重要 出尔反尔: “你说的是,我该注意”: 图0-0的最后 (※这句划重点) “我凭什么给你道歉”: 图0-1的开始 和后面又说是误会等说法: 图3-2 双标(或者是选择性失忆?) 之前卵处跟人吵起来的时候,明明都在互骂了,却不禁言阻止撕逼,自己被撕的时果断禁言t出群: 图0-1 “人家爆粗了么, 我爆粗了么” “只是这种话我不能任他说” 选择性失忆 “哪句话惹你了 给我指出来”: 图0-2 “我指名道姓骂你了?” 小学生常见赖皮拌嘴技巧: 图0-2 “闹到B站” (???): 图4-0 自挂东南枝,请 “你才是导火索” 我不认为我前面的话点燃了这场撕逼,真正的有火煋的导火索是图0-0的两句话 “没事别总说别人抬杠,挺恶心的” “我不喜欢这样,以后请注意吧(笑)” 见下文12条 把自己当皇帝 挑衅 “是不是男人, 对线都不敢?”: 图6-4 “不敢么” “怂逼”: 图6-6 “呵呵” 和事佬你闭嘴 “@阿江君 你别插手了” 图6-4最后 “阿江你闭嘴行不行”: 图6-5 “你总说别人干什么 能不能好好对线了”: 图6-5 明明上文在狂怒/挑衅发言,最后却来了句: “跟你好礼好气的讲道理 屁都不听一句”: 图6-7最后 把自己当皇帝 “我不喜欢这样,以后请注意吧(笑)” 你不喜欢,你算老几? “我不知道䒕黃苽做什么工作的,有没有上司”: 图6-2 你给我发工资了?你就是我上司? &quot;你爱屏蔽就屏蔽,别给我在up群里晃 该滚滚 别在我面前晃&quot;图6-7最后 “不爽可以退群, 别给我在这嘴臭”: 图0-0最后 你就是up群皇帝?群是你家的? 两次擅自踢人 “你当初是我拉进群的,我就有资格t你”: 图6-7最后 (非原话,这个意思) “你最好别得寸进尺,你知道我脾气&quot;图0-2第一句 吓死我了,我应该回&quot;皇上息怒”? 吃瓜群众原话: “你管的太宽了吧”: 图0-1开始 被惹了,我就喷回去,理所应当.要不然呢你阴阳怪气摆着架子跟我说话要我好声好气求你好好说话再接受一波上司教育? 其所谓的想要表面上谈的&quot;解决问题&quot;,其实是息事宁人,想让我妥协.其言论表面逻辑混乱,甚至前后矛盾,但仔细考虑一下出发点都是&quot;息事宁人&quot;.息事宁人并不能解决问题. 避重就轻,不断强调&quot;都有错&quot;,来使自己的率先挑事显得不重要,其实是没认识到,或者不想承认自己的错误. § 详细截图 § 图0-0 § 图0-1 § 图0-2 § 图1-0 § 图2-0 § 图3-0 § 图3-1 § 图3-2 § 图3-3 § 图3-4 § 图4-0 § 图5-0 § 图6-0 § 图6-1 § 图6-2 § 图6-3 § 图6-4 § 图6-5 § 图6-6 § 图6-7]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[nuxt的理解]]></title>
     <url>%2Fnuxt-understanding%2F</url>
     <content type="text"><![CDATA[nuxt nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端 § nuxt和vue的生命周期 nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的… 1234567891011121314151617181920212223242526272829303132333435&lt;template&gt; &lt;section class=&quot;container&quot;&gt; &#123;&#123;p&#125;&#125; &lt;br&gt; &#123;&#123;t&#125;&#125; &lt;/section&gt;&lt;/template&gt;&lt;script&gt; import axios from &apos;axios&apos; export default &#123; data () &#123; return &#123; p: &apos;p&apos;, t: &apos;t&apos; &#125; &#125;, asyncData (&#123; req, params &#125;) &#123; // We can return a Promise instead of calling the callback return axios.get(&apos;https://api.ggemo.com/test&apos;) .then((res) =&gt; &#123; return &#123; posts: res.data &#125; &#125;) &#125;, created () &#123; this.p = this.posts.data.text &#125;, mounted () &#123; console.log(&quot;p before changed: &quot;,this.p) this.p = &apos;p mounted&apos; console.log(&quot;p changed: &quot;,this.p) this.t = &apos;t mounted&apos; &#125; &#125;&lt;/script&gt; 这样渲染出来的html文件的body部分为 1234567891011121314151617181920212223242526&lt;body data-n-head=""&gt;&lt;div data-server-rendered="true" id="__nuxt"&gt;&lt;!----&gt; &lt;div id="__layout"&gt; &lt;div&gt; header &lt;section class="container"&gt; 成功 successed &lt;br&gt; t &lt;/section&gt; footer &lt;/div&gt; &lt;/div&gt;&lt;/div&gt;&lt;script&gt;window.__NUXT__ = &#123; layout: 'default', data: [&#123; posts: &#123; status: 0, data: &#123; text: '成功 successed' &#125; &#125; &#125;], error: null, serverRendered: true&#125;&lt;/script&gt;&lt;script src="/_nuxt/runtime.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/pages_index.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/pages_index.42262e91659a4eb99aae.hot-update.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/vendors.app.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/app.js" defer&gt;&lt;/script&gt;&lt;/body&gt; 在页面上的渲染效果为 其中https://api.ggemo.com/test中的内容为{ posts: { status: 0, data: { text: ‘成功 successed’ } } } created钩子中的 this.p的值,在传给客户端之前就已经被渲染进了html源码 而mounted中的 this.p的值和this.t的值的更改是在客户端被执行的 由此可见,vue的created钩子运行在了服务端,mounted钩子运行在了客户端 nuxt官网的图片: Render应该是执行vue生命周期中beforeMount之前的钩子]]></content>
@@ -396,8 +391,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

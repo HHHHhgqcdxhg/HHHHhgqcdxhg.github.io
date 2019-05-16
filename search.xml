@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[婊"EZ不好玩"]]></title>
+    <url>%2Fbiao-ezbhw%2F</url>
+    <content type="text"><![CDATA[强烈主观观点.详细经过见详细截图 率先挑事 用&quot;都有错&quot;来使自己的率先挑事显得不重要 表面上说&quot;都有错&quot;, 其实没认识到,或者不想承认自己的错误 出尔反尔 “你说的是, 我该注意” “我凭什么给你道歉” 和后面又说是误会等说法 “闹到B站” 这啥操作? 挑衅 “是不是男人, 对线都不敢?” “不敢么” “怂逼” “呵呵” 明明在狂怒挑衅发言,最后却来两句: “跟你好礼好气的讲道理” “屁都不听一句” 把自己当皇帝 “我不知道䒕黃苽做什么工作的,有没有上司”(你就是我上司?) “你爱屏蔽就屏蔽, 别给我在up群里晃 该滚滚 别在我面前晃”(你就是up群皇帝?) 两次擅自踢人 “你当初是我拉进群的,我就有资格t你”(非原话,这个意思) § 详细截图]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[nuxt的理解]]></title>
     <url>%2Fnuxt-understanding%2F</url>
     <content type="text"><![CDATA[nuxt nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端 § nuxt和vue的生命周期 nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的… 1234567891011121314151617181920212223242526272829303132333435&lt;template&gt; &lt;section class=&quot;container&quot;&gt; &#123;&#123;p&#125;&#125; &lt;br&gt; &#123;&#123;t&#125;&#125; &lt;/section&gt;&lt;/template&gt;&lt;script&gt; import axios from &apos;axios&apos; export default &#123; data () &#123; return &#123; p: &apos;p&apos;, t: &apos;t&apos; &#125; &#125;, asyncData (&#123; req, params &#125;) &#123; // We can return a Promise instead of calling the callback return axios.get(&apos;https://api.ggemo.com/test&apos;) .then((res) =&gt; &#123; return &#123; posts: res.data &#125; &#125;) &#125;, created () &#123; this.p = this.posts.data.text &#125;, mounted () &#123; console.log(&quot;p before changed: &quot;,this.p) this.p = &apos;p mounted&apos; console.log(&quot;p changed: &quot;,this.p) this.t = &apos;t mounted&apos; &#125; &#125;&lt;/script&gt; 这样渲染出来的html文件的body部分为 1234567891011121314151617181920212223242526&lt;body data-n-head=""&gt;&lt;div data-server-rendered="true" id="__nuxt"&gt;&lt;!----&gt; &lt;div id="__layout"&gt; &lt;div&gt; header &lt;section class="container"&gt; 成功 successed &lt;br&gt; t &lt;/section&gt; footer &lt;/div&gt; &lt;/div&gt;&lt;/div&gt;&lt;script&gt;window.__NUXT__ = &#123; layout: 'default', data: [&#123; posts: &#123; status: 0, data: &#123; text: '成功 successed' &#125; &#125; &#125;], error: null, serverRendered: true&#125;&lt;/script&gt;&lt;script src="/_nuxt/runtime.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/pages_index.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/pages_index.42262e91659a4eb99aae.hot-update.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/vendors.app.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/app.js" defer&gt;&lt;/script&gt;&lt;/body&gt; 在页面上的渲染效果为 其中https://api.ggemo.com/test中的内容为{ posts: { status: 0, data: { text: ‘成功 successed’ } } } created钩子中的 this.p的值,在传给客户端之前就已经被渲染进了html源码 而mounted中的 this.p的值和this.t的值的更改是在客户端被执行的 由此可见,vue的created钩子运行在了服务端,mounted钩子运行在了客户端 nuxt官网的图片: Render应该是执行vue生命周期中beforeMount之前的钩子]]></content>
@@ -391,8 +396,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>碧蓝航线</tag>
         <tag>python</tag>
+        <tag>碧蓝航线</tag>
       </tags>
   </entry>
   <entry>

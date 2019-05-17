@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.ggemo.com/youtube-live-2-bili/</loc>
+    <lastmod>2019-05-17</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/bot-help/</loc>
     <lastmod>2019-05-14</lastmod>
   </url>  <url>
@@ -72,9 +75,6 @@
   </url>  <url>
     <loc>https://blog.ggemo.com/py/index.html</loc>
     <lastmod>2019-03-30</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/youtube-live-2-bili/</loc>
-    <lastmod>2019-03-26</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-moving/</loc>
     <lastmod>2019-03-26</lastmod>

@@ -104,25 +104,24 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行 1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.">
-<meta name="keywords" content="python">
+  <meta name="description" content="关键字大写 单行不带; 引号用单引号’’">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python多重继承init的问题">
-<meta property="og:url" content="https://blog.ggemo.com/python-mult-inherit-init/index.html">
+<meta property="og:title" content="sql习惯">
+<meta property="og:url" content="https://blog.ggemo.com/sql-standard/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行 1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.">
+<meta property="og:description" content="关键字大写 单行不带; 引号用单引号’’">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-05T16:56:16.260Z">
+<meta property="og:updated_time" content="2019-05-28T14:25:39.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python多重继承init的问题">
-<meta name="twitter:description" content="继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行 1super(C, self).__init__() 12345678910111213141516class A:    def __init__(self):        self.a = &quot;a&quot;    class B:    def __init__(self):        self.">
+<meta name="twitter:title" content="sql习惯">
+<meta name="twitter:description" content="关键字大写 单行不带; 引号用单引号’’">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/python-mult-inherit-init/">
+  <link rel="canonical" href="https://blog.ggemo.com/sql-standard/">
 
 
 
@@ -132,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>python多重继承init的问题 | 黄瓜养殖基地！</title>
+  <title>sql习惯 | 黄瓜养殖基地！</title>
   
 
 
@@ -408,7 +407,7 @@ window.console.log=()=>{};
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/python-mult-inherit-init/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/sql-standard/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="清纯的小黄瓜">
@@ -425,7 +424,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">python多重继承init的问题
+          <h2 class="post-title" itemprop="name headline">sql习惯
 
               
             
@@ -452,24 +451,12 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-03 16:02:36" itemprop="dateCreated datePublished" datetime="2019-03-03T16:02:36+08:00">2019-03-03</time>
+              <time title="创建时间：2019-05-28 13:58:11 / 修改时间：22:25:39" itemprop="dateCreated datePublished" datetime="2019-05-28T13:58:11+08:00">2019-05-28</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-06 00:56:16" itemprop="dateModified" datetime="2019-03-06T00:56:16+08:00">2019-03-06</time>
               
             
           </span>
@@ -487,8 +474,8 @@ window.console.log=()=>{};
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/python-mult-inherit-init/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/python-mult-inherit-init/" itemprop="commentCount"></span>
+                <a href="/sql-standard/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/sql-standard/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -510,7 +497,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">744</span>
+                <span title="本文字数">23</span>
               
 
               
@@ -534,12 +521,11 @@ window.console.log=()=>{};
       
 
       
-        <p>继承的时候,init父类时,平时用ide写代码习惯了这样写,因为敲一个super再回车就有了这么一行</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(C, self).__init__()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="string">"a"</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.b = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A,B)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(C, self).__init__()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    c = C()</span><br><span class="line">    print(c.__dict__)</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt; &#123;'a': 'a'&#125;</span></span><br></pre></td></tr></table></figure>
-<p>可以看出问题了,C类只init了A类,并没有init B类<br>
-下面是我瞎摸出来的解决方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="string">"a"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.b = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A, B)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        A.__init__(self)</span><br><span class="line">        B.__init__(self)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    c = C()</span><br><span class="line">    print(c.__dict__)</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt; &#123;'a': 'a', 'b': 'b'&#125;</span></span><br></pre></td></tr></table></figure>
+        <ul>
+<li>关键字大写</li>
+<li>单行不带<code>;</code></li>
+<li>引号用单引号<code>’’</code></li>
+</ul>
 
       
     </div>
@@ -561,12 +547,6 @@ window.console.log=()=>{};
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-        </div>
-      
 
       
       
@@ -576,8 +556,8 @@ window.console.log=()=>{};
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/chrome-crx/" rel="next" title="chrome插件踩坑">
-                <i class="fa fa-chevron-left"></i> chrome插件踩坑
+              <a href="/nuxt-understanding/" rel="next" title="nuxt的理解">
+                <i class="fa fa-chevron-left"></i> nuxt的理解
               </a>
             
           </div>
@@ -585,10 +565,6 @@ window.console.log=()=>{};
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/musicFavorites/" rel="prev" title="加了几个音乐收藏夹">
-                加了几个音乐收藏夹 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

@@ -573,8 +573,8 @@ code {
   overflow-wrap: break-word;
   word-wrap: break-word;
   padding: 2px 4px;
-  color: #739eff;
-  background: #f6fcff;
+  color: #c7254e;
+  background: #f9f2f4;
   border-radius: 3px;
   font-size: 14px;
 }
@@ -611,7 +611,7 @@ pre code {
   margin-bottom: 1em;
   margin: 0em;
   padding: 0.5em;
-  background: #f6fcff;
+  background: #f9f2f4;
   border-bottom: 1px solid #e9e9e9;
 }
 .highlight figcaption:before,
@@ -1914,7 +1914,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff9686;
+  background: #ffe0ff;
 }
 .links-of-blogroll {
   font-size: 13px;

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于养生的思考]]></title>
+    <url>%2Fthinking-health%2F</url>
+    <content type="text"><![CDATA[一天睡6小时会比一天睡8小时拥有多2小时清醒的时间,可以说前者比后者多1/8的时间,也就是说,一年下来,前者比后者多“活着”一个月. 熬夜对身体不好,会死得早.不过,看似死得早,实际上,比看上去死的晚的人少活的,可能只是风烛残年的一小段时间,熬夜的人将这部分生命透支了,换取的是年轻的生命. 这里引出了一个思考: 年轻的生命,和老来的生命,哪个更有价值?需要由此来判断透支是否划算. 我现在还很年轻,我觉得老年人的生命没有意思.以我现在对老年人的心境的理解是,做什么都没有激情,体会不到兴奋,现在的我认为这种生命舍弃也罢,换取年轻时能体验刺激,做事有激情的时间. 不过,这个评判来自现在的我.或许老了的我,虽无法体验到激情,不会兴奋,但能从浇花,散步中体会到有价值的东西呢? 对于这个问题,我现在的观点是:不管将来的我怎么想,我现在按我现在的评判行动即可.老了如果后悔的话,就拿&quot;年轻的我做出的方针是为了使年轻的我很开心&quot;来安慰自己.]]></content>
+      <categories>
+        <category>思考</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[sql习惯]]></title>
     <url>%2Fsql-standard%2F</url>
     <content type="text"><![CDATA[关键字大写 单行不带; 引号用单引号’’]]></content>
@@ -396,8 +407,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

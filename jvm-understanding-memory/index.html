@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<base target="_blank">
+<head><meta name="generator" content="Hexo 3.8.0">
+<script>
+window.console.log=()=>{};
+</script>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#739eff">
+<link rel="shortcut icon" type="image/x-icon" href="https://blog.ggemo.com/blog_favicon.ico"> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="nWEfx0a0jb">
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#739eff">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"flipXIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":20},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="§ Java内存区域   § 程序计数器 程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器. 为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计">
+<meta name="keywords" content="java,深入理解JVM,jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《深入理解JVM》笔记-Java内存区域">
+<meta property="og:url" content="https://blog.ggemo.com/jvm-understanding-memory/index.html">
+<meta property="og:site_name" content="黄瓜养殖基地！">
+<meta property="og:description" content="§ Java内存区域   § 程序计数器 程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器. 为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190615203917.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190615225054.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190615225303.png">
+<meta property="og:updated_time" content="2019-06-15T15:17:54.217Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《深入理解JVM》笔记-Java内存区域">
+<meta name="twitter:description" content="§ Java内存区域   § 程序计数器 程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器. 为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190615203917.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://blog.ggemo.com/jvm-understanding-memory/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《深入理解JVM》笔记-Java内存区域 | 黄瓜养殖基地！</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-135058751-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-135058751-1');
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f7e369e7cc158cb7664d49b4b363cc35";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <link rel="stylesheet" href="https://blog.ggemo.com/src/APlayer.min.css">
+<link rel="stylesheet" href="https://blog.ggemo.com/src/live2d.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  <div id="feed" style>
+    <a href="https://blog.ggemo.com/feed/"><img width="150px" src="https://pic.ggemo.com/picgo/bot-feed-zfb-any.png"></a>
+    <div style="float:left;height:40px;width:150px;font-size:18px;padding-top:2px;padding-left:35px;background:linear-gradient(90deg,#946ce6,#7e5fd9);border-radius: 0.166666666666667rem;align-self: center;cursor: pointer;line-height: 1;box-sizing: border-box;font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;"><span style="line-height:40px;color: white !important">￥ 爱发电</span></div>
+  </div>
+
+  <div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+  </div>
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黄瓜养殖基地！</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-balabala">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/balabala/" rel="section"><i class="menu-item-icon fa fa-fw fa-battery-quarter"></i> <br>balabala</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/jvm-understanding-memory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">《深入理解JVM》笔记-Java内存区域
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-15 20:33:28 / 修改时间：23:17:54" itemprop="dateCreated datePublished" datetime="2019-06-15T20:33:28+08:00">2019-06-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深入理解JVM/" itemprop="url" rel="index"><span itemprop="name">深入理解JVM</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/jvm-understanding-memory/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/jvm-understanding-memory/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.5k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F" aria-hidden="true">§</a> Java内存区域</h2>
+<p><img src="https://pic.ggemo.com/picgo/20190615203917.png" alt="20190615203917.png"></p>
+<h3 id="%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8" aria-hidden="true">§</a> 程序计数器</h3>
+<p><strong>程序计数器(Program Counter register)</strong> 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器.</p>
+<p>为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计数器.</p>
+<p>如果线程正在执行的是一个Java方法,这个计数器记录的是正在执行的虚拟机字节码指令的地址;<br>
+如果正在执行的是一个Native方法,这个计数器值则为空.</p>
+<h4 id="%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5" aria-hidden="true">§</a> 异常情况</h4>
+<p>此内存区域是唯一一个没有任何OutOfMemoryError情况的区域</p>
+<h3 id="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88" aria-hidden="true">§</a> Java虚拟机栈</h3>
+<p><strong>Java虚拟机栈(Java Virtual Machin Stacks)</strong> 也是线程私有的,它的生命周期与线程相同.<br>
+虚拟机栈描述的是Java方法执行的内存模型: 每个方法在执行的同时都会创建一个<strong>栈帧(Stack Frame)</strong>.<br>
+栈帧用于存储局部变量表,操作数栈,动态链接,方法出口等信息.</p>
+<h4 id="%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8" aria-hidden="true">§</a> 局部变量表</h4>
+<p>局部变量表存放了编译器可知的各种基本数据类型(byte,boolean,short,int,long,double,float,char),对象引用,和returnAdress类型(指向了一条字节码指令的地址).</p>
+<p>64位的long和double类型的数据会占用2个局部变量空间(Slot),其余的数据类型均只占用一个.</p>
+<p>局部变量表所需的内存空间在编译期间完成分配,在进入一个方法时,这个方法需要在栈中分配多大的局部空间是完全确定的.</p>
+<h4 id="%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-2"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-2" aria-hidden="true">§</a> 异常情况</h4>
+<p>Java虚拟机栈有两种异常状况: 如果线程请求的栈深度大于虚拟机允许的深度,将抛出StackOverflowError异常;<br>
+如果虚拟机栈无法申请到足够的内存,将抛出OutOfMemoryError异常.</p>
+<h3 id="%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88" aria-hidden="true">§</a> 本地方法栈</h3>
+<p>本地方法栈为虚拟机使用到的Native方法服务,其余与Java虚拟机栈相似.</p>
+<h3 id="java%E5%A0%86"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#java%E5%A0%86" aria-hidden="true">§</a> Java堆</h3>
+<p>对大多数应用来说,<strong>Java堆</strong> 是占内存最大的一块.<br>
+java堆是被所有线程共享的一块内存区域,在虚拟机启动时闯进.一内存区域的唯一目的就是<strong>存放对象实例</strong> .这一点在java虚拟机规范中的描述是: 所有对象实例以及数组都要在堆上分配.</p>
+<p>Java堆是垃圾收集器管理的主要区域.</p>
+<p>从内存分配的角度来看,线程共享的Java堆中可能划分出多个<strong>线程私有的分配缓冲区(Thread Local Allocation Buffer)</strong> (简称<strong>TLAB</strong> ).TLAB如何划分都和存放内容无关,无论哪个区域,存储的都仍然是对象实例,进一步划分是为了更好地<strong>回收内存</strong> ,或者更快地<strong>分配内存</strong> .</p>
+<h4 id="%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-3"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-3" aria-hidden="true">§</a> 异常情况</h4>
+<p>Java堆可以出在物理上不连续的空间中,只要逻辑上是连续的即可.在实现时,主流的虚拟机都是按照可扩展来实现的.<br>
+如果在堆中没有内存完成实例分配,并且堆也无法再扩展时,将会抛出OutOfMemoryError异常.</p>
+<h3 id="%E6%96%B9%E6%B3%95%E5%8C%BA"><a class="markdownIt-Anchor" href="#-10"></a> <a class="header-anchor" href="#%E6%96%B9%E6%B3%95%E5%8C%BA" aria-hidden="true">§</a> 方法区</h3>
+<p><strong>方法区(Method Area)</strong> 是线程共享的内存区域,它用于存储已被虚拟机加载的类信息,常量,静态变量,即时编译器编译后的代码等数据.</p>
+<p>这一区域的内存回收目标主要是针对常量池的回收和对类型的卸载.</p>
+<h4 id="%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0" aria-hidden="true">§</a> 运行时常量池</h4>
+<p>**运行时常量池(Runtime Constant Pool)**是方法区的一部分.</p>
+<p>Class文件中有一项信息是<strong>常量池(Constant Pool Table)</strong> ,用于存放编译器生成的各种<em>字面量</em> 和<em>符号引用</em> ,这部分内容将在<em>类加载后</em>进入方法区的运行时常量池中存放.</p>
+<p>运行时常量池相对于Class文件常量池的另一个重要特征是具备动态性, Java语言并不要求常量一定只有编译期才能产生,也就是并非预置入Class文件中常量池的内容才能进入仿佛运行时常量池,<em>运行期间</em> 也可能进将新的常量放入池中(这种特性被开发人员利用得比较多的是String类的intern()方法).</p>
+<h4 id="%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-4"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-4" aria-hidden="true">§</a> 异常情况</h4>
+<p>当方法区无法满足内存分配的需求时,将抛出OutOfMemoryError异常.</p>
+<h2 id="hotspot%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1"><a class="markdownIt-Anchor" href="#-13"></a> <a class="header-anchor" href="#hotspot%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1" aria-hidden="true">§</a> HotSpot虚拟机中的对象</h2>
+<h3 id="%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><a class="markdownIt-Anchor" href="#-14"></a> <a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA" aria-hidden="true">§</a> 对象的创建</h3>
+<h4 id="1-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A3%80%E6%9F%A5"><a class="markdownIt-Anchor" href="#-15"></a> <a class="header-anchor" href="#1-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A3%80%E6%9F%A5" aria-hidden="true">§</a> 1-类加载检查</h4>
+<p>当虚拟机遇到一条new指令时,首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用,并且检查这个符号引用代表的类是否已被加载,解析和初始化过.如果没有,那必须先执行响应的类加载过程.</p>
+<h4 id="2-%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><a class="markdownIt-Anchor" href="#-16"></a> <a class="header-anchor" href="#2-%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98" aria-hidden="true">§</a> 2-分配内存</h4>
+<p>对象所需的内存的大小在类加载完成后便可以完全确定,为对象分配空间的任务等同于把一块确定大小的内存从Java堆中划分出来.</p>
+<p>如果Java堆中内存是绝对规整的,则使用<strong>指针碰撞(Bump the Pointer)</strong><br>
+如果Java堆中内存并不是规整的,就要使用<strong>空闲列表(Free List)</strong></p>
+<h4 id="3-%E7%A9%BA%E9%97%B4%E7%BD%AE%E9%9B%B6"><a class="markdownIt-Anchor" href="#-17"></a> <a class="header-anchor" href="#3-%E7%A9%BA%E9%97%B4%E7%BD%AE%E9%9B%B6" aria-hidden="true">§</a> 3-空间置零</h4>
+<p>内存分配完成后,虚拟机需要将分配到的内存空间都初始化为零值(不包括对象头),如果使用TLAB,这一工作过程也可以提前至TLAB分配时进行.</p>
+<p>这一操作保证了对象的实例字段在Java代码中可以不赋初始值就直接使用,程序能访问到这些字段的数据类型所对应的的零值.</p>
+<h4 id="4-%E5%AF%B9%E8%B1%A1%E5%A4%B4%E8%AE%BE%E7%BD%AE"><a class="markdownIt-Anchor" href="#-18"></a> <a class="header-anchor" href="#4-%E5%AF%B9%E8%B1%A1%E5%A4%B4%E8%AE%BE%E7%BD%AE" aria-hidden="true">§</a> 4-对象头设置</h4>
+<p>接下来,虚拟机要对对象进行必要的设置,例如这个对象时哪个类的实例,如何才能找到类的元数据信息,对象的哈希码,对象的GC分代年龄等信息.<br>
+这些信息存放在对象的<strong>对象头(Object Header)</strong> 之中.</p>
+<h4 id="5-init"><a class="markdownIt-Anchor" href="#-19"></a> <a class="header-anchor" href="#5-init" aria-hidden="true">§</a> 5-init</h4>
+<p>在上面的工作都完成之后,从虚拟机的视角来看,一个新的对象已经产生了,但从Java程序的角度来看,对象的创建才刚刚开始: init方法还没有执行,所有的字段都还为零.所以,执行new指令之后会接着执行init方法,把对象按照程序员的意愿进行初始化,这样一个真正可用的对象才算完全产生出来.</p>
+<h3 id="%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><a class="markdownIt-Anchor" href="#-20"></a> <a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80" aria-hidden="true">§</a> 对象的内存布局</h3>
+<p>对象在内存中的存储的分布可用分为3块区域: <a href="#%E5%AF%B9%E8%B1%A1%E5%A4%B4">对象头(Header)</a>,<a href="#%E5%AE%9E%E4%BE%8B%E6%95%B0%E6%8D%AE">实例数据(Instance Data)</a>和<a href="#%E5%AF%B9%E9%BD%90%E5%A1%AB%E5%85%85">对齐填充(Padding)</a></p>
+<h4 id="%E5%AF%B9%E8%B1%A1%E5%A4%B4"><a class="markdownIt-Anchor" href="#-21"></a> <a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E5%A4%B4" aria-hidden="true">§</a> 对象头</h4>
+<p>对象头包括两部分信息:</p>
+<h5 id="1-mark-word"><a class="markdownIt-Anchor" href="#-22"></a> <a class="header-anchor" href="#1-mark-word" aria-hidden="true">§</a> 1-Mark Word</h5>
+<p>存储对象自身的运行时数据,如哈希码,GC分代年龄,锁状态标志,线程持有的锁,偏向进程ID,偏向时间戳等.</p>
+<h5 id="2-%E7%B1%BB%E5%9E%8B%E6%8C%87%E9%92%88"><a class="markdownIt-Anchor" href="#-23"></a> <a class="header-anchor" href="#2-%E7%B1%BB%E5%9E%8B%E6%8C%87%E9%92%88" aria-hidden="true">§</a> 2-类型指针</h5>
+<p>对象指向它的类元数据的指针,虚拟机通过这个指针来确定这个对象是哪个类的实例.</p>
+<p>另外,如果对象是一个Java数组,那在对象头中还必须有一块用于记录数组长度的数据.</p>
+<h4 id="%E5%AE%9E%E4%BE%8B%E6%95%B0%E6%8D%AE"><a class="markdownIt-Anchor" href="#-24"></a> <a class="header-anchor" href="#%E5%AE%9E%E4%BE%8B%E6%95%B0%E6%8D%AE" aria-hidden="true">§</a> 实例数据</h4>
+<p>实例数据部分是对象真正存储的有效信息,也是在程序代码中所定义的各种类型的字段内容.</p>
+<p>无论是从父类继承下来的,还是在子类中定义的字段内容,都需要记录起来.<br>
+这部分的存储顺序会收到虚拟机分配策略参数(FieldAllocationStyle)和字段在Java源码中定义顺序的影响.<br>
+HotSpot虚拟机默认的分配策略为longs/doubles,ints,shorts/chars,bytes/booleans,OOP(Ordinary Object Pointers),从分配策略中可以看出,相同宽度的字段总是被分配到一起.<br>
+在满足这个前提条件的情况下,在父类中定义的变量会出现在子类之前.<br>
+如果CompactFields参数值为true(默认为true),那么子类中较窄的变量也可能会插入到父类变量的空隙之中.</p>
+<h4 id="%E5%AF%B9%E9%BD%90%E5%A1%AB%E5%85%85"><a class="markdownIt-Anchor" href="#-25"></a> <a class="header-anchor" href="#%E5%AF%B9%E9%BD%90%E5%A1%AB%E5%85%85" aria-hidden="true">§</a> 对齐填充</h4>
+<p>对齐填充并不是必然存在的,也没有特别的含义,它仅仅起着占位符的作用.</p>
+<p>这个占位符的存在是因为,HotSpot VM的自动内存管理系统要求对象起始地址必须是8字节的整数倍</p>
+<h3 id="%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><a class="markdownIt-Anchor" href="#-26"></a> <a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D" aria-hidden="true">§</a> 对象的访问定位</h3>
+<p>Java程序需要通过栈上的reference数据来获取到堆上的具体对象.<br>
+对象访问方式取决于虚拟机实现.目前主流的访问方式有使用句柄和直接指针两种.</p>
+<h4 id="%E9%80%9A%E8%BF%87%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1"><a class="markdownIt-Anchor" href="#-27"></a> <a class="header-anchor" href="#%E9%80%9A%E8%BF%87%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1" aria-hidden="true">§</a> 通过句柄访问对象</h4>
+<p>Java堆中将会划分出一块内存来作为句柄池,reference中存储的就是对象的句柄地址,而句柄中包含了对象实例数据与类型数据各自的具体地址信息.</p>
+<p>使用句柄访问方式的最大好处就是reference中存储的是稳定的句柄地址,在对象被移动(垃圾收集时移动对象是非常普遍的行文)时只会改变句柄中的实例数据指针,而reference本身不需要改变.</p>
+<p><img src="https://pic.ggemo.com/picgo/20190615225054.png" alt="20190615225054.png"></p>
+<h4 id="%E9%80%9A%E8%BF%87%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1"><a class="markdownIt-Anchor" href="#-28"></a> <a class="header-anchor" href="#%E9%80%9A%E8%BF%87%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1" aria-hidden="true">§</a> 通过直接指针访问对象</h4>
+<p>Java堆对象的布局中必须考虑如何放置访问类型数据的相关类型,而reference中存储的直接就是对象地址.</p>
+<p>使用直接指针访问方式的最大好处就是速度更快,它节省了一次指针定位的时间开销.</p>
+<p>HotSpot使用的是直接指针.</p>
+<p><img src="https://pic.ggemo.com/picgo/20190615225303.png" alt="20190615225303.png"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/深入理解JVM/" rel="tag"># 深入理解JVM</a>
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/thinking-health/" rel="next" title="关于养生的思考">
+                <i class="fa fa-chevron-left"></i> 关于养生的思考
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg" alt="清纯的小黄瓜">
+            
+              <p class="site-author-name" itemprop="name">清纯的小黄瓜</p>
+              <p class="site-description motion-element" itemprop="description">小黄瓜的blog哦！</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/HHHHhgqcdxhg" title="GitHub &rarr; https://github.com/HHHHhgqcdxhg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://dev.tencent.com/u/hhhhhg" title="coding &rarr; https://dev.tencent.com/u/hhhhhg" rel="noopener" target="_blank"><i class="fa fa-fw fa-cloud"></i>coding</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/hhhhhg765993618@gmail.com" title="E-Mail &rarr; hhhhhg765993618@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=2894700792" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=2894700792" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><span class="nav-text"> § Java内存区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-text"> § 程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5"><span class="nav-text"> § 异常情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-text"> § Java虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8"><span class="nav-text"> § 局部变量表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-2"><span class="nav-text"> § 异常情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-text"> § 本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%A0%86"><span class="nav-text"> § Java堆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-3"><span class="nav-text"> § 异常情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-text"> § 方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-text"> § 运行时常量池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-4"><span class="nav-text"> § 异常情况</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hotspot%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-text"> § HotSpot虚拟机中的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text"> § 对象的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A3%80%E6%9F%A5"><span class="nav-text"> § 1-类加载检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="nav-text"> § 2-分配内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%A9%BA%E9%97%B4%E7%BD%AE%E9%9B%B6"><span class="nav-text"> § 3-空间置零</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AF%B9%E8%B1%A1%E5%A4%B4%E8%AE%BE%E7%BD%AE"><span class="nav-text"> § 4-对象头设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-init"><span class="nav-text"> § 5-init</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-text"> § 对象的内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="nav-text"> § 对象头</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-mark-word"><span class="nav-text"> § 1-Mark Word</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%B1%BB%E5%9E%8B%E6%8C%87%E9%92%88"><span class="nav-text"> § 2-类型指针</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E6%95%B0%E6%8D%AE"><span class="nav-text"> § 实例数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E9%BD%90%E5%A1%AB%E5%85%85"><span class="nav-text"> § 对齐填充</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-text"> § 对象的访问定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1"><span class="nav-text"> § 通过句柄访问对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1"><span class="nav-text"> § 通过直接指针访问对象</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <div id="aplayer"></div>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">清纯的小黄瓜</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">162k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  <script src="/js/src/APlayer.min.js?v=7.0.0"></script>
+
+  <script src="/js/src/audioPlayer.js?v=7.0.0"></script>
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'abgCMwLj6Q2FQ0U7C6eJfmGj-gzGzoHsz',
+    appKey: '7sSygwY7BsaQc1XoaVzrCFIg',
+    placeholder: '给小黄瓜个留言吧~最好填上昵称和邮箱哦',
+    avatar: 'identicon',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+
+  
+
+
+  <script src="/js/src/live2d.js?v=7.0.0"></script>
+
+  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
+
+<script type="text/javascript">
+    loadlive2d("live2d", "../src/pio/model.json");
+</script>
+</body>
+</html>

@@ -107,7 +107,7 @@ window.console.log=()=>{};
   <meta name="description" content="§ Java内存区域   § 程序计数器 程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器. 为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计">
 <meta name="keywords" content="java,深入理解JVM,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《深入理解JVM》笔记-Java内存区域">
+<meta property="og:title" content="《深入理解JVM》笔记-1-Java内存区域">
 <meta property="og:url" content="https://blog.ggemo.com/jvm-understanding-memory/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="§ Java内存区域   § 程序计数器 程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器. 为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计">
@@ -115,9 +115,9 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190615203917.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190615225054.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190615225303.png">
-<meta property="og:updated_time" content="2019-06-15T15:17:54.217Z">
+<meta property="og:updated_time" content="2019-06-16T11:02:22.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《深入理解JVM》笔记-Java内存区域">
+<meta name="twitter:title" content="《深入理解JVM》笔记-1-Java内存区域">
 <meta name="twitter:description" content="§ Java内存区域   § 程序计数器 程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器. 为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190615203917.png">
 
@@ -136,7 +136,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>《深入理解JVM》笔记-Java内存区域 | 黄瓜养殖基地！</title>
+  <title>《深入理解JVM》笔记-1-Java内存区域 | 黄瓜养殖基地！</title>
   
 
 
@@ -429,7 +429,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">《深入理解JVM》笔记-Java内存区域
+          <h2 class="post-title" itemprop="name headline">《深入理解JVM》笔记-1-Java内存区域
 
               
             
@@ -456,12 +456,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-06-15 20:33:28 / 修改时间：23:17:54" itemprop="dateCreated datePublished" datetime="2019-06-15T20:33:28+08:00">2019-06-15</time>
+              <time title="创建时间：2019-06-15 20:33:28" itemprop="dateCreated datePublished" datetime="2019-06-15T20:33:28+08:00">2019-06-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-16 19:02:22" itemprop="dateModified" datetime="2019-06-16T19:02:22+08:00">2019-06-16</time>
               
             
           </span>
@@ -578,7 +590,7 @@ java堆是被所有线程共享的一块内存区域,在虚拟机启动时闯进
 <p><strong>方法区(Method Area)</strong> 是线程共享的内存区域,它用于存储已被虚拟机加载的类信息,常量,静态变量,即时编译器编译后的代码等数据.</p>
 <p>这一区域的内存回收目标主要是针对常量池的回收和对类型的卸载.</p>
 <h4 id="%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0" aria-hidden="true">§</a> 运行时常量池</h4>
-<p>**运行时常量池(Runtime Constant Pool)**是方法区的一部分.</p>
+<p><strong>运行时常量池(Runtime Constant Pool)</strong> 是方法区的一部分.</p>
 <p>Class文件中有一项信息是<strong>常量池(Constant Pool Table)</strong> ,用于存放编译器生成的各种<em>字面量</em> 和<em>符号引用</em> ,这部分内容将在<em>类加载后</em>进入方法区的运行时常量池中存放.</p>
 <p>运行时常量池相对于Class文件常量池的另一个重要特征是具备动态性, Java语言并不要求常量一定只有编译期才能产生,也就是并非预置入Class文件中常量池的内容才能进入仿佛运行时常量池,<em>运行期间</em> 也可能进将新的常量放入池中(这种特性被开发人员利用得比较多的是String类的intern()方法).</p>
 <h4 id="%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-4"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-4" aria-hidden="true">§</a> 异常情况</h4>
@@ -680,6 +692,10 @@ HotSpot虚拟机默认的分配策略为longs/doubles,ints,shorts/chars,bytes/bo
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/jvm-understanding-gc/" rel="prev" title="《深入理解JVM》笔记-2-垃圾收集器与内存分配策略">
+                《深入理解JVM》笔记-2-垃圾收集器与内存分配策略 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -756,7 +772,7 @@ HotSpot虚拟机默认的分配策略为longs/doubles,ints,shorts/chars,bytes/bo
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1003,7 +1019,7 @@ HotSpot虚拟机默认的分配策略为longs/doubles,ints,shorts/chars,bytes/bo
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">162k</span>
+    <span title="站点总字数">171k</span>
   
 
   

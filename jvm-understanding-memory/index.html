@@ -115,7 +115,7 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190615203917.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190615225054.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190615225303.png">
-<meta property="og:updated_time" content="2019-06-16T11:02:22.727Z">
+<meta property="og:updated_time" content="2019-06-16T14:46:15.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解JVM》笔记-1-Java内存区域">
 <meta name="twitter:description" content="§ Java内存区域   § 程序计数器 程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖这个计数器. 为了切换线程后恢复到正确的执行位置,每条线程都需要有一个独立的线程私有的程序计">
@@ -473,7 +473,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-16 19:02:22" itemprop="dateModified" datetime="2019-06-16T19:02:22+08:00">2019-06-16</time>
+                <time title="修改时间：2019-06-16 22:46:15" itemprop="dateModified" datetime="2019-06-16T22:46:15+08:00">2019-06-16</time>
               
             
           </span>
@@ -580,7 +580,7 @@ window.console.log=()=>{};
 <p>本地方法栈为虚拟机使用到的Native方法服务,其余与Java虚拟机栈相似.</p>
 <h3 id="java%E5%A0%86"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#java%E5%A0%86" aria-hidden="true">§</a> Java堆</h3>
 <p>对大多数应用来说,<strong>Java堆</strong> 是占内存最大的一块.<br>
-java堆是被所有线程共享的一块内存区域,在虚拟机启动时闯进.一内存区域的唯一目的就是<strong>存放对象实例</strong> .这一点在java虚拟机规范中的描述是: 所有对象实例以及数组都要在堆上分配.</p>
+java堆是被所有线程共享的一块内存区域,在虚拟机启动时创建.此内存区域的唯一目的就是<strong>存放对象实例</strong> .这一点在java虚拟机规范中的描述是: 所有对象实例以及数组都要在堆上分配.</p>
 <p>Java堆是垃圾收集器管理的主要区域.</p>
 <p>从内存分配的角度来看,线程共享的Java堆中可能划分出多个<strong>线程私有的分配缓冲区(Thread Local Allocation Buffer)</strong> (简称<strong>TLAB</strong> ).TLAB如何划分都和存放内容无关,无论哪个区域,存储的都仍然是对象实例,进一步划分是为了更好地<strong>回收内存</strong> ,或者更快地<strong>分配内存</strong> .</p>
 <h4 id="%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-3"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5-3" aria-hidden="true">§</a> 异常情况</h4>
@@ -1019,7 +1019,7 @@ HotSpot虚拟机默认的分配策略为longs/doubles,ints,shorts/chars,bytes/bo
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">171k</span>
+    <span title="站点总字数">172k</span>
   
 
   

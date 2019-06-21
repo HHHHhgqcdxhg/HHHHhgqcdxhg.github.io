@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.ggemo.com/bili-bot/</loc>
+    <lastmod>2019-06-21</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/bili-bot-release-log/</loc>
     <lastmod>2019-06-21</lastmod>
   </url>  <url>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>https://blog.ggemo.com/sql-standard/</loc>
     <lastmod>2019-06-12</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/bili-bot/</loc>
-    <lastmod>2019-05-26</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/youtube-live-2-bili/</loc>
     <lastmod>2019-05-17</lastmod>
@@ -103,10 +103,10 @@
     <loc>https://blog.ggemo.com/shader-r-standard-texture/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-lsx/</loc>

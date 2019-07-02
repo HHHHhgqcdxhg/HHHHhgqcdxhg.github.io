@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[note-algorithm]]></title>
+    <title><![CDATA[数据库中的各种锁]]></title>
+    <url>%2Fdatabase-lock%2F</url>
+    <content type="text"><![CDATA[§ 概述 分类方法 锁 锁模式 乐观锁, 悲观锁 范围锁 行锁, 表锁 算法锁 临间锁, 间隙锁, 记录锁 属性锁 共享锁, 排他锁 状态锁 意向共享锁, 意向排他锁 § 行锁 一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,即命中索引 锁冲突概率低,并发性高,但是会有死锁的情况出现 § 表锁 一锁锁一张表,表锁响应的是非索引字段,即全表扫描,]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[事务隔离]]></title>
+    <url>%2Ftransaction-isolation%2F</url>
+    <content type="text"><![CDATA[§ 事务的四大特性 § 原子性 § 一致性 § 隔离性 § 持久性 § 四种事务隔离级别 § Read Uncommitted 读取未提交内容 会出现脏读 § Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之前,该数据被其他事务改动),所以也被称为Nonrepeatable Read (这个是mysql默认的事务隔离级别) § Repeatable Read 可重读 确保同一事务获取到的数据时一致的 不过会导致另一个问题: 幻读 § Serializable 可串行化 最高级别的事务隔离,通过强制事务排序使之不可能相互冲突,从而解决幻读问题.简而言之,它是在每个读的数据上加上共享锁.在这个级别可能导致大量的超时现象和锁竞争 § 总结 隔离级别 脏读 不可重复读 幻读 Read Uncommitted √ √ √ Read Committed x √ √ Repeatable Read x x √ Serializable x x x § 名词解释 § 脏读 Dirty Read 读取其他事务未提交的执行结果 § 幻读 Phantom Read 幻读是指用户在读取某一行数据时,另一个事务又在该范围内插入了新行,当用户再次读取该范围数据行时,会出现新的&quot;幻影行&quot;]]></content>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法笔记]]></title>
     <url>%2Fnote-algorithm%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[数据结构 编程能力 § 快慢指针 t160:相交链表 § 滑动窗口]]></content>
   </entry>
   <entry>
     <title><![CDATA[一次反射的应用]]></title>
@@ -446,8 +459,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>碧蓝航线</tag>
         <tag>python</tag>
+        <tag>碧蓝航线</tag>
       </tags>
   </entry>
   <entry>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[java锁]]></title>
+    <url>%2Fjava-lock%2F</url>
+    <content type="text"><![CDATA[§ 悲观锁与乐观锁 悲观锁认为自己在使用数据的时候一定有别的线程来修改数据,在获取数据的时候会先加锁,确保数据不会被别的线程修改 乐观锁认为自己在使用数据时不会有别的线程修改数据,所以不会添加锁,只是在更新数据的时候去判断之前有没有别的线程更新了这个数据.]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[springBoot下mybatis的使用]]></title>
     <url>%2Fhw8-spring-mybatis%2F</url>
     <content type="text"><![CDATA[这篇文章里的都是应用层面的东西 § DO/VO层 作为DO/VO的类要继承1234567891011121314151617181920要用```@Data```注解 ### DAO层有xml配置和注解配置两种 记得转义大于和小于号 ### Service层调用的接口 ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层 类需要加```@Service```注解 ### Controller层网关层(?) 本层引用```Service```层需要加```@Autowired```注解 ```Java@Autowiredprivate UserService userService;]]></content>

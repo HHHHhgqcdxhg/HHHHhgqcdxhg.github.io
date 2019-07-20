@@ -104,23 +104,25 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/tags/qqbot/index.html">
+  <meta name="description" content="§ 线程的实现  § 使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-">
+<meta name="keywords" content="java,多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java与线程">
+<meta property="og:url" content="https://blog.ggemo.com/java-and-thread/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="§ 线程的实现  § 使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-20T02:01:08.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="Java与线程">
+<meta name="twitter:description" content="§ 线程的实现  § 使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/tags/qqbot/">
+  <link rel="canonical" href="https://blog.ggemo.com/java-and-thread/">
 
 
 
@@ -130,7 +132,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>标签: qqbot | 黄瓜养殖基地！</title>
+  <title>Java与线程 | 黄瓜养殖基地！</title>
   
 
 
@@ -209,7 +211,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,7 +283,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -386,82 +388,271 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>qqbot<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/java-and-thread/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/bot-help/" itemprop="url">
-            
-              <span itemprop="name">小黄瓜机器人使用指南</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Java与线程
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-19T14:41:08+08:00" content="2019-02-19">
-          02-19
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-20 01:25:50 / 修改时间：10:01:08" itemprop="dateCreated datePublished" datetime="2019-07-20T01:25:50+08:00">2019-07-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/java-and-thread/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/java-and-thread/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.6k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> 线程的实现</h2>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> 使用内核线程实现</h3>
+<p><strong>内核线程(Kernal-Level Thread, KLT)</strong> 就是直接由 <strong>操作系统内核(Kernel)</strong> 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上.<br>
+每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-Threads Kernel).</p>
+<p>程序一般不会直接去使用内核线程,而是去使用内核线程的一种高级接口, <strong>轻量级进程(Light Weight Process, LWP)</strong><br>
+轻量级进程就是我们通常意义上所讲的线程.<br>
+由于每个轻量级进程都由一个内核线程支持,因此只有先支持内核线程,才能有轻量级进程.<br>
+这种轻量级线程与内核线程之间1:1的关系被称为一对一的线程模型.</p>
+<p>由于内核线程的支持,每个轻量级进程都成为一个独立的调度但愿,即使有一个轻量级进程在系统调用中阻塞了,也不会影响到整个进程的工作.<br>
+由于基于内核线程实现,所以各种线程操作,如创建,析构以及同步,都需要进行系统调用,而系统调用的代价是相对较高的,需要在 <strong>用户态(User Mode)</strong> 和 <strong>内核态(Kernel Mode)</strong> 中来回切换.<br>
+其次,每个轻量级进程都需要有一个内核线程的支持,因此轻量级进程要小号一定的内核资源,因此一个系统支持轻量级进程的数量是有限的.</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B" aria-hidden="true">§</a> 使用用户线程</h3>
+<p>从广义上讲,一个线程只要不是内核线程,就可以认为是 <strong>用户线程(User Thread)</strong> .</p>
+<p>而从狭义上讲,用户线程指的是完全建立在用户空间的线程库上,系统内核不能感知到线程存在.<br>
+用户线程的建立,同步,销毁和调度完全在用户态中完成,不需要内核的帮助.如果程序实现得当,这种线程不需要切换到内核态,因此操作可以是非常快速且低消耗的,也可以支持规模更大的线程数量.部分高性能数据库中的多线程就是由用户线程实现的.这种进程与用户线程之间1:N的关系成为一对多的线程模型.</p>
+<p>使用用户线程的优势在于不需要系统内核支援,劣势也在于没有系统内核的支援,所有的线程操作都需要用户程序自己去处理.线程的创建,切换和调度都是需要考虑的问题,而且由于操作系统制霸处理器资源分配到进程,那诸如阻塞如何处理,多处理器系统之如何将线程映射到其他处理器上这类问题解决起来异常困难,甚至不可能完成.除了以前在不支持多线程的操作系统中(如DOS)的多线程程序与少数有特殊需求的程序外,现在使用用户线程的程序越来越少了,Java,Ruby等语言都曾经使用过用户线程,最终又都放弃使用它.</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%8A%A0%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BF%9B%E7%A8%8B%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%8A%A0%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BF%9B%E7%A8%8B%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> 使用用户线程加轻量级进程混合实现</h3>
+<p>在这种混合实现下,既存在用户线程,也存在轻量级进程.用户线程还是完全建立在用户空间中,因此用户线程的创建,切换,析构等操作依然廉价,并且可以支持大规模的用户线程并发.而操作系统提供支持的轻量级进程则作为用户线程和内核线程之间的桥梁,这样可以使用内核提供的线程调度功能及处理器映射,并且用户线程的系统调用要通过轻量级线程来完成,大大降低了整个进程被完全阻塞的风险.<br>
+在这种混合模式下,用户线程与轻量级进程的数量比是不定的,即为N:M的关系</p>
+<h3 id="java%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#java%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> Java线程的实现</h3>
+<p>对于Sun JDK来说,它的Windows版与Linux版都是使用一对一的线程模型实现的,一条Java线程就映射到一条轻量级进程之中,因为Windows和Linux系统提供的线程模型是一对一的.</p>
+<h2 id="java%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#java%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6" aria-hidden="true">§</a> Java线程调度</h2>
+<p><strong>线程调度</strong>是指系统为线程分配处理器使用权的过程,主要调度方式有两种,分别是 <strong>协同式线程调度(Cooperative Threads-Sheduling)</strong> 和 <strong>抢占式线程调度(Preemptive Threads-Sheduling)</strong></p>
+<p>如果使用协同式调度的多线程系统,线程的执行时间由线程本身来控制,线程把租户贵宾该注意执行完了之后,要主动通知系统切换到另外一个线程上.<br>
+协同式多线程的最大好处是是实现简单,而且由于线程要把自己的事情干完后才会进行线程切换,切换操作对线程自己是可知的,所以没有什么线程同步的问题.<br>
+它的最大坏处也很明显:线程执行时间不可控制,甚至如果出现一个线程编写有问题,一直不告知系统进行线程切换,那么程序就会一直阻塞在那里.</p>
+<p>如果使用抢占式的多线程系统,那么每个线程将有系统来分配执行时间,线程的切换不由线程本身来决定(在Java中,Thread.yield()可以让出执行时间,但是要获取执行时间的话,线程本身是没什么办法的).在这种实现线程调度的方式下,线程的执行时间是系统可控的,也不会有一个线程导致整个进程阻塞的问题,Java使用的线程调度方式就是抢占调度.</p>
+<h2 id="%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81" aria-hidden="true">§</a> 线程状态</h2>
+<ul>
+<li>新建(New)<br>
+创建后尚未启动的线程处于这种状态</li>
+<li>运行(Runable)<br>
+Runable包括了操作系统线程转台中的Running和Ready,也就是处于此转台的线程有可能正在执行,也有可能正在等着CPU给它分配时间</li>
+<li>无限期等待(Waiting)<br>
+处于这种转态的线程不会被分配CPU时间,它们要等待被其他线程显式地唤醒.以下方法会让线程进入无限期等待状态:
+<ul>
+<li>没有设置Timeout参数的Object.wait()方法</li>
+<li>没有设置Timeout参数的Thread.join()方法</li>
+<li>LockSupport.park()方法</li>
+</ul>
+</li>
+<li>限期等待(Timed Waiting)<br>
+处于这种转态的线程不会被分配CPU执行时间,不过无须等待被其他线程显式地唤醒,在一定时间之后它们由系统自动唤醒.以下方法会让线程进入限期等待状态:
+<ul>
+<li>Thread.sleep()方法</li>
+<li>设置了Timeout参数的Object.wait()方法</li>
+<li>设置了Timeout参数的Thread.join()方法</li>
+<li>LockSupport.parkNanos()方法</li>
+<li>LockSupport.parkUntil()方法</li>
+</ul>
+</li>
+<li>阻塞(Blocked)<br>
+线程被阻塞了,&quot;阻塞转态&quot;与&quot;等待状态&quot;的区别是:阻塞状态在等待着获取到一个排他锁,这个时间将在另外一个线程放弃这个锁的时候发生;而等待状态则是在等待与短时间,或者唤醒动作的发生.在线程等待进入同步区域的时候,线程将进入这种状态</li>
+<li>结束(Terminated)<br>
+已终止线程的线程状态,线程已经结束执行</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/java-lock/" rel="next" title="java锁">
+                <i class="fa fa-chevron-left"></i> java锁
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -484,8 +675,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -705,6 +905,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § 线程的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § 使用内核线程实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B"><span class="nav-text"> § 使用用户线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%8A%A0%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BF%9B%E7%A8%8B%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § 使用用户线程加轻量级进程混合实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § Java线程的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-text"> § Java线程调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-text"> § 线程状态</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -848,6 +1065,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -894,6 +1115,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.ggemo.com/java-and-thread/</loc>
+    <lastmod>2019-07-20</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/note-algorithm/</loc>
+    <lastmod>2019-07-19</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/java-lock/</loc>
     <lastmod>2019-07-15</lastmod>
   </url>  <url>
@@ -15,9 +21,6 @@
   </url>  <url>
     <loc>https://blog.ggemo.com/transaction-isolation/</loc>
     <lastmod>2019-07-02</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/note-algorithm/</loc>
-    <lastmod>2019-06-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/jvm-understanding-gc/</loc>
     <lastmod>2019-06-27</lastmod>
@@ -67,10 +70,10 @@
     <loc>https://blog.ggemo.com/shader-r-optimalize/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
+    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
+    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/anime-want2watch/</loc>

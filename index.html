@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -454,12 +454,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-07-20 01:25:50 / 修改时间：10:01:08" itemprop="dateCreated datePublished" datetime="2019-07-20T01:25:50+08:00">2019-07-20</time>
+              <time title="创建时间：2019-07-20 01:25:50" itemprop="dateCreated datePublished" datetime="2019-07-20T01:25:50+08:00">2019-07-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-23 22:30:59" itemprop="dateModified" datetime="2019-07-23T22:30:59+08:00">2019-07-23</time>
               
             
           </span>
@@ -500,7 +512,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.6k</span>
+                <span title="本文字数">6.3k</span>
               
 
               
@@ -527,207 +539,16 @@ window.console.log=()=>{};
         
           
             <p>
-               § 线程的实现
- § 使用内核线程实现
+               线程的实现
+ 使用内核线程实现
 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上.
-每个内核可以视为
+每个内核可以视为内核的一
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/java-and-thread/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-    
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/java-lock/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="清纯的小黄瓜">
-      <meta itemprop="description" content="小黄瓜的blog哦！">
-      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄瓜养殖基地！">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/java-lock/" class="post-title-link" itemprop="url">java锁</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-15 15:57:54 / 修改时间：21:12:36" itemprop="dateCreated datePublished" datetime="2019-07-15T15:57:54+08:00">2019-07-15</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/java-lock/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/java-lock/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">131</span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              
- § 悲观锁与乐观锁
-悲观锁认为自己在使用数据的时候一定有别的线程来修改数据,在获取数据的时候会先加锁,确保数据不会被别的线程修改
-乐观锁认为自己在使用数据时不会有别的线程修改数据,所以不会添加锁,只是在更新数据的时候去判断之前有没有别的线程更新了这个数据.
-
-              
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/java-lock/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -881,7 +702,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">318</span>
+                <span title="本文字数">316</span>
               
 
               
@@ -909,8 +730,8 @@ window.console.log=()=>{};
           
             <p>
               这篇文章里的都是应用层面的东西
- § DO/VO层
-作为DO/VO的类要继承要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层 
+ DO/VO层
+作为DO/VO的类要继承要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层  类
               ...
             </p>
           <!--noindex-->
@@ -1110,7 +931,7 @@ window.console.log=()=>{};
           
             <p>
               复习一下排序算法
- § 概览
+ 概览
 
 
 
@@ -1144,7 +965,7 @@ in-place
 
 
 插入排序
-O(n
+O(n2)
               ...
             </p>
           <!--noindex-->
@@ -1304,7 +1125,7 @@ O(n
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">380</span>
+                <span title="本文字数">370</span>
               
 
               
@@ -1331,7 +1152,7 @@ O(n
         
           
             <p>
-               § 概述
+               概述
 
 
 
@@ -1363,8 +1184,8 @@ O(n
 
 
 
- § 行锁
-一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应
+ 行锁
+一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,
               ...
             </p>
           <!--noindex-->
@@ -1536,7 +1357,7 @@ O(n
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">673</span>
+                <span title="本文字数">645</span>
               
 
               
@@ -1563,18 +1384,18 @@ O(n
         
           
             <p>
-               § 事务的四大特性
- § 原子性
- § 一致性
- § 隔离性
- § 持久性
- § 四种事务隔离级别
- § Read Uncommitted
+               事务的四大特性
+ 原子性
+ 一致性
+ 隔离性
+ 持久性
+ 四种事务隔离级别
+ Read Uncommitted
 读取未提交内容
 会出现脏读
- § Read Committed
+ Read Committed
 读取提交内容 Nonrepeatable Read 不可重复读
-Read Committed满
+Read Committed满足了隔离的定义: 一个事务只能看
               ...
             </p>
           <!--noindex-->
@@ -1746,7 +1567,7 @@ Read Committed满
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">78</span>
+                <span title="本文字数">72</span>
               
 
               
@@ -1778,7 +1599,7 @@ Read Committed满
 编程能力
 
 
- § 算法
+ 算法
 
 排序算法
 搜索算法
@@ -1788,8 +1609,8 @@ Read Committed满
 分治 倍增 二分 贪心
 t160:相交链表
 
- § 滑动窗口
- § 
+ 滑动窗口
+ 
 
               
             </p>
@@ -2194,10 +2015,10 @@ t160:相交链表
         
           
             <p>
-               § 对象已死吗
- § 引用计数法
+               对象已死吗
+ 引用计数法
 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用.
-引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选
+引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计
               ...
             </p>
           <!--noindex-->
@@ -2414,10 +2235,10 @@ t160:相交链表
         
           
             <p>
-               § Java内存区域
+               Java内存区域
 
- § 程序计数器
-程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都
+ 程序计数器
+程序计数器(Program Counter register) 是一块较小的内存空间,它可以看作是当前线程所执行的字节码的行号指示器.字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令.分支,循环,跳转,异常处理,线程恢复等基础功能都需要依赖
               ...
             </p>
           <!--noindex-->
@@ -3035,9 +2856,9 @@ t160:相交链表
             <p>
               nuxt
 nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端
- § nuxt和vue的生命周期
+ nuxt和vue的生命周期
 nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的…
-&lt;template&gt;  &lt;section c
+&lt;template&gt;  &lt;section cla
               ...
             </p>
           <!--noindex-->
@@ -3631,7 +3452,7 @@ vuex-pe
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">565</span>
+                <span title="本文字数">547</span>
               
 
               
@@ -3658,12 +3479,12 @@ vuex-pe
         
           
             <p>
-               § 免费
- § 腾讯云
+               免费
+ 腾讯云
 https://cloud.tencent.com/act/free
 下面的更多产品与服务
 
- § 重点总结
+ 重点总结
 
 
 
@@ -3678,7 +3499,7 @@ https://cloud.tencent.com/act/free
 
 
 CDN
-每月10G免费流量，新用户
+每月10G免费流量，新用户更有连续6个
               ...
             </p>
           <!--noindex-->
@@ -4088,7 +3909,7 @@ CDN
         
           
             <p>
-               § 影响性能的因素
+               影响性能的因素
 CPU负责保证帧率,GPU负责分辨率先关的一些处理
 
 CPU
@@ -4109,6 +3930,8 @@ GPU
 
 过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的)
 过多的逐片元计算
+
+
               ...
             </p>
           <!--noindex-->
@@ -4325,9 +4148,9 @@ GPU
         
           
             <p>
-               § 官方指南翻译
+               官方指南翻译
 官方指南:  Boxing and Unboxing (C# Programming Guide)
-装箱是把一个值类型转换为object类型或转换为任何实现了该值类型接口的类型的过程.当CLR装箱一个值类型时,它将这个值封装进一个System.Object并且存在堆中.拆箱将这个
+装箱是把一个值类型转换为object类型或转换为任何实现了该值类型接口的类型的过程.当CLR装箱一个值类型时,它将这个值封装进一个System.Object并且存在堆中.拆箱将这个值从
               ...
             </p>
           <!--noindex-->
@@ -4505,7 +4328,7 @@ GPU
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">968</span>
+                <span title="本文字数">964</span>
               
 
               
@@ -4533,15 +4356,222 @@ GPU
           
             <p>
               之前玩python的时候就有点在意但是没仔细学…只知道python是简单值传值,复杂值传引用.
- § C#中的值类型和引用类型
+ C#中的值类型和引用类型
 C#中的所有Object的派生类都是引用类型
 byte，short，int，long，float，double，decimal，char，bool和struct统称为值类型
+这
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/csnote-1/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+    
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/note-AMVCC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/note-AMVCC/" class="post-title-link" itemprop="url">AMVCC设计模式的理解</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-16 22:05:18" itemprop="dateCreated datePublished" datetime="2019-04-16T22:05:18+08:00">2019-04-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-19 19:59:19" itemprop="dateModified" datetime="2019-04-19T19:59:19+08:00">2019-04-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/note-AMVCC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/note-AMVCC/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">477</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+               对比以前前端MVVM设计模式做出理解
+ MVVM
+MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用.
+view层会响应事件,调用model层方法,如@click标签等.
+model层则负责所有数据的操作.
+ MVC
+Unity中的MVC的view层根据数据展示视图
+vie
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/note-AMVCC/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -4638,7 +4668,7 @@ byte，short，int，long，float，double，decimal，char，bool和struct统�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -4874,7 +4904,7 @@ byte，short，int，long，float，double，decimal，char，bool和struct统�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

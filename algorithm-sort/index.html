@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="复习一下排序算法  § 概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(n">
+  <meta name="description" content="复习一下排序算法  概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(nlo">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法">
 <meta property="og:url" content="https://blog.ggemo.com/algorithm-sort/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="复习一下排序算法  § 概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(n">
+<meta property="og:description" content="复习一下排序算法  概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(nlo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-04T05:44:20.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="复习一下排序算法  § 概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(n">
+<meta name="twitter:description" content="复习一下排序算法  概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(nlo">
 
 
 
@@ -535,7 +535,7 @@ window.console.log=()=>{};
 
       
         <p>复习一下排序算法</p>
-<h2 id="%E6%A6%82%E8%A7%88"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E6%A6%82%E8%A7%88" aria-hidden="true">§</a> 概览</h2>
+<h2 id="概览"><a class="markdownIt-Anchor" href="#概览"></a> 概览</h2>
 <table>
 <thead>
 <tr>
@@ -641,27 +641,27 @@ window.console.log=()=>{};
 </tr>
 </tbody>
 </table>
-<h2 id="%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F" aria-hidden="true">§</a> 冒泡排序</h2>
+<h2 id="冒泡排序"><a class="markdownIt-Anchor" href="#冒泡排序"></a> 冒泡排序</h2>
 <p>冒泡排序对数组进行两层遍历,每一步比较相邻的两项,如果这两项排序错了则对其进行交换</p>
-<h3 id="%E4%BB%A3%E7%A0%81"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E4%BB%A3%E7%A0%81" aria-hidden="true">§</a> 代码</h3>
+<h3 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 冒泡排序</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubble</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">int</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="%E8%AF%84%E4%BB%B7"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E8%AF%84%E4%BB%B7" aria-hidden="true">§</a> 评价</h3>
+<h3 id="评价"><a class="markdownIt-Anchor" href="#评价"></a> 评价</h3>
 <p>冒泡排序通常被认为是最低效的排序方法<br>
 但是冒泡排序如果在某次遍历中发现没有交换值,就可以提前结束</p>
-<h3 id="%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81" aria-hidden="true">§</a> 优化代码</h3>
+<h3 id="优化代码"><a class="markdownIt-Anchor" href="#优化代码"></a> 优化代码</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优化的冒泡排序</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleEnhance</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">int</span> len = arr.length;</span><br><span class="line">    <span class="keyword">boolean</span> changed;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        changed = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                changed = <span class="keyword">true</span>;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!changed)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F" aria-hidden="true">§</a> 选择排序</h2>
+<h2 id="选择排序"><a class="markdownIt-Anchor" href="#选择排序"></a> 选择排序</h2>
 <p>选择排序对数组进行两层遍历,每次遍历找到最小的项,遍历完成后再把最小的项放到正确的位置</p>
-<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> 代码实现</h3>
+<h3 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 选择排序</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selection</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp,currentMinIndex;</span><br><span class="line">    <span class="keyword">int</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        currentMinIndex = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; len; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[currentMinIndex] &gt; arr[j])&#123;</span><br><span class="line">                currentMinIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = arr[currentMinIndex];</span><br><span class="line">        arr[currentMinIndex] = arr[i];</span><br><span class="line">        arr[i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F" aria-hidden="true">§</a> 插入排序</h2>
+<h2 id="插入排序"><a class="markdownIt-Anchor" href="#插入排序"></a> 插入排序</h2>
 <p>插入排序总是保持一个位置靠前的以排好的子表,然后每一个新数据项被插入到前边的子表里</p>
-<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2" aria-hidden="true">§</a> 代码实现</h3>
+<h3 id="代码实现-2"><a class="markdownIt-Anchor" href="#代码实现-2"></a> 代码实现</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插入排序</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertion</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> currentValue, position;</span><br><span class="line">    <span class="keyword">int</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        currentValue = arr[i];</span><br><span class="line">        position = i;</span><br><span class="line">        <span class="keyword">while</span> (position &gt; <span class="number">0</span> &amp;&amp; currentValue &lt; arr[position - <span class="number">1</span>]) &#123;</span><br><span class="line">            arr[position] = arr[position - <span class="number">1</span>];</span><br><span class="line">            position -= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[position] = currentValue;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><a class="markdownIt-Anchor" href="#-10"></a> <a class="header-anchor" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F" aria-hidden="true">§</a> 希尔排序</h2>
+<h2 id="希尔排序"><a class="markdownIt-Anchor" href="#希尔排序"></a> 希尔排序</h2>
 <p>希尔排序又叫&quot;缩小间隔排序&quot;,它以插入排序为基础,将原来要排序的列表划分为一些字列表,再对每一个子列表执行插入排序<br>
 划分子列表的方法是希尔排序的关键.我们并不是将原始列表分成含有连续元素的子列,而是确定一个特别的分量&quot;i&quot;,这个i更准确地说是划分的间隔.然后把每间隔为i的所有元素选出来组成子列表,然后对每个子序列进行插入排序,最后当i=1时,对整体进行一次插入排序</p>
-<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3" aria-hidden="true">§</a> 代码实现</h3>
+<h3 id="代码实现-3"><a class="markdownIt-Anchor" href="#代码实现-3"></a> 代码实现</h3>
 <pre class="highlight"><code class="Java"></code></pre>
 
       
@@ -789,7 +789,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1002,7 +1002,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%A7%88"><span class="nav-text"> § 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text"> § 冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text"> § 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7"><span class="nav-text"> § 评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81"><span class="nav-text"> § 优化代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-text"> § 选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-text"> § 插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="nav-text"> § 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="nav-text"> § 希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="nav-text"> § 代码实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-text"> 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-text"> 冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价"><span class="nav-text"> 评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化代码"><span class="nav-text"> 优化代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-text"> 选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-text"> 插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现-2"><span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序"><span class="nav-text"> 希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现-3"><span class="nav-text"> 代码实现</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1042,7 +1042,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

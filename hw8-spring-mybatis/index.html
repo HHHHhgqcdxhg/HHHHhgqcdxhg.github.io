@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,17 +104,17 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="这篇文章里的都是应用层面的东西  § DO/VO层 作为DO/VO的类要继承1234567891011121314151617181920要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层  类需要加```@Service```">
+  <meta name="description" content="这篇文章里的都是应用层面的东西  DO/VO层 作为DO/VO的类要继承1234567891011121314151617181920要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层  类需要加```@Service```注解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springBoot下mybatis的使用">
 <meta property="og:url" content="https://blog.ggemo.com/hw8-spring-mybatis/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="这篇文章里的都是应用层面的东西  § DO/VO层 作为DO/VO的类要继承1234567891011121314151617181920要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层  类需要加```@Service```">
+<meta property="og:description" content="这篇文章里的都是应用层面的东西  DO/VO层 作为DO/VO的类要继承1234567891011121314151617181920要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层  类需要加```@Service```注解">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-08T13:14:25.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springBoot下mybatis的使用">
-<meta name="twitter:description" content="这篇文章里的都是应用层面的东西  § DO/VO层 作为DO/VO的类要继承1234567891011121314151617181920要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层  类需要加```@Service```">
+<meta name="twitter:description" content="这篇文章里的都是应用层面的东西  DO/VO层 作为DO/VO的类要继承1234567891011121314151617181920要用```@Data```注解  ### DAO层有xml配置和注解配置两种  记得转义大于和小于号  ### Service层调用的接口  ### ServiceImpl层实际的业务逻辑所在的地方,Service的实现层  类需要加```@Service```注解">
 
 
 
@@ -497,7 +497,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">318</span>
+                <span title="本文字数">316</span>
               
 
               
@@ -522,7 +522,7 @@ window.console.log=()=>{};
 
       
         <p>这篇文章里的都是应用层面的东西</p>
-<h3 id="do%2Fvo%E5%B1%82"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#do%2Fvo%E5%B1%82" aria-hidden="true">§</a> DO/VO层</h3>
+<h3 id="dovo层"><a class="markdownIt-Anchor" href="#dovo层"></a> DO/VO层</h3>
 <p>作为DO/VO的类要继承<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">要用```@Data```注解  </span><br><span class="line"></span><br><span class="line">### DAO层</span><br><span class="line">有xml配置和注解配置两种  </span><br><span class="line">记得转义大于和小于号  </span><br><span class="line"></span><br><span class="line">### Service层</span><br><span class="line">调用的接口  </span><br><span class="line"></span><br><span class="line">### ServiceImpl层</span><br><span class="line">实际的业务逻辑所在的地方,Service的实现层  </span><br><span class="line">类需要加```@Service```注解  </span><br><span class="line"></span><br><span class="line">### Controller层</span><br><span class="line">网关层(?)  </span><br><span class="line">本层引用```Service```层需要加```@Autowired```注解  </span><br><span class="line"></span><br><span class="line">```Java</span><br><span class="line">@Autowired</span><br><span class="line">private UserService userService;</span><br></pre></td></tr></table></figure></p>
 
       
@@ -564,8 +564,8 @@ window.console.log=()=>{};
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-lock/" rel="prev" title="java锁">
-                java锁 <i class="fa fa-chevron-right"></i>
+              <a href="/java-and-thread/" rel="prev" title="Java与线程">
+                Java与线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -644,7 +644,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -857,7 +857,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#do%2Fvo%E5%B1%82"><span class="nav-text"> § DO/VO层</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dovo层"><span class="nav-text"> DO/VO层</span></a></li></ol></div>
             
 
           </div>
@@ -897,7 +897,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

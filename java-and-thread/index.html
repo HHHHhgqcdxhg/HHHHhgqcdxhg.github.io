@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="§ 线程的实现  § 使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-">
+  <meta name="description" content="线程的实现  使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-Thre">
 <meta name="keywords" content="java,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java与线程">
 <meta property="og:url" content="https://blog.ggemo.com/java-and-thread/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="§ 线程的实现  § 使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-">
+<meta property="og:description" content="线程的实现  使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-Thre">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-20T02:01:08.396Z">
+<meta property="og:updated_time" content="2019-07-23T14:30:59.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java与线程">
-<meta name="twitter:description" content="§ 线程的实现  § 使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-">
+<meta name="twitter:description" content="线程的实现  使用内核线程实现 内核线程(Kernal-Level Thread, KLT) 就是直接由 操作系统内核(Kernel) 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上. 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-Thre">
 
 
 
@@ -452,12 +452,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-07-20 01:25:50 / 修改时间：10:01:08" itemprop="dateCreated datePublished" datetime="2019-07-20T01:25:50+08:00">2019-07-20</time>
+              <time title="创建时间：2019-07-20 01:25:50" itemprop="dateCreated datePublished" datetime="2019-07-20T01:25:50+08:00">2019-07-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-23 22:30:59" itemprop="dateModified" datetime="2019-07-23T22:30:59+08:00">2019-07-23</time>
               
             
           </span>
@@ -498,7 +510,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.6k</span>
+                <span title="本文字数">6.3k</span>
               
 
               
@@ -522,8 +534,8 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> 线程的实现</h2>
-<h3 id="%E4%BD%BF%E7%94%A8%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> 使用内核线程实现</h3>
+        <h2 id="线程的实现"><a class="markdownIt-Anchor" href="#线程的实现"></a> 线程的实现</h2>
+<h3 id="使用内核线程实现"><a class="markdownIt-Anchor" href="#使用内核线程实现"></a> 使用内核线程实现</h3>
 <p><strong>内核线程(Kernal-Level Thread, KLT)</strong> 就是直接由 <strong>操作系统内核(Kernel)</strong> 支持的线程,这种线程由内核来完成线程切换,内核通过操纵调度器(Scheduler)对线程进行调度,并负责将线程的任务映射到各个处理器上.<br>
 每个内核可以视为内核的一个分身,这样操作系统就有能力同时处理多件事情,支持多线程的内核就叫做多线程内核(Multi-Threads Kernel).</p>
 <p>程序一般不会直接去使用内核线程,而是去使用内核线程的一种高级接口, <strong>轻量级进程(Light Weight Process, LWP)</strong><br>
@@ -533,23 +545,23 @@ window.console.log=()=>{};
 <p>由于内核线程的支持,每个轻量级进程都成为一个独立的调度但愿,即使有一个轻量级进程在系统调用中阻塞了,也不会影响到整个进程的工作.<br>
 由于基于内核线程实现,所以各种线程操作,如创建,析构以及同步,都需要进行系统调用,而系统调用的代价是相对较高的,需要在 <strong>用户态(User Mode)</strong> 和 <strong>内核态(Kernel Mode)</strong> 中来回切换.<br>
 其次,每个轻量级进程都需要有一个内核线程的支持,因此轻量级进程要小号一定的内核资源,因此一个系统支持轻量级进程的数量是有限的.</p>
-<h3 id="%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B" aria-hidden="true">§</a> 使用用户线程</h3>
+<h3 id="使用用户线程"><a class="markdownIt-Anchor" href="#使用用户线程"></a> 使用用户线程</h3>
 <p>从广义上讲,一个线程只要不是内核线程,就可以认为是 <strong>用户线程(User Thread)</strong> .</p>
 <p>而从狭义上讲,用户线程指的是完全建立在用户空间的线程库上,系统内核不能感知到线程存在.<br>
 用户线程的建立,同步,销毁和调度完全在用户态中完成,不需要内核的帮助.如果程序实现得当,这种线程不需要切换到内核态,因此操作可以是非常快速且低消耗的,也可以支持规模更大的线程数量.部分高性能数据库中的多线程就是由用户线程实现的.这种进程与用户线程之间1:N的关系成为一对多的线程模型.</p>
 <p>使用用户线程的优势在于不需要系统内核支援,劣势也在于没有系统内核的支援,所有的线程操作都需要用户程序自己去处理.线程的创建,切换和调度都是需要考虑的问题,而且由于操作系统制霸处理器资源分配到进程,那诸如阻塞如何处理,多处理器系统之如何将线程映射到其他处理器上这类问题解决起来异常困难,甚至不可能完成.除了以前在不支持多线程的操作系统中(如DOS)的多线程程序与少数有特殊需求的程序外,现在使用用户线程的程序越来越少了,Java,Ruby等语言都曾经使用过用户线程,最终又都放弃使用它.</p>
-<h3 id="%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%8A%A0%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BF%9B%E7%A8%8B%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%8A%A0%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BF%9B%E7%A8%8B%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> 使用用户线程加轻量级进程混合实现</h3>
+<h3 id="使用用户线程加轻量级进程混合实现"><a class="markdownIt-Anchor" href="#使用用户线程加轻量级进程混合实现"></a> 使用用户线程加轻量级进程混合实现</h3>
 <p>在这种混合实现下,既存在用户线程,也存在轻量级进程.用户线程还是完全建立在用户空间中,因此用户线程的创建,切换,析构等操作依然廉价,并且可以支持大规模的用户线程并发.而操作系统提供支持的轻量级进程则作为用户线程和内核线程之间的桥梁,这样可以使用内核提供的线程调度功能及处理器映射,并且用户线程的系统调用要通过轻量级线程来完成,大大降低了整个进程被完全阻塞的风险.<br>
 在这种混合模式下,用户线程与轻量级进程的数量比是不定的,即为N:M的关系</p>
-<h3 id="java%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#java%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> Java线程的实现</h3>
+<h3 id="java线程的实现"><a class="markdownIt-Anchor" href="#java线程的实现"></a> Java线程的实现</h3>
 <p>对于Sun JDK来说,它的Windows版与Linux版都是使用一对一的线程模型实现的,一条Java线程就映射到一条轻量级进程之中,因为Windows和Linux系统提供的线程模型是一对一的.</p>
-<h2 id="java%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#java%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6" aria-hidden="true">§</a> Java线程调度</h2>
+<h2 id="java线程调度"><a class="markdownIt-Anchor" href="#java线程调度"></a> Java线程调度</h2>
 <p><strong>线程调度</strong>是指系统为线程分配处理器使用权的过程,主要调度方式有两种,分别是 <strong>协同式线程调度(Cooperative Threads-Sheduling)</strong> 和 <strong>抢占式线程调度(Preemptive Threads-Sheduling)</strong></p>
 <p>如果使用协同式调度的多线程系统,线程的执行时间由线程本身来控制,线程把租户贵宾该注意执行完了之后,要主动通知系统切换到另外一个线程上.<br>
 协同式多线程的最大好处是是实现简单,而且由于线程要把自己的事情干完后才会进行线程切换,切换操作对线程自己是可知的,所以没有什么线程同步的问题.<br>
 它的最大坏处也很明显:线程执行时间不可控制,甚至如果出现一个线程编写有问题,一直不告知系统进行线程切换,那么程序就会一直阻塞在那里.</p>
 <p>如果使用抢占式的多线程系统,那么每个线程将有系统来分配执行时间,线程的切换不由线程本身来决定(在Java中,Thread.yield()可以让出执行时间,但是要获取执行时间的话,线程本身是没什么办法的).在这种实现线程调度的方式下,线程的执行时间是系统可控的,也不会有一个线程导致整个进程阻塞的问题,Java使用的线程调度方式就是抢占调度.</p>
-<h2 id="%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81" aria-hidden="true">§</a> 线程状态</h2>
+<h2 id="线程状态"><a class="markdownIt-Anchor" href="#线程状态"></a> 线程状态</h2>
 <ul>
 <li>新建(New)<br>
 创建后尚未启动的线程处于这种状态</li>
@@ -578,6 +590,62 @@ Runable包括了操作系统线程转台中的Running和Ready,也就是处于此
 <li>结束(Terminated)<br>
 已终止线程的线程状态,线程已经结束执行</li>
 </ul>
+<h2 id="线程安全"><a class="markdownIt-Anchor" href="#线程安全"></a> 线程安全</h2>
+<p>当多个线程访问一个对象时,如果不用考虑这些线程在运行时环境下的调度和交替执行,也不需要进行额外的同步,或者在调用方进行任何其他的协调操作,调用这个对象的行为都可以获得正确的结果,那么这个对象是线程安全的.<br>
+这个定义比较严谨,它要求线程安全的代码都具备一个特征:代码本身封装了所有必要的保障手段(如同步互斥等),令调用者无需关心多线程的问题,更无须自己采取任何措施来保证多线程的正确调用.</p>
+<p>在大多数场景中,我们都会将这个定义弱化一些,如果把&quot;调用这个对象的行为&quot;限定为&quot;单次调用&quot;,这个定义的其他描述也能够成立的话,我们就称它是线程安全的了.</p>
+<h3 id="java中的线程安全"><a class="markdownIt-Anchor" href="#java中的线程安全"></a> Java中的线程安全</h3>
+<p>按照线程安全的&quot;安全程度&quot;由强至弱来排序,我们可以将Java语言中的各种操作共享的数据分为以下五类:不可变,绝对线程安全,相对线程安全,线程兼容和线程对立</p>
+<h4 id="不可变"><a class="markdownIt-Anchor" href="#不可变"></a> 不可变</h4>
+<p><strong>不可变(Immutable)</strong> 对象一定是线程安全的,无论是对象的方法实现还是方法的调用者,都不需要再采取任何的线程安全保障措施,只要一个不可变的对象被正确地构建出来(没有发生this引用逃逸的情况),那其外部的可见状态永远也不会改变,永远也不会看到它在多个线程之中处于不一样的状态.&quot;不可变&quot;带来的安全性是最简单最纯粹的.</p>
+<p>Java语言中,如果共享数据是一个基本数据类型,那么只要在定义时使用final关键字修饰它就可以保证它是不可变的.如果共享数据是一个对象,那就要保证对象的行为不会对其状态产生任何影响才行.如java.lang.String的对象,它是一个典型的不可变对象,我们调用它的<code>substring()</code>,<code>replace</code>和<code>concat()</code>这些方法都不会影响它原来的值,只会返回一个新构造的字符串对象.</p>
+<p>保证对象行为不影响自己状态的途径有很多种,其中最简单的就是把对象中带有状态的变量都声明为final,这样在构造函数结束之后,它就是不可变的.</p>
+<h4 id="绝对线程安全"><a class="markdownIt-Anchor" href="#绝对线程安全"></a> 绝对线程安全</h4>
+<p>绝对的线程安全满足上面严格的线程安全的定义,一个类要达到&quot;不管运行时环境如何,调用者都不需要任何额外的同步措施&quot;通常需要付出很大的,甚至有时候是不切实际的代价.在Java API中标注自己是线程安全的类,大多数都不是绝对的线程安全.</p>
+<h4 id="相对线程安全"><a class="markdownIt-Anchor" href="#相对线程安全"></a> 相对线程安全</h4>
+<p>相对的线程安全就是我们通常所讲的线程安全,它需要保证对这个对象单独操作是线程安全的,我们在调用的时候不需要额外的保障措施,但是对于一些特定顺序的连续调用,就可能需要在调用端使用额外的同步手段来保证调用的正确性.</p>
+<p>在Java中,大部分的线程安全类都属于这种类型,如Vector,HashTable,Collection的synchronizeCollection()方法包装的集合等.</p>
+<h4 id="线程兼容"><a class="markdownIt-Anchor" href="#线程兼容"></a> 线程兼容</h4>
+<p>线程兼容是指对象本身并不是线程安全的,但是可以通过在调用端正确地使用同步手段来保证对象在并发环境中可以安全地使用.我们平常说一个类不是线程安全的,绝大多数时候指的都是这一种情况.<br>
+Java API中大部分的类都是属于线程兼容的.</p>
+<h4 id="线程对立"><a class="markdownIt-Anchor" href="#线程对立"></a> 线程对立</h4>
+<p>线程对立是指无论调用端是否采取了同步措施,都无法在多线程环境中并发使用的代码.<br>
+线程对立很少出现.</p>
+<h3 id="线程安全的实现方法"><a class="markdownIt-Anchor" href="#线程安全的实现方法"></a> 线程安全的实现方法</h3>
+<h4 id="互斥同步"><a class="markdownIt-Anchor" href="#互斥同步"></a> 互斥同步</h4>
+<p><strong>互斥同步(Mutual Exclusion &amp; Synchronization)</strong><br>
+同步是指在多个线程并发访问共享数据时,保证共享数据在<mark>同一个时刻只被一个(或者是一些,使用信号量的时候)线程使用</mark>.<br>
+而互斥是实现同步的一种手段,<strong>临界区(Critical Section)</strong> , <strong>互斥量(Mutex)</strong> 和 <strong>信号量(Semaphore)</strong> 都是主要的互斥实现方式.</p>
+<p>互斥是因,同步是果;互斥是方法,同步是目的.</p>
+<p>互斥同步最主要的问题就是进行线程阻塞和唤醒带来的性能问题.因此这种同步也成为阻塞同步(Blocking Synchronize).从处理问题的方式上说,互斥同步属于一种悲观的并发策略,总是认为只要不去加锁就肯定会出问题,无论共享数据是否真的会出现竞争,它都要进行加锁,用户态与核心态转换,维护锁计数器合集检查是否有阻塞的线程需要唤醒等操作.</p>
+<h4 id="非阻塞同步"><a class="markdownIt-Anchor" href="#非阻塞同步"></a> 非阻塞同步</h4>
+<p><strong>非阻塞同步(Non-Blocking Synchronize)</strong> 是基于冲突检测的乐观并发策略,通俗地讲,就是先进行操作,如果没有其他线程征用共享数据,那操作就成功了,如果共享数据有征用,产生了冲突,那就再采取其他的补偿措施(最常见的补偿措施是不断重试,直至成功).这种乐观的策略不需要将线程挂起.</p>
+<h4 id="无同步方案"><a class="markdownIt-Anchor" href="#无同步方案"></a> 无同步方案</h4>
+<p>要保证线程安全,并不是一定就要进行同步.同步只是保证共享数据争用时的正确性手段,如果一个方法本来就不涉及共享数据,那么它自然就无须任何同步措施去保证正确性,因此会有一些代码天生就是线程安全的.</p>
+<h5 id="可重入代码"><a class="markdownIt-Anchor" href="#可重入代码"></a> 可重入代码</h5>
+<p><strong>可重入代码(Reentrant Code)</strong> 这种代码也叫作<strong>纯代码(Pure Code)</strong> ,可以在代码执行的任何时刻中断它,转而去执行另外一段代码,而在控制权返回后,原来的程序不会出现任何错误.相对线程安全来说,可重入性是更基本的特性,它可以保证线程安全.</p>
+<p>可重入代码有一些共同的特征,例如不依赖存储在堆上的数据和公用的系统资源,用到的状态都由参数传入,不调用非可重入的方法等.<br>
+我们可以通过一个简单的原则来判断代码是否具有可重入性:如果一个方法它的返回结果是可以预测的,只要输入了相同的数据,就都能返回相同的结果,那它就满足可重入性.</p>
+<h5 id="线程本地存储"><a class="markdownIt-Anchor" href="#线程本地存储"></a> 线程本地存储</h5>
+<p><strong>线程本地存储(Thread Local Storage)</strong> 指的是,如果一段代码中所需要的数据必须与其他代码共享,那就看看这些共享数据的代码是否能保证在同一个线程中执行,如果能保证,我们就可以把共享数据的可见范围限制在同一个线程之内,这样,无须同步也能保证线程之间不出现数据争用的问题.</p>
+<h2 id="锁优化"><a class="markdownIt-Anchor" href="#锁优化"></a> 锁优化</h2>
+<h3 id="自旋锁与自适应自旋锁"><a class="markdownIt-Anchor" href="#自旋锁与自适应自旋锁"></a> 自旋锁与自适应自旋锁</h3>
+<p>互斥同步对性能最大的影响就是阻塞的实现,挂起线程和回复线程的操作都需要转入内核态中完成,这些操作给系统的并发性能带来了很大的压力.同时,共享数据的锁定状态只会持续很短的一段时间,为了这段时间去挂起和回复线程并不值得.</p>
+<p>如果物理机器上有一个以上的处理器,能让两个或以上的线程同时并行执行,我们就可以让后面请求锁的线程<mark>稍等一下</mark>但<mark>不放弃处理器的执行时间</mark>(即以一些CPU资源为代价,换来的是省去了内核态与用户态的切换),看看持有锁的线程是否很快就会释放锁.为了让线程等待,我们只需让线程执行一个忙循环(自旋),这项技术就是自旋锁.</p>
+<p>自旋等待本身虽然避免了线程切换的开销,但它是要占用处理器时间的,因此,如果锁被占用的时间很短,自旋等待的效果就会非常好,反之,如果锁被占用的时间很长,那么自旋的线程只会白白消耗处理器资源,而不会做任何有用的工作,反而会带来性能上的浪费.<br>
+因此,自旋等待的时间必须要有一定的限度,如果自旋超过了限定的次数仍然没有成功获得锁,就应当使用传统的阻塞式的方式去挂起线程了.</p>
+<p>自适应的自旋锁意味着自旋的时间不再固定了,而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定. 如果在同一个锁对象上,自旋等待刚刚成功获得过锁,并且持有锁的线程正在运行中,那么虚拟机就会认为这次自旋也很有可能再次成功,进而它将允许自旋等待持续相对更长的时间.</p>
+<h3 id="锁清除"><a class="markdownIt-Anchor" href="#锁清除"></a> 锁清除</h3>
+<p>锁清除是指虚拟机即时编译在运行时,对一些代码上要求同步,但是被检测到不可能存在共享数据竞争的锁进行消除.锁清除的主要判断依据来源于逃逸分析的数据支持,如果判断在一段代码中,堆上的所有数据都不会逃逸出去从而被其他线程访问到,那就把他们当做线上数据对待,认为它们是线程私有的,同步加锁自然就无须进行.</p>
+<h3 id="锁粗化"><a class="markdownIt-Anchor" href="#锁粗化"></a> 锁粗化</h3>
+<p>如果一系列的连续操作都对同一个对线反复加锁和解锁,那即使没有线程竞争,频繁地进行互斥同步操作也会导致不必要的性能损耗.</p>
+<p>例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">concatString</span><span class="params">(String s1, String s1, String s3)</span></span>&#123;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    sb.append(s1);</span><br><span class="line">    sb.append(s2);</span><br><span class="line">    sb.append(s3);</span><br><span class="line">    <span class="keyword">return</span> sb.toString():</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果JVM探测到这样的一连串对同一个对象(sb)加锁的操作,将会把加锁同步的范围扩展(粗化)到整个操作序列的外部.</p>
+<h3 id="轻量级锁"><a class="markdownIt-Anchor" href="#轻量级锁"></a> 轻量级锁</h3>
+<p>操作系统互斥量来实现的传统锁被称为重量级锁,而轻量级锁是相对于重量级锁来讲的.<br>
+轻量级锁并不是用来代替重量级锁的,它的本意是在没有多线程竞争的前提下,减少传统的重量级锁使用操作系统互斥量产生的性能消耗.</p>
+<p>对象头中有2bit用来存储锁标志位,</p>
 
       
     </div>
@@ -616,8 +684,8 @@ Runable包括了操作系统线程转台中的Running和Ready,也就是处于此
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-lock/" rel="next" title="java锁">
-                <i class="fa fa-chevron-left"></i> java锁
+              <a href="/hw8-spring-mybatis/" rel="next" title="springBoot下mybatis的使用">
+                <i class="fa fa-chevron-left"></i> springBoot下mybatis的使用
               </a>
             
           </div>
@@ -702,7 +770,7 @@ Runable包括了操作系统线程转台中的Running和Ready,也就是处于此
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -915,7 +983,7 @@ Runable包括了操作系统线程转台中的Running和Ready,也就是处于此
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § 线程的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § 使用内核线程实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B"><span class="nav-text"> § 使用用户线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%8A%A0%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BF%9B%E7%A8%8B%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § 使用用户线程加轻量级进程混合实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § Java线程的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-text"> § Java线程调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-text"> § 线程状态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的实现"><span class="nav-text"> 线程的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用内核线程实现"><span class="nav-text"> 使用内核线程实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程"><span class="nav-text"> 使用用户线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程加轻量级进程混合实现"><span class="nav-text"> 使用用户线程加轻量级进程混合实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java线程的实现"><span class="nav-text"> Java线程的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java线程调度"><span class="nav-text"> Java线程调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程状态"><span class="nav-text"> 线程状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全"><span class="nav-text"> 线程安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java中的线程安全"><span class="nav-text"> Java中的线程安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不可变"><span class="nav-text"> 不可变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对线程安全"><span class="nav-text"> 绝对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对线程安全"><span class="nav-text"> 相对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程兼容"><span class="nav-text"> 线程兼容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程对立"><span class="nav-text"> 线程对立</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程安全的实现方法"><span class="nav-text"> 线程安全的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#互斥同步"><span class="nav-text"> 互斥同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非阻塞同步"><span class="nav-text"> 非阻塞同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无同步方案"><span class="nav-text"> 无同步方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可重入代码"><span class="nav-text"> 可重入代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程本地存储"><span class="nav-text"> 线程本地存储</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁优化"><span class="nav-text"> 锁优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自旋锁与自适应自旋锁"><span class="nav-text"> 自旋锁与自适应自旋锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁清除"><span class="nav-text"> 锁清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁粗化"><span class="nav-text"> 锁粗化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轻量级锁"><span class="nav-text"> 轻量级锁</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -955,7 +1023,7 @@ Runable包括了操作系统线程转台中的Running和Ready,也就是处于此
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

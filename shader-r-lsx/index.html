@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="看完数学部分后再来写的  § CPU流水线  § 将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   § 设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  § 调用DrawCall Draw Call是一个命令,发起方是C">
+  <meta name="description" content="看完数学部分后再来写的  CPU流水线  将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCall Draw Call是一个命令,发起方是CPU,接收方是G">
 <meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第2章-渲染流水线">
 <meta property="og:url" content="https://blog.ggemo.com/shader-r-lsx/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="看完数学部分后再来写的  § CPU流水线  § 将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   § 设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  § 调用DrawCall Draw Call是一个命令,发起方是C">
+<meta property="og:description" content="看完数学部分后再来写的  CPU流水线  将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCall Draw Call是一个命令,发起方是CPU,接收方是G">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-24T13:01:04.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第2章-渲染流水线">
-<meta name="twitter:description" content="看完数学部分后再来写的  § CPU流水线  § 将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   § 设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  § 调用DrawCall Draw Call是一个命令,发起方是C">
+<meta name="twitter:description" content="看完数学部分后再来写的  CPU流水线  将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCall Draw Call是一个命令,发起方是CPU,接收方是G">
 
 
 
@@ -553,40 +553,40 @@ window.console.log=()=>{};
 
       
         <p>看完数学部分后再来写的</p>
-<h2 id="cpu%E6%B5%81%E6%B0%B4%E7%BA%BF"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#cpu%E6%B5%81%E6%B0%B4%E7%BA%BF" aria-hidden="true">§</a> CPU流水线</h2>
-<h3 id="%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E5%88%B0%E6%98%BE%E5%AD%98%E4%B8%AD"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E5%88%B0%E6%98%BE%E5%AD%98%E4%B8%AD" aria-hidden="true">§</a> 将数据加载到显存中</h3>
+<h2 id="cpu流水线"><a class="markdownIt-Anchor" href="#cpu流水线"></a> CPU流水线</h2>
+<h3 id="将数据加载到显存中"><a class="markdownIt-Anchor" href="#将数据加载到显存中"></a> 将数据加载到显存中</h3>
 <ol>
 <li>把渲染所需所有数据从硬盘加载到系统内存中</li>
 <li>网格和纹理等数据又被加载到显存中</li>
 </ol>
-<h3 id="%E8%AE%BE%E7%BD%AE%E6%B8%B2%E6%9F%93%E7%8A%B6%E6%80%81"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E8%AE%BE%E7%BD%AE%E6%B8%B2%E6%9F%93%E7%8A%B6%E6%80%81" aria-hidden="true">§</a> 设置渲染状态</h3>
+<h3 id="设置渲染状态"><a class="markdownIt-Anchor" href="#设置渲染状态"></a> 设置渲染状态</h3>
 <p>这些状态定义了场景中的网格是怎么被渲染的<br>
 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.<br>
 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态</p>
-<h3 id="%E8%B0%83%E7%94%A8drawcall"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E8%B0%83%E7%94%A8drawcall" aria-hidden="true">§</a> 调用DrawCall</h3>
+<h3 id="调用drawcall"><a class="markdownIt-Anchor" href="#调用drawcall"></a> 调用DrawCall</h3>
 <p>Draw Call是一个命令,发起方是CPU,接收方是GPU.<br>
 这个命令仅仅会指向一个需要被渲染的图元的列表,而不再包含任何材质信息–因为已经在上个阶段完成了.</p>
 <p>当给定一个Draw Call时,GPU会根据渲染状态(材质,纹理,着色器等)和所有输入的顶点数据来进行计算,最终输出到屏幕</p>
-<h2 id="gpu%E6%B5%81%E6%B0%B4%E7%BA%BF"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#gpu%E6%B5%81%E6%B0%B4%E7%BA%BF" aria-hidden="true">§</a> GPU流水线</h2>
+<h2 id="gpu流水线"><a class="markdownIt-Anchor" href="#gpu流水线"></a> GPU流水线</h2>
 <p>顶点数据 -&gt; 顶点着色器 -&gt; 曲面细分着色器 -&gt; 几何着色器 -&gt; 裁剪 -&gt; 屏幕映射 -&gt; 三角形设置 -&gt; 三角形遍历 -&gt; 片元着色器 -&gt; 逐片元操作 -&gt; 屏幕图像</p>
-<h3 id="%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8" aria-hidden="true">§</a> 顶点着色器</h3>
+<h3 id="顶点着色器"><a class="markdownIt-Anchor" href="#顶点着色器"></a> 顶点着色器</h3>
 <p>顶点无法销毁或创建顶点,也不可以获得顶点之间的联系.例如,我们无法判断两个顶点是否处于同一个网格.正是因为这样的相互独立性,GPU可以利用本身的特性并行化处理每一个顶点,这意味着这一阶段的处理速度会更快.<br>
 顶点着色器需要完成的主要工作有:<strong>坐标变换</strong>和<strong>逐顶点光照</strong><br>
 当然除了这两个主要任务外,顶点着色器还可以输出后续阶段所需的数据.</p>
-<h4 id="%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2" aria-hidden="true">§</a> 坐标变换</h4>
+<h4 id="坐标变换"><a class="markdownIt-Anchor" href="#坐标变换"></a> 坐标变换</h4>
 <p><strong>把顶点坐标从模型空间变换到齐次剪裁空间</strong></p>
-<h3 id="%E5%89%AA%E8%A3%81"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#%E5%89%AA%E8%A3%81" aria-hidden="true">§</a> 剪裁</h3>
+<h3 id="剪裁"><a class="markdownIt-Anchor" href="#剪裁"></a> 剪裁</h3>
 <p>摄像机的视野范围内很有可能不会覆盖场景中的所有物体.不在摄像机视野范围内的物体不需要处理.剪裁就是为了完成这个目标而被提出来的.</p>
 <p>我们无法通过编程来控制剪裁的过程,而是硬件上的固定操作,但我们可以自定义一个剪裁操作来对这一步进行配置.</p>
-<h3 id="%E5%B1%8F%E5%B9%95%E6%98%A0%E5%B0%84"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E5%B1%8F%E5%B9%95%E6%98%A0%E5%B0%84" aria-hidden="true">§</a> 屏幕映射</h3>
+<h3 id="屏幕映射"><a class="markdownIt-Anchor" href="#屏幕映射"></a> 屏幕映射</h3>
 <p>屏幕映射的任务是把每个图元的x,y坐标转换到屏幕坐标系.</p>
-<h3 id="%E4%B8%89%E8%A7%92%E5%BD%A2%E8%AE%BE%E7%BD%AE"><a class="markdownIt-Anchor" href="#-10"></a> <a class="header-anchor" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E8%AE%BE%E7%BD%AE" aria-hidden="true">§</a> 三角形设置</h3>
+<h3 id="三角形设置"><a class="markdownIt-Anchor" href="#三角形设置"></a> 三角形设置</h3>
 <p>从这一步开始进入光栅化阶段.<br>
 从上一个阶段输出的信息是屏幕坐标系下的顶点位置以及它们的额外信息,如深度值(z坐标),法线方向,视角方向等.<br>
 光栅化阶段有两个最重要的目标:<strong>计算每个图元覆盖了哪些像素</strong>,以及<strong>为这些像素计算它们的颜色</strong>.</p>
 <p>三角形设置阶段会计算光栅化一个三角网格所需的信息.具体来说,上个阶段输出的都是三角网格<strong>顶点</strong>.但如果要得到整个三角网格对像素覆盖的情况,我们就必须计算每条边上的像素坐标.<br>
 为了能够计算边界像素的坐标信息,我们就需要得到三角形边界的表达方式.这样一个计算三角形网格表示数据的过程就叫做三角形设置.它的输出是为了给下一步做准备.</p>
-<h3 id="%E4%B8%89%E8%A7%92%E5%BD%A2%E9%81%8D%E5%8E%86"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E9%81%8D%E5%8E%86" aria-hidden="true">§</a> 三角形遍历</h3>
+<h3 id="三角形遍历"><a class="markdownIt-Anchor" href="#三角形遍历"></a> 三角形遍历</h3>
 <p>三角形遍历阶段会检查每个像素是否被一个三角网格所覆盖.<br>
 如果被覆盖的话,就生成一个<strong>片元</strong><br>
 而这个找到哪些像素被三角网格覆盖的过程就是三角形遍历,这个阶段也被称为扫描变换.</p>
@@ -594,7 +594,7 @@ window.console.log=()=>{};
 <p>这一步的输出就是得到一个片元序列.<br>
 需要注意的是,一个片元并不是真正意义上的像素,而是包含了很多状态的集合,这些状态用于计算每个像素的最终颜色<br>
 这些状态包括了(但不限于)它的屏幕坐标,深度信息,以及其他从几何阶段输出的顶点信息,如法线,纹理坐标等.</p>
-<h3 id="%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8" aria-hidden="true">§</a> 片元着色器</h3>
+<h3 id="片元着色器"><a class="markdownIt-Anchor" href="#片元着色器"></a> 片元着色器</h3>
 <p>前面的光栅化操作并不会影响屏幕上每个像素的颜色值,而是会产生一系列的数据信息,来描述一个三角网格是怎样覆盖每个像素的.而片元就是负责存储这样一系列数据.<br>
 真正会对像素产生影响的是下一个阶段–逐片元操作</p>
 <p>片元着色器的输入是上一个阶段对顶点信息插值得到的结果.<br>
@@ -606,7 +606,7 @@ window.console.log=()=>{};
 <p>片元着色器的局限在于,它仅可影响单个片元.<br>
 也就是说,在执行片元着色器时,它不可以将自己的任何结果发送给它的邻居们.<br>
 有一个情况例外,就是片元着色器可以访问到导数信息(扩展阅读)(smjb)</p>
-<h3 id="%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C"><a class="markdownIt-Anchor" href="#-13"></a> <a class="header-anchor" href="#%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C" aria-hidden="true">§</a> 逐片元操作</h3>
+<h3 id="逐片元操作"><a class="markdownIt-Anchor" href="#逐片元操作"></a> 逐片元操作</h3>
 <p>也被称为<strong>输出合并阶段</strong><br>
 这一阶段的几个重要任务:</p>
 <ul>
@@ -746,7 +746,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -959,7 +959,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text"> § CPU流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E5%88%B0%E6%98%BE%E5%AD%98%E4%B8%AD"><span class="nav-text"> § 将数据加载到显存中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%B8%B2%E6%9F%93%E7%8A%B6%E6%80%81"><span class="nav-text"> § 设置渲染状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8drawcall"><span class="nav-text"> § 调用DrawCall</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpu%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text"> § GPU流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> § 顶点着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2"><span class="nav-text"> § 坐标变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%AA%E8%A3%81"><span class="nav-text"> § 剪裁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%8F%E5%B9%95%E6%98%A0%E5%B0%84"><span class="nav-text"> § 屏幕映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E8%AE%BE%E7%BD%AE"><span class="nav-text"> § 三角形设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E9%81%8D%E5%8E%86"><span class="nav-text"> § 三角形遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8"><span class="nav-text"> § 片元着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C"><span class="nav-text"> § 逐片元操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu流水线"><span class="nav-text"> CPU流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将数据加载到显存中"><span class="nav-text"> 将数据加载到显存中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置渲染状态"><span class="nav-text"> 设置渲染状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用drawcall"><span class="nav-text"> 调用DrawCall</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpu流水线"><span class="nav-text"> GPU流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器"><span class="nav-text"> 顶点着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#坐标变换"><span class="nav-text"> 坐标变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪裁"><span class="nav-text"> 剪裁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕映射"><span class="nav-text"> 屏幕映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角形设置"><span class="nav-text"> 三角形设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角形遍历"><span class="nav-text"> 三角形遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#片元着色器"><span class="nav-text"> 片元着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逐片元操作"><span class="nav-text"> 逐片元操作</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -999,7 +999,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

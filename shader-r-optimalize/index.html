@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="§ 影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主">
+  <meta name="description" content="影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主要原">
 <meta name="keywords" content="unity,shader,《shader入门精要》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《shader入门精要》笔记-第16章-Unity中的渲染优化">
 <meta property="og:url" content="https://blog.ggemo.com/shader-r-optimalize/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="§ 影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主">
+<meta property="og:description" content="影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主要原">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-04-30T03:27:29.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第16章-Unity中的渲染优化">
-<meta name="twitter:description" content="§ 影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主">
+<meta name="twitter:description" content="影响性能的因素 CPU负责保证帧率,GPU负责分辨率先关的一些处理  CPU  过多的draw call 复杂的脚本或者物理模拟   GPU  顶点处理  过多的顶点 过多的逐顶点计算   片元处理  过多的片元(既可能是由于分辨率造成的,也可能是由于overdraw造成的) 过多的逐片元计算     宽带  使用了尺寸很大且未压缩的纹理 分辨率过高的帧缓存    对于CPU来说,限制它的主要原">
 
 
 
@@ -552,7 +552,7 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0" aria-hidden="true">§</a> 影响性能的因素</h2>
+        <h2 id="影响性能的因素"><a class="markdownIt-Anchor" href="#影响性能的因素"></a> 影响性能的因素</h2>
 <p>CPU负责保证帧率,GPU负责分辨率先关的一些处理</p>
 <ol>
 <li>CPU
@@ -628,7 +628,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 </ul>
 </li>
 </ol>
-<h2 id="%E5%87%8F%E5%B0%91drawcall%E6%95%B0%E7%9B%AE"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E5%87%8F%E5%B0%91drawcall%E6%95%B0%E7%9B%AE" aria-hidden="true">§</a> 减少drawcall数目</h2>
+<h2 id="减少drawcall数目"><a class="markdownIt-Anchor" href="#减少drawcall数目"></a> 减少drawcall数目</h2>
 <p><strong>批处理</strong>(batching)是经常看到的优化技术.批处理的实现原理就是为了减少每一帧出现的drawcall数目.<br>
 为了把一个对象渲染到屏幕上,CPU需要检查哪些光源影响了该物体,绑定shader并设置它的参数,再把渲染命令发送给GPU.<br>
 当场景包含大量对象时,这些操作就会非常耗时.一个极端的例子是,如果我们需要渲染1000个三角形,把它们按1000个单独的网格进行渲染所花费的时间要远大于渲染一个包含了1000个三角形的网格.在这两种情况下,GPU性能消耗其实并没有多大的区别,但CPU的drawcall数目会成为性能瓶颈.<br>
@@ -638,7 +638,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 <p>Unity中支持两种批处理:一种是动态批处理,一种是静态批处理.</p>
 <p>对于动态批处理来说,优点是一切处理都是由Unity自动完成的,不需要我们做任何操作,而且物体是可以移动的,但缺点是,限制很多,可能一不小心就会破坏了这种机制,导致Unity无法动态批处理一些使用了相同材质的物体.</p>
 <p>而对于静态批处理来说,它的优点是自由度很高,限制很少;但缺点是可能会占用更多的内存,而且经过静态批处理后的所有物体都不可以再移动了(即便在脚本中尝试改变物体的位置也是无效的).</p>
-<h3 id="%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86" aria-hidden="true">§</a> 动态批处理</h3>
+<h3 id="动态批处理"><a class="markdownIt-Anchor" href="#动态批处理"></a> 动态批处理</h3>
 <p>如果场景中有一些模型共享了同一个材质并满足一些条件,Unity就会自动把它们进行批处理,从而只花费一个drawcall就可以渲染所有模型.<br>
 动态批处理的基本原理是,每一帧都可以进行批处理的模型网格进行合并,再把合并后的模型数据传递给GPU,然后使用同一材质对其渲染.<br>
 除了实现方便,动态批处理的另一好处是,经过批处理的物体仍然可以移动,这是由于在处理每帧时Unity都会重新合并一次网格.</p>
@@ -655,7 +655,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 在前向渲染中,我们有时需要使用额外的pass来为模型添加更多的光照效果,但这样一来模型就不会被动态批处理了.</li>
 </ul>
 <p>动态批处理的限制比较多,例如很多时候,我们的模型数据往往会超过900的顶点属性限制.这种时候依赖动态批处理来减少drawcall显然已经不能满足我们的需求了.</p>
-<h3 id="%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86" aria-hidden="true">§</a> 静态批处理</h3>
+<h3 id="静态批处理"><a class="markdownIt-Anchor" href="#静态批处理"></a> 静态批处理</h3>
 <p>相对于动态批处理来说,静态批处理适用于任何大小的几何模型.<br>
 它的原理是.只在运行开始阶段,把需要进行静态批处理的模型合并到一个新的网格中,这意味着模型不可以在运行时被移动.但由于他只需要进行一次合并操作,比动态批处理更加高效.</p>
 <p>静态批处理的一个缺点在于,他往往需要更大的内存来存储合并后的几何结构.<br>
@@ -665,14 +665,14 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 <p>在内部实现上,Unity首先将这些静态物体变换到世界空间下,然后为他们构建一个更大的顶点和索引缓存.<br>
 对于使用了同一材质的物体,静态批处理只需要调用一个drawcall就可以绘制全部物体.<br>
 而对于使用了不同材质的物体,静态批处理同样可以提升渲染性能,尽管这些物体仍然需要调用多个drawcall,但静态批处理可以减少这些drawcall之间的状态切换,而这些切换往往是费时的操作.</p>
-<h3 id="%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8" aria-hidden="true">§</a> 共享材质</h3>
+<h3 id="共享材质"><a class="markdownIt-Anchor" href="#共享材质"></a> 共享材质</h3>
 <p>从之前的内容可以看出,无论是动态批处理还是静态批处理,都要求模型之间需要共享同一个材质.但不同的模型之间总会需要不同的渲染属性,例如,使用不同的纹理,颜色等.这时,我们需要一些策略 来尽可能地合并材质.</p>
 <p>如果两个材质之间只有使用的纹理不用,我们可以把这些纹理合并到一张更大的文立中,这张更大的纹理被称为一个图集(atlas).<br>
 一旦使用了同一张纹理,我们就可以使用同一个材质,再使用不同的采样坐标对纹理采样及可.</p>
 <p>但有时,除了纹理不同外,不同的物体在材质上还有一些微笑的参数变化,例如,颜色不同,某些浮点属性不同.但是,不管动态批处理还是静态批处理,它们的掐你都是要使用同一个材质.<br>
 是同一个,而不是使用了同一种shader的材质,也就是说它们指向的材质必须是同一个实体.这意味着,只要我们调整了参数,就会影响到所有使用这个材质的对象.那么想要微小的调整,一个常用的方法就是使用网格的顶点数据(最常见的就是顶点颜色数据)来存储这些参数.</p>
 <p>(这里还有一段较详细的,以后再看)</p>
-<h3 id="%E6%89%B9%E5%A4%84%E7%90%86%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" aria-hidden="true">§</a> 批处理的注意事项</h3>
+<h3 id="批处理的注意事项"><a class="markdownIt-Anchor" href="#批处理的注意事项"></a> 批处理的注意事项</h3>
 <ul>
 <li>尽可能选择静态批处理,但时刻小心对内存的消耗,并且记住经过静态批处理的物体不可以再被移动</li>
 <li>如果无法进行静态批处理,而要使用动态批处理的话,那么请小心上面提到的各种限制.<br>
@@ -683,8 +683,8 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 <p>除了上述的提示外,在使用批处理时还有一些需要注意的地方.<br>
 由于批处理需要把多个模型变换到世界空间下再合并它们,因此,如果shader中存在一些基于模型空间下的坐标的运算,那么往往会得到错误的结果.一个解决方法是在shader中使用DisableBatching标签强制使用该Shader的材质不被批处理.<br>
 另一个需要注意的是,使用半透明材质的物体 通常需要使用严格的从后往前的绘制顺序来保证透明混合的正确性.对于这些物体,Unity会首先保证它们的绘制顺序,再尝试对它们进行批处理.这意味着,当绘制顺序无法满足时,批处理无法在这些物体上被成功应用.</p>
-<h2 id="%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E7%9A%84%E9%A1%B6%E7%82%B9%E6%95%B0%E7%9B%AE"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E7%9A%84%E9%A1%B6%E7%82%B9%E6%95%B0%E7%9B%AE" aria-hidden="true">§</a> 减少需要的顶点数目</h2>
-<h3 id="%E4%BC%98%E5%8C%96%E5%87%A0%E4%BD%95%E4%BD%93"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#%E4%BC%98%E5%8C%96%E5%87%A0%E4%BD%95%E4%BD%93" aria-hidden="true">§</a> 优化几何体</h3>
+<h2 id="减少需要的顶点数目"><a class="markdownIt-Anchor" href="#减少需要的顶点数目"></a> 减少需要的顶点数目</h2>
+<h3 id="优化几何体"><a class="markdownIt-Anchor" href="#优化几何体"></a> 优化几何体</h3>
 <p>Unity中显示的顶点数目往往要多余建模软件里显示的顶点数.通常Unity中显示的数目要大很多.我们真正应该关心的是Unity中显示的数目.</p>
 <p>三维软件更多的是站在我们人类的角度理解顶点的,即组成几何体的每一个点就是一个单独的点.<br>
 而Unity是站在GPU的角度上去计算顶点的.<br>
@@ -692,27 +692,27 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
 例如,对于一个正方体,它的六个面之间虽然使用了一些相同的点,但在不同面上,同一个顶点的纹理坐标可能并不相同.对于GPU来说,这是不可理解的.因此,它必须把这个顶点拆分成多个具有不同纹理坐标的顶点.<br>
 而平滑边界也是类似,不同的是,此时一个顶点可能会对应多个法线信息和切线信息.和通常是因为我们要决定一个边时一条硬边(hard edge)还是一条平滑边(smooth edge)</p>
 <p>对于GPU来说,它本质只关心有多少个顶点.因此,尽可能减少顶点数其实才是我们真正需要关心的事情.因此,最后一条几何体优化建议是:移除不必要的硬边以及纹理衔接,避免边界平滑和纹理分离.</p>
-<h3 id="%E6%A8%A1%E5%9E%8B%E7%9A%84lod%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84lod%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 模型的LOD算法</h3>
+<h3 id="模型的lod算法"><a class="markdownIt-Anchor" href="#模型的lod算法"></a> 模型的LOD算法</h3>
 <p>另一个减少顶点数的方法是使用LOD技术.这种技术是,当一个物体离摄像机很远时,模型上的很多细节是无法被察觉到的.因此,LOD允许当对象逐渐远离摄像机时,减少模型上的面片数量,从而提高性能.</p>
 <p>在Unity中,我们可以使用LOD Group组件来为一个物体构建一个LOD.我们需要为同一个对象准备多个包含不同细节程度的模型,然后把他们赋给LOD Group组件中的不同等级,Unity就会自动判断当前位置上需要使用哪个等级的模型</p>
-<h3 id="%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%E6%8A%80%E6%9C%AF"><a class="markdownIt-Anchor" href="#-10"></a> <a class="header-anchor" href="#%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%E6%8A%80%E6%9C%AF" aria-hidden="true">§</a> 遮挡剔除技术</h3>
+<h3 id="遮挡剔除技术"><a class="markdownIt-Anchor" href="#遮挡剔除技术"></a> 遮挡剔除技术</h3>
 <p>遮挡剔除(Occlusion culling)可以用来消除那些在其他物体后面看不到的物件,这意味着资源不会浪费在那些看不到的顶点上.进而提升性能.</p>
 <p>我们需要把遮挡剔除和摄像机的视锥体剔除(Frustum Culling)区分开来.<br>
 视锥体剔除只会剔除掉那些不在摄像机的视野范围内的对象,但不会判断视野中是否有物体被其他物体挡住.而遮挡剔除会使用一个虚拟的摄像机来遍历场景,从而构建一个潜在氪金的对象集合层级结构.<br>
 在运行时刻,每个摄像机将会使用这个数据来识别哪些物体是可见的,而哪些物体被其他物体挡住不可见.使用遮挡剔除技术,我们需要进行一系列额外的处理工作,具体步骤参见Unity手册相关内容(docs.unity3d/Manual/OcclusionCulling.heml)</p>
 <p>模型的LOD技术和遮挡剔除技术可以同时减少CPU和GPU的负荷.CPU可以提交更少的drawcall,而GPU需要处理的顶点和片元数目也减少了.</p>
-<h2 id="%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%89%87%E5%85%83%E6%95%B0%E7%9B%AE"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%89%87%E5%85%83%E6%95%B0%E7%9B%AE" aria-hidden="true">§</a> 减少需要处理的片元数目</h2>
+<h2 id="减少需要处理的片元数目"><a class="markdownIt-Anchor" href="#减少需要处理的片元数目"></a> 减少需要处理的片元数目</h2>
 <p>另一个造成GPU瓶颈的是需要处理过多片元.这部分优化的重点在于减少overdraw.简单来说,overdraw指的就是 同一个像素被绘制多次.</p>
 <p>Unity中Scene视图左上方的下拉菜单中选中Overdraw即可查看overdraw.<br>
 实际上,这里的视图只是提供了查看物体相互遮挡的层数,并不是真正的最终屏幕绘制的overdraw.也就是说,可以理解为它显示的是,如果没有任何深度测试和其他优化策略时的overdraw.<br>
 这种视图通过吧所有游戏对象都渲染成一个透明的轮廓,透过查看透明颜色的累积程度来判断物体之间的遮挡.</p>
-<h3 id="%E6%8E%A7%E5%88%B6%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#%E6%8E%A7%E5%88%B6%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F" aria-hidden="true">§</a> 控制绘制顺序</h3>
+<h3 id="控制绘制顺序"><a class="markdownIt-Anchor" href="#控制绘制顺序"></a> 控制绘制顺序</h3>
 <p>为了最大限度避免overdraw,一个重要的优化策略就是控制绘制顺序.<br>
 由于深度测试的存在,如果我们可以保证物体都是从前往后绘制的,那么就可以很大程度上减少overdraw.这是因为,在后面绘制的物体由于无法通过深度测试,因此就不会再进行后面的渲染处理.</p>
 <p>在Unity中,那些渲染队列数目小于2500(如&quot;Background&quot;“Geometry&quot;和&quot;AlphaTest”)的对象都被认为是不透明(opaque)的物体,这些物体总体上是从前往后绘制的,而使用其他的队列(如&quot;ransparent&quot;&quot;Overlay&quot;等)的物体则是从后往前绘制的.这意味着,我们可以尽可能地把物体的队列设置为不透明的渲染队列,而尽量避免使用半透明队列.</p>
 <p>好无聊了这块以后再来看</p>
-<h3 id="%E6%97%B6%E5%88%BB%E8%AD%A6%E6%83%95%E6%AC%A7%E6%98%8E%E7%89%A9%E4%BD%93"><a class="markdownIt-Anchor" href="#-13"></a> <a class="header-anchor" href="#%E6%97%B6%E5%88%BB%E8%AD%A6%E6%83%95%E6%AC%A7%E6%98%8E%E7%89%A9%E4%BD%93" aria-hidden="true">§</a> 时刻警惕欧明物体</h3>
-<h3 id="%E5%87%8F%E5%B0%91%E5%AE%9E%E6%97%B6%E5%85%89%E7%85%A7%E5%92%8C%E9%98%B4%E5%BD%B1"><a class="markdownIt-Anchor" href="#-14"></a> <a class="header-anchor" href="#%E5%87%8F%E5%B0%91%E5%AE%9E%E6%97%B6%E5%85%89%E7%85%A7%E5%92%8C%E9%98%B4%E5%BD%B1" aria-hidden="true">§</a> 减少实时光照和阴影</h3>
+<h3 id="时刻警惕欧明物体"><a class="markdownIt-Anchor" href="#时刻警惕欧明物体"></a> 时刻警惕欧明物体</h3>
+<h3 id="减少实时光照和阴影"><a class="markdownIt-Anchor" href="#减少实时光照和阴影"></a> 减少实时光照和阴影</h3>
 
       
     </div>
@@ -843,7 +843,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1056,7 +1056,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-text"> § 影响性能的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91drawcall%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少drawcall数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 动态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-text"> § 静态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E6%9D%90%E8%B4%A8"><span class="nav-text"> § 共享材质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text"> § 批处理的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E7%9A%84%E9%A1%B6%E7%82%B9%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少需要的顶点数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%87%A0%E4%BD%95%E4%BD%93"><span class="nav-text"> § 优化几何体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84lod%E7%AE%97%E6%B3%95"><span class="nav-text"> § 模型的LOD算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%E6%8A%80%E6%9C%AF"><span class="nav-text"> § 遮挡剔除技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%89%87%E5%85%83%E6%95%B0%E7%9B%AE"><span class="nav-text"> § 减少需要处理的片元数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E7%BB%98%E5%88%B6%E9%A1%BA%E5%BA%8F"><span class="nav-text"> § 控制绘制顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%88%BB%E8%AD%A6%E6%83%95%E6%AC%A7%E6%98%8E%E7%89%A9%E4%BD%93"><span class="nav-text"> § 时刻警惕欧明物体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E5%AE%9E%E6%97%B6%E5%85%89%E7%85%A7%E5%92%8C%E9%98%B4%E5%BD%B1"><span class="nav-text"> § 减少实时光照和阴影</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#影响性能的因素"><span class="nav-text"> 影响性能的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少drawcall数目"><span class="nav-text"> 减少drawcall数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态批处理"><span class="nav-text"> 动态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态批处理"><span class="nav-text"> 静态批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共享材质"><span class="nav-text"> 共享材质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批处理的注意事项"><span class="nav-text"> 批处理的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少需要的顶点数目"><span class="nav-text"> 减少需要的顶点数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优化几何体"><span class="nav-text"> 优化几何体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型的lod算法"><span class="nav-text"> 模型的LOD算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遮挡剔除技术"><span class="nav-text"> 遮挡剔除技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少需要处理的片元数目"><span class="nav-text"> 减少需要处理的片元数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制绘制顺序"><span class="nav-text"> 控制绘制顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时刻警惕欧明物体"><span class="nav-text"> 时刻警惕欧明物体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少实时光照和阴影"><span class="nav-text"> 减少实时光照和阴影</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1096,7 +1096,7 @@ CPU每次通知GPU渲染之前,都要提前准备好顶点数据(如位置,法�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

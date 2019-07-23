@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,19 +104,19 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="§ 对比以前前端MVVM设计模式做出理解  § MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作.  § MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的">
+  <meta name="description" content="对比以前前端MVVM设计模式做出理解  MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作.  MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的model拆">
 <meta name="keywords" content="Unity,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AMVCC设计模式的理解">
 <meta property="og:url" content="https://blog.ggemo.com/note-AMVCC/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="§ 对比以前前端MVVM设计模式做出理解  § MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作.  § MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的">
+<meta property="og:description" content="对比以前前端MVVM设计模式做出理解  MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作.  MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的model拆">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190416220633.png">
 <meta property="og:updated_time" content="2019-04-19T11:59:19.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AMVCC设计模式的理解">
-<meta name="twitter:description" content="§ 对比以前前端MVVM设计模式做出理解  § MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作.  § MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的">
+<meta name="twitter:description" content="对比以前前端MVVM设计模式做出理解  MVVM MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用. view层会响应事件,调用model层方法,如@click标签等. model层则负责所有数据的操作.  MVC Unity中的MVC的view层根据数据展示视图 view层会响应事件,之后通知Controller层,对事件进行响应. MVC像是把MVVM的model拆">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190416220633.png">
 
 
@@ -512,7 +512,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">485</span>
+                <span title="本文字数">477</span>
               
 
               
@@ -536,18 +536,18 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="%E5%AF%B9%E6%AF%94%E4%BB%A5%E5%89%8D%E5%89%8D%E7%AB%AFmvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%81%9A%E5%87%BA%E7%90%86%E8%A7%A3"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E5%AF%B9%E6%AF%94%E4%BB%A5%E5%89%8D%E5%89%8D%E7%AB%AFmvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%81%9A%E5%87%BA%E7%90%86%E8%A7%A3" aria-hidden="true">§</a> 对比以前前端MVVM设计模式做出理解</h2>
-<h3 id="mvvm"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#mvvm" aria-hidden="true">§</a> MVVM</h3>
+        <h2 id="对比以前前端mvvm设计模式做出理解"><a class="markdownIt-Anchor" href="#对比以前前端mvvm设计模式做出理解"></a> 对比以前前端MVVM设计模式做出理解</h2>
+<h3 id="mvvm"><a class="markdownIt-Anchor" href="#mvvm"></a> MVVM</h3>
 <p>MVVM在view层负责根据数据展示视图,如v-if,v-for标签的作用.<br>
 view层会响应事件,调用model层方法,如@click标签等.<br>
 model层则负责所有数据的操作.</p>
-<h3 id="mvc"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#mvc" aria-hidden="true">§</a> MVC</h3>
+<h3 id="mvc"><a class="markdownIt-Anchor" href="#mvc"></a> MVC</h3>
 <p>Unity中的MVC的view层根据数据展示视图<br>
 view层会响应事件,之后通知Controller层,对事件进行响应.</p>
 <p>MVC像是把MVVM的model拆成model和controller两层.<br>
 controller层会使用和更改数据,但不会存储数据.存储数据交给model层.</p>
 <p>个人理解,这样做的好处是条理更清晰,比如所有取数据,都在<code>APP.Model.someData</code>,并且在Unity中调整变量值的地方更加集中,容易管理.Unity传统的EC模型相对于MVC,在脚本之间互相调用和互相传参十分麻烦.</p>
-<h2 id="controller%E7%9A%84switch-case"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#controller%E7%9A%84switch-case" aria-hidden="true">§</a> Controller的switch-case</h2>
+<h2 id="controller的switch-case"><a class="markdownIt-Anchor" href="#controller的switch-case"></a> Controller的switch-case</h2>
 <p><img src="https://pic.ggemo.com/picgo/20190416220633.png" alt="20190416220633.png"><br>
 这里的&quot;避免庞大的switch-case&quot;仅为代码书写上,不会显得太多switch-case,实际执行的逻辑上还是该多少还是多少.</p>
 
@@ -678,7 +678,7 @@ controller层会使用和更改数据,但不会存储数据.存储数据交给mo
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -891,7 +891,7 @@ controller层会使用和更改数据,但不会存储数据.存储数据交给mo
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E4%BB%A5%E5%89%8D%E5%89%8D%E7%AB%AFmvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%81%9A%E5%87%BA%E7%90%86%E8%A7%A3"><span class="nav-text"> § 对比以前前端MVVM设计模式做出理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mvvm"><span class="nav-text"> § MVVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mvc"><span class="nav-text"> § MVC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#controller%E7%9A%84switch-case"><span class="nav-text"> § Controller的switch-case</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对比以前前端mvvm设计模式做出理解"><span class="nav-text"> 对比以前前端MVVM设计模式做出理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mvvm"><span class="nav-text"> MVVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mvc"><span class="nav-text"> MVC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#controller的switch-case"><span class="nav-text"> Controller的switch-case</span></a></li></ol></div>
             
 
           </div>
@@ -931,7 +931,7 @@ controller层会使用和更改数据,但不会存储数据.存储数据交给mo
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="§ 概述    分类方法 锁     锁模式 乐观锁, 悲观锁   范围锁 行锁, 表锁   算法锁 临间锁, 间隙锁, 记录锁   属性锁 共享锁, 排他锁   状态锁 意向共享锁, 意向排他锁      § 行锁 一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,即命中索引 锁冲突概率低,并发性高,但是会有死锁的情况出现  § 表锁 一锁锁一张表,表锁响">
+  <meta name="description" content="概述    分类方法 锁     锁模式 乐观锁, 悲观锁   范围锁 行锁, 表锁   算法锁 临间锁, 间隙锁, 记录锁   属性锁 共享锁, 排他锁   状态锁 意向共享锁, 意向排他锁      行锁 一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,即命中索引 锁冲突概率低,并发性高,但是会有死锁的情况出现  表锁 一锁锁一张表,表锁响应的是非索引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库中的各种锁">
 <meta property="og:url" content="https://blog.ggemo.com/database-lock/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="§ 概述    分类方法 锁     锁模式 乐观锁, 悲观锁   范围锁 行锁, 表锁   算法锁 临间锁, 间隙锁, 记录锁   属性锁 共享锁, 排他锁   状态锁 意向共享锁, 意向排他锁      § 行锁 一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,即命中索引 锁冲突概率低,并发性高,但是会有死锁的情况出现  § 表锁 一锁锁一张表,表锁响">
+<meta property="og:description" content="概述    分类方法 锁     锁模式 乐观锁, 悲观锁   范围锁 行锁, 表锁   算法锁 临间锁, 间隙锁, 记录锁   属性锁 共享锁, 排他锁   状态锁 意向共享锁, 意向排他锁      行锁 一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,即命中索引 锁冲突概率低,并发性高,但是会有死锁的情况出现  表锁 一锁锁一张表,表锁响应的是非索引">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190702133329.png">
 <meta property="og:updated_time" content="2019-07-02T12:57:17.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库中的各种锁">
-<meta name="twitter:description" content="§ 概述    分类方法 锁     锁模式 乐观锁, 悲观锁   范围锁 行锁, 表锁   算法锁 临间锁, 间隙锁, 记录锁   属性锁 共享锁, 排他锁   状态锁 意向共享锁, 意向排他锁      § 行锁 一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,即命中索引 锁冲突概率低,并发性高,但是会有死锁的情况出现  § 表锁 一锁锁一张表,表锁响">
+<meta name="twitter:description" content="概述    分类方法 锁     锁模式 乐观锁, 悲观锁   范围锁 行锁, 表锁   算法锁 临间锁, 间隙锁, 记录锁   属性锁 共享锁, 排他锁   状态锁 意向共享锁, 意向排他锁      行锁 一锁锁一行或多条记录,mysql的行锁是基于索引加载的,所以行锁是要加在索引响应的行上,即命中索引 锁冲突概率低,并发性高,但是会有死锁的情况出现  表锁 一锁锁一张表,表锁响应的是非索引">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190702133329.png">
 
 
@@ -499,7 +499,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">380</span>
+                <span title="本文字数">370</span>
               
 
               
@@ -523,7 +523,7 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="%E6%A6%82%E8%BF%B0"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E6%A6%82%E8%BF%B0" aria-hidden="true">§</a> 概述</h2>
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
 <table>
 <thead>
 <tr>
@@ -555,15 +555,15 @@ window.console.log=()=>{};
 </tbody>
 </table>
 <p><img src="https://pic.ggemo.com/picgo/20190702133329.png" alt="20190702133329.png"></p>
-<h2 id="%E8%A1%8C%E9%94%81"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E8%A1%8C%E9%94%81" aria-hidden="true">§</a> 行锁</h2>
+<h2 id="行锁"><a class="markdownIt-Anchor" href="#行锁"></a> 行锁</h2>
 <p>一锁锁一行或多条记录,mysql的行锁是<strong>基于索引加载的</strong>,所以行锁是要加在索引响应的行上,即命中索引</p>
 <p>锁冲突概率低,并发性高,但是会有死锁的情况出现</p>
-<h2 id="%E8%A1%A8%E9%94%81"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E8%A1%A8%E9%94%81" aria-hidden="true">§</a> 表锁</h2>
+<h2 id="表锁"><a class="markdownIt-Anchor" href="#表锁"></a> 表锁</h2>
 <p>一锁锁一张表,表锁响应的是<strong>非索引字段</strong>,即全表扫描</p>
-<h2 id="%E8%AE%B0%E5%BD%95%E9%94%81"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E8%AE%B0%E5%BD%95%E9%94%81" aria-hidden="true">§</a> 记录锁</h2>
+<h2 id="记录锁"><a class="markdownIt-Anchor" href="#记录锁"></a> 记录锁</h2>
 <p>记录锁是在行锁上衍生出来的锁<br>
 记录锁锁的是表中的某一条记录,记录锁的出现条件是<strong>必须是精准命中索引并且索引是唯一索引</strong>,如主键id.</p>
-<h2 id="%E9%97%B4%E9%9A%99%E9%94%81"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#%E9%97%B4%E9%9A%99%E9%94%81" aria-hidden="true">§</a> 间隙锁</h2>
+<h2 id="间隙锁"><a class="markdownIt-Anchor" href="#间隙锁"></a> 间隙锁</h2>
 <p>间隙锁又称为区间锁,每次锁定都是锁定一个区间,隶属行锁<br>
 既然间隙锁隶属行锁,那么间隙锁的触发条件必然是命中索引的<br>
 当我们使用范围查询而不是相等条件查询时,查询条件命中索引</p>
@@ -687,7 +687,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -900,7 +900,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text"> § 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E9%94%81"><span class="nav-text"> § 行锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E9%94%81"><span class="nav-text"> § 表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E9%94%81"><span class="nav-text"> § 记录锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%B4%E9%9A%99%E9%94%81"><span class="nav-text"> § 间隙锁</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行锁"><span class="nav-text"> 行锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表锁"><span class="nav-text"> 表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录锁"><span class="nav-text"> 记录锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#间隙锁"><span class="nav-text"> 间隙锁</span></a></li></ol></div>
             
 
           </div>
@@ -940,7 +940,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

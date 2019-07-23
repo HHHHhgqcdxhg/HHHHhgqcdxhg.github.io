@@ -13,7 +13,7 @@
 
 <html class="theme-next gemini" lang="zh-CN">
 <base target="_blank">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
 <script>
 window.console.log=()=>{};
 </script>
@@ -104,13 +104,13 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="§ 对象已死吗  § 引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  § 可达性分析算法 主流">
+  <meta name="description" content="对象已死吗  引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  可达性分析算法 主流商用语言(如">
 <meta name="keywords" content="java,深入理解JVM,jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《深入理解JVM》笔记-2-垃圾收集器与内存分配策略">
 <meta property="og:url" content="https://blog.ggemo.com/jvm-understanding-gc/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="§ 对象已死吗  § 引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  § 可达性分析算法 主流">
+<meta property="og:description" content="对象已死吗  引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  可达性分析算法 主流商用语言(如">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190616104238.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190616120109.png">
@@ -120,7 +120,7 @@ window.console.log=()=>{};
 <meta property="og:updated_time" content="2019-06-27T10:36:01.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解JVM》笔记-2-垃圾收集器与内存分配策略">
-<meta name="twitter:description" content="§ 对象已死吗  § 引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  § 可达性分析算法 主流">
+<meta name="twitter:description" content="对象已死吗  引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  可达性分析算法 主流商用语言(如">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190616104238.png">
 
 
@@ -558,24 +558,24 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%E5%90%97"><a class="markdownIt-Anchor" href="#"></a> <a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%E5%90%97" aria-hidden="true">§</a> 对象已死吗</h2>
-<h3 id="%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><a class="markdownIt-Anchor" href="#-2"></a> <a class="header-anchor" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95" aria-hidden="true">§</a> 引用计数法</h3>
+        <h2 id="对象已死吗"><a class="markdownIt-Anchor" href="#对象已死吗"></a> 对象已死吗</h2>
+<h3 id="引用计数法"><a class="markdownIt-Anchor" href="#引用计数法"></a> 引用计数法</h3>
 <p><strong>引用计数算法(Reference Counting)</strong> 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用.</p>
 <p>引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的.<br>
 其主要原因是它很难解决对象之间相互引用的问题.</p>
-<h3 id="%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-3"></a> <a class="header-anchor" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 可达性分析算法</h3>
+<h3 id="可达性分析算法"><a class="markdownIt-Anchor" href="#可达性分析算法"></a> 可达性分析算法</h3>
 <p>主流商用语言(如Java,C#)的主流实现中,都是通过<strong>可达性分析算法(Reachability Analysis)</strong> 来判定对象是否存活的.</p>
 <p>这个算法的基本思路是通过一系列成为&quot;<strong>GC Root</strong>&quot;的对象作为起始点,从这些节点开始向下搜索,搜索所走过的路径称为<strong>引用链(Reference Chain)</strong> ,当一个对象到GC Roots没有任何引用链相连时,则证明此对象是不可用的.</p>
 <p>如图,对象object5,object6,object7虽然相互有关联,但是它们到GC Roots是不可达的,所以它们将会被判定是可回收对象.<br>
 <img src="https://pic.ggemo.com/picgo/20190616104238.png" alt="20190616104238.png"></p>
-<h4 id="%E5%8F%AF%E4%BD%9C%E4%B8%BAgc-roots%E7%9A%84%E5%AF%B9%E8%B1%A1"><a class="markdownIt-Anchor" href="#-4"></a> <a class="header-anchor" href="#%E5%8F%AF%E4%BD%9C%E4%B8%BAgc-roots%E7%9A%84%E5%AF%B9%E8%B1%A1" aria-hidden="true">§</a> 可作为GC Roots的对象</h4>
+<h4 id="可作为gc-roots的对象"><a class="markdownIt-Anchor" href="#可作为gc-roots的对象"></a> 可作为GC Roots的对象</h4>
 <ul>
 <li>虚拟机栈(帧栈中的本地变量表)中引用的对象</li>
 <li>方法区中类静态属性引用的对象</li>
 <li>方法区中常量引用的对象</li>
 <li>本地方法栈中JNI(即一般说的Native方法)引用的对象</li>
 </ul>
-<h3 id="%E5%86%8D%E8%B0%88%E5%BC%95%E7%94%A8"><a class="markdownIt-Anchor" href="#-5"></a> <a class="header-anchor" href="#%E5%86%8D%E8%B0%88%E5%BC%95%E7%94%A8" aria-hidden="true">§</a> 再谈引用</h3>
+<h3 id="再谈引用"><a class="markdownIt-Anchor" href="#再谈引用"></a> 再谈引用</h3>
 <p>无论是引用计数还是可达性分析算法,判断对象是否存活都与&quot;引用&quot;有关.</p>
 <p>Java的引用分为4种,这四种引用强度依次逐渐减弱:</p>
 <ul>
@@ -584,24 +584,24 @@ window.console.log=()=>{};
 <li>弱引用(Weak Reference)</li>
 <li>虚引用(Phantom Reference)</li>
 </ul>
-<h4 id="%E5%BC%BA%E5%BC%95%E7%94%A8"><a class="markdownIt-Anchor" href="#-6"></a> <a class="header-anchor" href="#%E5%BC%BA%E5%BC%95%E7%94%A8" aria-hidden="true">§</a> 强引用</h4>
+<h4 id="强引用"><a class="markdownIt-Anchor" href="#强引用"></a> 强引用</h4>
 <p>强引用就是指在代码中普遍存在的,类似<code>Object obj = new Object();</code>这类的引用.<br>
 只要强引用还在,垃圾收集器永远不会回收掉被引用的对象.</p>
-<h4 id="%E8%BD%AF%E5%BC%95%E7%94%A8"><a class="markdownIt-Anchor" href="#-7"></a> <a class="header-anchor" href="#%E8%BD%AF%E5%BC%95%E7%94%A8" aria-hidden="true">§</a> 软引用</h4>
+<h4 id="软引用"><a class="markdownIt-Anchor" href="#软引用"></a> 软引用</h4>
 <p>软引用用来描述一些还有用但并非必需的对象.<br>
 对于软引用关联着的对象,在系统将要发生内存溢出异常之前,将会把这些对象列进回收范围之中进行二次回收.如果这次回收还没有足够的内存,才会抛出内存溢出异常.</p>
 <p>软引用通过<code>SoftReference</code>类实现.</p>
-<h4 id="%E5%BC%B1%E5%BC%95%E7%94%A8"><a class="markdownIt-Anchor" href="#-8"></a> <a class="header-anchor" href="#%E5%BC%B1%E5%BC%95%E7%94%A8" aria-hidden="true">§</a> 弱引用</h4>
+<h4 id="弱引用"><a class="markdownIt-Anchor" href="#弱引用"></a> 弱引用</h4>
 <p>弱引用也是用来描述非必需的对象的.<br>
 它的强度比软引用还要更弱一些.</p>
 <p><strong>只</strong>被弱引用关联的对象只能生存到下一次垃圾收集发生之前.当垃圾收集器工作时,无论当前内存是否足够,都会回收掉只被弱引用关联的对象.</p>
 <p>弱引用通过<code>WeakReference</code>类实现.</p>
-<h4 id="%E8%99%9A%E5%BC%95%E7%94%A8"><a class="markdownIt-Anchor" href="#-9"></a> <a class="header-anchor" href="#%E8%99%9A%E5%BC%95%E7%94%A8" aria-hidden="true">§</a> 虚引用</h4>
+<h4 id="虚引用"><a class="markdownIt-Anchor" href="#虚引用"></a> 虚引用</h4>
 <p>虚引用也称为幻影引用或者幽灵引用,它是最弱的一种引用关系.</p>
 <p>一个对象是否被虚引用关联完全不会对它的生存构成影响,也无法通过一个虚引用来取得一个对象实例.<br>
 为一个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到一个系统通知.</p>
 <p>虚引用通过<code>PhantomReference</code>实现.</p>
-<h3 id="%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1"><a class="markdownIt-Anchor" href="#-10"></a> <a class="header-anchor" href="#%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1" aria-hidden="true">§</a> 生存还是死亡</h3>
+<h3 id="生存还是死亡"><a class="markdownIt-Anchor" href="#生存还是死亡"></a> 生存还是死亡</h3>
 <blockquote>
 <p>此部分作废,finalize()方法已过时</p>
 </blockquote>
@@ -616,14 +616,14 @@ window.console.log=()=>{};
 这里所谓的&quot;执行&quot;,是指虚拟机会触发这个方法,但不承诺会等待它运行结束.这么做的原因是,如果一个对象在<code>finalize()</code>方法中执行缓慢,或者发生了死循环,这时如果等待它运行结束,将很可能会导致F-Queue中其他对象处于永久等待,甚至导致整个内存回收系统崩溃.</p>
 <p>若在执行对象的<code>finalize()</code>方法中,将对象自身与引用链上任何一个对象建立关联,则可以在第二次标记中判断为可达,从而避开被回收.<br>
 执行过一次<code>finalize()</code>方法的对象在面临下一次垃圾回收时,虚拟机将不会再次执行<code>finalize()</code>方法,而是直接将其回收.</p>
-<h3 id="%E5%9B%9E%E6%94%B6%E6%96%B9%E6%B3%95%E5%8C%BA"><a class="markdownIt-Anchor" href="#-11"></a> <a class="header-anchor" href="#%E5%9B%9E%E6%94%B6%E6%96%B9%E6%B3%95%E5%8C%BA" aria-hidden="true">§</a> 回收方法区</h3>
+<h3 id="回收方法区"><a class="markdownIt-Anchor" href="#回收方法区"></a> 回收方法区</h3>
 <p>很多人认为方法区(或HotSpot中的永久代)没有垃圾收集,Java虚拟机规范中说过可以不要求方法区实现垃圾收集,而且在方法区中进行垃圾收集的性价比一般比较低:在堆中,尤其是在新生代中,常规应用进行一次垃圾收集一般可以回收70%~95%的空间,而永久代的垃圾收集效率远低于此.</p>
 <p>永久代的垃圾回收主要回收两部分:废弃常量和无用的类</p>
-<h4 id="%E5%BA%9F%E5%BC%83%E5%B8%B8%E9%87%8F"><a class="markdownIt-Anchor" href="#-12"></a> <a class="header-anchor" href="#%E5%BA%9F%E5%BC%83%E5%B8%B8%E9%87%8F" aria-hidden="true">§</a> 废弃常量</h4>
+<h4 id="废弃常量"><a class="markdownIt-Anchor" href="#废弃常量"></a> 废弃常量</h4>
 <p>回收废弃常量与回收堆中的对象非常类似.<br>
 以常量池中字面量的回收为例,假如一个字符串&quot;abc&quot;已经进入了常量池了,但是当前系统中没有任何一个String对象叫做&quot;abc&quot;,如果这时进行垃圾回收,这个&quot;abc&quot;常量将会被系统清理出常量池.</p>
 <p>常量池中的其他类(接口),方法,字段的符号引用也与此类似.</p>
-<h4 id="%E6%97%A0%E7%94%A8%E7%9A%84%E7%B1%BB"><a class="markdownIt-Anchor" href="#-13"></a> <a class="header-anchor" href="#%E6%97%A0%E7%94%A8%E7%9A%84%E7%B1%BB" aria-hidden="true">§</a> 无用的类</h4>
+<h4 id="无用的类"><a class="markdownIt-Anchor" href="#无用的类"></a> 无用的类</h4>
 <p>同时满足以下3个条件,才能是无用的类:</p>
 <ul>
 <li>该类的所有实例均已被回收,即Java堆中不存在该类的任何实例.</li>
@@ -631,8 +631,8 @@ window.console.log=()=>{};
 <li>该类对应的java.lang.Class对象没有在任何地方被引用,无法在任何地方通过反射访问该类的方法.</li>
 </ul>
 <p>虚拟机<u>可以</u>对满足上述3个条件的无用类进行回收,但不是像对象一样<u>必须</u>进行回收.HotSpot虚拟机提供了参数进行控制.</p>
-<h2 id="%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-14"></a> <a class="header-anchor" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 垃圾收集算法</h2>
-<h3 id="%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-15"></a> <a class="header-anchor" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 标记-清除算法</h3>
+<h2 id="垃圾收集算法"><a class="markdownIt-Anchor" href="#垃圾收集算法"></a> 垃圾收集算法</h2>
+<h3 id="标记-清除算法"><a class="markdownIt-Anchor" href="#标记-清除算法"></a> 标记-清除算法</h3>
 <p><strong>标记-清除算法(Mark-Sweep)</strong> 最基础的收集算法.</p>
 <p>算法分为两个阶段.首先标记出所有需要回收的对象,在标记完成后统一回收所有被标记的对象.它的标记过程就是上面的对象标记判定.</p>
 <p>之所以说它是最基础的收集算法,是因为后续的收集算法都基于这个思路并对其不足进行改进而得到的.它的不足有两个:</p>
@@ -643,7 +643,7 @@ window.console.log=()=>{};
 标记清除之后会产生大量不连续的内存碎片,空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时,无法找到足够的连续内存,而不得不再进行一次垃圾收集动作.<br>
 <img src="https://pic.ggemo.com/picgo/20190616124612.png" alt="20190616124612.png"></li>
 </ol>
-<h3 id="%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-16"></a> <a class="header-anchor" href="#%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 复制算法</h3>
+<h3 id="复制算法"><a class="markdownIt-Anchor" href="#复制算法"></a> 复制算法</h3>
 <p>复制算法是为了解决效率问题被提出来的.</p>
 <p>复制算法将内存按容量划分为大小相等的两块,每次只使用其中的一块,当这一块内存用完了,就将还存活的对象复制到另一块上面,然后再把已使用过的内存空间一次清理掉.这样使得每次都是对整个半区进行内存回收,内存分配的时候也不比考虑内存碎片等复杂情况,只要移动堆顶指针,按顺序分配内存即可,实现简单运行高效.</p>
 <p>这种算法的代价是将内存缩小为原来的一半,未免太高了一点.</p>
@@ -652,23 +652,23 @@ window.console.log=()=>{};
 HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可用的内存空间为整个空间的90%,只有10%的内存会被浪费.<br>
 当Survior空间不够用时,需要依赖其他内存(这里指老年代)进行分配担保(Handle Promotion)</p>
 <p>复制算法在对象存活率较高时就要进行较多的复制操作,效率会变低,而且需要额外的空间进行分配担保,所以在老年代中一般不能直接采用复制算法.</p>
-<h3 id="%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-17"></a> <a class="header-anchor" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 标记-整理算法</h3>
+<h3 id="标记-整理算法"><a class="markdownIt-Anchor" href="#标记-整理算法"></a> 标记-整理算法</h3>
 <p><strong>标记-整理算法(Marking-Compact)</strong> 是根据老年代的特点提出来的.</p>
 <p>标记过程仍与标记-清除算法一样,但后续步骤不是直接对可回收对象进行清理,而是让所有存活的对象都向一端移动,然后直接清理掉边界以外的内存.</p>
-<h3 id="%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><a class="markdownIt-Anchor" href="#-18"></a> <a class="header-anchor" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95" aria-hidden="true">§</a> 分代收集算法</h3>
+<h3 id="分代收集算法"><a class="markdownIt-Anchor" href="#分代收集算法"></a> 分代收集算法</h3>
 <p>当前商业虚拟机的垃圾收集都采用<strong>分代收集算法(Generational Collocation)</strong> .这种算法并没有什么新的思想,只是根据对象存活周期将不同的内存划为几块.<br>
 一般是把Java堆分为新生代和老年代,这样就可以根据各个年代的特点采用最适当的收集算法.</p>
 <p>在新生代中,每次垃圾收集都会有大批对象死去,只有少量存活,那就选用复制算法,只需要付出少量存活对象的复制成本就可以完成收集;<br>
 而老年代因为对象存活率高,没有额外的空间对它进行分配担保,就必须使用标记-清除或者标记-整理算法来进行回收.</p>
-<h2 id="hotspot%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><a class="markdownIt-Anchor" href="#-19"></a> <a class="header-anchor" href="#hotspot%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0" aria-hidden="true">§</a> HotSpot的算法实现</h2>
+<h2 id="hotspot的算法实现"><a class="markdownIt-Anchor" href="#hotspot的算法实现"></a> HotSpot的算法实现</h2>
 <p>上面从理论上介绍了对象存活判定算法和垃圾收集算法,而在HotSpot虚拟机上实现这些算法时,必须对算法的执行效率有严格考量,才能保证虚拟机高效运行.</p>
-<h3 id="%E6%9E%9A%E4%B8%BE%E6%A0%B9%E8%8A%82%E7%82%B9"><a class="markdownIt-Anchor" href="#-20"></a> <a class="header-anchor" href="#%E6%9E%9A%E4%B8%BE%E6%A0%B9%E8%8A%82%E7%82%B9" aria-hidden="true">§</a> 枚举根节点</h3>
+<h3 id="枚举根节点"><a class="markdownIt-Anchor" href="#枚举根节点"></a> 枚举根节点</h3>
 <p>在可达性分析时,从GC Roots节点找引用链这个操作中,可视为GC Roots的节点主要在全局性引用(例如常量或类静态属性)与执行上下文(如栈帧中的本地变量表)中,现在很多应用仅仅方法区就有数百兆,如果要逐个检查这里么的引用,那必然会消耗很多时间.</p>
 <p>另外,可达性分析对执行时间的敏感还体现在GC停顿上,因为这项分析工作必须在一个能确保一致性的快照中进行.这里&quot;一致性&quot;的意思是指在整个分析期间不能出现对象引用关系还在不断变化的情况.这一点不满足的话分析结果准确性就无法得到保证.这点是导致GC进行时必须停顿所有Java执行线程(Sun将这件事情称作&quot;Stop The World&quot;)的其中一个重要原因.</p>
 <p>目前主流的Java虚拟机使用的都是准确式GC,所以当执行停下来后,并不需要一个不漏地检查完所有执行上下文和全局的引用位置.虚拟机应当是有方法直接得知哪些地方存放着对象引用.</p>
 <p>在HotSpot的实现中,是使用一组称为OopMap的数据结构来达到这个目的的.<br>
 在类加载完成的时候,HotSpot就把对象内什么偏移量上是什么类型的数据计算出来,在JIT编译过程中,也会在特定的位置记录下栈和寄存器中哪些位置是引用.这样,GC在扫描时就可以直接得到这些信息了.</p>
-<h3 id="%E5%AE%89%E5%85%A8%E7%82%B9"><a class="markdownIt-Anchor" href="#-21"></a> <a class="header-anchor" href="#%E5%AE%89%E5%85%A8%E7%82%B9" aria-hidden="true">§</a> 安全点</h3>
+<h3 id="安全点"><a class="markdownIt-Anchor" href="#安全点"></a> 安全点</h3>
 <p>在OopMap的帮助下,HotSpot可以快速且准确地完成GC Roots的枚举,但有一个问题:<br>
 可能导致引用关系变化,或者说OopMap内容变化指令非常之多,如果为每一条指令都生成对应的OopMap,那将会需要大量的额外空间,这样GC的空间成本将会变得很高.</p>
 <p>实际上,HotSpot着实没有为每条指令都生成OopMap,前面已经提到,只是在特定的位置记录了这些信息,这些位置被称为<strong>安全点(Safepoint)</strong> ,即程序执行时并非在所有地方都能停下来开始GC,只有在到达安全点时才能暂停.</p>
@@ -676,19 +676,19 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
 所以,安全点的选定基本上是以程序&quot;是否具有让程序长时间执行的特征&quot;为标准进行选定的,因为每条指令执行的时间都非常短暂,程序不太可能因为指令流长度太长这个原因而过长时间运行,&quot;长时间执行&quot;的最明显的特征就是指令序列复用,例如<u>方法调用</u>,<u>循环跳转</u>,<u>异常跳转</u>等,所以具有这些功能的指令才会产生Safepoint.</p>
 <p>对于Safepoint,另一个需要考虑的问题是如何在GC发生时让所有线程(这里不包括执行JNI调用的线程)都跑到最近的安全点上再停顿下来.<br>
 这里有两种方案可供选择:<strong>抢先式中断(Preemptive Suspension)</strong> 和<strong>主动式中断(Voluntary Suspension)</strong></p>
-<h4 id="%E6%8A%A2%E5%85%88%E5%BC%8F%E4%B8%AD%E6%96%AD"><a class="markdownIt-Anchor" href="#-22"></a> <a class="header-anchor" href="#%E6%8A%A2%E5%85%88%E5%BC%8F%E4%B8%AD%E6%96%AD" aria-hidden="true">§</a> 抢先式中断</h4>
+<h4 id="抢先式中断"><a class="markdownIt-Anchor" href="#抢先式中断"></a> 抢先式中断</h4>
 <p>抢先式中断不需要线程的执行代码主动去配合,在GC发生时,首先把所有线程全部中断,如果发现有线程的地方不在安全点上,就恢复线程,让它跑到安全点上.</p>
 <p>现在几乎没有虚拟机实现采用抢先式中断来暂停线程从而响应GC事件.</p>
-<h4 id="%E4%B8%BB%E5%8A%A8%E5%BC%8F%E4%B8%AD%E6%96%AD"><a class="markdownIt-Anchor" href="#-23"></a> <a class="header-anchor" href="#%E4%B8%BB%E5%8A%A8%E5%BC%8F%E4%B8%AD%E6%96%AD" aria-hidden="true">§</a> 主动式中断</h4>
+<h4 id="主动式中断"><a class="markdownIt-Anchor" href="#主动式中断"></a> 主动式中断</h4>
 <p>主动式中断的思想是当GC需要中断线程的时候,不直接对线程操作,仅仅简单地设置一个标志,各个线程执行时主动去轮询这个标志,发现中断标志为真时就自己中断挂起.</p>
 <p>对标志进行轮询的时机和安全点出现的时机是重合的,在其基础上加上创建对象需要分配内存的时机.</p>
-<h3 id="%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F"><a class="markdownIt-Anchor" href="#-24"></a> <a class="header-anchor" href="#%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F" aria-hidden="true">§</a> 安全区域</h3>
+<h3 id="安全区域"><a class="markdownIt-Anchor" href="#安全区域"></a> 安全区域</h3>
 <p>使用Safepoint似乎已经完美解决了如何进入GC的问题,但实际情况却并不一定.</p>
 <p>Safepoint机制保证了程序执行时,在不太长的时间内就会遇到可进入GC的Safepoint.<br>
 但是,程序&quot;不执行&quot;的时候呢?所谓的程序不执行就是没有分配CPU的时间,典型的例子就是线程处于Sleep状态或者Blocked状态,这时候线程无法响应JVM的中断请求,走到Safepoint中断挂起,JVM显然不太可能等待线程被分配CPU的时间.对于这种情况,就需要<strong>安全区域(Safe Region)</strong> 来解决.</p>
 <p>安全区域是指在一段代码中,引用关系不会发生变化,在这个区域中的任意地方开始GC都是安全的.</p>
 <p>在线程执行到Safe Region中的代码时,首先标识自己已经进入了Safe Region,那样,当在这段时间里JVM要发起GC时,就不用管标识为Safe Region状态的线程了.在线程要离开Safe Region时,它要检查系统是否已经完成了根节点枚举(或者是整个GC过程),如果完成了,那线程继续执行,否则线程就必须等待直到收到可以安全离开Safe Region的信号为止.</p>
-<h2 id="%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-25"></a> <a class="header-anchor" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> 垃圾收集器</h2>
+<h2 id="垃圾收集器"><a class="markdownIt-Anchor" href="#垃圾收集器"></a> 垃圾收集器</h2>
 <p>垃圾收集算法是内存回收的方法论,垃圾收集器是内存回收的具体实现.</p>
 <blockquote>
 <p>Java虚拟机规范中对垃圾收集器应该如何实现没有任何规定,因此不同的厂商,不同版本的虚拟机所提供的的垃圾收集器都可能有很大差别,并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器.<br>
@@ -697,7 +697,7 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
 <p><img src="https://pic.ggemo.com/picgo/20190616153956.png" alt="20190616153956.png"></p>
 <p>上图展示了7种不同分代的收集器,两个收集器之间的连线代表它们可以搭配使用.<br>
 虚拟机所处的区域,则表示它是属于新生代还是老年代收集器.</p>
-<h3 id="serial%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-26"></a> <a class="header-anchor" href="#serial%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> Serial收集器</h3>
+<h3 id="serial收集器"><a class="markdownIt-Anchor" href="#serial收集器"></a> Serial收集器</h3>
 <p>Serial收集器是最基本,发展历史最悠久的收集器,曾经(JDK 1.3.1之前)是虚拟机新生代收集的唯一选择.</p>
 <p>这个收集器是一个单线程收集器,但它的单线程的意义并不仅仅说明他只会使用一个CPU或一条收集线程去完成垃圾收集工作,更重要的是在它进行垃圾收集时,<u>必须暂停其他所有的工作线程</u>,直到它收集结束,这对很多应用来说是无法接受的.</p>
 <p>对于&quot;Stop The World&quot;带给用户的不良体验,虚拟机的设计者们表示完全理解,但也表示非常委屈:&quot;你妈妈给你打扫房间的时候,肯定也会让你老老实实地在椅子上或者房间外面待着,如果她一边打扫,你一边丢纸屑,这房间还能打扫完?&quot;这确实是一个合理的矛盾.</p>
@@ -706,11 +706,11 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
 对于限定单个CPU的环境来说,Serial收集器没有线程交互的开销,专心做垃圾收集自然可以获得更高的单线程收集效率.<br>
 在用户的桌面应用场景中,分配给虚拟机管理的内存一般来说不会很大,收集几十兆甚至一两百兆的新生代,停顿时间完全可以控制在几十毫秒最多一百毫秒内,只要不是频繁发生,这点停顿是完全可以接受的.<br>
 所以,Serial收集器对于运行在Client模式下的虚拟机来说是一个很好的选择.</p>
-<h3 id="parnew%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-27"></a> <a class="header-anchor" href="#parnew%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> ParNew收集器</h3>
+<h3 id="parnew收集器"><a class="markdownIt-Anchor" href="#parnew收集器"></a> ParNew收集器</h3>
 <p>ParNew收集器其实就是serial收集器的多线程版本,除了使用多条线程进行垃圾收集之外,其余行为包括Serial收集器可用的所有控制参数,收集算法,Stop The World,对象分配规则,回收策略等都与Serial收集器完全一样,在实现上,这两种收集器也共用了相当多的代码.</p>
 <p>ParNew收集器除了多线程之外,其他与Serial收集器相比并没有太多创新之处,但它却是很多运行在Server模式下的虚拟机中首选的新生代收集器,其中有一个与性能无关但是很重要的原因是,除了Serial收集器外,只有它能与CMS收集器配合工作.</p>
 <p>ParNew收集器在单CPU情况中绝对不会有比Serial收集器更好的效果.但随着CPU数量的增加,它对于GC是系统资源的有效利用还是很有好处的.</p>
-<h3 id="parallel-scavenge%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-28"></a> <a class="header-anchor" href="#parallel-scavenge%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> Parallel Scavenge收集器</h3>
+<h3 id="parallel-scavenge收集器"><a class="markdownIt-Anchor" href="#parallel-scavenge收集器"></a> Parallel Scavenge收集器</h3>
 <p>Parallel Scavenge收集器是一个新生代收集器,它也是使用复制算法的收集器,又是并行的多线程收集器.</p>
 <p>Parallel Scavenge收集器的特点是它的关注点与其他收集器不同,CMS等收集器的关注点是尽可能地缩短垃圾收集时用户停顿的时间,而Parallel Scavenge收集器的目标则是达到一个可控制的吞吐量(Throughput).</p>
 <p>所谓吞吐量就是CPU用于运行用户代码的时间与CPU总消耗时间的比值,即<br>
@@ -718,7 +718,7 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
 <p>停顿时间越短就越适合需要与用户交互的程序,良好的响应速度能提升用户体验.<br>
 而高吞吐量可以高效地利用CPU时间,尽快完成程序的运算任务,主要适合在后台运算而不需要太多交互的任务.</p>
 <p>由于与吞吐量关系密切,Parallel Scavenge收集器也经常被称为&quot;吞吐量优先&quot;收集器</p>
-<h3 id="serial-old%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-29"></a> <a class="header-anchor" href="#serial-old%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> Serial Old收集器</h3>
+<h3 id="serial-old收集器"><a class="markdownIt-Anchor" href="#serial-old收集器"></a> Serial Old收集器</h3>
 <p>Serial Old是Serial收集器的老年代版本.它同样是一个单线程收集器,使用标记-整理算法.</p>
 <p>这个收集器的主要意义也是在于给Client模式下的虚拟机使用.<br>
 如果再Server模式下,那么它还有两大用途:</p>
@@ -726,11 +726,11 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
 <li>给JDK 1.5以及之前的版本中与Parallel Scavenge收集器搭配使用</li>
 <li>作为CMS收集器的后备预案,在并发收集发生Concurrent Mode Failure时使用</li>
 </ol>
-<h3 id="parallel-old%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-30"></a> <a class="header-anchor" href="#parallel-old%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> Parallel Old收集器</h3>
+<h3 id="parallel-old收集器"><a class="markdownIt-Anchor" href="#parallel-old收集器"></a> Parallel Old收集器</h3>
 <p>Parallel Old是Parallel Scavenge收集器的老年代版本,使用多线程和标记-整理算法.</p>
 <p>由于老年代的Serial Old收集器在服务端拖累,使用了Parallel Scavenge收集器也未必能在整体应用上获得吞吐量最大化效果,由于单线程的老年代无法充分利用服务器多CPU的处理能力,在老年代很大而且硬件比较高级的环境中,这种组合还不一定有ParNew加CMS的组合给力.</p>
 <p>直到Parallel Old处理器出现后,&quot;吞吐量优先&quot;收集器终于有了比较名副其实的应用组合,在注重吞吐量以及CPU资源敏感的场合,都可以优先考虑Parallel Scavenge加Parallel Old收集器.</p>
-<h3 id="cms%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-31"></a> <a class="header-anchor" href="#cms%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> CMS收集器</h3>
+<h3 id="cms收集器"><a class="markdownIt-Anchor" href="#cms收集器"></a> CMS收集器</h3>
 <p><strong>CMS(Concurrent Mark Sweep)收集器</strong> 是一种以获取最短回收停顿时间为目标的收集器.<br>
 目前很大一部分Java应用集中在互联网站或者B/S架构的系统服务器上,这类应用尤其重视服务器的响应速度,希望系统停顿时间最短,以给用户带来较好的体验.CMS收集器就非常符合这类应用的需求.</p>
 <p>从名字(Mark Sweep)就能看出,CMS是基于标记-清除算法实现的,它的运作过程相对复杂一点,整个过程分为四个步骤:</p>
@@ -748,33 +748,33 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
 <img src="https://pic.ggemo.com/picgo/20190616183019.png" alt="20190616183019.png"></p>
 <p>CMS是一款优秀的收集器,它的主要优点在名字上已经体现出来了:并发收集,低停顿,Sun公司的一些官方文档中也称之为<u>并发低停顿收集器(Concurrent Low Pause Collector)</u><br>
 但是CMS还远达不到完美的程度,她又以下3个明显的缺点:</p>
-<h4 id="1-cms%E6%94%B6%E9%9B%86%E5%99%A8%E5%AF%B9cpu%E8%B5%84%E6%BA%90%E5%8D%81%E5%88%86%E6%95%8F%E6%84%9F"><a class="markdownIt-Anchor" href="#-32"></a> <a class="header-anchor" href="#1-cms%E6%94%B6%E9%9B%86%E5%99%A8%E5%AF%B9cpu%E8%B5%84%E6%BA%90%E5%8D%81%E5%88%86%E6%95%8F%E6%84%9F" aria-hidden="true">§</a> 1-CMS收集器对CPU资源十分敏感</h4>
+<h4 id="1-cms收集器对cpu资源十分敏感"><a class="markdownIt-Anchor" href="#1-cms收集器对cpu资源十分敏感"></a> 1-CMS收集器对CPU资源十分敏感</h4>
 <p>在并发阶段,它虽然不会导致用户线程停顿,但是会因为占用了一部分CPU资源而导致应用程序变慢,总吞吐量会降低.</p>
-<h4 id="2-cms%E6%94%B6%E9%9B%86%E5%99%A8%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E6%B5%AE%E5%8A%A8%E5%9E%83%E5%9C%BE"><a class="markdownIt-Anchor" href="#-33"></a> <a class="header-anchor" href="#2-cms%E6%94%B6%E9%9B%86%E5%99%A8%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E6%B5%AE%E5%8A%A8%E5%9E%83%E5%9C%BE" aria-hidden="true">§</a> 2-CMS收集器无法处理浮动垃圾</h4>
+<h4 id="2-cms收集器无法处理浮动垃圾"><a class="markdownIt-Anchor" href="#2-cms收集器无法处理浮动垃圾"></a> 2-CMS收集器无法处理浮动垃圾</h4>
 <p>CMS收集器无法处理<u>浮动垃圾(Floating Garbage)</u>,可能会出现&quot;Concurrent Mode Failure&quot;失败而导致另一次Full GC的产生.</p>
 <p>由于CMS并发清理阶段用户线程还在运行着,伴随程序运行自然会还有新的垃圾不断产生,这一部分垃圾出现在标记过程之后,CMS无法在当次收集中处理掉它们,只好留在下一次GC时再清理掉.这一部分垃圾就称为浮动垃圾.</p>
 <p>也是由于在垃圾收集阶段用户线程还需要运行,那也就还需要预留有足够的内存空间给用户线程使用,因此CMS收集器不能像其他收集器那样等到老年代几乎被填满了再进行收集,需要预留一部分空间提供并发收集时的程序运作使用.</p>
-<h4 id="3-%E7%A9%BA%E9%97%B4%E7%A2%8E%E7%89%87%E8%BF%87%E5%A4%9A"><a class="markdownIt-Anchor" href="#-34"></a> <a class="header-anchor" href="#3-%E7%A9%BA%E9%97%B4%E7%A2%8E%E7%89%87%E8%BF%87%E5%A4%9A" aria-hidden="true">§</a> 3-空间碎片过多</h4>
+<h4 id="3-空间碎片过多"><a class="markdownIt-Anchor" href="#3-空间碎片过多"></a> 3-空间碎片过多</h4>
 <p>CMS是基于标记-清除算法实现的收集器,这意味着手机结束时会有大量空间碎片产生.空间碎片过多时,将会给大对象分配带来很大的麻烦,往往会出现老年代内存还有很大空间剩余,但无法找到足够大的连续空间来分配当前对象,不得不提前触发一次Full GC.</p>
-<h3 id="g1%E6%94%B6%E9%9B%86%E5%99%A8"><a class="markdownIt-Anchor" href="#-35"></a> <a class="header-anchor" href="#g1%E6%94%B6%E9%9B%86%E5%99%A8" aria-hidden="true">§</a> G1收集器</h3>
-<h2 id="%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><a class="markdownIt-Anchor" href="#-36"></a> <a class="header-anchor" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5" aria-hidden="true">§</a> 内存分配与回收策略</h2>
+<h3 id="g1收集器"><a class="markdownIt-Anchor" href="#g1收集器"></a> G1收集器</h3>
+<h2 id="内存分配与回收策略"><a class="markdownIt-Anchor" href="#内存分配与回收策略"></a> 内存分配与回收策略</h2>
 <p>Java体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题:<br>
 <u>给对象分配内存</u>和<u>回收分配给对象的内存</u>.</p>
 <p>对象的内存分配,往大方向讲,就是在堆上分配,对象主要分配在新生代的Eden区上,如果启动了本地线程分配缓冲,将按线程优先在TLAB上分配.少数情况下也可能会直接分配在老年代中,分配的规则并不是百分之百固定的,其细节取决于当前使用的是哪一种垃圾收集器组合,还有虚拟机中与内存相关的参数配置的设置.</p>
-<h3 id="%E5%AF%B9%E8%B1%A1%E4%BC%98%E5%85%88%E5%9C%A8eden%E5%88%86%E9%85%8D"><a class="markdownIt-Anchor" href="#-37"></a> <a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E4%BC%98%E5%85%88%E5%9C%A8eden%E5%88%86%E9%85%8D" aria-hidden="true">§</a> 对象优先在Eden分配</h3>
+<h3 id="对象优先在eden分配"><a class="markdownIt-Anchor" href="#对象优先在eden分配"></a> 对象优先在Eden分配</h3>
 <p>大多数情况下,对象在新生代Eden中分配.当Eden区没有足够空间进行分配时,虚拟机将发起一次Minor GC.</p>
-<h3 id="%E5%A4%A7%E5%AF%B9%E8%B1%A1%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3"><a class="markdownIt-Anchor" href="#-38"></a> <a class="header-anchor" href="#%E5%A4%A7%E5%AF%B9%E8%B1%A1%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3" aria-hidden="true">§</a> 大对象直接进入老年代</h3>
+<h3 id="大对象直接进入老年代"><a class="markdownIt-Anchor" href="#大对象直接进入老年代"></a> 大对象直接进入老年代</h3>
 <p>Java大对象需要大量连续的内存空间.<br>
 经常出现大对象容易导致内存还有不少空间时就提前触发垃圾收集以获取足够的连续空间来放置它们.</p>
 <p>虚拟机提供了一个<code>-XX:PretenureSizeThreshold</code>参数,令大于这个设置值的对象直接在老年代分配,这样做的目的是避免在Eden区及两个Survivor区之间发生大量的内存复制.</p>
-<h3 id="%E9%95%BF%E6%9C%9F%E5%AD%98%E6%B4%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3"><a class="markdownIt-Anchor" href="#-39"></a> <a class="header-anchor" href="#%E9%95%BF%E6%9C%9F%E5%AD%98%E6%B4%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3" aria-hidden="true">§</a> 长期存活的对象进入老年代</h3>
+<h3 id="长期存活的对象进入老年代"><a class="markdownIt-Anchor" href="#长期存活的对象进入老年代"></a> 长期存活的对象进入老年代</h3>
 <p>虚拟机采取了分代收集的思想来管理内存,那么内存回收时就必须能识别哪些对象应放在新生代,哪些对象应放在老年代.为此,虚拟机给每个对象定义了一个年龄(Age)计数器.</p>
 <p>如果对象在Eden出生并经过一次Minor GC后仍然存活,并且能被Survivor容纳的话,将被移动到Survivor空间中,并且对象年龄设为1.<br>
 对象在Survivor中每熬过一次Minor GC,对象的年龄就增加1.<br>
 当它的年龄增加到一定程度(默认15)就会被晋升到老年代中.</p>
-<h3 id="%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%B9%B4%E9%BE%84%E7%9A%84%E5%88%A4%E5%AE%9A"><a class="markdownIt-Anchor" href="#-40"></a> <a class="header-anchor" href="#%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%B9%B4%E9%BE%84%E7%9A%84%E5%88%A4%E5%AE%9A" aria-hidden="true">§</a> 动态对象年龄的判定</h3>
+<h3 id="动态对象年龄的判定"><a class="markdownIt-Anchor" href="#动态对象年龄的判定"></a> 动态对象年龄的判定</h3>
 <p>为了能更好地适应不同程序的内存状况,虚拟机并不是永远地要求对象年龄达到<code>PretenureSizeThreshold</code>才能晋升老年代.如果再Survivor中相同年龄所有对象大小的总和大于Survior空间的一半,年龄大于或等于该年龄的对象就可以直接进入老年代.</p>
-<h3 id="%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D"><a class="markdownIt-Anchor" href="#-41"></a> <a class="header-anchor" href="#%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D" aria-hidden="true">§</a> 空间分配担保</h3>
+<h3 id="空间分配担保"><a class="markdownIt-Anchor" href="#空间分配担保"></a> 空间分配担保</h3>
 <p>在发生Minor GC之前,虚拟机会先检查老年代最大可用的连续空间是否大于新生代所有对象总空间,如果这个条件成立,那么Minor GC可以确保是安全的.如果不成立,则虚拟机会查看<code>HandlePromotionFailure</code>设置值是否允许担保失败.</p>
 <p>如果允许,那么会继续检查老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小.<br>
 如果大于,则会尝试进行一个Minor GC,即时可能出现风险.<br>
@@ -909,7 +909,7 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1122,7 +1122,7 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%E5%90%97"><span class="nav-text"> § 对象已死吗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="nav-text"> § 引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="nav-text"> § 可达性分析算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E4%BD%9C%E4%B8%BAgc-roots%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-text"> § 可作为GC Roots的对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%8D%E8%B0%88%E5%BC%95%E7%94%A8"><span class="nav-text"> § 再谈引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="nav-text"> § 强引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AF%E5%BC%95%E7%94%A8"><span class="nav-text"> § 软引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="nav-text"> § 弱引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%BC%95%E7%94%A8"><span class="nav-text"> § 虚引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1"><span class="nav-text"> § 生存还是死亡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E6%94%B6%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-text"> § 回收方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%9F%E5%BC%83%E5%B8%B8%E9%87%8F"><span class="nav-text"> § 废弃常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E7%94%A8%E7%9A%84%E7%B1%BB"><span class="nav-text"> § 无用的类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-text"> § 垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-text"> § 标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-text"> § 复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="nav-text"> § 标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-text"> § 分代收集算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hotspot%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="nav-text"> § HotSpot的算法实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E6%A0%B9%E8%8A%82%E7%82%B9"><span class="nav-text"> § 枚举根节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%82%B9"><span class="nav-text"> § 安全点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A2%E5%85%88%E5%BC%8F%E4%B8%AD%E6%96%AD"><span class="nav-text"> § 抢先式中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8A%A8%E5%BC%8F%E4%B8%AD%E6%96%AD"><span class="nav-text"> § 主动式中断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F"><span class="nav-text"> § 安全区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § 垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#serial%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § Serial收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parnew%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § ParNew收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parallel-scavenge%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § Parallel Scavenge收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serial-old%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § Serial Old收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parallel-old%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § Parallel Old收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cms%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § CMS收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-cms%E6%94%B6%E9%9B%86%E5%99%A8%E5%AF%B9cpu%E8%B5%84%E6%BA%90%E5%8D%81%E5%88%86%E6%95%8F%E6%84%9F"><span class="nav-text"> § 1-CMS收集器对CPU资源十分敏感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cms%E6%94%B6%E9%9B%86%E5%99%A8%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E6%B5%AE%E5%8A%A8%E5%9E%83%E5%9C%BE"><span class="nav-text"> § 2-CMS收集器无法处理浮动垃圾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%A9%BA%E9%97%B4%E7%A2%8E%E7%89%87%E8%BF%87%E5%A4%9A"><span class="nav-text"> § 3-空间碎片过多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#g1%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text"> § G1收集器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><span class="nav-text"> § 内存分配与回收策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E4%BC%98%E5%85%88%E5%9C%A8eden%E5%88%86%E9%85%8D"><span class="nav-text"> § 对象优先在Eden分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E5%AF%B9%E8%B1%A1%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="nav-text"> § 大对象直接进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E6%9C%9F%E5%AD%98%E6%B4%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="nav-text"> § 长期存活的对象进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%B9%B4%E9%BE%84%E7%9A%84%E5%88%A4%E5%AE%9A"><span class="nav-text"> § 动态对象年龄的判定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D"><span class="nav-text"> § 空间分配担保</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象已死吗"><span class="nav-text"> 对象已死吗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数法"><span class="nav-text"> 引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可达性分析算法"><span class="nav-text"> 可达性分析算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可作为gc-roots的对象"><span class="nav-text"> 可作为GC Roots的对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再谈引用"><span class="nav-text"> 再谈引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强引用"><span class="nav-text"> 强引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软引用"><span class="nav-text"> 软引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弱引用"><span class="nav-text"> 弱引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚引用"><span class="nav-text"> 虚引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生存还是死亡"><span class="nav-text"> 生存还是死亡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回收方法区"><span class="nav-text"> 回收方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#废弃常量"><span class="nav-text"> 废弃常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无用的类"><span class="nav-text"> 无用的类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集算法"><span class="nav-text"> 垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-清除算法"><span class="nav-text"> 标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制算法"><span class="nav-text"> 复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-整理算法"><span class="nav-text"> 标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代收集算法"><span class="nav-text"> 分代收集算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hotspot的算法实现"><span class="nav-text"> HotSpot的算法实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举根节点"><span class="nav-text"> 枚举根节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全点"><span class="nav-text"> 安全点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抢先式中断"><span class="nav-text"> 抢先式中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主动式中断"><span class="nav-text"> 主动式中断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全区域"><span class="nav-text"> 安全区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集器"><span class="nav-text"> 垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#serial收集器"><span class="nav-text"> Serial收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parnew收集器"><span class="nav-text"> ParNew收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parallel-scavenge收集器"><span class="nav-text"> Parallel Scavenge收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serial-old收集器"><span class="nav-text"> Serial Old收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parallel-old收集器"><span class="nav-text"> Parallel Old收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cms收集器"><span class="nav-text"> CMS收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-cms收集器对cpu资源十分敏感"><span class="nav-text"> 1-CMS收集器对CPU资源十分敏感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cms收集器无法处理浮动垃圾"><span class="nav-text"> 2-CMS收集器无法处理浮动垃圾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-空间碎片过多"><span class="nav-text"> 3-空间碎片过多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#g1收集器"><span class="nav-text"> G1收集器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配与回收策略"><span class="nav-text"> 内存分配与回收策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象优先在eden分配"><span class="nav-text"> 对象优先在Eden分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大对象直接进入老年代"><span class="nav-text"> 大对象直接进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长期存活的对象进入老年代"><span class="nav-text"> 长期存活的对象进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态对象年龄的判定"><span class="nav-text"> 动态对象年龄的判定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间分配担保"><span class="nav-text"> 空间分配担保</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1162,7 +1162,7 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">184k</span>
+    <span title="站点总字数">187k</span>
   
 
   

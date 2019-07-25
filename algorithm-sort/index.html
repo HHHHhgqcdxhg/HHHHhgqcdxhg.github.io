@@ -112,10 +112,12 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="复习一下排序算法  概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(nlo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-04T05:44:20.007Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190725102453.png">
+<meta property="og:updated_time" content="2019-07-25T06:02:34.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
 <meta name="twitter:description" content="复习一下排序算法  概览    排序算法 时间复杂度 最好情况 最坏情况 空间复杂度 排序方式 稳定性     冒泡排序 O(n2) O(n) O(n2) O(1) in-place 稳定   选择排序 O(n2) O(n2) O(n2) O(1) in-place 不稳定   插入排序 O(n2) O(n) O(n2) O(1) in-place 稳定   希尔排序 O(nlogn) O(nlo">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190725102453.png">
 
 
 
@@ -469,7 +471,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-04 13:44:20" itemprop="dateModified" datetime="2019-07-04T13:44:20+08:00">2019-07-04</time>
+                <time title="修改时间：2019-07-25 14:02:34" itemprop="dateModified" datetime="2019-07-25T14:02:34+08:00">2019-07-25</time>
               
             
           </span>
@@ -510,7 +512,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.9k</span>
+                <span title="本文字数">4.8k</span>
               
 
               
@@ -662,7 +664,13 @@ window.console.log=()=>{};
 <p>希尔排序又叫&quot;缩小间隔排序&quot;,它以插入排序为基础,将原来要排序的列表划分为一些字列表,再对每一个子列表执行插入排序<br>
 划分子列表的方法是希尔排序的关键.我们并不是将原始列表分成含有连续元素的子列,而是确定一个特别的分量&quot;i&quot;,这个i更准确地说是划分的间隔.然后把每间隔为i的所有元素选出来组成子列表,然后对每个子序列进行插入排序,最后当i=1时,对整体进行一次插入排序</p>
 <h3 id="代码实现-3"><a class="markdownIt-Anchor" href="#代码实现-3"></a> 代码实现</h3>
-<pre class="highlight"><code class="Java"></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 希尔排序</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shellSort</span><span class="params">(alist)</span>:</span></span><br><span class="line">    n = len(alist)</span><br><span class="line">    gap = n // <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> gap &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(gap):</span><br><span class="line">            gapInsetionSort(alist, i, gap)</span><br><span class="line">        gap = gap // <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> alist</span><br><span class="line"></span><br><span class="line"><span class="comment"># # start子数列开始的起始位置， gap表示间隔</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gapInsetionSort</span><span class="params">(alist,startpos,gap)</span>:</span></span><br><span class="line">    <span class="comment">#希尔排序的辅助函数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(startpos+gap,len(alist),gap):</span><br><span class="line">        position=i</span><br><span class="line">        currentvalue=alist[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> position&gt;startpos <span class="keyword">and</span> alist[position-gap]&gt;currentvalue:</span><br><span class="line">            alist[position]=alist[position-gap]</span><br><span class="line">            position=position-gap</span><br><span class="line">        alist[position]=currentvalue</span><br></pre></td></tr></table></figure>
+<h2 id="归并排序"><a class="markdownIt-Anchor" href="#归并排序"></a> 归并排序</h2>
+<p>归并排序是一种递归算法,它持续地将一个列表分成两半进行排序.<br>
+<img src="https://pic.ggemo.com/picgo/20190725102453.png" alt="20190725102453.png"></p>
+<h2 id="快速排序"><a class="markdownIt-Anchor" href="#快速排序"></a> 快速排序</h2>
+<p>通过一趟排序将要排序的数据分成独立的两部分,其中一部分的数据比另外一部分的所有数据都要小,然后按此方法对这两部分数据分别进行快速排序.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(end &lt;= start)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> p = partition(arr, start, end);</span><br><span class="line">    quickSort(arr,start,p - <span class="number">1</span>);</span><br><span class="line">    quickSort(arr,p + <span class="number">1</span>,end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"============↓↓↓开始执行↓↓↓============="</span>);</span><br><span class="line">    System.out.println(<span class="string">"本次执行数组: "</span> + Arrays.toString(Arrays.copyOfRange(arr,start,end)));</span><br><span class="line">    <span class="keyword">float</span> pos = r.nextFloat();</span><br><span class="line">    <span class="keyword">int</span> posInt = (<span class="keyword">int</span>) (pos * (end - start) + start);</span><br><span class="line">    <span class="keyword">int</span> tmp = arr[posInt];</span><br><span class="line">    System.out.println(<span class="string">"本次选定基准:  arr["</span> + (posInt - start) + <span class="string">"] = "</span> + tmp);</span><br><span class="line">    arr[posInt] = arr[start];</span><br><span class="line">    arr[start] = tmp;</span><br><span class="line">    <span class="keyword">int</span> pivot = arr[start];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> j = start;</span><br><span class="line">    <span class="keyword">int</span> i = start + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; end) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt;= pivot) &#123;</span><br><span class="line">            tmp = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = arr[i];</span><br><span class="line">            arr[i] = tmp;</span><br><span class="line">            j += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    tmp = arr[j];</span><br><span class="line">    arr[j] = arr[start];</span><br><span class="line">    arr[start] = tmp;</span><br><span class="line">    System.out.println(<span class="string">"本次执行完事后数组: "</span> + Arrays.toString(Arrays.copyOfRange(arr,start,end)));</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -709,8 +717,8 @@ window.console.log=()=>{};
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hw8-spring-mybatis/" rel="prev" title="springBoot下mybatis的使用">
-                springBoot下mybatis的使用 <i class="fa fa-chevron-right"></i>
+              <a href="/java-and-thread/" rel="prev" title="Java与线程">
+                Java与线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -789,7 +797,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1002,7 +1010,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-text"> 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-text"> 冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价"><span class="nav-text"> 评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化代码"><span class="nav-text"> 优化代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-text"> 选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-text"> 插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现-2"><span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序"><span class="nav-text"> 希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现-3"><span class="nav-text"> 代码实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-text"> 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-text"> 冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价"><span class="nav-text"> 评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化代码"><span class="nav-text"> 优化代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-text"> 选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-text"> 插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现-2"><span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序"><span class="nav-text"> 希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现-3"><span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-text"> 归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-text"> 快速排序</span></a></li></ol></div>
             
 
           </div>
@@ -1042,7 +1050,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">187k</span>
+    <span title="站点总字数">188k</span>
   
 
   

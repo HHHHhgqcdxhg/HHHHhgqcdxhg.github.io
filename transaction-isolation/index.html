@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之前,该数据被其他事">
+  <meta name="description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事务隔离">
 <meta property="og:url" content="https://blog.ggemo.com/transaction-isolation/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之前,该数据被其他事">
+<meta property="og:description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-02T01:24:14.531Z">
+<meta property="og:updated_time" content="2019-07-25T12:25:58.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事务隔离">
-<meta name="twitter:description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之前,该数据被其他事">
+<meta name="twitter:description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事">
 
 
 
@@ -469,7 +469,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-02 09:24:14" itemprop="dateModified" datetime="2019-07-02T09:24:14+08:00">2019-07-02</time>
+                <time title="修改时间：2019-07-25 20:25:58" itemprop="dateModified" datetime="2019-07-25T20:25:58+08:00">2019-07-25</time>
               
             
           </span>
@@ -546,11 +546,11 @@ window.console.log=()=>{};
 <h3 id="read-committed"><a class="markdownIt-Anchor" href="#read-committed"></a> Read Committed</h3>
 <p><em>读取提交内容</em> <em>Nonrepeatable Read</em> <em>不可重复读</em><br>
 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作<br>
-因为两次读取数据库某条数据时,数据可能会不一致(两次读取之前,该数据被其他事务改动),所以也被称为Nonrepeatable Read<br>
+因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事务改动),所以也被称为Nonrepeatable Read<br>
 (这个是mysql默认的事务隔离级别)</p>
 <h3 id="repeatable-read"><a class="markdownIt-Anchor" href="#repeatable-read"></a> Repeatable Read</h3>
 <p><em>可重读</em><br>
-确保同一事务获取到的数据时一致的<br>
+确保同一事务获取到的数据是一致的<br>
 不过会导致另一个问题: <a href="#%E5%B9%BB%E8%AF%BB">幻读</a></p>
 <h3 id="serializable"><a class="markdownIt-Anchor" href="#serializable"></a> Serializable</h3>
 <p><em>可串行化</em><br>
@@ -725,7 +725,7 @@ Read Committed满足了隔离的定义: 一个事务只能看到其他事务已�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

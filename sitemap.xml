@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/transaction-isolation/</loc>
+    
+    <lastmod>2019-07-25T12:25:58.193Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/algorithm-sort/</loc>
     
     <lastmod>2019-07-25T06:02:34.050Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://blog.ggemo.com/database-lock/</loc>
     
     <lastmod>2019-07-02T12:57:17.678Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/transaction-isolation/</loc>
-    
-    <lastmod>2019-07-02T01:24:14.531Z</lastmod>
     
   </url>
   
@@ -100,13 +100,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/sql-standard/</loc>
-    
-    <lastmod>2019-06-12T18:50:24.938Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/figure-record/index.html</loc>
     
     <lastmod>2019-05-28T05:57:51.198Z</lastmod>
@@ -145,13 +138,6 @@
     <loc>https://blog.ggemo.com/nuxt-understanding/</loc>
     
     <lastmod>2019-05-08T06:39:48.151Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/website-prepare/</loc>
-    
-    <lastmod>2019-05-06T10:04:09.362Z</lastmod>
     
   </url>
   
@@ -254,13 +240,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/bili-bangumi-style-id/</loc>
-    
-    <lastmod>2019-04-09T17:04:24.182Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/shader-r-alpha-effect/</loc>
     
     <lastmod>2019-04-06T09:32:47.343Z</lastmod>
@@ -317,14 +296,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     
     <lastmod>2019-03-24T13:01:47.426Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     
     <lastmod>2019-03-24T13:01:47.426Z</lastmod>
     
@@ -387,14 +366,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/mingshi.model3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/mingshi.model3.json</loc>
     
     <lastmod>2019-03-12T13:08:48.757Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/mingshi.model3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/mingshi.model3.json</loc>
     
     <lastmod>2019-03-12T13:08:48.757Z</lastmod>
     
@@ -408,14 +387,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/main_3.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/main_3.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.741Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/main_3.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/main_3.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.741Z</lastmod>
     
@@ -429,7 +408,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/touch_head.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/touch_head.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.728Z</lastmod>
     
@@ -443,14 +422,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/touch_head.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/touch_head.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.728Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/mission_complete.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/mission_complete.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.714Z</lastmod>
     
@@ -464,14 +443,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/mission_complete.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/mission_complete.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.714Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/gold.motion3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/motions/gold.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.702Z</lastmod>
     
@@ -485,14 +464,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/gold.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/gold.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.702Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/home.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/home.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.694Z</lastmod>
     
@@ -506,21 +485,21 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/home.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/home.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.694Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/mission.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/mission.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.685Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/mission.motion3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/motions/mission.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.685Z</lastmod>
     
@@ -534,7 +513,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/diamond.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/diamond.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.674Z</lastmod>
     
@@ -548,7 +527,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/diamond.motion3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/motions/diamond.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.674Z</lastmod>
     
@@ -562,13 +541,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/complete.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.661Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/live2d/mingshi/motions/complete.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.661Z</lastmod>
@@ -576,14 +548,21 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/wedding.motion3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/motions/complete.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.661Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/mingshi/motions/wedding.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.644Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/wedding.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/wedding.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.644Z</lastmod>
     
@@ -597,7 +576,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/touch_special.motion3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/motions/touch_special.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.628Z</lastmod>
     
@@ -611,9 +590,16 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/touch_special.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/touch_special.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.628Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/touch_body.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.612Z</lastmod>
     
   </url>
   
@@ -632,21 +618,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/touch_body.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.612Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/mingshi/motions/main_1.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.603Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/main_1.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.603Z</lastmod>
     
@@ -660,14 +632,21 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/main_2.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/main_1.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.603Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/main_2.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.592Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/main_2.motion3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/motions/main_2.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.592Z</lastmod>
     
@@ -702,14 +681,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/mingshi/motions/oil.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/oil.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.572Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/oil.motion3.json</loc>
+    <loc>https://blog.ggemo.com/mingshi/motions/oil.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.572Z</lastmod>
     
@@ -719,13 +698,6 @@
     <loc>https://blog.ggemo.com/live2d/mingshi/motions/oil.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.572Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/login.motion3.json</loc>
-    
-    <lastmod>2019-03-12T12:57:37.560Z</lastmod>
     
   </url>
   
@@ -744,14 +716,21 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/mingshi/motions/idle.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/login.motion3.json</loc>
+    
+    <lastmod>2019-03-12T12:57:37.560Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/src/mingshi/motions/idle.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.546Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/mingshi/motions/idle.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/mingshi/motions/idle.motion3.json</loc>
     
     <lastmod>2019-03-12T12:57:37.546Z</lastmod>
     
@@ -800,14 +779,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/lafei/motions/wedding.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/lafei/motions/wedding.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.986Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/lafei/motions/wedding.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/lafei/motions/wedding.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.986Z</lastmod>
     
@@ -828,13 +807,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/lafei/motions/main_3.motion3.json</loc>
-    
-    <lastmod>2019-03-12T10:30:01.962Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/live2d/lafei/motions/main_3.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.962Z</lastmod>
@@ -842,9 +814,9 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/lafei/motions/mission.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/lafei/motions/main_3.motion3.json</loc>
     
-    <lastmod>2019-03-12T10:30:01.951Z</lastmod>
+    <lastmod>2019-03-12T10:30:01.962Z</lastmod>
     
   </url>
   
@@ -856,9 +828,9 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/lafei/motions/mission_complete.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/lafei/motions/mission.motion3.json</loc>
     
-    <lastmod>2019-03-12T10:30:01.941Z</lastmod>
+    <lastmod>2019-03-12T10:30:01.951Z</lastmod>
     
   </url>
   
@@ -870,14 +842,21 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/lafei/motions/main_2.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/lafei/motions/mission_complete.motion3.json</loc>
+    
+    <lastmod>2019-03-12T10:30:01.941Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/live2d/lafei/motions/main_2.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.931Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/lafei/motions/main_2.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/lafei/motions/main_2.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.931Z</lastmod>
     
@@ -912,13 +891,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/lafei/motions/touch_special.motion3.json</loc>
-    
-    <lastmod>2019-03-12T10:30:01.901Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/live2d/lafei/motions/touch_special.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.901Z</lastmod>
@@ -926,9 +898,9 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/lafei/motions/idle.motion3.json</loc>
+    <loc>https://blog.ggemo.com/src/lafei/motions/touch_special.motion3.json</loc>
     
-    <lastmod>2019-03-12T10:30:01.892Z</lastmod>
+    <lastmod>2019-03-12T10:30:01.901Z</lastmod>
     
   </url>
   
@@ -940,14 +912,21 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/lafei/motions/home.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/lafei/motions/idle.motion3.json</loc>
+    
+    <lastmod>2019-03-12T10:30:01.892Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/src/lafei/motions/home.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.879Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/src/lafei/motions/home.motion3.json</loc>
+    <loc>https://blog.ggemo.com/live2d/lafei/motions/home.motion3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.879Z</lastmod>
     
@@ -999,13 +978,6 @@
     <loc>https://blog.ggemo.com/live2d/lafei/lafei.physics3.json</loc>
     
     <lastmod>2019-03-12T10:30:01.215Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/note-interview/</loc>
-    
-    <lastmod>2019-03-07T00:46:33.951Z</lastmod>
     
   </url>
   
@@ -1115,14 +1087,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/lafei/live2d_src-master/src/dev.html</loc>
+    <loc>https://blog.ggemo.com/live2d/lafei/live2d_src-master/src/insert.html</loc>
     
     <lastmod>2018-01-04T06:08:18.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/live2d/lafei/live2d_src-master/src/insert.html</loc>
+    <loc>https://blog.ggemo.com/live2d/lafei/live2d_src-master/src/dev.html</loc>
     
     <lastmod>2018-01-04T06:08:18.000Z</lastmod>
     

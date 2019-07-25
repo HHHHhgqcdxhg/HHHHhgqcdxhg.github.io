@@ -25,7 +25,7 @@
   <entry>
     <title><![CDATA[事务隔离]]></title>
     <url>%2Ftransaction-isolation%2F</url>
-    <content type="text"><![CDATA[事务的四大特性 原子性 一致性 隔离性 持久性 四种事务隔离级别 Read Uncommitted 读取未提交内容 会出现脏读 Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之前,该数据被其他事务改动),所以也被称为Nonrepeatable Read (这个是mysql默认的事务隔离级别) Repeatable Read 可重读 确保同一事务获取到的数据时一致的 不过会导致另一个问题: 幻读 Serializable 可串行化 最高级别的事务隔离,通过强制事务排序使之不可能相互冲突,从而解决幻读问题.简而言之,它是在每个读的数据上加上共享锁.在这个级别可能导致大量的超时现象和锁竞争 总结 隔离级别 脏读 不可重复读 幻读 Read Uncommitted √ √ √ Read Committed x √ √ Repeatable Read x x √ Serializable x x x 名词解释 脏读 Dirty Read 读取其他事务未提交的执行结果 幻读 Phantom Read 幻读是指用户在读取某一行数据时,另一个事务又在该范围内插入了新行,当用户再次读取该范围数据行时,会出现新的&quot;幻影行&quot;]]></content>
+    <content type="text"><![CDATA[事务的四大特性 原子性 一致性 隔离性 持久性 四种事务隔离级别 Read Uncommitted 读取未提交内容 会出现脏读 Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事务改动),所以也被称为Nonrepeatable Read (这个是mysql默认的事务隔离级别) Repeatable Read 可重读 确保同一事务获取到的数据是一致的 不过会导致另一个问题: 幻读 Serializable 可串行化 最高级别的事务隔离,通过强制事务排序使之不可能相互冲突,从而解决幻读问题.简而言之,它是在每个读的数据上加上共享锁.在这个级别可能导致大量的超时现象和锁竞争 总结 隔离级别 脏读 不可重复读 幻读 Read Uncommitted √ √ √ Read Committed x √ √ Repeatable Read x x √ Serializable x x x 名词解释 脏读 Dirty Read 读取其他事务未提交的执行结果 幻读 Phantom Read 幻读是指用户在读取某一行数据时,另一个事务又在该范围内插入了新行,当用户再次读取该范围数据行时,会出现新的&quot;幻影行&quot;]]></content>
       <tags>
         <tag>数据库</tag>
       </tags>
@@ -81,11 +81,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[sql习惯]]></title>
-    <url>%2Fsql-standard%2F</url>
-    <content type="text"><![CDATA[关键字大写 单行不带; 引号用单引号’’]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[nuxt的理解]]></title>
     <url>%2Fnuxt-understanding%2F</url>
     <content type="text"><![CDATA[nuxt nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端 nuxt和vue的生命周期 nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的… 1234567891011121314151617181920212223242526272829303132333435&lt;template&gt; &lt;section class=&quot;container&quot;&gt; &#123;&#123;p&#125;&#125; &lt;br&gt; &#123;&#123;t&#125;&#125; &lt;/section&gt;&lt;/template&gt;&lt;script&gt; import axios from &apos;axios&apos; export default &#123; data () &#123; return &#123; p: &apos;p&apos;, t: &apos;t&apos; &#125; &#125;, asyncData (&#123; req, params &#125;) &#123; // We can return a Promise instead of calling the callback return axios.get(&apos;https://api.ggemo.com/test&apos;) .then((res) =&gt; &#123; return &#123; posts: res.data &#125; &#125;) &#125;, created () &#123; this.p = this.posts.data.text &#125;, mounted () &#123; console.log(&quot;p before changed: &quot;,this.p) this.p = &apos;p mounted&apos; console.log(&quot;p changed: &quot;,this.p) this.t = &apos;t mounted&apos; &#125; &#125;&lt;/script&gt; 这样渲染出来的html文件的body部分为 1234567891011121314151617181920212223242526&lt;body data-n-head=""&gt;&lt;div data-server-rendered="true" id="__nuxt"&gt;&lt;!----&gt; &lt;div id="__layout"&gt; &lt;div&gt; header &lt;section class="container"&gt; 成功 successed &lt;br&gt; t &lt;/section&gt; footer &lt;/div&gt; &lt;/div&gt;&lt;/div&gt;&lt;script&gt;window.__NUXT__ = &#123; layout: 'default', data: [&#123; posts: &#123; status: 0, data: &#123; text: '成功 successed' &#125; &#125; &#125;], error: null, serverRendered: true&#125;&lt;/script&gt;&lt;script src="/_nuxt/runtime.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/pages_index.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/pages_index.42262e91659a4eb99aae.hot-update.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/vendors.app.js" defer&gt;&lt;/script&gt;&lt;script src="/_nuxt/app.js" defer&gt;&lt;/script&gt;&lt;/body&gt; 在页面上的渲染效果为 其中https://api.ggemo.com/test中的内容为{ posts: { status: 0, data: { text: ‘成功 successed’ } } } created钩子中的 this.p的值,在传给客户端之前就已经被渲染进了html源码 而mounted中的 this.p的值和this.t的值的更改是在客户端被执行的 由此可见,vue的created钩子运行在了服务端,mounted钩子运行在了客户端 nuxt官网的图片: Render应该是执行vue生命周期中beforeMount之前的钩子]]></content>
@@ -106,11 +101,6 @@
         <tag>ggemo日志</tag>
         <tag>django</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[website-prepare]]></title>
-    <url>%2Fwebsite-prepare%2F</url>
-    <content type="text"><![CDATA[后端 nginx django 存储 腾讯云对象存储 审核 七牛云内容安全 数据库 mysql 前端 vue element-ui ant-ui? iView? 需要学习 分布式 消息队列 vuex nuxt docker SEO优化 留意 dns-prefetch vue-meta vuex-persistedstate(用户登录状态保持)]]></content>
   </entry>
   <entry>
     <title><![CDATA[云服务薅羊毛]]></title>
@@ -177,11 +167,6 @@
         <tag>设计模式</tag>
         <tag>翻译</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[bili_bangumi_style-id]]></title>
-    <url>%2Fbili-bangumi-style-id%2F</url>
-    <content type="text"><![CDATA[id 描述 9 少女 16 日常 141 萝莉]]></content>
   </entry>
   <entry>
     <title><![CDATA[lua-study]]></title>
@@ -389,11 +374,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[面试笔记]]></title>
-    <url>%2Fnote-interview%2F</url>
-    <content type="text"><![CDATA[位运算可以节约传输和储存的空间 unity，c#，lua，opengl，渲染]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[加了几个音乐收藏夹]]></title>
     <url>%2FmusicFavorites%2F</url>
     <content type="text"><![CDATA[想着给把最喜欢,最常听的几首歌按风格分类,造了这么几个歌单 治愈 爱 静谧 朝气蓬勃 优美忧伤 对这些歌写点东西 治愈 urar 很美好. 蝴蝶泉边 同样很美好很温馨,更加了点回忆的感觉 Growing! 就是让人撒娇的歌 爱 Letter 动画HandShaker的BGM中听到的. 前面一段代表书信的常规内容,后面深深的感情喷涌而出. 不像小情侣之间的爱,像是老夫老妻或者亲情的爱 这封Letter不像情书而是像家书 LuvLetter 情书. 写情书和纠结要不要将情书送出去的过程,理解的是纠结着很痛苦然后没能送出去. 中间有纠结的痛苦,也有想象的美好结局. 恋 日推给我的,高潮部分很好听 愛唄 当初看一个高木同学的AMV注意到的,很真情实感 小小恋歌 同样是高木同学ed收录的 当初觉得高桥李依版本的好听,比较甜美来着,后来还是觉得新垣结衣唱的好听,捎带沙哑点的声音很温柔很知性 さよならの夏 啊 静谧 Mountain stream 高中时候学校就经常放的 陽だまり道とれんちょん 悠哉日常大王的BGM ふるさとの匂い 夏目友人帐的BGM 朝气蓬勃 RYDEEN 朝气蓬勃 优美忧伤 おうちに帰りたい ちいさな冒険者 素晴的ed. Arrietty’s Song 借东西的小人阿莉埃蒂的主题曲 春よ、来い 看了一个潮学视频知道的…着实很好听 この感情は使命 island的曲子 さよならの夏 啊]]></content>
@@ -476,8 +456,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>

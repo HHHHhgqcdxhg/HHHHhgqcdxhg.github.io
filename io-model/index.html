@@ -104,23 +104,24 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/tags/前端/index.html">
+  <meta name="description" content="IO分为两步:  等待数据准备好 数据搬迁  五种IO模型包括: 阻塞IO, 非阻塞IO, 信号驱动IO, IO多路转接, 异步IO  阻塞式IO blocking I/O 在内核将数据准备好之前一直阻塞  非阻塞IO noblocking I/O 调用程序发起系统调用之后不断轮询询问内核数据有没有准备好. 没有准备好时不会阻塞程序  信号驱动IO signal blocking I/O 当数据报">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五种IO模型">
+<meta property="og:url" content="https://blog.ggemo.com/io-model/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="IO分为两步:  等待数据准备好 数据搬迁  五种IO模型包括: 阻塞IO, 非阻塞IO, 信号驱动IO, IO多路转接, 异步IO  阻塞式IO blocking I/O 在内核将数据准备好之前一直阻塞  非阻塞IO noblocking I/O 调用程序发起系统调用之后不断轮询询问内核数据有没有准备好. 没有准备好时不会阻塞程序  信号驱动IO signal blocking I/O 当数据报">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-26T02:23:24.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="五种IO模型">
+<meta name="twitter:description" content="IO分为两步:  等待数据准备好 数据搬迁  五种IO模型包括: 阻塞IO, 非阻塞IO, 信号驱动IO, IO多路转接, 异步IO  阻塞式IO blocking I/O 在内核将数据准备好之前一直阻塞  非阻塞IO noblocking I/O 调用程序发起系统调用之后不断轮询询问内核数据有没有准备好. 没有准备好时不会阻塞程序  信号驱动IO signal blocking I/O 当数据报">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/tags/前端/">
+  <link rel="canonical" href="https://blog.ggemo.com/io-model/">
 
 
 
@@ -130,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>标签: 前端 | 黄瓜养殖基地！</title>
+  <title>五种IO模型 | 黄瓜养殖基地！</title>
   
 
 
@@ -209,7 +210,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,7 +282,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -386,82 +387,244 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>前端<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/io-model/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/nuxt-understanding/" itemprop="url">
-            
-              <span itemprop="name">nuxt的理解</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">五种IO模型
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-08T12:28:26+08:00" content="2019-05-08">
-          05-08
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-25 22:24:01" itemprop="dateCreated datePublished" datetime="2019-07-25T22:24:01+08:00">2019-07-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-26 10:23:24" itemprop="dateModified" datetime="2019-07-26T10:23:24+08:00">2019-07-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/io-model/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/io-model/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">453</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>IO分为两步:</p>
+<ol>
+<li>等待数据准备好</li>
+<li>数据搬迁</li>
+</ol>
+<p>五种IO模型包括: <strong><a href="#%E9%98%BB%E5%A1%9EIO">阻塞IO</a></strong>, <strong><a href="#%E9%9D%9E%E9%98%BB%E5%A1%9EIO">非阻塞IO</a></strong>, <strong><a href="#%E4%BF%A1%E5%8F%B7%E9%A9%B1%E5%8A%A8IO">信号驱动IO</a></strong>, <strong><a href="#IO%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5">IO多路转接</a></strong>, <strong><a href="#%E5%BC%82%E6%AD%A5IO">异步IO</a></strong></p>
+<h2 id="阻塞式io"><a class="markdownIt-Anchor" href="#阻塞式io"></a> 阻塞式IO</h2>
+<p><em>blocking I/O</em></p>
+<p>在内核将数据准备好之前一直阻塞</p>
+<h2 id="非阻塞io"><a class="markdownIt-Anchor" href="#非阻塞io"></a> 非阻塞IO</h2>
+<p><em>noblocking I/O</em><br>
+调用程序发起系统调用之后不断轮询询问内核数据有没有准备好.<br>
+没有准备好时不会阻塞程序</p>
+<h2 id="信号驱动io"><a class="markdownIt-Anchor" href="#信号驱动io"></a> 信号驱动IO</h2>
+<p><em>signal blocking I/O</em><br>
+当数据报准备好时,内核会给调用程序发送一个信号<br>
+在等待信号期间调用程序不会阻塞</p>
+<h2 id="io多路转接"><a class="markdownIt-Anchor" href="#io多路转接"></a> IO多路转接</h2>
+<p><em>I/O multiplexing</em><br>
+类似于非阻塞型I/O,只不过轮询不是用户线程去执行,而是内核去轮询.内核监听程序监听到数据准备好后,调用内核函数复制数据到用户态.</p>
+<h2 id="异步io"><a class="markdownIt-Anchor" href="#异步io"></a> 异步IO</h2>
+<p><em>asynchronous I/O</em><br>
+异步IO依赖信号处理程序来进行通知.<br>
+不过前面都是数据准备阶段的阻塞和非阻塞,异步IO模型通知的是IO操作已完成,而不是数据准备完成.<br>
+异步IO才是真正的非阻塞,主进程只负责做自己的事情,等IO操作完成.</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/java-and-thread/" rel="next" title="Java与线程">
+                <i class="fa fa-chevron-left"></i> Java与线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -484,8 +647,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -705,6 +877,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞式io"><span class="nav-text"> 阻塞式IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非阻塞io"><span class="nav-text"> 非阻塞IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号驱动io"><span class="nav-text"> 信号驱动IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#io多路转接"><span class="nav-text"> IO多路转接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步io"><span class="nav-text"> 异步IO</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -848,6 +1037,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -894,6 +1087,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

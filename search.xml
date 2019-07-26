@@ -488,17 +488,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ｆｔｐ 三 次 握 手]]></title>
-    <url>%2FsomeFTP%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>杂</category>
-      </categories>
-      <tags>
-        <tag>无厘头</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[azurlane-painting开发笔记]]></title>
     <url>%2Fazurlane-painting%2F</url>
     <content type="text"><![CDATA[dalao的开发过程 我的开发过程 repo : https://github.com/HHHHhgqcdxhg/azurlane-painting 图片处理过程: 将图片缩小 -&gt; 将图片色彩聚类到16色 -&gt; 将聚类后的16色归到舰b指定的8色 -&gt; 合成画板图片]]></content>

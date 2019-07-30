@@ -104,18 +104,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事">
+  <meta name="description" content="事务隔离  事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事务隔离">
+<meta property="og:title" content="事务隔离和Spring事务传播特性">
 <meta property="og:url" content="https://blog.ggemo.com/transaction-isolation/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事">
+<meta property="og:description" content="事务隔离  事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-25T12:25:58.193Z">
+<meta property="og:updated_time" content="2019-07-27T06:52:50.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="事务隔离">
-<meta name="twitter:description" content="事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事">
+<meta name="twitter:title" content="事务隔离和Spring事务传播特性">
+<meta name="twitter:description" content="事务隔离  事务的四大特性  原子性  一致性  隔离性  持久性  四种事务隔离级别  Read Uncommitted 读取未提交内容 会出现脏读  Read Committed 读取提交内容 Nonrepeatable Read 不可重复读 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该">
 
 
 
@@ -132,7 +132,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>事务隔离 | 黄瓜养殖基地！</title>
+  <title>事务隔离和Spring事务传播特性 | 黄瓜养殖基地！</title>
   
 
 
@@ -425,7 +425,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">事务隔离
+          <h2 class="post-title" itemprop="name headline">事务隔离和Spring事务传播特性
 
               
             
@@ -469,7 +469,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-25 20:25:58" itemprop="dateModified" datetime="2019-07-25T20:25:58+08:00">2019-07-25</time>
+                <time title="修改时间：2019-07-27 14:52:50" itemprop="dateModified" datetime="2019-07-27T14:52:50+08:00">2019-07-27</time>
               
             
           </span>
@@ -510,7 +510,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">645</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -534,28 +534,29 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="事务的四大特性"><a class="markdownIt-Anchor" href="#事务的四大特性"></a> 事务的四大特性</h2>
-<h3 id="原子性"><a class="markdownIt-Anchor" href="#原子性"></a> 原子性</h3>
-<h3 id="一致性"><a class="markdownIt-Anchor" href="#一致性"></a> 一致性</h3>
-<h3 id="隔离性"><a class="markdownIt-Anchor" href="#隔离性"></a> 隔离性</h3>
-<h3 id="持久性"><a class="markdownIt-Anchor" href="#持久性"></a> 持久性</h3>
-<h2 id="四种事务隔离级别"><a class="markdownIt-Anchor" href="#四种事务隔离级别"></a> 四种事务隔离级别</h2>
-<h3 id="read-uncommitted"><a class="markdownIt-Anchor" href="#read-uncommitted"></a> Read Uncommitted</h3>
+        <h2 id="事务隔离"><a class="markdownIt-Anchor" href="#事务隔离"></a> 事务隔离</h2>
+<h3 id="事务的四大特性"><a class="markdownIt-Anchor" href="#事务的四大特性"></a> 事务的四大特性</h3>
+<h4 id="原子性"><a class="markdownIt-Anchor" href="#原子性"></a> 原子性</h4>
+<h4 id="一致性"><a class="markdownIt-Anchor" href="#一致性"></a> 一致性</h4>
+<h4 id="隔离性"><a class="markdownIt-Anchor" href="#隔离性"></a> 隔离性</h4>
+<h4 id="持久性"><a class="markdownIt-Anchor" href="#持久性"></a> 持久性</h4>
+<h3 id="四种事务隔离级别"><a class="markdownIt-Anchor" href="#四种事务隔离级别"></a> 四种事务隔离级别</h3>
+<h4 id="read-uncommitted"><a class="markdownIt-Anchor" href="#read-uncommitted"></a> Read Uncommitted</h4>
 <p><em>读取未提交内容</em><br>
 会出现<a href="#%E8%84%8F%E8%AF%BB">脏读</a></p>
-<h3 id="read-committed"><a class="markdownIt-Anchor" href="#read-committed"></a> Read Committed</h3>
+<h4 id="read-committed"><a class="markdownIt-Anchor" href="#read-committed"></a> Read Committed</h4>
 <p><em>读取提交内容</em> <em>Nonrepeatable Read</em> <em>不可重复读</em><br>
 Read Committed满足了隔离的定义: 一个事务只能看到其他事务已提交的操作<br>
 因为两次读取数据库某条数据时,数据可能会不一致(两次读取之间,该数据被其他事务改动),所以也被称为Nonrepeatable Read<br>
 (这个是mysql默认的事务隔离级别)</p>
-<h3 id="repeatable-read"><a class="markdownIt-Anchor" href="#repeatable-read"></a> Repeatable Read</h3>
+<h4 id="repeatable-read"><a class="markdownIt-Anchor" href="#repeatable-read"></a> Repeatable Read</h4>
 <p><em>可重读</em><br>
 确保同一事务获取到的数据是一致的<br>
 不过会导致另一个问题: <a href="#%E5%B9%BB%E8%AF%BB">幻读</a></p>
-<h3 id="serializable"><a class="markdownIt-Anchor" href="#serializable"></a> Serializable</h3>
+<h4 id="serializable"><a class="markdownIt-Anchor" href="#serializable"></a> Serializable</h4>
 <p><em>可串行化</em><br>
 最高级别的事务隔离,通过强制事务排序使之不可能相互冲突,从而解决幻读问题.简而言之,它是在每个读的数据上加上共享锁.在这个级别可能导致大量的超时现象和锁竞争</p>
-<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
+<h4 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h4>
 <table>
 <thead>
 <tr>
@@ -592,11 +593,33 @@ Read Committed满足了隔离的定义: 一个事务只能看到其他事务已�
 </tr>
 </tbody>
 </table>
+<h2 id="spring事务传播特性"><a class="markdownIt-Anchor" href="#spring事务传播特性"></a> Spring事务传播特性</h2>
+<h3 id="required"><a class="markdownIt-Anchor" href="#required"></a> required</h3>
+<p>Propagation.REQUIRED<br>
+方法被调用是自动开启事务,在事务范围内则使用同一事务,否则开启新事务</p>
+<h3 id="requires_new"><a class="markdownIt-Anchor" href="#requires_new"></a> requires_new</h3>
+<p>Propagation.REQUIRES_NEW<br>
+无论如何自身都会开启新事务</p>
+<h3 id="supports"><a class="markdownIt-Anchor" href="#supports"></a> supports</h3>
+<p>Propagation.SUPPORTS<br>
+自身不会开启事务,在事务范围内则使用相同事务，否则不使用事务.</p>
+<h3 id="not_supported"><a class="markdownIt-Anchor" href="#not_supported"></a> not_supported</h3>
+<p>Propagation.NOT_SUPPORTED<br>
+自身不会开启事务,在事务范围内使用挂起事务,运行完毕恢复事务.</p>
+<h3 id="mandatory"><a class="markdownIt-Anchor" href="#mandatory"></a> mandatory</h3>
+<p>Propagation.MANDATORY<br>
+自身不开启事务,必须在事务环境中否则报错.</p>
+<h3 id="never"><a class="markdownIt-Anchor" href="#never"></a> never</h3>
+<p>Propagation.NEVER<br>
+自身不会开启事务,在事务范围内使用抛出异常.</p>
+<h3 id="nested"><a class="markdownIt-Anchor" href="#nested"></a> nested</h3>
+<p>Propagation.NESTED<br>
+如果一个活动的事务存在,则运行在一个嵌套的事务中.如果没有活动事务,按照required执行.</p>
 <h2 id="名词解释"><a class="markdownIt-Anchor" href="#名词解释"></a> 名词解释</h2>
-<h3 id="脏读"><a class="markdownIt-Anchor" href="#脏读"></a> 脏读</h3>
+<h4 id="脏读"><a class="markdownIt-Anchor" href="#脏读"></a> 脏读</h4>
 <p><em>Dirty Read</em><br>
 读取其他事务未提交的执行结果</p>
-<h3 id="幻读"><a class="markdownIt-Anchor" href="#幻读"></a> 幻读</h3>
+<h4 id="幻读"><a class="markdownIt-Anchor" href="#幻读"></a> 幻读</h4>
 <p><em>Phantom Read</em><br>
 幻读是指用户在读取某一行数据时,另一个事务又在该范围内插入了新行,当用户再次读取该范围数据行时,会出现新的&quot;幻影行&quot;</p>
 
@@ -725,7 +748,7 @@ Read Committed满足了隔离的定义: 一个事务只能看到其他事务已�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -936,7 +959,7 @@ Read Committed满足了隔离的定义: 一个事务只能看到其他事务已�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四大特性"><span class="nav-text"> 事务的四大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原子性"><span class="nav-text"> 原子性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性"><span class="nav-text"> 一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离性"><span class="nav-text"> 隔离性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久性"><span class="nav-text"> 持久性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四种事务隔离级别"><span class="nav-text"> 四种事务隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#read-uncommitted"><span class="nav-text"> Read Uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-committed"><span class="nav-text"> Read Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeatable-read"><span class="nav-text"> Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serializable"><span class="nav-text"> Serializable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text"> 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-text"> 名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#脏读"><span class="nav-text"> 脏读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#幻读"><span class="nav-text"> 幻读</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务隔离"><span class="nav-text"> 事务隔离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的四大特性"><span class="nav-text"> 事务的四大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子性"><span class="nav-text"> 原子性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一致性"><span class="nav-text"> 一致性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隔离性"><span class="nav-text"> 隔离性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#持久性"><span class="nav-text"> 持久性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种事务隔离级别"><span class="nav-text"> 四种事务隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#read-uncommitted"><span class="nav-text"> Read Uncommitted</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#read-committed"><span class="nav-text"> Read Committed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#repeatable-read"><span class="nav-text"> Repeatable Read</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#serializable"><span class="nav-text"> Serializable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-text"> 总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring事务传播特性"><span class="nav-text"> Spring事务传播特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#required"><span class="nav-text"> required</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#requires_new"><span class="nav-text"> requires_new</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#supports"><span class="nav-text"> supports</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#not_supported"><span class="nav-text"> not_supported</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mandatory"><span class="nav-text"> mandatory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#never"><span class="nav-text"> never</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nested"><span class="nav-text"> nested</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-text"> 名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#脏读"><span class="nav-text"> 脏读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#幻读"><span class="nav-text"> 幻读</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -976,7 +999,7 @@ Read Committed满足了隔离的定义: 一个事务只能看到其他事务已�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">189k</span>
+    <span title="站点总字数">183k</span>
   
 
   

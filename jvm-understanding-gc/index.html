@@ -105,7 +105,7 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="对象已死吗  引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  可达性分析算法 主流商用语言(如">
-<meta name="keywords" content="java,深入理解JVM,jvm">
+<meta name="keywords" content="java,深入理解JVM,jvm,GC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《深入理解JVM》笔记-2-垃圾收集器与内存分配策略">
 <meta property="og:url" content="https://blog.ggemo.com/jvm-understanding-gc/index.html">
@@ -117,7 +117,7 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190616124612.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190616153956.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190616183019.png">
-<meta property="og:updated_time" content="2019-06-27T10:36:01.920Z">
+<meta property="og:updated_time" content="2019-07-26T18:20:38.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解JVM》笔记-2-垃圾收集器与内存分配策略">
 <meta name="twitter:description" content="对象已死吗  引用计数法 引用计数算法(Reference Counting) 给对象添加一个引用计数器,每当有一个地方引用它时,计数器值就加1;当引用失效时,计数器值减1;任何时刻计数器值为0的对象不可能再被使用. 引用计数法实现很简单,判定效率也很高.但是至少主流的Java虚拟机没有选用引用计数法管理内存的. 其主要原因是它很难解决对象之间相互引用的问题.  可达性分析算法 主流商用语言(如">
@@ -475,7 +475,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-27 18:36:01" itemprop="dateModified" datetime="2019-06-27T18:36:01+08:00">2019-06-27</time>
+                <time title="修改时间：2019-07-27 02:20:38" itemprop="dateModified" datetime="2019-07-27T02:20:38+08:00">2019-07-27</time>
               
             
           </span>
@@ -808,6 +808,8 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
           
             <a href="/tags/jvm/" rel="tag"># jvm</a>
           
+            <a href="/tags/GC/" rel="tag"># GC</a>
+          
         </div>
       
 
@@ -909,7 +911,7 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1160,7 +1162,7 @@ HotSpot虚拟机默认Eden和Survior的大小比例是8:1,每次新生代中可�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">189k</span>
+    <span title="站点总字数">183k</span>
   
 
   

@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.ggemo.com/ArkCompiler/</loc>
-    <lastmod>2019-08-07</lastmod>
+    <lastmod>2019-08-09</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/interview-ali-1/</loc>
     <lastmod>2019-08-05</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/java-and-thread/</loc>
-    <lastmod>2019-07-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
     <lastmod>2019-07-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/io-model/</loc>
+    <lastmod>2019-07-30</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/java-and-thread/</loc>
     <lastmod>2019-07-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/feed/</loc>
@@ -121,10 +121,10 @@
     <loc>https://blog.ggemo.com/shader-r-standard-texture/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-lsx/</loc>

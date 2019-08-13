@@ -112,7 +112,7 @@ window.console.log=()=>{};
 <meta property="og:description" content="没答上来的问题  01 Q: dubbo他内部的通信协议是什么? A: 不知道 事后: 太深了,以后慢慢来吧.  02 Q: 万一我们数据库操作成功了,但是返回给客户端的时候网络波动了,应该怎么办 A: 答的乱七八糟… 事后: 白井姐姐: 返回的时候,如果网络波动了,没有合法的关闭连接的话,服务端会察觉到,察觉到的话就回滚… wasup: 用PUT方法  03 Q: 依赖注入详细点是如何做的?b">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/ali-00-liangliang.png">
-<meta property="og:updated_time" content="2019-08-10T17:23:28.708Z">
+<meta property="og:updated_time" content="2019-08-12T04:14:22.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里一面笔记">
 <meta name="twitter:description" content="没答上来的问题  01 Q: dubbo他内部的通信协议是什么? A: 不知道 事后: 太深了,以后慢慢来吧.  02 Q: 万一我们数据库操作成功了,但是返回给客户端的时候网络波动了,应该怎么办 A: 答的乱七八糟… 事后: 白井姐姐: 返回的时候,如果网络波动了,没有合法的关闭连接的话,服务端会察觉到,察觉到的话就回滚… wasup: 用PUT方法  03 Q: 依赖注入详细点是如何做的?b">
@@ -470,7 +470,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-11 01:23:28" itemprop="dateModified" datetime="2019-08-11T01:23:28+08:00">2019-08-11</time>
+                <time title="修改时间：2019-08-12 12:14:22" itemprop="dateModified" datetime="2019-08-12T12:14:22+08:00">2019-08-12</time>
               
             
           </span>
@@ -511,7 +511,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.3k</span>
+                <span title="本文字数">1.5k</span>
               
 
               
@@ -605,7 +605,8 @@ A: 巴拉巴拉…</p>
 <li>自以为会的问题也不要张口就来,做好容错.<br>
 比如,这次问&quot;bean是不是new出来的&quot;,当时回的&quot;是&quot;,虽然后来又补了句&quot;不他是由processor初始化才&quot;,但没说到点子上(指反射),这种时候应该先答&quot;我想一下&quot;,不能被问题牵着鼻子走</li>
 </ul>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestHeader</span>(value=<span class="string">"token"</span>) String token</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Long operatorId = redisTool.getUserIdByToken(token);</span><br><span class="line"><span class="keyword">if</span>(operatorId.equals(-<span class="number">1L</span>))&#123;</span><br><span class="line">    <span class="keyword">return</span> ErrorEnum.VERIFY_FAILED.getResult();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -733,7 +734,7 @@ A: 巴拉巴拉…</p>
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -774,7 +775,9 @@ A: 巴拉巴拉…</p>
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -861,7 +864,9 @@ A: 巴拉巴拉…</p>
                     
                       
                     
-                    <span class="site-state-item-count">37</span>
+                      
+                    
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -994,7 +999,7 @@ A: 巴拉巴拉…</p>
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">192k</span>
+    <span title="站点总字数">193k</span>
   
 
   

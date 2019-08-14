@@ -1,41 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[dubbo笔记-2-注册中心]]></title>
-    <url>%2Fdubbo-2%2F</url>
-    <content type="text"><![CDATA[注册中心概述 在Dubbo微服务体系中,注册中心是其核心组件之一.Dubbo通过注册中心实现了分布式环境中各服务之间的注册与发现,是各个分布式节点之间的纽带. 主要作用 动态注册 一个服务提供者通过注册中心可以动态地把自己暴露给其他消费者,无需消费者朱歌曲更新配置文件. 动态发现 一个消费者可以动态地感知新的配置,路由规则和服务提供者,无需重启服务. 动态调整 注册中心支持参数的动态调整,新参数自动更新到所有相关服务节点. 统一配置 避免了本地配置导致每个服务配置不一致的问题 模块 Dubbo注册中心源码在dubbo-registry中,其包含五个子模块: 模块名称 模块介绍 dubbo-registry-api 包含了注册中心所有的API和抽象实现类 dubbo-registry-zookeeper 使用ZooKeeper作为注册中心的实现 dubbo-registry-redis 使用Redis作为注册中心的实现 dubbo-registry-default Dubbo基于内存的默认实现 dubbo-registry-multicast multicast模式的服务注册与发现 工作流程 服务提供者启动 会向注册中心写入自己的元数据信息,同时会订阅配置元数据信息 消费者启动 也会想注册中心写入自己的元数据,并订阅服务提供者,路由和配置元数据信息 服务治理中心(dubbo-admin)启动 会同时订阅所有消费者,服务提供者,路由和配置元数据信息 当有服务提供者离开或有新的服务提供者加入 注册中心服务提供者目录会发生变化,变化信息会动态通知给消费者,服务治理中心 当消费者发起服务调用 会异步将调用,统计信息等上报给监控中心(dubbo-monitor-simple) 数据结构 ZooKeeper ZooKeeper是树形结构注册中心 节点类型 持久节点 服务注册后保证借点不会丢失,注册中心重启也会存在 持久顺序节点 在持久节点的基础上增加了节点先后顺序的能力 临时节点 服务注册后连接丢失或session超时,注册的节点会自动被溢出 临时顺序节点 在临时节点特性的基础上增加了节点先后顺序的能力 Dubbo使用ZooKeeper作为注册中心时,只会创建持久节点和临时节点两种,对顺序没有要求 概述 /dubbo/com.foo.BarService/providers是服务提供者在ZooKeeper注册中心的一个示例,是一种属性结构,该结构分为4层: root 根节点,对应示例中的dubbo service 接口名称,对应示例中的com.foo.BarService 四种服务目录 对应实例中的providers,其他目录还有consumers,routers,configurators 树形结构的关系 树的根节点是注册中心分组 下面有多个服务接口,分组值来自用户配置dubbo:registry中的group属性,默认是/dubbo 服务接口下包含4类子目录 分别是providers,consumers,routers,configurators,这个路径是持久节点 服务提供者目录 (/dubbo/service/providers) 下面包含的接口有多个服务者URL元数据信息 服务消费者目录 (/dubbo/service/consumers) 下面包含的接口有多个消费者URL元数据信息 路由配置目录 (/dubbo/service/routers) 下面包含多个用于消费者路由策略URL元数据信息 动态配置目录 (/dubbo/service/configurator) 下面包含多个用于服务者动态配置URL元数据信息 在Dubbo框架启动时,会根据用户配置的服务,在注册中心中创建4个目录,在providers和consumers目录中分别存储服务提供方,消费方元数据信息,主要包括IP,端口,权重和应用名等数据. 在Dubbo框架进行服务调用时,用户可以通过服务治理平台(dubbo-admin)下发路由配置.如果要在运行时改变服务参数,则用户可以通过服务治理平台下发动态配置.服务端会通过订阅机制收到属性变更,并重新更新已经暴露的服务. 目录名称 存储值样例 /dubbo/service/providers dubbo://192.168.0.1.20880/com.alibaba.demo.Service?key=value&amp;… /dubbo/service/consumers dubbo://192.168.0.1.5002/com.alibaba.demo.Service?key=value&amp;… /dubbo/service/routers condition://0.0.0.0/com.alibaba.demo.Service?category=routers&amp;key=value&amp;… /dubbo/service/configurators override://0.0.0.0/com.alibaba.demo.Service?category=configurators&amp;key=value&amp;… 服务元数据中的所有参数都是以键值对形式存储的.]]></content>
+    <title><![CDATA[Dubbo笔记-3-Dubbo扩展点机制]]></title>
+    <url>%2Fdubbo-3%2F</url>
+    <content type="text"><![CDATA[加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础.]]></content>
       <categories>
-        <category>dubbo笔记</category>
+        <category>Dubbo笔记</category>
       </categories>
       <tags>
-        <tag>dubbo</tag>
+        <tag>Dubbo</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[dubbo-3]]></title>
-    <url>%2Fdubbo-3%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[Dubbo笔记-2-注册中心]]></title>
+    <url>%2Fdubbo-2%2F</url>
+    <content type="text"><![CDATA[注册中心概述 在Dubbo微服务体系中,注册中心是其核心组件之一.Dubbo通过注册中心实现了分布式环境中各服务之间的注册与发现,是各个分布式节点之间的纽带. 主要作用 动态注册 一个服务提供者通过注册中心可以动态地把自己暴露给其他消费者,无需消费者朱歌曲更新配置文件. 动态发现 一个消费者可以动态地感知新的配置,路由规则和服务提供者,无需重启服务. 动态调整 注册中心支持参数的动态调整,新参数自动更新到所有相关服务节点. 统一配置 避免了本地配置导致每个服务配置不一致的问题 模块 Dubbo注册中心源码在Dubbo-registry中,其包含五个子模块: 模块名称 模块介绍 Dubbo-registry-api 包含了注册中心所有的API和抽象实现类 Dubbo-registry-zookeeper 使用ZooKeeper作为注册中心的实现 Dubbo-registry-redis 使用Redis作为注册中心的实现 Dubbo-registry-default Dubbo基于内存的默认实现 Dubbo-registry-multicast multicast模式的服务注册与发现 工作流程 服务提供者启动 会向注册中心写入自己的元数据信息,同时会订阅配置元数据信息 消费者启动 也会想注册中心写入自己的元数据,并订阅服务提供者,路由和配置元数据信息 服务治理中心(Dubbo-admin)启动 会同时订阅所有消费者,服务提供者,路由和配置元数据信息 当有服务提供者离开或有新的服务提供者加入 注册中心服务提供者目录会发生变化,变化信息会动态通知给消费者,服务治理中心 当消费者发起服务调用 会异步将调用,统计信息等上报给监控中心(Dubbo-monitor-simple) 数据结构 ZooKeeper ZooKeeper是树形结构注册中心 节点类型 持久节点 服务注册后保证借点不会丢失,注册中心重启也会存在 持久顺序节点 在持久节点的基础上增加了节点先后顺序的能力 临时节点 服务注册后连接丢失或session超时,注册的节点会自动被溢出 临时顺序节点 在临时节点特性的基础上增加了节点先后顺序的能力 Dubbo使用ZooKeeper作为注册中心时,只会创建持久节点和临时节点两种,对顺序没有要求 概述 /Dubbo/com.foo.BarService/providers 是服务提供者在ZooKeeper注册中心的一个示例,是一种属性结构,该结构分为4层: root 根节点,对应示例中的Dubbo service 接口名称,对应示例中的com.foo.BarService 四种服务目录 对应实例中的providers,其他目录还有consumers,routers,configurators 树形结构的关系 树的根节点是注册中心分组 下面有多个服务接口,分组值来自用户配置Dubbo:registry中的group属性,默认是/Dubbo 服务接口下包含4类子目录 分别是providers,consumers,routers,configurators,这个路径是持久节点 服务提供者目录 (/Dubbo/service/providers) 下面包含的接口有多个服务者URL元数据信息 服务消费者目录 (/Dubbo/service/consumers) 下面包含的接口有多个消费者URL元数据信息 路由配置目录 (/Dubbo/service/routers) 下面包含多个用于消费者路由策略URL元数据信息 动态配置目录 (/Dubbo/service/configurator) 下面包含多个用于服务者动态配置URL元数据信息 在Dubbo框架启动时,会根据用户配置的服务,在注册中心中创建4个目录,在providers和consumers目录中分别存储服务提供方,消费方元数据信息,主要包括IP,端口,权重和应用名等数据. 在Dubbo框架进行服务调用时,用户可以通过服务治理平台(Dubbo-admin)下发路由配置.如果要在运行时改变服务参数,则用户可以通过服务治理平台下发动态配置.服务端会通过订阅机制收到属性变更,并重新更新已经暴露的服务. 目录名称 存储值样例 /Dubbo/service/providers Dubbo://192.168.0.1.20880/com.alibaba.demo.Service?key=value&amp;… /Dubbo/service/consumers Dubbo://192.168.0.1.5002/com.alibaba.demo.Service?key=value&amp;… /Dubbo/service/routers condition://0.0.0.0/com.alibaba.demo.Service?category=routers&amp;key=value&amp;… /Dubbo/service/configurators override://0.0.0.0/com.alibaba.demo.Service?category=configurators&amp;key=value&amp;… 服务元数据中的所有参数都是以键值对形式存储的. 订阅/发布 发布的实现 服务提供者和消费者都需要把自己注册到注册中心.服务提供者的注册是为了让消费者感知服务的存在,从而发起远程调用;也让治理中心感知有新的服务提供者上线.消费者的发布是为了让服务治理中心发现自己.Dubbo中ZooKeeper发布代码非常简单,只是调用了ZooKeeper的客户端库在注册中心上创建一个目录 创建目录: 1zkClient.create(toUrlPath(url), url.getParameter(Constants.DYNAMIC_KEY, true)); 删除目录: 1zkClient.delete(toUrlPath(url)); 订阅的实现 订阅通常有pull和push两种方式,一种是客户端定时轮询注册中心拉取配置,另一种是注册中心主动推送数据给客户端.这两种方式各有利弊,目前Dubbo采用的是第一次启动拉取方式,后续接收事件重新拉取数据 在服务暴露时,服务端会订阅configurators用于监听动态配置,在消费端启动时,消费端会订阅providers,routers和configurators这三个目录,分别对应服务提供者,路由和动态配置变更通知. ZooKeeper注册中心采用的是&quot;事件通知&quot; + &quot;客户端拉取&quot;的方式,客户端再第一次连接上注册中心时,会获取对应目录下全量数据,并在订阅的节点上注册一个watcher,客户端与注册中心之间保持TCP长连接,后续每个节点有任何数据变化的时候,注册中心会根据watcher的回调主动通知客户端(事件通知),客户端接到通知后,会把对应节点下的全量数据都拉取过来(客户端拉取).这一点在NotifyListener#notify(List urls)接口上就有约束的注释说明.全量拉取有一个局限,当微服务节点较多时会对网络造成很大的压力. ZooKeeper的每个节点都有一个版本号,当某个节点的数据发生变化(即事务操作)时,该节点对应的版本号就会发生变化,并触发watcher时间,推送数据给订阅放,版本号强调的是变更次数,即使该节点的值没有变化,只要有更新操作,依然会使版本号变化. 客户端第一次脸上注册中心,订阅时会获取全量的数据,后续则通过监听器时间进行更新.服务治理中心会处理所有service层的订阅,service被设置成特殊层.此外,服务治理中心除了订阅当前节点,还会订阅这个节点下的所有子节点. 缓存机制 Dubbo的注册中心实现了通用的缓存机制,在抽象类AbstractRegistry中实现.AbstractRegistry类结构关系如图: 消费者或服务治理中心获取注册信息后会做本地缓存.内存中会有一份,保存在Properties对象里,磁盘上也会持久化一份文件,通过file对象引用,在AbstractRegistry抽象类中有如下定义: 123private final Properties properties = new Properties();private File file;private final ConcurrentMap&lt;URL, Map&lt;String, List&lt;URL&gt;&gt;&gt; notified = new ConcurrentHashMap&lt;URL, Map&lt;String, List&lt;URL&gt;&gt;&gt;(); 内存中缓存notified是ConcurrentHashMap里面又嵌套了一个Map,外层Map的key是消费者的URL,内存Map的key是分类,包含providers,consumers,routes,configurators四种.value则是对应的服务列表,对于没有服务提供者提供服务的URL,它会以特殊的empty://前缀开头 缓存的加载 在服务初始化的时候,AbstractRegistry构造函数会从本地磁盘文件中把持久化的注册数据读到Properties对象里,并加载到内存缓存中 Properties保存了所有服务提供者的URL,使用URL#serviceKey()作为key,提供者列表,路由规则列表,配置规则列表等作为value.由于value是列表,当存在多个的时候使用空格隔开.还有一个特殊的key.registies,保存所有的注册中心地址.如果在应用启动过程中,注册中心无法连接或宕机,则Dubbo框架会自动通过本地缓存加载Invokers. 缓存的保存与更新 缓存的保存有同步和异步两种方式.异步会使用线程池异步保存,如果线程在执行过程中出现异常,则会再次调用线程池不断重试 12345if (syncSaveFile) &#123; doSaveProperties(version);&#125; else &#123; registryCacheExecutor.execute(new SaveProperties(version));&#125; AbstractRegistry#notify方法中封装了更新内存缓存和更新文件缓存的逻辑.当客户端第一次订阅获取全量数据,或者后续由于订阅得到新数据时,都会调用该方法进行保存. 重试机制 com.alibaba.Dubbo.registry.support.FailbackRegistry继承了AbstractRegistry,并在此基础上增加了失败重试机制作为抽象能力.zookeeperRegistry和RedisRegistry继承该抽象方法后直接使用即可. FailbackRegistry抽象类中定义了一个ScheduledExecutorService,每经过固定间隔,调用FailbackRegistry.retry()方法.另外,该抽象类中海油五个较为重要的集合: 集合名称 集合介绍 Set failedRegistered 发起注册失败的URL集合 Set failedUnregistered 取消注册失败的URL集合 ConcurrentMap&gt;failedSubscribed 发起订阅失败的监听器集合 ConcurrentMap&gt;failedUnsubscribed 取消订阅失败的监听器集合 ConcurrentMap&gt;&gt;failedNotified 通知失败的URL集合 在定时器中调用retry方法的时候,会把这五个集合分别遍历和重试,重试成功则从集合中移除.FailbackRegistry实现了subscribe,unsubscribe等通用方法,里面调用了未实现的模板方法,会由子类实现.通过方法会调用这些模板方法,如果捕获到异常,则会把URL添加到对应的重试集合中,以供定时器去重试 设计模式 Dubbo注册中心具有良好的扩展性,用户可以在其基础上快速开发出符合自己业务需求的注册中心. 这种扩展性与Dubbo中使用的设计模式密不可分. 模板模式 整个注册中心的逻辑部分使用了模板模式 AbstractRegistry实现了Registry接口中的注册,订阅,查询,通知等方法,还实现了磁盘文件持久化注册信息这一通用方法.但是注册,订阅,查询,通知等方法只是简单地把URL加入对应的集合,没有具体的注册或订阅逻辑. FailbackRegistry又继承了AbstractRegistry,重写了父类的注册,订阅,查询和通知等方法,并且添加了重试机制.此外,还添加了四个未实现的抽象模板方法. 以订阅为例,FailbackRegistry重写了subscribe方法,但只实现了订阅的大体逻辑及异常处理等通用性的东西.具体如何订阅,交给继承的子类实现.这就是模板模式的具体实现. 工厂模式 所有注册中心实现,都是通过对应的工厂创建的.工厂类之间的关系: AbstractRegistryFactory实现了RegistryFactory接口的getRegistry(URL url)方法,是一个通用实现,主要完成了加锁,以及调用抽象模板方法createRegistry(URL url)创建具体实现等操作,并缓存在内存中.抽象模板方法会由具体子类继承并实现. 虽然没种注册中心都有自己具体的工厂类,但是在什么地方判断,应该调用哪个工厂类实现,要在RegistryFactory接口中判断,该接口中有一个Registry getRegistry(URL url)方法,该方法上有@Adaptive({“protocol”})注解: 12345@SPI("Dubbo")publicinterface RegistryFactory&#123; @Adaptive(&#123;"protocol"&#125;) Registry getRegistry(URL url);&#125; 这个注解会自动生成代码实现一些逻辑,它的value参数会从URL中获取protocol键的值,并根据获取的值来调用不同的工厂类.如,当url.protocol = redis时,获得RedisRegistryFactor实现类.]]></content>
+      <categories>
+        <category>Dubbo笔记</category>
+      </categories>
+      <tags>
+        <tag>Dubbo</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[dubbo笔记-1-总体大图]]></title>
+    <title><![CDATA[Dubbo笔记-1-总体大图]]></title>
     <url>%2Fdubbo-1%2F</url>
     <content type="text"><![CDATA[总体分层 总体分为业务层(Biz),RPC层,Remote层 进一步划分可以分成10层,左边的是具体的分层,右边是该层中比较重要的接口 Dubbo核心组件 层次名 作用 Service 业务层 包括业务代码的接口与实现,即开发者实现的业务代码 config 配置层 主要围绕ServiceConfig(暴露服务配置)和ReferenceConfig(引用服务配置)两个实现类展开,初始化配置信息可以理解为该层管理了整个Dubbo配置 proxy 服务代理层 在Dubbo中,无论生产者还是消费者,框架都会生成一个代理类,整个过程对上层是透明的.当调用一个远程交口时,看起来就像是调用了一个本地接口一样,代理层会自动做远程调用并返回结果,即让业务层对远程调用无感 cluster 集群容错层 该层主要负责:远程调用失败时的容错策略(如失败重试,快速失败);选择具体调用节点时的负载均衡策略(如随机,一致性Hash等);特殊调用路径的路由策略(如某个消费者只会调用某个特定的生产者) monitor 监控层 这一层主要负责监控统计调用次数和调用时间等 protocol 远程调用层 封装RPC调用具体过程,Protocol是Invoker暴露和引用的主功能入口,它负责管理Invoker的整个生命周期.Invoker是Dubbo的核心模型,框架中所有其他模型都向它靠拢,或者转换成它.允许它发起invoke调用,它可能是执行一个本地的接口实现,也可能是一个远程的实现,还可能一个集群实现 exchange 信息交换层 建立Request-Response模型,封装请求响应模式,如把同步请求转化为异步请求 transport 网络传输层 把网络传输抽象为统一接口,如Mina和Netty虽然接口不一样,但是Dubbo在它们上面又封装了统一接口.用户也可以根据其扩展接口添加更多的网络传输方式 Serialize 序列化层 负责管理整个框架网络传输时的序列化/反序列化工作 Dubbo总体调用过程 服务提供方 首先服务提供者在框架启动时,会初始化服务实例,通过Proxy组件调用具体协议(Protocol),把服务端要调用的接口封装成Invoker,然后转换成Exporter,这个时候框架会打开服务端口等并记录服务实例到内存中,最后通过Register把服务元数据注册到注册中心 Proxy Dubbo只需要引用一个接口就可以调用远程的服务,并且只需要像调用本地方法一样调用即可.其实Dubbo框架为我们生成了代理类,调用的方法其实是Proxy组件生成的代理方法,会自动发起调用返回结果. Protocol 协议是对数据格式的一种约定.它可以把我们对接口的配置根据不同的协议转换成不同的Invoker对象.如DubboProtocol可以把XML文件中一个远程接口的配置转换成一个DubboInvoker. Exporter 用于暴露到注册中心的对象,它的内部属性持有了Invoker对象,可以认为它是在Invoker上包了一层 Register 把Exporter注册到注册中心 服务调用方 消费放会在启动时会通过Registry在注册中心订阅服务端的元数据(包括IP和端口),这样就可以得到服务提供方暴露的服务了. 首先,调用过程也是从一个Proxy开始的,Proxy持有了一个Invoker对象,然后触发invoker调用.在invoker调用过程中,需要使用Cluster负责集群容错.Cluster在调用之前会通过Director获取所有可以调用的远程服务Invoker列表.由于可以调用的远程服务有很多,此时如果用户配置了路由规则(如制定某些方法调用某个特定节点),那么还会根据路由规则将Invoker列表过滤一遍. 然后,可选择的Invoker可能还会有很多,决定要调用哪一个的话要通过LoadBalance方法做负载均衡,最终选出一个拿来调用的Invoker.这个Invoker在调用之前优惠经过一个过滤器链,这个过滤器链通常是处理上下文,限流,计数等. 接着,会使用Client做数据传输,如我们常见的Netty Client等.传输之前肯定要做一些私有协议的构造,此时就会用到Codec接口.构造完成后,就会对数据包进行序列化,然后传输到服务提供者端.提供者接收到数据包,也会使用Codec处理协议头以及一些半包,粘包等.处理完成后再对完整的数据报文做反序列化处理. 随后,这个Request会被分配到ThreadPool中进行处理,Server会处理这些Request,根据请求查找对应的Expoter(它内部持有Invoker).Invoker是被装饰器模式一层一层套了非常多的Filter的,因此在调用最终的实现类之前,又会经过一个服务提供者的过滤连. 最终,我能得到了具体接口的真是实现并调用,再原路把结果返回.]]></content>
       <categories>
-        <category>dubbo笔记</category>
+        <category>Dubbo笔记</category>
       </categories>
       <tags>
-        <tag>dubbo</tag>
+        <tag>Dubbo</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[dubbo笔记-0-概述]]></title>
+    <title><![CDATA[Dubbo笔记-0-概述]]></title>
     <url>%2Fdubbo-0%2F</url>
-    <content type="text"><![CDATA[dubbo思想 微内核 + 富插件 dubbo特性 分类 特性 面向接口代理的高性能RPC调用 提供高性能的基于代理的远程调用能力,服务以接口为粒度,为开发者屏蔽远程调用的底层细节 服务与自动发现 支持多种注册中心服务,服务实例上下线实时感知 运行期流量调度 内置条件,脚本等路由策略,通过配置不同的路由规则,轻松实现灰度发布,同机房优先等功能 负载均衡 内置多种负载均衡策略,只能感知下游节点的健康状况,逐渐减少调用延迟,提高系统吞吐量 高度可扩展能力 微内核 + 富插件,所有核心能力(如Protocol,Transport,Serialization被设计为扩展点,平等对待内核实现和第三方实现) 可视化的服务治理与运维 提供丰富服务治理,运维工具,随时查询服务元数据,服务健康状态及调用统计,实时下发路由策略,调整配置参数 dubbo解决什么问题 高性能,透明的RPC调用 Dubbo可以让开发者像调用本地的方法一样调用远程服务,而不需要显式在代码中指定是远程调用,整个过程对上层开发者透明,dubbo会自动完成后续操作,如负载均衡,路由,协议切换,序列化等,开发者只需要接受对应的调用结果即可 服务的自动注册与发现 自动负载均衡与容错 Dubbo提供了完整的集群容错机制,可以实现软件层面的负载均衡,以此降低硬件的压力,Dubbo还提供了调用失败的各种容错机制,如Failover,Failefase,结果集合并等. 动态流量调整 在应用运行时,某些服务节点可能因为硬件原因需要减少负载,或者某些节点需要人工手动下线,又或者需要实现单元化的调用,灰度功能;Dubbo提供了管理控制台,用户可以在界面上动态地调整每个服务的权重,路由规则,禁用/启用,实现运行时的流量调度 依赖分析与调用统计 当应用规模进一步提升,服务间的依赖关系变得错综复杂,甚至分不清那个应用要在哪个应用之前启动,架构师都不能完整地描述应用的架构关系.服务的调用量越来越大,服务的容量问题就暴露出来,这个服务需要多少机器支撑?什么时候该加机器?Dubbo可以接入三方APM做分布式链路追踪与性能分析,或者使用已有的独立监控中心来监控接口的调用次数及好事,用户可以根据这些数据反推出系统容量]]></content>
+    <content type="text"><![CDATA[Dubbo思想 微内核 + 富插件 Dubbo特性 分类 特性 面向接口代理的高性能RPC调用 提供高性能的基于代理的远程调用能力,服务以接口为粒度,为开发者屏蔽远程调用的底层细节 服务与自动发现 支持多种注册中心服务,服务实例上下线实时感知 运行期流量调度 内置条件,脚本等路由策略,通过配置不同的路由规则,轻松实现灰度发布,同机房优先等功能 负载均衡 内置多种负载均衡策略,只能感知下游节点的健康状况,逐渐减少调用延迟,提高系统吞吐量 高度可扩展能力 微内核 + 富插件,所有核心能力(如Protocol,Transport,Serialization被设计为扩展点,平等对待内核实现和第三方实现) 可视化的服务治理与运维 提供丰富服务治理,运维工具,随时查询服务元数据,服务健康状态及调用统计,实时下发路由策略,调整配置参数 Dubbo解决什么问题 高性能,透明的RPC调用 Dubbo可以让开发者像调用本地的方法一样调用远程服务,而不需要显式在代码中指定是远程调用,整个过程对上层开发者透明,Dubbo会自动完成后续操作,如负载均衡,路由,协议切换,序列化等,开发者只需要接受对应的调用结果即可 服务的自动注册与发现 自动负载均衡与容错 Dubbo提供了完整的集群容错机制,可以实现软件层面的负载均衡,以此降低硬件的压力,Dubbo还提供了调用失败的各种容错机制,如Failover,Failefase,结果集合并等. 动态流量调整 在应用运行时,某些服务节点可能因为硬件原因需要减少负载,或者某些节点需要人工手动下线,又或者需要实现单元化的调用,灰度功能;Dubbo提供了管理控制台,用户可以在界面上动态地调整每个服务的权重,路由规则,禁用/启用,实现运行时的流量调度 依赖分析与调用统计 当应用规模进一步提升,服务间的依赖关系变得错综复杂,甚至分不清那个应用要在哪个应用之前启动,架构师都不能完整地描述应用的架构关系.服务的调用量越来越大,服务的容量问题就暴露出来,这个服务需要多少机器支撑?什么时候该加机器?Dubbo可以接入三方APM做分布式链路追踪与性能分析,或者使用已有的独立监控中心来监控接口的调用次数及好事,用户可以根据这些数据反推出系统容量]]></content>
       <categories>
-        <category>dubbo笔记</category>
+        <category>Dubbo笔记</category>
       </categories>
       <tags>
-        <tag>dubbo</tag>
+        <tag>Dubbo</tag>
       </tags>
   </entry>
   <entry>
@@ -615,8 +621,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>动漫</tag>
+        <tag>python</tag>
         <tag>gui</tag>
       </tags>
   </entry>

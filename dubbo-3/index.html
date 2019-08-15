@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T06:23:24.815Z">
+<meta property="og:updated_time" content="2019-08-15T11:35:29.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo笔记-3-Dubbo扩展点机制">
 <meta name="twitter:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
@@ -470,7 +470,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-15 14:23:24" itemprop="dateModified" datetime="2019-08-15T14:23:24+08:00">2019-08-15</time>
+                <time title="修改时间：2019-08-15 19:35:29" itemprop="dateModified" datetime="2019-08-15T19:35:29+08:00">2019-08-15</time>
               
             
           </span>
@@ -565,14 +565,8 @@ Java SPI使用了策略模式,一个接口多种实现.我们只声明接口,具
 <h3 id="扩展点加载机制的改进"><a class="markdownIt-Anchor" href="#扩展点加载机制的改进"></a> 扩展点加载机制的改进</h3>
 <p>与Java SPI相比,Dubbo SPI做了一定的改进与优化,官方文档有这么一段:</p>
 <blockquote>
-<ol>
-<li>JDK标准的SPI会一次实例化扩展点所有实现,如果有扩展实现则初始化很好使,如果没有用上也加在,则浪费资源.</li>
-</ol>
+<ol><li>JDK标准的SPI会一次实例化扩展点所有实现,如果有扩展实现则初始化很好使,如果没有用上也加在,则浪费资源</li><li>如果扩展加载失败,则连扩展的名称都获取不到了</li><li>增加了对扩展IoC和AOP的支持,一个扩展可以直接setter注入其他扩展.java.util.ServiceLoader会一次把接口下的所有实现类全部初始化,用户直接调用即可.Dubbo SPI只是加载配置文件中的类,并分成不同的种类缓存在内存中,而不会立即全部初始化,在性能上有更好的表现</li></ol>
 </blockquote>
-<ol start="2">
-<li>如果扩展加载失败,则连扩展的名称都获取不到了.</li>
-<li>增加了对扩展IoC和AOP的支持,一个扩展可以直接setter注入其他扩展.java.util.ServiceLoader会一次把接口下的所有实现类全部初始化,用户直接调用即可.Dubbo SPI只是加载配置文件中的类,并分成不同的种类缓存在内存中,而不会立即全部初始化,在性能上有更好的表现</li>
-</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"impl"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PrintService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printInfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintServiceImpl</span> <span class="keyword">implements</span> <span class="title">PrintService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    PrintService printService = ExtensionLoader.getExtensionLoader(<span class="string">"PrintService.class"</span>).getDefaultExtension();</span><br><span class="line">    printService.printInfo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Java SPI加载失败,可能会因为各种原因导致异常信息被&quot;吞掉&quot;,导致开发人员问题追踪比较困难.Dubbo SPI在扩展加载失败的时候会先抛出真实立场并打印日志.扩展点在被动加载的时候,即使有部分扩展加载失败也不会影响其他扩展点和整个框架的使用.</p>
 <p>Dubbo SPI自己实现了IoC和AOP机制,一个扩展点可以通过setter方法直接注入其他扩展的方法,T injectExtension(T instance)方法实现了这个功能.另外,Dubbo支持包装扩展类,推荐把通用的抽象逻辑放到包装类中,用于实现扩展点的AOP特性.比如ProtocolFilterWapper包装扩展了DobboProtocol类,一些通用的判断逻辑全部放在了ProtocolFilterWrapper类的export方法中,但最终会调用DubboProtocol#export方法.这和Spring动态代理思想一样,在被代理的前后插入自己的逻辑进行增强,最终调用被代理类.下面是ProtocolFilterWrapper.export方法:</p>

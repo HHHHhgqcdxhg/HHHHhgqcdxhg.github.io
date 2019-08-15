@@ -103,18 +103,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础.">
+  <meta name="description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
 <meta name="keywords" content="Dubbo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dubbo笔记-3-Dubbo扩展点机制">
 <meta property="og:url" content="https://blog.ggemo.com/dubbo-3/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础.">
+<meta property="og:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-14T08:07:31.714Z">
+<meta property="og:updated_time" content="2019-08-15T06:23:24.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo笔记-3-Dubbo扩展点机制">
-<meta name="twitter:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础.">
+<meta name="twitter:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
 
 
 
@@ -453,12 +453,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-08-14 16:01:01 / 修改时间：16:07:31" itemprop="dateCreated datePublished" datetime="2019-08-14T16:01:01+08:00">2019-08-14</time>
+              <time title="创建时间：2019-08-14 16:01:01" itemprop="dateCreated datePublished" datetime="2019-08-14T16:01:01+08:00">2019-08-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-15 14:23:24" itemprop="dateModified" datetime="2019-08-15T14:23:24+08:00">2019-08-15</time>
               
             
           </span>
@@ -517,7 +529,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">122</span>
+                <span title="本文字数">4.3k</span>
               
 
               
@@ -543,6 +555,123 @@ window.console.log=()=>{};
       
         <h2 id="加载机制概述"><a class="markdownIt-Anchor" href="#加载机制概述"></a> 加载机制概述</h2>
 <p>Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础.</p>
+<p>Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的.</p>
+<p>Dubbo没有直接使用Java SPI,而是在它的思想上又做了一定的改进,形成一套自己的配置规范与特性.同时,Dubbo又兼容Java SPI.服务在启动的时候Dubbo就会查找这些扩展点的所有实现.</p>
+<h3 id="java-spi"><a class="markdownIt-Anchor" href="#java-spi"></a> Java SPI</h3>
+<p>SPI全称是Service Provider Interface,起初是提供厂商做插件开发的.<br>
+Java SPI使用了策略模式,一个接口多种实现.我们只声明接口,具体的实现并不在程序中直接确定,而是由程序之外的配置掌控</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+--java</span><br><span class="line">|   +--com</span><br><span class="line">|       +--test</span><br><span class="line">|           +--spi</span><br><span class="line">|               --PrintService</span><br><span class="line">|               --PrintServiceImpl</span><br><span class="line">+--resources</span><br><span class="line">|   +--META-INF</span><br><span class="line">|       +--services</span><br><span class="line">|           --com.test.spi.PrintService</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PrintService</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printInfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintServiceImpl</span> <span class="keyword">implements</span> <span class="title">PrintService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Systom.out.println(<span class="string">"hello"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ServiceLoader&lt;PrintService&gt; serviceLoader = ServiceLoader.load(PrintService.class);</span><br><span class="line">    <span class="keyword">for</span> (PrintService printService : serviceLoader) &#123;</span><br><span class="line">        printService.printInfo();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="扩展点加载机制的改进"><a class="markdownIt-Anchor" href="#扩展点加载机制的改进"></a> 扩展点加载机制的改进</h3>
+<p>与Java SPI相比,Dubbo SPI做了一定的改进与优化,官方文档有这么一段:</p>
+<blockquote>
+<ol>
+<li>JDK标准的SPI会一次实例化扩展点所有实现,如果有扩展实现则初始化很好使,如果没有用上也加在,则浪费资源.</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>如果扩展加载失败,则连扩展的名称都获取不到了.</li>
+<li>增加了对扩展IoC和AOP的支持,一个扩展可以直接setter注入其他扩展.java.util.ServiceLoader会一次把接口下的所有实现类全部初始化,用户直接调用即可.Dubbo SPI只是加载配置文件中的类,并分成不同的种类缓存在内存中,而不会立即全部初始化,在性能上有更好的表现</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"impl"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PrintService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printInfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintServiceImpl</span> <span class="keyword">implements</span> <span class="title">PrintService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    PrintService printService = ExtensionLoader.getExtensionLoader(<span class="string">"PrintService.class"</span>).getDefaultExtension();</span><br><span class="line">    printService.printInfo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Java SPI加载失败,可能会因为各种原因导致异常信息被&quot;吞掉&quot;,导致开发人员问题追踪比较困难.Dubbo SPI在扩展加载失败的时候会先抛出真实立场并打印日志.扩展点在被动加载的时候,即使有部分扩展加载失败也不会影响其他扩展点和整个框架的使用.</p>
+<p>Dubbo SPI自己实现了IoC和AOP机制,一个扩展点可以通过setter方法直接注入其他扩展的方法,T injectExtension(T instance)方法实现了这个功能.另外,Dubbo支持包装扩展类,推荐把通用的抽象逻辑放到包装类中,用于实现扩展点的AOP特性.比如ProtocolFilterWapper包装扩展了DobboProtocol类,一些通用的判断逻辑全部放在了ProtocolFilterWrapper类的export方法中,但最终会调用DubboProtocol#export方法.这和Spring动态代理思想一样,在被代理的前后插入自己的逻辑进行增强,最终调用被代理类.下面是ProtocolFilterWrapper.export方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">Exporter&lt;T&gt; <span class="title">export</span><span class="params">(Invoker&lt;T&gt; invoker)</span> <span class="keyword">throws</span> RpcException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Constants.REGISTRY_PROTOCOL.equals(invoker.getUrl().getProtocol()))&#123;</span><br><span class="line">        <span class="keyword">return</span> protocol.export(invoker);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="扩展点的配置规范"><a class="markdownIt-Anchor" href="#扩展点的配置规范"></a> 扩展点的配置规范</h3>
+<p>Dubbo和Java SPI类似,需要在META-INF/dubbo/下设置对应的SPI配置文件,文件名称需要命名为接口的全路径名.配置文件的内容为key=扩展点实现类全路径名(如: cat=com.ggemo.test.service.Animal),如果有多个实现类则使用换行符分隔.其中,key会作为Dubbo SPI注解中的传入参数.另外,Dubbo SPI还兼容了Java SPI的配置路径和内容配置方式.在Dubbo启动的时候,会默认扫这三个目录下的配置文件:META-INF/services/ ,META-INF/dubbo/ ,META-INF/dubbo/internal/</p>
+<table>
+<thead>
+<tr>
+<th>规范名</th>
+<th>规范说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPI配置文件路径</td>
+<td>META-INF/services/ ,META-INF/dubbo/ ,META-INF/dubbo/internal/</td>
+</tr>
+<tr>
+<td>SPI配置文件名称</td>
+<td>全路径类名</td>
+</tr>
+<tr>
+<td>文件内容格式</td>
+<td>key=value方式,多个用换行符分隔</td>
+</tr>
+</tbody>
+</table>
+<h3 id="扩展点的分类与缓存"><a class="markdownIt-Anchor" href="#扩展点的分类与缓存"></a> 扩展点的分类与缓存</h3>
+<p>Dubbo SPI可以分为Class缓存,实例缓存.这两种缓存有能根据扩展类的种类分为普通扩展,包装扩展类,自适应扩展类等.</p>
+<ul>
+<li>Class缓存<br>
+Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,则加载配置文件,根据配置把Class缓存到内存中,并不会直接全部初始化.</li>
+<li>实例缓存<br>
+基于性能考虑,Dubbo框架中不仅缓存Class,也会缓存Class实例化后的对象.每次获取的时候,会先从缓存中获取,如果缓存中读不到,则重新加载并缓存起来.</li>
+</ul>
+<p>缓存也是为什么Dubbo SPI相对于Java SPI性能上有优势的原因,因为Dubbo缓存的Class并不会全部实例化,而是按需实例化并缓存,因此性能最好</p>
+<p>被缓存的Class和对象实例可以根据不同的特性分为不同的类别:</p>
+<ul>
+<li>普通包装类<br>
+最基础的,配置在SPI配置文件中的扩展类实现</li>
+<li>包装扩展类<br>
+这种Wrapper类没有具体的实现,只是做了通用逻辑的抽象,并且需要在构造方法中传入一个具体的扩展接口的实现.属于Dubbo的自动包装特性.</li>
+<li>自适应扩展类<br>
+一个扩展接口会有多种实现类,具体使用哪个实现类可以不写死在代码或配置里,通过传入URL中的某些参数动态来确定.这属于扩展点的智适应特性.</li>
+<li>其他缓存<br>
+如扩展类加载器缓存,扩展名缓存等</li>
+</ul>
+<p>Class缓存:</p>
+<table>
+<thead>
+<tr>
+<th>集合名</th>
+<th>缓存类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Holder&lt;Map&lt;String, Class&lt;?&gt;&gt;&gt; cachedClasses</td>
+<td>普通扩展类缓存,不包括自适应扩展类和Wrapper类</td>
+</tr>
+<tr>
+<td>Set&lt;Class&lt;?&gt;&gt; cachedWrapperClasses</td>
+<td>Wrapper类缓存</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt; cachedAdaptiveClass</td>
+<td>自适应扩展类缓存</td>
+</tr>
+<tr>
+<td>ConcurrentMap&lt;String, Holder<object>&gt; cachedInstances</object></td>
+<td>扩展名与扩展对象缓存</td>
+</tr>
+<tr>
+<td>Holder<object> cachedAdaptiveInstance</object></td>
+<td>实例化后的自适应(Adaptive)扩展对象,只能同时存在一个</td>
+</tr>
+<tr>
+<td>ConcurrentMap&lt;Class&lt;?&gt;, String&gt; cachedNames</td>
+<td>扩展类与扩展名缓存</td>
+</tr>
+<tr>
+<td>ConcurrentMap&lt;Class<?>, ExtensionLoader<?>&gt; EXTENSION_LOADERS</td>
+<td>扩展类与对应的扩展类加载器缓存</td>
+</tr>
+<tr>
+<td>ConcurrentMap&lt;Class&lt;?&gt;, Object&gt; EXTENSION_INSTANCES</td>
+<td>扩展类与类初始化后的实例</td>
+</tr>
+<tr>
+<td>Map&lt;String, Active&gt; cachedActivates</td>
+<td>扩展名与@Active的缓存</td>
+</tr>
+</tbody>
+</table>
+<h3 id="扩展点的特性"><a class="markdownIt-Anchor" href="#扩展点的特性"></a> 扩展点的特性</h3>
+<p>扩展类一共包含四种特性:自动包装,自动加载,自适应和自动激活</p>
+<h4 id="自动包装"><a class="markdownIt-Anchor" href="#自动包装"></a> 自动包装</h4>
+<p>ExtensionLoader在加载扩展时,如果发现这个扩展类包含其他扩展点作为构造函数的参数,则这个扩展类就会被认为是Wrapper类</p>
 
       
     </div>
@@ -890,7 +1019,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载机制概述"><span class="nav-text"> 加载机制概述</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载机制概述"><span class="nav-text"> 加载机制概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-spi"><span class="nav-text"> Java SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点加载机制的改进"><span class="nav-text"> 扩展点加载机制的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的配置规范"><span class="nav-text"> 扩展点的配置规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的分类与缓存"><span class="nav-text"> 扩展点的分类与缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的特性"><span class="nav-text"> 扩展点的特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动包装"><span class="nav-text"> 自动包装</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -930,7 +1059,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">201k</span>
+    <span title="站点总字数">205k</span>
   
 
   

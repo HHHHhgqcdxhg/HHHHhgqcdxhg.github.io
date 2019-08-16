@@ -111,10 +111,15 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T11:35:29.544Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190816204449.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190816204519.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190816204543.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190816220450.jpg">
+<meta property="og:updated_time" content="2019-08-16T14:05:44.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo笔记-3-Dubbo扩展点机制">
 <meta name="twitter:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190816204449.png">
 
 
 
@@ -470,7 +475,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-15 19:35:29" itemprop="dateModified" datetime="2019-08-15T19:35:29+08:00">2019-08-15</time>
+                <time title="修改时间：2019-08-16 22:05:44" itemprop="dateModified" datetime="2019-08-16T22:05:44+08:00">2019-08-16</time>
               
             
           </span>
@@ -529,7 +534,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.3k</span>
+                <span title="本文字数">7.6k</span>
               
 
               
@@ -665,7 +670,75 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
 <h3 id="扩展点的特性"><a class="markdownIt-Anchor" href="#扩展点的特性"></a> 扩展点的特性</h3>
 <p>扩展类一共包含四种特性:自动包装,自动加载,自适应和自动激活</p>
 <h4 id="自动包装"><a class="markdownIt-Anchor" href="#自动包装"></a> 自动包装</h4>
-<p>ExtensionLoader在加载扩展时,如果发现这个扩展类包含其他扩展点作为构造函数的参数,则这个扩展类就会被认为是Wrapper类</p>
+<p>ExtensionLoader在加载扩展时,如果发现这个扩展类包含其他扩展点作为构造函数的参数,则这个扩展类就会被认为是Wrapper类.Wrapper类示例代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProtocolFilterWrapper</span> <span class="keyword">implements</span> <span class="title">Protocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Protocol protocol;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProtocolFilterWrapper</span><span class="params">(Protocol protocol)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (protocol == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> illegalArgumentException(<span class="string">"protocol = null"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.protocol = protocol;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ProtocolFilterWrapper虽然继承了protocol, 但是其构造函数中又注入了一个Protocol类型的参数,因此ProtocolFilterWrapper被认为是一个Wrapper类.这是一种装饰器模式,把通用的抽象逻辑进行封装或对子类进行增强,让子类更加专注具体的实现</p>
+<h4 id="自动加载"><a class="markdownIt-Anchor" href="#自动加载"></a> 自动加载</h4>
+<p>除了在构造函数中传入其他扩展实例,我们还经常使用setter方法设置属性值,如果某个扩展类时另外一个扩展点类的成员属性,并且拥有setter方法,那么框架也会自动注入对应的扩展点实例.ExtensionLoader在执行扩展点初始化的时候,会自动通过setter方法注入对应的实现类.<br>
+这里存在一个问题,如果扩展类属性是一个接口,它有多种实现,那么具体注入那个要通过自适应特性判断</p>
+<h4 id="自适应"><a class="markdownIt-Anchor" href="#自适应"></a> 自适应</h4>
+<p>在Dubbo SPI中,我们使用@Adaptive注解,可动态地通过URL中的参数来确定姚世勇哪个具体的实现类,从而解决自动加载中的实例注入问题.示例代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"netty"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Transporter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.SERVER_KEY, Constants.TRANSPORTER_KEY&#125;)</span><br><span class="line">    <span class="function">Server <span class="title">bind</span><span class="params">(URL url, ChannelHandler handler)</span> <span class="keyword">throws</span> RemotingException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.CLIENT_KEY, Constants.TRANSPORTER_KEY&#125;)</span><br><span class="line">    <span class="function">Server <span class="title">connect</span><span class="params">(URL url, ChannelHandler handler)</span> <span class="keyword">throws</span> RemotingException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@Adaptice注解传入了两个Constants中的参数,它们的值分别是&quot;server&quot;和&quot;transporter&quot;.当外部调用Transporter#bind方法时,会动态从传入的参数URL中提取key参数&quot;server&quot;的value,如果能匹配上某个扩展实现类则直接使用对应的实现类;如果未匹配上,则继续通过第二个key参数&quot;transporter&quot;提取value;如果都没匹配上则抛出异常.即,如果@Adaptive中传入了多个参数,则依次进行实现类匹配,知道最后抛出异常.</p>
+<p>这种动态寻找实现类的方式比较灵活,但只能激活一个具体的实现类,如果需要多个实现类同时被激活,如Filter可以同时有多个过滤器;或者根据不同的条件,同时激活多个实现类,则需要依靠最后一个特性.</p>
+<h4 id="自动激活"><a class="markdownIt-Anchor" href="#自动激活"></a> 自动激活</h4>
+<p>使用@Active注解,可以标记对应的扩展点默认被激活启用.该注解可以传入不同的参数,设置扩展点在不同条件下自动激活.主要的使用场景是某个扩展点的多个实现类需要同时启用.</p>
+<h2 id="扩展点注解"><a class="markdownIt-Anchor" href="#扩展点注解"></a> 扩展点注解</h2>
+<h3 id="扩展点注解-spi"><a class="markdownIt-Anchor" href="#扩展点注解-spi"></a> 扩展点注解: @SPI</h3>
+<p>@SPI注解可以使用类,接口,枚举上,Dubbo框架中都是使用在接口上的.它的主要作用就是标记这个接口是一个Dubbo SPI接口,即是一个扩展点,可以有多个不同的内置或用户定义的实现.运行时需要通过配置找到具体的实现类.@SPI注解的源码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SPI &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@SPI注解有一个value属性,通过这个属性我们可以传入不同的参数来设置这个接口的默认实现类.例如,我们可以看到Transporter接口使用Netty作为默认实现:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"netty"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Transporter</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Dubbo中很多地方通过getExtension(Class<t> type, String name)来获取扩展点接口的具体实现,此时会对传入的Class做校验,判断是否是接口,以及是否有@SPI注解,两者缺一不可.</t></p>
+<h3 id="扩展点自适应注解-adaptive"><a class="markdownIt-Anchor" href="#扩展点自适应注解-adaptive"></a> 扩展点自适应注解: @Adaptive</h3>
+<p>@Adaptive注解可以标记在类,接口和方法上,但是在整个Dubbo框架中,只有几个地方使用在类级别上,如AdaptiveExtensionFactory和AdaptiveCompiler,其余都标注在方法上.如果标注在接口的方法上,即方法级别的注解,则可以通过参数动态获得实现类.方法级别注解在第一次getExtension时,会自动生成和编译一个动态的Adaptive类,从而达到动态实现类的效果.</p>
+<p>例如上面的Transporter接口再bind和connect两个方法上添加了@Adaptive注解.Dubbo在初始化扩扎你按时,会生成一个Transporter$Adaptive类,里面会实现这两个方法,方法里会有一些抽象的通用逻辑,通过Adaptive传入的参数,找到并调用真正的实现类.</p>
+<p>如Dubbo的Transporter的bind方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Adaptive</span>(&#123;Constants.SERVER_KEY, Constants.TRANSPORTER_KEY&#125;)</span><br><span class="line"><span class="function">Server <span class="title">bind</span><span class="params">(URL url, ChannelHandler handler)</span> <span class="keyword">throws</span> RemotingException</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic.ggemo.com/picgo/20190816204449.png" alt="20190816204449.png"><br>
+两种实现:<br>
+<img src="https://pic.ggemo.com/picgo/20190816204519.png" alt="20190816204519.png"><br>
+<img src="https://pic.ggemo.com/picgo/20190816204543.png" alt="20190816204543.png"></p>
+<p>TODO:什么玩意啊以后再看</p>
+<h3 id="扩展点自动激活注解-activate"><a class="markdownIt-Anchor" href="#扩展点自动激活注解-activate"></a> 扩展点自动激活注解: @Activate</h3>
+<p>@Activate可以标记在类,接口,枚举类和方法上.主要使用在有多个扩展点实现,需要根据不同条件被激活的场景中.如Filter需要多个同时激活,因为每个Filter实现的是不同的功能.<br>
+@Activate可传入的参数:</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String[] group()</td>
+<td>URL的分组如果匹配则激活,则可以设置多个</td>
+</tr>
+<tr>
+<td>String[] value()</td>
+<td>查找URL中如果含有该key值,则会激活</td>
+</tr>
+<tr>
+<td>String[] before()</td>
+<td>填写扩展点列表,表示哪些扩展点要在本扩展点之前</td>
+</tr>
+<tr>
+<td>String[] after()</td>
+<td>同上,表示哪些扩展点要在本扩展点之后</td>
+</tr>
+<tr>
+<td>int order()</td>
+<td>直接的排序信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="extensionloader的工作原理"><a class="markdownIt-Anchor" href="#extensionloader的工作原理"></a> ExtensionLoader的工作原理</h2>
+<p>ExtensionLoader是整个扩展机制的主要逻辑类,在这个类里面实现了配置的加载,扩展类缓存,自适应对象生成等所有工作.</p>
+<h3 id="工作流程"><a class="markdownIt-Anchor" href="#工作流程"></a> 工作流程</h3>
+<p>ExtensionLoader的逻辑入口可以分为getExtension,getAdaptiveExtension,getActivateExtension,分别是获取普通扩展类,获取自适应扩展类,获取自动激活的扩展类.<br>
+总体逻辑从调用这三个方法开始,每个方法可能有不同的重载方法.</p>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190816220450.jpg" alt="QQ图片20190816220450.jpg"></p>
 
       
     </div>
@@ -1013,7 +1086,7 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载机制概述"><span class="nav-text"> 加载机制概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-spi"><span class="nav-text"> Java SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点加载机制的改进"><span class="nav-text"> 扩展点加载机制的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的配置规范"><span class="nav-text"> 扩展点的配置规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的分类与缓存"><span class="nav-text"> 扩展点的分类与缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的特性"><span class="nav-text"> 扩展点的特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动包装"><span class="nav-text"> 自动包装</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载机制概述"><span class="nav-text"> 加载机制概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-spi"><span class="nav-text"> Java SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点加载机制的改进"><span class="nav-text"> 扩展点加载机制的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的配置规范"><span class="nav-text"> 扩展点的配置规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的分类与缓存"><span class="nav-text"> 扩展点的分类与缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的特性"><span class="nav-text"> 扩展点的特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动包装"><span class="nav-text"> 自动包装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动加载"><span class="nav-text"> 自动加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自适应"><span class="nav-text"> 自适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动激活"><span class="nav-text"> 自动激活</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展点注解"><span class="nav-text"> 扩展点注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点注解-spi"><span class="nav-text"> 扩展点注解: @SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点自适应注解-adaptive"><span class="nav-text"> 扩展点自适应注解: @Adaptive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点自动激活注解-activate"><span class="nav-text"> 扩展点自动激活注解: @Activate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extensionloader的工作原理"><span class="nav-text"> ExtensionLoader的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-text"> 工作流程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1053,7 +1126,7 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">205k</span>
+    <span title="站点总字数">209k</span>
   
 
   

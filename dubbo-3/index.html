@@ -115,7 +115,8 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190816204519.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190816204543.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190816220450.jpg">
-<meta property="og:updated_time" content="2019-08-16T14:05:44.531Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190817101229.jpg">
+<meta property="og:updated_time" content="2019-08-17T09:12:32.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo笔记-3-Dubbo扩展点机制">
 <meta name="twitter:description" content="加载机制概述 Dubbo良好的扩展性与两个方面密不可分:一个是整个框架中针对不同场景,恰到好处地使用了各种设计模式,二就是加载机制.基于Dubbo SPI加载机制,让整个框架的接口和具体的实现完全解耦,从而奠定了整个框架良好可扩展性的基础. Dubbo定义了良好的框架结构,它默认提供了很多可以直接使用的扩展点.Dubbo几乎所有的功能组件都是基于扩展机制(SPI)实现的. Dubbo没有直接使用">
@@ -475,7 +476,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-16 22:05:44" itemprop="dateModified" datetime="2019-08-16T22:05:44+08:00">2019-08-16</time>
+                <time title="修改时间：2019-08-17 17:12:32" itemprop="dateModified" datetime="2019-08-17T17:12:32+08:00">2019-08-17</time>
               
             
           </span>
@@ -534,7 +535,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">7.6k</span>
+                <span title="本文字数">12k</span>
               
 
               
@@ -739,6 +740,71 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
 <p>ExtensionLoader的逻辑入口可以分为getExtension,getAdaptiveExtension,getActivateExtension,分别是获取普通扩展类,获取自适应扩展类,获取自动激活的扩展类.<br>
 总体逻辑从调用这三个方法开始,每个方法可能有不同的重载方法.</p>
 <p><img src="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190816220450.jpg" alt="QQ图片20190816220450.jpg"></p>
+<p>三个入口中,getActivateExtension对getExtension的依赖比较重,getAdaptiveExtension则相对独立</p>
+<p>getActivateExtension方法只是根据不同的条件同时激活多个普通扩展类,因此,该方法中只会做一些通用的判断逻辑,如接口中是否包含@Activate注解,匹配条件是否符合等.最终还是通过调用GetExtension方法获得具体扩展点实现类.</p>
+<p>getExtension(String name)是整个扩展加载器中最核心的方法,实现了一个完整的普通扩展类加载过程.加载过程中的每一步,都会先检查缓存中是否已经存在所需的数据,如果存在则直接从缓存中读取,没有则重新加载.这个方法每次只会根据名称返回一个扩展点实现类.<br>
+初始化过程:</p>
+<ol>
+<li>框架读取SPI对应路径下的配置文件,并根据配置加载所有扩展类并缓存(不初始化)</li>
+<li>根据传入的名称初始化对应的扩展类</li>
+<li>尝试查找符合条件的包装类</li>
+<li>返回对应的扩展类实例</li>
+</ol>
+<p>getAdaptiveExtension也相对独立,只有加载配置信息部分与getExtension共用了同一个方法.和普通扩展类一样,框架会先检查缓存中是否有已经初始化好的Adaptive实例,没有则调用createAdaptiveExtension重新初始化.<br>
+初始化过程:</p>
+<ol>
+<li>加载配置文件</li>
+<li>生成自适应类的代码字符串</li>
+<li>获取类加载器和编译器,并用编译器编译刚刚生成的代码字符.Dubbo一共有三种类型的编译器实现(后面会讲到)</li>
+<li>返回对应的自适应类实例</li>
+</ol>
+<h3 id="getextension的实现原理"><a class="markdownIt-Anchor" href="#getextension的实现原理"></a> getExtension的实现原理</h3>
+<p>当调用getExtension(String name)方法时,会先检查缓存中是否有线程的数据,没有则调用createExtension开始创建.这里有个特殊点,如果getExtension传入的name是true,则加载并返回默认扩展类.</p>
+<p>在调用createExtension开始创建的过程中,也会先检查缓存中是否有配置信息,如果不存在扩展类,则会从resources中加载.</p>
+<p>加载完扩展点配置后,再通过反射获得所有扩展实现类并缓存起来,这时,JVM仅仅将Class加载进内存中,但并没有做初始化.在加载Class文件时,会根据Class上的注解来判断扩展点类型,再根据类型分类做缓存.</p>
+<p>最后,根据传入的name找到对应的类并通过Class.forName方法进行初始化,为其注入依赖的其他扩展类(自动加载特性).当扩展类初始化后,会检查一次包装扩展类Set&lt;Class&lt;?&gt;&gt;wrapperClasses,查找包含与扩展点类型相同的构造函数,为其注入刚初始化的扩展类.依赖注入代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">injectExtension(instance); <span class="comment">// 向扩展类注入其他依赖属性,如扩展类A又依赖的扩展类B</span></span><br><span class="line">Set&lt;Class&lt;?&gt;&gt; wrapperClasses = cachedWrapperClasses;</span><br><span class="line"><span class="keyword">if</span> (wrapperClass != <span class="keyword">null</span> &amp;&amp; !wrapperClasses.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">for</span> (Class&lt;?&gt; wrapperClass : wrapperClasses) &#123;</span><br><span class="line">        instance = injectExtension((T) wrapperClass.getConstructor(type)).newInstance(instance); <span class="comment">// 找到构造方法参数类型为type(扩展类的类型)的包装类,为其注入扩展类实例</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在injectExtension方法中可以为类注入依赖属性,它使用了ExtensionFactory#getExtension(Class<t> type, String name)来获取对应的bean实例</t></p>
+<p>injectionExtension方法总体实现了类似Spring的IoC机制,其实现原理比较简单:首先通过反射获取类的所有方法,然后遍历以字符串set开头的方法,得到set方法参数类型,再通过ExtensionFactory寻找参数类型相同的扩展类实例,如果找到,就设值进去.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Method method : instance.getClass().getMethods()) &#123;</span><br><span class="line">    <span class="keyword">if</span>(method.getName().startWith(<span class="string">"set"</span>) &amp;&amp; method.getParameterTypes().length == <span class="number">1</span> &amp;&amp; Modifier.isPublic(method.getModifiers())) &#123;</span><br><span class="line">        Class&lt;?&gt; pt = method.getParameterTypes()[<span class="number">0</span>];</span><br><span class="line">        ...</span><br><span class="line">        String property = ...; <span class="comment">// 通过字符串截取,获得小写开头的类名,如setTestService,截取testService</span></span><br><span class="line">        Object object = objectFactory.getExtension(pt, property);</span><br><span class="line">        <span class="keyword">if</span> (object != <span class="keyword">null</span>) &#123;</span><br><span class="line">            method.invoke(instance, object);</span><br><span class="line">        &#125;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面代码可知包装类的构造参数注入也是通过injectionExtension方法实现的</p>
+<h3 id="getadaptiveextension的实现原理"><a class="markdownIt-Anchor" href="#getadaptiveextension的实现原理"></a> getAdaptiveExtension的实现原理</h3>
+<p>TODO</p>
+<h2 id="扩展点动态编译的实现"><a class="markdownIt-Anchor" href="#扩展点动态编译的实现"></a> 扩展点动态编译的实现</h2>
+<p>动态编译时Dubbo SPI自适应特性的基础,因为动态生成的自适应类只是字符串,需要通过编译得到真正的Class.虽然可以使用反射来动态代理一个类,但是在性能上和直接编译好的Class会有一定差距.Dubbo SPI通过代理的动态生成,配合动态编译器,灵活地在原始类的基础上创建新的自适应类.</p>
+<h3 id="总体结构"><a class="markdownIt-Anchor" href="#总体结构"></a> 总体结构</h3>
+<p>Dubbo中有三种代码编译器,分别是JDK编译器,Javassist编译器和AdaptiveCompiler编译器.这几种编译器都实现了Compiler接口.</p>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190817101229.jpg" alt="QQ图片20190817101229.jpg"></p>
+<p>Compile接口上含有一个SPI注解,注解的默认值是@SPI(“javassist”)</p>
+<p>AdaptiveCompiler上面有@Adaptive注解,说明AdaptiveCompiler会固定为默认实现,这个Compiler的主要作用和AdaptiveExtensionFactory相似,就是为了管理其他Compiler.</p>
+<p>AdaptiveCompiler#setDefaultCompiler方法会在ApplicationConfig中被调用,也就是Dubbo在启动时,会解析配置中的&lt;dubbo:application compiler=“jdk” /&gt;标签,获取设置的值,初始化对应的编译器.</p>
+<p>AbstractCompiler是一个抽象类,里面封装了通用的模板逻辑.还定义了一个抽象方法doCompile,留给子类来实现具体的编译逻辑.AbstractCompiler的主要抽象逻辑如下:</p>
+<ol>
+<li>通过正则匹配出包路径,类名,再根据包路径,类名拼接出全路径名</li>
+<li>尝试通过Class.forName加载类并返回,防止重复编译.如果类加载器中没有这个类,则进入第三步</li>
+<li>调用doCompile方法进行编译</li>
+</ol>
+<h3 id="javassist动态代码编译"><a class="markdownIt-Anchor" href="#javassist动态代码编译"></a> Javassist动态代码编译</h3>
+<p>Java中动态生成Class的方式有很多,可以直接基于字节码的方式生成,常见的工具有CGLIB,ASM,Javassist等.而自适应扩展点使用了生成字符串代码再编译为Class的方式.</p>
+<p>Javassist生成一个&quot;Hello World&quot;的例子:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ClassPool classPool = ClassPool.getDefault();</span><br><span class="line">CtClass ctClass = classPool.makeClass(<span class="string">"Hello World"</span>);</span><br><span class="line">CtMethod ctMethod = CtNewMethod.make(<span class="string">"public static void test()&#123;System.out.println(\"Hello World\");&#125;"</span>,ctClass);</span><br><span class="line">ctClass.addMethod(ctMethod);</span><br><span class="line">Class aClass = ctClass.toClass();</span><br><span class="line">Object object = aClass.newInstance();</span><br><span class="line">Method m = aClass.getDeclaredMethod(<span class="string">"test"</span>, <span class="keyword">null</span>);</span><br><span class="line">m.invoke(object, <span class="keyword">null</span>); <span class="comment">// 这行会打印出Hello World</span></span><br></pre></td></tr></table></figure>
+<p>Javassist不断通过正则表达式匹配不同不问的代码,然后调用Javassist库中的API生成不同部位的代码,最后得到一个CLass对象:</p>
+<ol>
+<li>初始化Javassist,设置默认参数,如设置当前的classpath</li>
+<li>通过正则匹配出所有import包,并使用Javassist添加import</li>
+<li>通过正则匹配出所有的extends包,创建Class对象,并使用Javassist添加extends</li>
+<li>通过正则匹配出所有implements包,并使用Javassist添加implements</li>
+<li>通过正则匹配出类里面的所有内容,即得到{}中的内容,再通过正则匹配出所有方法,并使用Javassist添加类方法</li>
+<li>生成Class对象</li>
+</ol>
+<h3 id="jdk动态代码编译"><a class="markdownIt-Anchor" href="#jdk动态代码编译"></a> JDK动态代码编译</h3>
+<p>JdkCompiler是Dubbo编译器的另一种实现,使用了JDK自带的编译器,原生JDK编译包位于javax.tools下,主要使用了三个东西:JavaFileObject接口,ForwardingJavaFileManager接口,JavaCompiler.CompilationTask方法.整个动态编译过程可以简单地总结为:首先初始化一个JavaFileObject对象,并把代码字符串作为参数传入构造方法,然后调用JavaCompiler.CompilationTask方法编译出具体的类.JavaFileManager负责管理类文件的输入/输出位置.</p>
+<h4 id="javafileobject接口"><a class="markdownIt-Anchor" href="#javafileobject接口"></a> JavaFileObject接口</h4>
+<p>字符串代码会被包装成一个文件对象,并提供获取二进制流的接口.Dubbo框架中的JavaFileObjectImpl类可以看做该接口的一种扩展实现,构造方法中需要传入生成好的字符串代码,此文件对象的输入和输出都是ByteArray流.</p>
+<h4 id="javafilemanager接口"><a class="markdownIt-Anchor" href="#javafilemanager接口"></a> JavaFileManager接口</h4>
+<p>主要管理文件的读取和输出位置.JDK中没有可以直接使用的实现类,唯一的实现类ForwardingJavaFileManager构造器又是protect类型,因此Dubbo中定制化实现了一个JavaFileManagerImpl类,并通过一个自定义类加载器ClassLoaderImpl完成资源加载</p>
+<h4 id="javacompilercompilationtask"><a class="markdownIt-Anchor" href="#javacompilercompilationtask"></a> JavaCompiler.CompilationTask</h4>
+<p>把JavaFileObject对象编译成具体的类</p>
 
       
     </div>
@@ -784,6 +850,10 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/dubbo-4/" rel="prev" title="dubbo-4">
+                dubbo-4 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -861,7 +931,7 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-count">63</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1086,7 +1156,7 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载机制概述"><span class="nav-text"> 加载机制概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-spi"><span class="nav-text"> Java SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点加载机制的改进"><span class="nav-text"> 扩展点加载机制的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的配置规范"><span class="nav-text"> 扩展点的配置规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的分类与缓存"><span class="nav-text"> 扩展点的分类与缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的特性"><span class="nav-text"> 扩展点的特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动包装"><span class="nav-text"> 自动包装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动加载"><span class="nav-text"> 自动加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自适应"><span class="nav-text"> 自适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动激活"><span class="nav-text"> 自动激活</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展点注解"><span class="nav-text"> 扩展点注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点注解-spi"><span class="nav-text"> 扩展点注解: @SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点自适应注解-adaptive"><span class="nav-text"> 扩展点自适应注解: @Adaptive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点自动激活注解-activate"><span class="nav-text"> 扩展点自动激活注解: @Activate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extensionloader的工作原理"><span class="nav-text"> ExtensionLoader的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-text"> 工作流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载机制概述"><span class="nav-text"> 加载机制概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-spi"><span class="nav-text"> Java SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点加载机制的改进"><span class="nav-text"> 扩展点加载机制的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的配置规范"><span class="nav-text"> 扩展点的配置规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的分类与缓存"><span class="nav-text"> 扩展点的分类与缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点的特性"><span class="nav-text"> 扩展点的特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动包装"><span class="nav-text"> 自动包装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动加载"><span class="nav-text"> 自动加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自适应"><span class="nav-text"> 自适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动激活"><span class="nav-text"> 自动激活</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展点注解"><span class="nav-text"> 扩展点注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点注解-spi"><span class="nav-text"> 扩展点注解: @SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点自适应注解-adaptive"><span class="nav-text"> 扩展点自适应注解: @Adaptive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点自动激活注解-activate"><span class="nav-text"> 扩展点自动激活注解: @Activate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extensionloader的工作原理"><span class="nav-text"> ExtensionLoader的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-text"> 工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getextension的实现原理"><span class="nav-text"> getExtension的实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getadaptiveextension的实现原理"><span class="nav-text"> getAdaptiveExtension的实现原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展点动态编译的实现"><span class="nav-text"> 扩展点动态编译的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总体结构"><span class="nav-text"> 总体结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javassist动态代码编译"><span class="nav-text"> Javassist动态代码编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jdk动态代码编译"><span class="nav-text"> JDK动态代码编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#javafileobject接口"><span class="nav-text"> JavaFileObject接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javafilemanager接口"><span class="nav-text"> JavaFileManager接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javacompilercompilationtask"><span class="nav-text"> JavaCompiler.CompilationTask</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1126,7 +1196,7 @@ Dubbo SPI获取扩展类时,会先从缓存中读取.如果缓存中不存在,�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">209k</span>
+    <span title="站点总字数">213k</span>
   
 
   

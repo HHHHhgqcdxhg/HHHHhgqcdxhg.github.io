@@ -103,28 +103,29 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="nuxt nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端  nuxt和vue的生命周期 nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的… 1234567891011121314151617181920212223242526272829303132333435&amp;lt;template&amp;gt;  &amp;lt;">
-<meta name="keywords" content="vue,前端,nuxt">
+  <meta name="description" content="Dubbo调用介绍  首先客户端启动时会从注册中心拉取和订阅对应的服务列表,Cluster会把拉取到的服务列表聚合成一个Invoker,每次RPC调用前会通过Directory#list获取provider地址,获取这些服务列表给后续路由和负载均衡使用 应图中①中主要是将多个服务提供者做聚合.在框架内部另外一个实现Directory接口RegistryDirectory类,它和接口名是一一对应的">
+<meta name="keywords" content="Dubbo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nuxt的理解">
-<meta property="og:url" content="https://blog.ggemo.com/nuxt-understanding/index.html">
+<meta property="og:title" content="Dubbo笔记-4-Dubbo远程调用">
+<meta property="og:url" content="https://blog.ggemo.com/dubbo-5/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="nuxt nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端  nuxt和vue的生命周期 nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的… 1234567891011121314151617181920212223242526272829303132333435&amp;lt;template&amp;gt;  &amp;lt;">
+<meta property="og:description" content="Dubbo调用介绍  首先客户端启动时会从注册中心拉取和订阅对应的服务列表,Cluster会把拉取到的服务列表聚合成一个Invoker,每次RPC调用前会通过Directory#list获取provider地址,获取这些服务列表给后续路由和负载均衡使用 应图中①中主要是将多个服务提供者做聚合.在框架内部另外一个实现Directory接口RegistryDirectory类,它和接口名是一一对应的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://pic.ggemo.com/picgo/20190508134744.png">
-<meta property="og:image" content="https://pic.ggemo.com/picgo/20190508135432.png">
-<meta property="og:updated_time" content="2019-05-08T06:39:48.151Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818201742.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818204244.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190818211509.jpg">
+<meta property="og:updated_time" content="2019-08-18T15:42:26.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nuxt的理解">
-<meta name="twitter:description" content="nuxt nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端  nuxt和vue的生命周期 nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的… 1234567891011121314151617181920212223242526272829303132333435&amp;lt;template&amp;gt;  &amp;lt;">
-<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190508134744.png">
+<meta name="twitter:title" content="Dubbo笔记-4-Dubbo远程调用">
+<meta name="twitter:description" content="Dubbo调用介绍  首先客户端启动时会从注册中心拉取和订阅对应的服务列表,Cluster会把拉取到的服务列表聚合成一个Invoker,每次RPC调用前会通过Directory#list获取provider地址,获取这些服务列表给后续路由和负载均衡使用 应图中①中主要是将多个服务提供者做聚合.在框架内部另外一个实现Directory接口RegistryDirectory类,它和接口名是一一对应的">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818201742.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/nuxt-understanding/">
+  <link rel="canonical" href="https://blog.ggemo.com/dubbo-5/">
 
 
 
@@ -134,7 +135,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>nuxt的理解 | 黄瓜养殖基地！</title>
+  <title>Dubbo笔记-4-Dubbo远程调用 | 黄瓜养殖基地！</title>
   
 
 
@@ -412,7 +413,7 @@ window.console.log=()=>{};
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/nuxt-understanding/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/dubbo-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="清纯的小黄瓜">
@@ -429,7 +430,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">nuxt的理解
+          <h2 class="post-title" itemprop="name headline">Dubbo笔记-4-Dubbo远程调用
 
               
             
@@ -456,7 +457,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-05-08 12:28:26 / 修改时间：14:39:48" itemprop="dateCreated datePublished" datetime="2019-05-08T12:28:26+08:00">2019-05-08</time>
+              <time title="创建时间：2019-08-18 20:06:59 / 修改时间：23:42:26" itemprop="dateCreated datePublished" datetime="2019-08-18T20:06:59+08:00">2019-08-18</time>
             
 
             
@@ -478,7 +479,7 @@ window.console.log=()=>{};
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Dubbo笔记/" itemprop="url" rel="index"><span itemprop="name">Dubbo笔记</span></a></span>
 
                 
                 
@@ -497,8 +498,8 @@ window.console.log=()=>{};
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/nuxt-understanding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/nuxt-understanding/" itemprop="commentCount"></span>
+                <a href="/dubbo-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/dubbo-5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -520,7 +521,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.3k</span>
+                <span title="本文字数">2.9k</span>
               
 
               
@@ -544,22 +545,135 @@ window.console.log=()=>{};
       
 
       
-        <p><a href="https://zh.nuxtjs.org/guide" target="_blank" rel="noopener">nuxt</a><br>
-nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部分渲染好的页面之后返回给客户端</p>
-<h2 id="nuxt和vue的生命周期"><a class="markdownIt-Anchor" href="#nuxt和vue的生命周期"></a> nuxt和vue的生命周期</h2>
-<p>nuxt文档没有说明白服务端渲染中vue生命周期中的哪些部分是运行在服务端,哪些运行在客户端的…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;section class=&quot;container&quot;&gt;</span><br><span class="line">    &#123;&#123;p&#125;&#125;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &#123;&#123;t&#125;&#125;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import axios from &apos;axios&apos;</span><br><span class="line">  export default &#123;</span><br><span class="line">    data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        p: &apos;p&apos;,</span><br><span class="line">        t: &apos;t&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    asyncData (&#123; req, params &#125;) &#123;</span><br><span class="line">      // We can return a Promise instead of calling the callback</span><br><span class="line">      return axios.get(&apos;https://api.ggemo.com/test&apos;)</span><br><span class="line">        .then((res) =&gt; &#123;</span><br><span class="line">          return &#123; posts: res.data &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    created () &#123;</span><br><span class="line">      this.p = this.posts.data.text</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted () &#123;</span><br><span class="line">      console.log(&quot;p before changed: &quot;,this.p)</span><br><span class="line">      this.p = &apos;p mounted&apos;</span><br><span class="line">      console.log(&quot;p changed: &quot;,this.p)</span><br><span class="line">      this.t = &apos;t mounted&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>这样渲染出来的html文件的body部分为</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">data-n-head</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-server-rendered</span>=<span class="string">"true"</span> <span class="attr">id</span>=<span class="string">"__nuxt"</span>&gt;</span><span class="comment">&lt;!----&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"__layout"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      header</span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">        成功 successed</span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        t</span><br><span class="line">      <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">      footer</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">window</span>.__NUXT__ = &#123;</span></span><br><span class="line"><span class="actionscript">  layout: <span class="string">'default'</span>,</span></span><br><span class="line"><span class="actionscript">  data: [&#123; posts: &#123; status: <span class="number">0</span>, data: &#123; text: <span class="string">'成功 successed'</span> &#125; &#125; &#125;],</span></span><br><span class="line"><span class="actionscript">  error: <span class="literal">null</span>,</span></span><br><span class="line"><span class="actionscript">  serverRendered: <span class="literal">true</span></span></span><br><span class="line">&#125;<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/_nuxt/runtime.js"</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/_nuxt/pages_index.js"</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/_nuxt/pages_index.42262e91659a4eb99aae.hot-update.js"</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/_nuxt/vendors.app.js"</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/_nuxt/app.js"</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在页面上的渲染效果为<br>
-<img src="https://pic.ggemo.com/picgo/20190508134744.png" alt="20190508134744.png"></p>
-<p>其中<code><a href="https://api.ggemo.com/test" target="_blank" rel="noopener">https://api.ggemo.com/test</a></code>中的内容为<code>{ posts: { status: 0, data: { text: ‘成功 successed’ } } }</code><br>
-<code>created</code>钩子中的 this.p的值,在传给客户端之前就已经被渲染进了html源码<br>
-而<code>mounted中的</code> this.p的值和this.t的值的更改是在客户端被执行的</p>
-<p>由此可见,vue的<code>created</code>钩子运行在了服务端,<code>mounted</code>钩子运行在了客户端</p>
-<p>nuxt官网的图片:<br>
-<img src="https://pic.ggemo.com/picgo/20190508135432.png" alt="20190508135432.png"><br>
-<code>Render</code>应该是执行vue生命周期中<code>beforeMount</code>之前的钩子</p>
+        <h2 id="dubbo调用介绍"><a class="markdownIt-Anchor" href="#dubbo调用介绍"></a> Dubbo调用介绍</h2>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818201742.png" alt="QQ截图20190818201742.png"></p>
+<p>首先客户端启动时会从注册中心拉取和订阅对应的服务列表,Cluster会把拉取到的服务列表聚合成一个Invoker,每次RPC调用前会通过Directory#list获取provider地址,获取这些服务列表给后续路由和负载均衡使用<br>
+应图中①中主要是将多个服务提供者做聚合.在框架内部另外一个实现Directory接口RegistryDirectory类,它和接口名是一一对应的关系,主要负责拉取和订阅服务提供者,动态配置和路由项</p>
+<p>在Dubbo发起服务调用时,所有路由和负载均衡都是在客户端实现的.客户端服务调用首先会触发路由操作,然后将路由结果得到的服务列表作为负载均衡参数,经过负载均衡后会选出一台机器进行RPC调用,这三个步骤对应②,③,④.客户端经过路由和负载均衡后,会将请求交给底层I/O线程池(比如Netty)处理.I/O线程池主要处理读写,序列化和反序列化等逻辑,因此这里一定不能用阻塞操作.Dubbo也提供了控制参数控制(<a href="http://decode.in.io" target="_blank" rel="noopener">decode.in.io</a>)参数,在处理反序列化对象时会在业务线程池中处理.在⑤中包含两种类似的线程池,一种是I/O线程池,另一种是Dubbo业务线程池</p>
+<blockquote>
+<p>下面说的Telnet的东西我都不知道是啥</p>
+</blockquote>
+<p>目前Dubbo将服务调用和Telent调用做了端口复用,在编码层面也做了适配.在Telnet调用时,会建立起一个TCP链接,传递接口,方法和JSON格式的参数进行服务调用,在编译码层面读取六中的字符串,最终交个Telnet对应的Handler去解析方法调用.如果是非Telnet调用,则服务提供方会根据传递过来的接口,分组和版本信息查找Invoker对应的实例进行反射调用.在⑦中进行了端口复用,如果是Telnet调用,则先找到对应的Invoker进行方法调用.Telnet和正常的RPC调用不一样的地方是序列化和反序列化使用的不是Hession方式,而是直接使用fastjson进行处理</p>
+<h2 id="dubbo协议"><a class="markdownIt-Anchor" href="#dubbo协议"></a> Dubbo协议</h2>
+<p>Dubbo协议涉及参考了现有的TCP/IP协议,一次RPC调用包括协议头和协议提两部分,16字节长的<mark>报文头部</mark>主要携带了模式以及当前请求报文是否是Request,Response,<mark>心跳</mark>和<mark>事件的信息</mark>,请求时也会带上当前报文体内<mark>序列化协议编号</mark>.除此之外,请求报文还携带了<mark>请求状态</mark>,以及<mark>请求唯一表示</mark>和<mark>报文体长度</mark></p>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818204244.png" alt="QQ截图20190818204244.png"></p>
+<p>Dubbo协议字段解析:</p>
+<table>
+<thead>
+<tr>
+<th>偏移比特位</th>
+<th>字段描述</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~7</td>
+<td>魔数高位</td>
+<td></td>
+</tr>
+<tr>
+<td>8~15</td>
+<td>魔数低位</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>数据包类型</td>
+<td>是否为双向的RPC调用,0位Response,1为Request</td>
+</tr>
+<tr>
+<td>17</td>
+<td>调用方式</td>
+<td>仅在第16位设置为1的情况下有效<br>0为单向调用,1位双向调用<br>比如在优雅停机时服务端发送readonly不需要双向调用,这里标志位就不会设定</td>
+</tr>
+<tr>
+<td>18</td>
+<td>事件标识</td>
+<td>0为当前数据包时请求或响应包<br>1为当前数据包时心跳包,设置了心跳包的报文不会透传到业务方法调用,仅用于框架内部保活机制</td>
+</tr>
+<tr>
+<td>19~23</td>
+<td>序列化器编号</td>
+<td>2 为Hessian2Serialization<br>3 为JavaSerialization<br>4 为CompactedSerialization<br>6 为FastJsonSerialization<br>7 为NativeJavaSerialization<br>8 为KryoSerialization<br>9 为FstSerialization</td>
+</tr>
+<tr>
+<td>24~31</td>
+<td>状态</td>
+<td>20 为OK<br>30 为CLIENT_TIMEOUT<br>31 为SERVER_TIMEOUT<br>40 为BAD_REQUEST<br>50 为BAD_RESPONSE<br>60 为SERVICE_NOT_FOUND<br>70 为SERVICE_ERROR<br>80 为SERVER_ERROR<br>90 为CLIENT_ERROR<br>100 为SERVERTHREADPOOL_EXHAUSTEDERROR(服务端线程池满拒绝执行)</td>
+</tr>
+<tr>
+<td>32~95</td>
+<td>请求编号</td>
+<td>8个字节存储RPC请求的唯一id,用来将请求和响应做关联</td>
+</tr>
+<tr>
+<td>96~127</td>
+<td>消息体长度</td>
+<td>占用4个字节存储消息体长度.再一次RPC请求过程中,消息体中一次会存储7部分内容</td>
+</tr>
+</tbody>
+</table>
+<p>在消息体中,客户端严格按照序列化顺序写入信息,服务端也会遵循相同的顺序读取消息.客户端发起请求的消息体一次保存下列内容:Dubbo版本号,服务接口名,服务接口版本,方法名,参数类型,方法参数值和请求额外参数</p>
+<p>响应标记:</p>
+<table>
+<thead>
+<tr>
+<th>状态值</th>
+<th>状态符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>RESPONSE_NULL_VALUE_WITH_ATTACHMENTS</td>
+<td>响应空值包含隐藏参数</td>
+</tr>
+<tr>
+<td>4</td>
+<td>RESPONSE_VALUE_WITH_ATTACHMENTS</td>
+<td>响应结果包含隐藏参数</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RESPONSE_WITH_EXCEPTION_WITH_ATTACHMENTS</td>
+<td>异常返回包含隐藏参数</td>
+</tr>
+<tr>
+<td>2</td>
+<td>RESPONSE_NULL_VALUE</td>
+<td>响应空值</td>
+</tr>
+<tr>
+<td>1</td>
+<td>RESPONSE_VALUE</td>
+<td>响应结果</td>
+</tr>
+<tr>
+<td>0</td>
+<td>RESPONSE_WITH_EXCEPTION</td>
+<td>异常返回</td>
+</tr>
+</tbody>
+</table>
+<p>在返回消息体中,会先把返回值状态标记写入输出流,紧接着再写返回方法值</p>
+<p>Dubbo使用特殊符号0xdabb魔数来分割处理粘包问题</p>
+<p>客户端使用多线程并发调用服务时,Dubbo通过使用协议头的全局请求id标识正确响应调用的线程</p>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190818211509.jpg" alt="QQ图片20190818211509.jpg"></p>
+<p>客户端多个线程并发请求时,框架内部会调用DefaultFuture对象get方法进行等待,在请求发起时,框架内部会创建Request对象,这个时候会被分配一个唯一id,DefaultFuture可以从Request对象中获取id,并将关联关系存储到静态HashMap中(即上图的Futures).当客户端收到响应时,会根据Response对象中的id,从Futures集合中查找对应的DefaultFuture对象,最终会唤醒对应的线程并通知结果.客户端也会启动一个定时扫描去探测超时没有返回的请求</p>
+<h2 id="编解码器"><a class="markdownIt-Anchor" href="#编解码器"></a> 编解码器</h2>
+<p>TODO</p>
+<h2 id="telnet调用原理"><a class="markdownIt-Anchor" href="#telnet调用原理"></a> Telnet调用原理</h2>
+<p>编码器把Telnet当做明文字符串处理,按照Dubbo的调用规范,解析成掉用命令格式,然后查找对应的Invoker,发起方法调用</p>
+<h3 id="telnet指令解析原理"><a class="markdownIt-Anchor" href="#telnet指令解析原理"></a> Telnet指令解析原理</h3>
+<p>Telnet指令解析被设置成了扩展点TelnetHandler,每个Telnet指令都会实现这个扩展点.</p>
+<p>通过这个扩展点定义,能够解决扩展更多命令的诉求.message包含处理命令之外的所有字符串参数,具体如何使用这些参数以及这些参数的定义全部交给命令实现者决定.</p>
+<p>完成Telnet指令转发的核心实现类是TelnetHandlerAdapter,它的实现非常简单,首先将用户输入的指令识别成command,然后将剩余的内容解析成message.message会交给命令实现者去处理.</p>
+<p>TODO</p>
+<h3 id="telnet实现健康监测"><a class="markdownIt-Anchor" href="#telnet实现健康监测"></a> Telnet实现健康监测</h3>
+<p>Telnet提供了健康检查的指令,可以在Telnet连接成功后执行status -l查看线程池,内存和注册中心等状态信息.</p>
+<p>TODO</p>
 
       
     </div>
@@ -583,11 +697,7 @@ nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
-          
-            <a href="/tags/前端/" rel="tag"># 前端</a>
-          
-            <a href="/tags/nuxt/" rel="tag"># nuxt</a>
+            <a href="/tags/Dubbo/" rel="tag"># Dubbo</a>
           
         </div>
       
@@ -600,8 +710,8 @@ nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/django-deploy/" rel="next" title="django-deploy">
-                <i class="fa fa-chevron-left"></i> django-deploy
+              <a href="/dubbo-4/" rel="next" title="Dubbo笔记-3-Dubbo起停原理">
+                <i class="fa fa-chevron-left"></i> Dubbo笔记-3-Dubbo起停原理
               </a>
             
           </div>
@@ -610,8 +720,8 @@ nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/thinking-health/" rel="prev" title="关于养生的思考">
-                关于养生的思考 <i class="fa fa-chevron-right"></i>
+              <a href="/dubbo-6/" rel="prev" title="dubbo-6">
+                dubbo-6 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -915,7 +1025,7 @@ nuxt允许将一部分vue的生命周期运行在服务端,在服务端生成部
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nuxt和vue的生命周期"><span class="nav-text"> nuxt和vue的生命周期</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo调用介绍"><span class="nav-text"> Dubbo调用介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo协议"><span class="nav-text"> Dubbo协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编解码器"><span class="nav-text"> 编解码器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#telnet调用原理"><span class="nav-text"> Telnet调用原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#telnet指令解析原理"><span class="nav-text"> Telnet指令解析原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#telnet实现健康监测"><span class="nav-text"> Telnet实现健康监测</span></a></li></ol></li></ol></div>
             
 
           </div>

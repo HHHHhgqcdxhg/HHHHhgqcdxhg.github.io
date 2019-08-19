@@ -103,23 +103,25 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/archives/2019/03/page/2/index.html">
+  <meta name="description" content="负载均衡的封装 容错策略中的负载均衡都使用了抽象父类AbstractCluster中定义的Invoker select方法而并不是直接使用LoadBalance方法,因为抽象父类在LoadBalance的基础上又封装了一些新特性:  粘滞连接  粘滞连接用于有状态服务,尽可能让客户端总是向同一提供者发起调用,除非该提供者挂了,再连接另一台.粘滞连接将自动开启延迟连接,以减少长连接数   可用检测">
+<meta name="keywords" content="Dubbo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dubbo笔记-6-负载均衡">
+<meta property="og:url" content="https://blog.ggemo.com/dubbo-7/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="负载均衡的封装 容错策略中的负载均衡都使用了抽象父类AbstractCluster中定义的Invoker select方法而并不是直接使用LoadBalance方法,因为抽象父类在LoadBalance的基础上又封装了一些新特性:  粘滞连接  粘滞连接用于有状态服务,尽可能让客户端总是向同一提供者发起调用,除非该提供者挂了,再连接另一台.粘滞连接将自动开启延迟连接,以减少长连接数   可用检测">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-19T17:35:29.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="Dubbo笔记-6-负载均衡">
+<meta name="twitter:description" content="负载均衡的封装 容错策略中的负载均衡都使用了抽象父类AbstractCluster中定义的Invoker select方法而并不是直接使用LoadBalance方法,因为抽象父类在LoadBalance的基础上又封装了一些新特性:  粘滞连接  粘滞连接用于有状态服务,尽可能让客户端总是向同一提供者发起调用,除非该提供者挂了,再连接另一台.粘滞连接将自动开启延迟连接,以减少长连接数   可用检测">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/archives/2019/03/page/2/">
+  <link rel="canonical" href="https://blog.ggemo.com/dubbo-7/">
 
 
 
@@ -129,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>归档 | 黄瓜养殖基地！</title>
+  <title>Dubbo笔记-6-负载均衡 | 黄瓜养殖基地！</title>
   
 
 
@@ -217,7 +219,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -394,107 +396,289 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-         
-          
-        目前共计 66 篇日志。
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2019">2019</h2>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/dubbo-7/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/azurlane-llk/" itemprop="url">
-            
-              <span itemprop="name">自动玩瓜游连连看的脚本</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Dubbo笔记-6-负载均衡
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-01T09:31:23+08:00" content="2019-03-01">
-          03-01
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-19 23:31:50" itemprop="dateCreated datePublished" datetime="2019-08-19T23:31:50+08:00">2019-08-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 01:35:29" itemprop="dateModified" datetime="2019-08-20T01:35:29+08:00">2019-08-20</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Dubbo笔记/" itemprop="url" rel="index"><span itemprop="name">Dubbo笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/dubbo-7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/dubbo-7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">979</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h2 id="负载均衡的封装"><a class="markdownIt-Anchor" href="#负载均衡的封装"></a> 负载均衡的封装</h2>
+<p>容错策略中的负载均衡都使用了抽象父类AbstractCluster中定义的Invoker<t> select方法而并不是直接使用LoadBalance方法,因为抽象父类在LoadBalance的基础上又封装了一些新特性:</t></p>
+<ol>
+<li>粘滞连接
+<blockquote>
+<p>粘滞连接用于有状态服务,尽可能让客户端总是向同一提供者发起调用,除非该提供者挂了,再连接另一台.粘滞连接将自动开启延迟连接,以减少长连接数</p>
+</blockquote>
+</li>
+<li>可用检测<br>
+Dubbo调用的URL中,如果有含有cluster.availablecheck=false,则不会检测远程调用是否可用,直接调用.如果不设置,则默认会开启检查,对所有的服务都做是否可用的检查,如果不可用,则再次做负载均衡</li>
+<li>避免重复调用<br>
+对于已经调用过的服务,避免重复调用,每次使用同一节点,这种特性主要为了避免并发场景下,某个节点瞬间被大量请求</li>
+</ol>
+<p>整个逻辑大致可以分为4步:</p>
+<ol>
+<li>检查URL中是否配置粘滞连接,如果有则使用粘滞连接的Invoker.如果没有配置粘滞连接,或者重复调用检测不通过或可用检测不通过,则进入第2步</li>
+<li>通过ExtensionLoader获取负载均衡的具体实现,并通过负载均衡做节点的选择.对选择出来的节点做重复调用,可用性检测,通过则返回,否则进入第3步</li>
+<li>进行节点的重新选择<br>
+如果需要做可用性检测,则会遍历Directory中得到的所有节点,过滤掉不可用和已经调用过的节点,在剩下的节点中重新做负载均衡;如果不需要做可用性检测,则会遍历Directory中得到的所有节点,但只过滤已经调用过的,在剩余的节点中重新做负载均衡.如果在过滤时将所有节点都过滤了不留节点,则进入第4步</li>
+<li>遍历所有已经调用过的节点,选出可用的节点,再通过负载均衡选出一个节点并返回.如果还找不到可用的节点,则返回null</li>
+</ol>
+<h2 id="负载均衡的总体结构"><a class="markdownIt-Anchor" href="#负载均衡的总体结构"></a> 负载均衡的总体结构</h2>
+<p>负载均衡算法:</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random</td>
+<td>随机,按权重设置随机概率.再一个截面上碰撞的概率高,但调用量越大分布月均匀,且按概率使用权重后也比较均匀,有利于动态调整提供者的权重</td>
+</tr>
+<tr>
+<td>RoundRobin</td>
+<td>轮询,按公约后的权重设置轮询比例.存在 慢的提供者积累请求 的问题</td>
+</tr>
+<tr>
+<td>LeastActive</td>
+<td>最少活跃调用数.如果活跃数相同则随机调用.使慢的提供者收到更少请求</td>
+</tr>
+</tbody>
+</table>
+<p>ConsistentHash</p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Dubbo/" rel="tag"># Dubbo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/dubbo-6/" rel="next" title="Dubbo笔记-5-Dubbo集群容错">
+                <i class="fa fa-chevron-left"></i> Dubbo笔记-5-Dubbo集群容错
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/03/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/2019/03/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -517,8 +701,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -750,6 +943,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#负载均衡的封装"><span class="nav-text"> 负载均衡的封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#负载均衡的总体结构"><span class="nav-text"> 负载均衡的总体结构</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -893,6 +1103,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -939,6 +1153,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

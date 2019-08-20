@@ -103,23 +103,27 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/categories/深入理解JVM/index.html">
+  <meta name="description" content="概述  背景 扩展机制和扩展点作为Dubbo设计的核心机制,不仅是Dubbo能够适应不同公司的技术需要,流行至今的重要引出,也是Dubbo本身生态不断完善,功能越来越强大的核心原因之一  扩展点整体架构 按使用者和开发者来分,Dubbo可以分为API层和SPI层.API层让用户只关注业务的配置,直接使用框架API即可;SPI层可以让用户自定义不同的实现类来扩展整个框架的功能 按逻辑来区分,可以把">
+<meta name="keywords" content="Dubbo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dubbo笔记-6-Dubbo扩展点">
+<meta property="og:url" content="https://blog.ggemo.com/dubbo-8/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="概述  背景 扩展机制和扩展点作为Dubbo设计的核心机制,不仅是Dubbo能够适应不同公司的技术需要,流行至今的重要引出,也是Dubbo本身生态不断完善,功能越来越强大的核心原因之一  扩展点整体架构 按使用者和开发者来分,Dubbo可以分为API层和SPI层.API层让用户只关注业务的配置,直接使用框架API即可;SPI层可以让用户自定义不同的实现类来扩展整个框架的功能 按逻辑来区分,可以把">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190821022715.jpg">
+<meta property="og:updated_time" content="2019-08-20T18:36:15.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="Dubbo笔记-6-Dubbo扩展点">
+<meta name="twitter:description" content="概述  背景 扩展机制和扩展点作为Dubbo设计的核心机制,不仅是Dubbo能够适应不同公司的技术需要,流行至今的重要引出,也是Dubbo本身生态不断完善,功能越来越强大的核心原因之一  扩展点整体架构 按使用者和开发者来分,Dubbo可以分为API层和SPI层.API层让用户只关注业务的配置,直接使用框架API即可;SPI层可以让用户自定义不同的实现类来扩展整个框架的功能 按逻辑来区分,可以把">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190821022715.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/categories/深入理解JVM/">
+  <link rel="canonical" href="https://blog.ggemo.com/dubbo-8/">
 
 
 
@@ -129,7 +133,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>分类: 深入理解JVM | 黄瓜养殖基地！</title>
+  <title>Dubbo笔记-6-Dubbo扩展点 | 黄瓜养殖基地！</title>
   
 
 
@@ -217,7 +221,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,7 +310,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -394,135 +398,244 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>深入理解JVM<small>分类</small>
-        </h2>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/dubbo-8/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/java-and-thread/" itemprop="url">
-            
-              <span itemprop="name">Java与线程</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Dubbo笔记-6-Dubbo扩展点
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-20T01:25:50+08:00" content="2019-07-20">
-          07-20
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-21 02:14:34 / 修改时间：02:36:15" itemprop="dateCreated datePublished" datetime="2019-08-21T02:14:34+08:00">2019-08-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Dubbo笔记/" itemprop="url" rel="index"><span itemprop="name">Dubbo笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/dubbo-8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/dubbo-8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.3k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/jvm-understanding-gc/" itemprop="url">
-            
-              <span itemprop="name">《深入理解JVM》笔记-2-垃圾收集器与内存分配策略</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T23:19:27+08:00" content="2019-06-15">
-          06-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/jvm-understanding-memory/" itemprop="url">
-            
-              <span itemprop="name">《深入理解JVM》笔记-1-Java内存区域</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T20:33:28+08:00" content="2019-06-15">
-          06-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<h3 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h3>
+<p>扩展机制和扩展点作为Dubbo设计的核心机制,不仅是Dubbo能够适应不同公司的技术需要,流行至今的重要引出,也是Dubbo本身生态不断完善,功能越来越强大的核心原因之一</p>
+<h3 id="扩展点整体架构"><a class="markdownIt-Anchor" href="#扩展点整体架构"></a> 扩展点整体架构</h3>
+<p>按使用者和开发者来分,Dubbo可以分为API层和SPI层.API层让用户只关注业务的配置,直接使用框架API即可;SPI层可以让用户自定义不同的实现类来扩展整个框架的功能</p>
+<p>按逻辑来区分,可以把Dubbo从上到下分为三层:业务层,RPC层,Remote层</p>
+<h2 id="rpc层扩展点"><a class="markdownIt-Anchor" href="#rpc层扩展点"></a> RPC层扩展点</h2>
+<p>RPC层分为四层:Config,Proxy,Registry,Cluster</p>
+<h2 id="proxy层扩展点"><a class="markdownIt-Anchor" href="#proxy层扩展点"></a> Proxy层扩展点</h2>
+<p>Proxy层主要的扩展接口是ProxyFactory.ProxyFactory帮我们生成了代理类,当我们请求某个远程接口时,实际上使用的是代理类</p>
+<p>Dubbo中的ProxyFactory有两种默认实现,Javassist和JDK,用户可以自行扩展自己的实现,如CGLib.基于性能和使用的建议性考虑,Dubbo选用Javassist作为默认的字节码生成工具</p>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190821022715.jpg" alt="QQ图片20190821022715.jpg"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"javassist"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProxyFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * create proxy.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> invoker</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> proxy</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getProxy</span><span class="params">(Invoker&lt;T&gt; invoker)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * create proxy.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> invoker</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> proxy</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getProxy</span><span class="params">(Invoker&lt;T&gt; invoker, <span class="keyword">boolean</span> generic)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * create invoker.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> proxy</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> type</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> invoker</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">Invoker&lt;T&gt; <span class="title">getInvoker</span><span class="params">(T proxy, Class&lt;T&gt; type, URL url)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Dubbo/" rel="tag"># Dubbo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/dubbo-7/" rel="next" title="Dubbo笔记-6-负载均衡">
+                <i class="fa fa-chevron-left"></i> Dubbo笔记-6-负载均衡
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -545,8 +658,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -778,6 +900,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-text"> 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点整体架构"><span class="nav-text"> 扩展点整体架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rpc层扩展点"><span class="nav-text"> RPC层扩展点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy层扩展点"><span class="nav-text"> Proxy层扩展点</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -921,6 +1060,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -967,6 +1110,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

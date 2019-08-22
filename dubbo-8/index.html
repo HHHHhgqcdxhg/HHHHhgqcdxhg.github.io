@@ -112,7 +112,7 @@ window.console.log=()=>{};
 <meta property="og:description" content="概述  背景 扩展机制和扩展点作为Dubbo设计的核心机制,不仅是Dubbo能够适应不同公司的技术需要,流行至今的重要引出,也是Dubbo本身生态不断完善,功能越来越强大的核心原因之一  扩展点整体架构 按使用者和开发者来分,Dubbo可以分为API层和SPI层.API层让用户只关注业务的配置,直接使用框架API即可;SPI层可以让用户自定义不同的实现类来扩展整个框架的功能 按逻辑来区分,可以把">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190821022715.jpg">
-<meta property="og:updated_time" content="2019-08-20T18:36:15.096Z">
+<meta property="og:updated_time" content="2019-08-22T16:09:08.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo笔记-6-Dubbo扩展点">
 <meta name="twitter:description" content="概述  背景 扩展机制和扩展点作为Dubbo设计的核心机制,不仅是Dubbo能够适应不同公司的技术需要,流行至今的重要引出,也是Dubbo本身生态不断完善,功能越来越强大的核心原因之一  扩展点整体架构 按使用者和开发者来分,Dubbo可以分为API层和SPI层.API层让用户只关注业务的配置,直接使用框架API即可;SPI层可以让用户自定义不同的实现类来扩展整个框架的功能 按逻辑来区分,可以把">
@@ -462,12 +462,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-08-21 02:14:34 / 修改时间：02:36:15" itemprop="dateCreated datePublished" datetime="2019-08-21T02:14:34+08:00">2019-08-21</time>
+              <time title="创建时间：2019-08-21 02:14:34" itemprop="dateCreated datePublished" datetime="2019-08-21T02:14:34+08:00">2019-08-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-23 00:09:08" itemprop="dateModified" datetime="2019-08-23T00:09:08+08:00">2019-08-23</time>
               
             
           </span>
@@ -526,7 +538,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.3k</span>
+                <span title="本文字数">7.8k</span>
               
 
               
@@ -558,11 +570,131 @@ window.console.log=()=>{};
 <p>按逻辑来区分,可以把Dubbo从上到下分为三层:业务层,RPC层,Remote层</p>
 <h2 id="rpc层扩展点"><a class="markdownIt-Anchor" href="#rpc层扩展点"></a> RPC层扩展点</h2>
 <p>RPC层分为四层:Config,Proxy,Registry,Cluster</p>
-<h2 id="proxy层扩展点"><a class="markdownIt-Anchor" href="#proxy层扩展点"></a> Proxy层扩展点</h2>
+<h3 id="proxy层扩展点"><a class="markdownIt-Anchor" href="#proxy层扩展点"></a> Proxy层扩展点</h3>
 <p>Proxy层主要的扩展接口是ProxyFactory.ProxyFactory帮我们生成了代理类,当我们请求某个远程接口时,实际上使用的是代理类</p>
 <p>Dubbo中的ProxyFactory有两种默认实现,Javassist和JDK,用户可以自行扩展自己的实现,如CGLib.基于性能和使用的建议性考虑,Dubbo选用Javassist作为默认的字节码生成工具</p>
 <p><img src="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190821022715.jpg" alt="QQ图片20190821022715.jpg"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"javassist"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProxyFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * create proxy.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> invoker</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> proxy</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getProxy</span><span class="params">(Invoker&lt;T&gt; invoker)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * create proxy.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> invoker</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> proxy</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getProxy</span><span class="params">(Invoker&lt;T&gt; invoker, <span class="keyword">boolean</span> generic)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * create invoker.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> proxy</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> type</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> invoker</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">Invoker&lt;T&gt; <span class="title">getInvoker</span><span class="params">(T proxy, Class&lt;T&gt; type, URL url)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"javassist"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProxyFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getProxy</span><span class="params">(Invoker&lt;T&gt; invoker)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getProxy</span><span class="params">(Invoker&lt;T&gt; invoker, <span class="keyword">boolean</span> generic)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.PROXY_KEY&#125;)</span><br><span class="line">    &lt;T&gt; <span class="function">Invoker&lt;T&gt; <span class="title">getInvoker</span><span class="params">(T proxy, Class&lt;T&gt; type, URL url)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="registry层扩展"><a class="markdownIt-Anchor" href="#registry层扩展"></a> Registry层扩展</h3>
+<p>这一层最重要的扩展是org.apache.dubbo.registry.RegistryFactory.整个框架的注册与服务发现客户端都是这个扩展点负责创建的.该扩展点有@Adaptive({“protocol”})注解,可以根据URL中的protocol参数创建不同的注册中心客户端.如果我们扩展了自定义的注册中心,那么只需要配置不同的protocol即可.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"dubbo"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RegistryFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Connect to the registry</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * Connecting the registry needs to support the contract: &lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 1. When the check=false is set, the connection is not checked, otherwise the exception is thrown when disconnection &lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 2. Support username:password authority authentication on URL.&lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 3. Support the backup=10.20.153.10 candidate registry cluster address.&lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 4. Support file=registry.cache local disk file cache.&lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 5. Support the timeout=1000 request timeout setting.&lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 6. Support session=60000 session timeout or expiration settings.&lt;br&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url Registry address, is not allowed to be empty</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Registry reference, never return empty value</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;<span class="string">"protocol"</span>&#125;)</span><br><span class="line">    <span class="function">Registry <span class="title">getRegistry</span><span class="params">(URL url)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用这个扩展点,还有一些需要遵循的规则:</p>
+<ul>
+<li>如果URL中设置了check=false,则连接不会被检查.否则,需要在断开连接时抛出异常</li>
+<li>需要支持通过username:password格式在URL中传递鉴权</li>
+<li>需要支持设置back参数来执行备选注册集群的地址</li>
+<li>需要支持file参数来指定本地文件缓存</li>
+<li>需要设置timeout参数来指定请求的超时时间</li>
+<li>需要支持设置session参数来指定连接的超时或过期时间</li>
+</ul>
+<h3 id="cluster层扩展点"><a class="markdownIt-Anchor" href="#cluster层扩展点"></a> Cluster层扩展点</h3>
+<p>Cluster层负责了整个Dubbo框架的集群容错,设计的扩展点较多,包括容错(Cluster),路由(Router),负载均衡(LoadBalance),配置管理工厂(ConfiguratorFactory)和合并器(Merger)</p>
+<h4 id="cluster扩展点"><a class="markdownIt-Anchor" href="#cluster扩展点"></a> Cluster扩展点</h4>
+<p>Cluster主要负责一些容错策略,也是整个集群容错的入口.当远程调用失败后,由Cluster负责重试,快速失败等,整个过程对上层透明</p>
+<p>Cluster扩展点默认使用Failover机制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(FailoverCluster.NAME)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Cluster</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Adaptive</span></span><br><span class="line">    &lt;T&gt; <span class="function">Invoker&lt;T&gt; <span class="title">join</span><span class="params">(Directory&lt;T&gt; directory)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Cluster接口只有一个join方法,并且有@Adaptive注解,会根据配置动态调用不同的容错机制</p>
+<h4 id="routefactory扩展点"><a class="markdownIt-Anchor" href="#routefactory扩展点"></a> RouteFactory扩展点</h4>
+<p>RouterFactoryFactory是一个工厂类,用于创建不同的Router.假设接口A有多个服务提供者提供服务,如果配置了路由规则(某个消费者只调用某几个提供者),则Router会过滤掉其他服务提供者,只留下符合路由规则的提供者列表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RouterFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Adaptive</span>(<span class="string">"protocol"</span>)</span><br><span class="line">    <span class="function">Router <span class="title">getRouter</span><span class="params">(URL url)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现有的路由规则支持文件,脚本和自定义表达式等方式.接口上有@Adaptive(“protocol”)注解,会根据不同的protocol自动匹配路由规则</p>
+<table>
+<thead>
+<tr>
+<th>扩展key名</th>
+<th>扩展类名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td>org.apache.dubbo.rpc.cluster.router.file.FileRouterFactory</td>
+</tr>
+<tr>
+<td>script</td>
+<td>org.apache.dubbo.rpc.cluster.router.script.ScriptRouterFactory</td>
+</tr>
+<tr>
+<td>condition</td>
+<td>org.apache.dubbo.rpc.cluster.router.condition.ConditionRouterFactory</td>
+</tr>
+<tr>
+<td>server</td>
+<td>org.apache.dubbo.rpc.cluster.router.condition.config.ServiceRouterFactory</td>
+</tr>
+<tr>
+<td>app</td>
+<td>org.apache.dubbo.rpc.cluster.router.condition.config.AppRouterFactory</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>org.apache.dubbo.rpc.cluster.router.tag.TagRouterFactory</td>
+</tr>
+<tr>
+<td>mock</td>
+<td>org.apache.dubbo.rpc.cluster.router.mock.MockRouterFactory</td>
+</tr>
+</tbody>
+</table>
+<h4 id="loadbalance扩展点"><a class="markdownIt-Anchor" href="#loadbalance扩展点"></a> LoadBalance扩展点</h4>
+<p>Dubbo的LoadBalance默认使用随机算法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(RandomLoadBalance.NAME)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">LoadBalance</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Adaptive</span>(<span class="string">"loadbalance"</span>)</span><br><span class="line">    &lt;T&gt; <span class="function">Invoke&lt;T&gt; <span class="title">select</span><span class="params">(List&lt;Invoke&lt;T&gt;&gt; invokers, URL url, Invocation invocation)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="configuratorfactory"><a class="markdownIt-Anchor" href="#configuratorfactory"></a> ConfiguratorFactory</h4>
+<p>创建配置实例的工厂类,现有override和absent两种工厂实现,分别会创建OverrideConfigurator和AbsentConfigurator两种配置对象<br>
+OverrideConfigurator会直接把配置中心中的参数覆盖本地参数<br>
+AbsentConfigurator会先看本地存在该 配置,有则不会覆盖</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ConfiguratorFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Adaptive</span>(<span class="string">"protocol"</span>)</span><br><span class="line">    <span class="function">Configurator <span class="title">getConfigurator</span><span class="params">(URL url)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="merge扩展点"><a class="markdownIt-Anchor" href="#merge扩展点"></a> Merge扩展点</h4>
+<p>合并器,可以对并行调用的结果进行合并.例如:并行调用A,B两个服务器都会返回一个List结果集,Merge可以把两个List合并成一个返回给应用.用户可以基于该扩展点,添加自定义类型的合并器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Merge</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">T <span class="title">merge</span><span class="params">(T... items)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>默认已支持:map, set, list, byte, char, short, int, long, float, double, boolean</p>
+<h2 id="remote层扩展点"><a class="markdownIt-Anchor" href="#remote层扩展点"></a> Remote层扩展点</h2>
+<p>Remote处于整个Dubbo框架的底层,设计协议,数据的交换,网络的传输,序列化,线程池等,覆盖了一个远程调用的所有要用</p>
+<p>Remote层是对Dubbo传输协议的封装,内部再划分为Transport传输层和Exchange信息交换层.其中Transport层只负责单项消息传输,是对Mina,Netty等传输工具库的抽象.而Exchange层在传输层智商实现了Request-Response语义,这样我们可以在不同传输方式智商都能做到统一的请求/响应处理.Serialize层是RPC的一部分,决定了在消费者和服务提供者之间的二进制数据传输格式</p>
+<h3 id="protocol层扩展点"><a class="markdownIt-Anchor" href="#protocol层扩展点"></a> Protocol层扩展点</h3>
+<h4 id="protocol扩展点"><a class="markdownIt-Anchor" href="#protocol扩展点"></a> Protocol扩展点</h4>
+<p>Protocol是Dubbo RPC的核心调用层,具体的RPC协议都可以由Protocol点扩展.如果想新添加一种RPC协议,只需要扩展一个新的Protocol扩展点实现即可.Protocol扩展点接口代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(<span class="string">"dubbo"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Protocol</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getDefaultPort</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Adaptive</span></span><br><span class="line">    &lt;T&gt; <span class="function">Exporter&lt;T&gt; <span class="title">export</span><span class="params">(Invoker&lt;T&gt; invoker)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Adaptive</span></span><br><span class="line">    <span class="comment">// 引用一个服务</span></span><br><span class="line">    &lt;T&gt; <span class="function">Invoker&lt;T&gt; <span class="title">refer</span><span class="params">(Class&lt;T&gt; type, URL url)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Protocol的每个接口会有一些规则,在实现自定义协议的时候需要注意</p>
+<h5 id="export方法"><a class="markdownIt-Anchor" href="#export方法"></a> export方法</h5>
+<ol>
+<li>协议收到请求后应记录请求源IP地址.通过RpcContext.getContext().setRemoteAddress()方法存入RPC上下文</li>
+<li>expoet方法必须实现幂等,即无论调用多少次,返回的URL都是相同的</li>
+<li>Invoker实例由框架传入,无须关心协议层</li>
+</ol>
+<h5 id="refer方法"><a class="markdownIt-Anchor" href="#refer方法"></a> refer方法</h5>
+<ol>
+<li>当我们调用refer()方法返回Invoker对象的invoker()方法时,协议需要相应地执行invoker方法.这一点在设计自定义协议的Invoker时需要注意</li>
+<li>正常来说refer()方法返回的自定义Invoker需要继承Invoker接口</li>
+<li>当URL参数有check=false时,自定义的协议实现必须不能抛出异常,而是在出现连接失败异常时尝试恢复连接</li>
+</ol>
+<h5 id="destroy方法"><a class="markdownIt-Anchor" href="#destroy方法"></a> destroy方法</h5>
+<ol>
+<li>调用destroy方法的时候,需要销毁所有本协议暴露和引用的方法</li>
+<li>需要释放所有占用的资源,如连接,端口等</li>
+<li>自定义的协议可以在被销毁后继续导出和引用新服务</li>
+</ol>
+<p>整个Protocol的逻辑由Protocol,Exporter,Invoker三个接口串起来<br>
+Protocol接口是入口,其实现封装了用来处理Exporter和Invoker的方法:<br>
+Exporter代表要暴露的远程服务引用,Protocol#export方法是将服务暴露的处理过程,Invoker代表要调用的远程服务代理对象.Protocol#refer方法通过服务类型和URL获得要调用的服务代理<br>
+由于Protocol可以实现Invoker和Exporter对象的创建,因此除了作为远程调用对象的构造,还能用于其他用途,如:在创建Invoker的时候对原对象进行包装增强,添加其他Filter进去,ProtocolFilterWrapper实现就是把Filter链加入Invoker.</p>
+<h4 id="filter扩展点"><a class="markdownIt-Anchor" href="#filter扩展点"></a> Filter扩展点</h4>
+<p>Filter是Dubbo的过滤器扩展点,可以自定义过滤器,在Invoker调用前后执行自定义的逻辑.在Filter的实现中,必须要调用传入的Invoker的invoke方法,否则整个链路就断了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="function">Result <span class="title">invoke</span><span class="params">(Invoker&lt;?&gt; invoker, Invocation invocation)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> Result <span class="title">onResponse</span><span class="params">(Result, Invoker&lt;?&gt; invoker, Invocation invocation)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个invoke函数的实现:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">doSomeThingBefore();</span><br><span class="line">Result result = invoker.invoke(invocation);</span><br><span class="line">doSomeThingAfter();</span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+<h4 id="exporterlistenerinvokerlistener扩展点"><a class="markdownIt-Anchor" href="#exporterlistenerinvokerlistener扩展点"></a> ExporterListener/InvokerListener扩展点</h4>
+<p>ExporterListener和InvokerListener这两个扩展点非常相似,ExporterListener是在暴露和取消暴露服务时提供回调;InvokerListener则是在服务引用和销毁引用时提供回调.<br>
+ExporterListener扩展点源码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ExporterListener</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">exported</span><span class="params">(Exporter&lt;?&gt; exporter)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unExported</span><span class="params">(Exporter&lt;?&gt; exporter)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>InvokerListener扩展点源码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InvokerListener</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">referred</span><span class="params">(Invoker&lt;?&gt; invoker)</span> <span class="keyword">throws</span> RpcException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">(Invoker&lt;?&gt; invoker)</span>:</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="exchange层扩展点"><a class="markdownIt-Anchor" href="#exchange层扩展点"></a> Exchange层扩展点</h3>
+<p>Exchange层只有一个扩展点接口Exchanger,这个接口主要为了封装请求/响应模式,例如:把同步请求转化为异步请求.默认的扩展点实现是org.apache.dubbo.remoting.exchange.support.header.headerExchanger.每个方法上都有@Adaptive注解,会根据URL中的Exchanger参数决定实现.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SPI</span>(HeaderExchanger.NAME)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Exchanger</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Constants.EXCHANGER_KEY&#125;)</span><br><span class="line">    <span class="function">ExchangeServer <span class="title">bind</span><span class="params">(URL url, ExchangeHandler handler)</span> <span class="keyword">throws</span> RemotingException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Adaptive</span>(&#123;Condtants.EXCHANGER_KEY&#125;)</span><br><span class="line">    <span class="function">ExchangeClient <span class="title">connect</span><span class="params">(URL url, ExchangeHandler handler)</span> <span class="keyword">throws</span> RemotingException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Exchange层存在的意义是让上层业务不关注Netty这样的底层Channel.上层一个Request只关注对应的Response,对于是同步还是异步,或者是用什么传输根本不关心.Transport层无法满足这项需求的,Exchange层实现了Request-Response模型,可以理解为对Transport层做了高级封装.</p>
+<h3 id="transport层扩展点"><a class="markdownIt-Anchor" href="#transport层扩展点"></a> Transport层扩展点</h3>
+<p>Transport层为了屏蔽不同通信框架的差异,封装了统一的对外接口.主要的扩展点接口有Transport,Dispatcher,Codec2和ChannelHandler.</p>
 
       
     </div>
@@ -910,7 +1042,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-text"> 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点整体架构"><span class="nav-text"> 扩展点整体架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rpc层扩展点"><span class="nav-text"> RPC层扩展点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy层扩展点"><span class="nav-text"> Proxy层扩展点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-text"> 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展点整体架构"><span class="nav-text"> 扩展点整体架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rpc层扩展点"><span class="nav-text"> RPC层扩展点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy层扩展点"><span class="nav-text"> Proxy层扩展点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#registry层扩展"><span class="nav-text"> Registry层扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cluster层扩展点"><span class="nav-text"> Cluster层扩展点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cluster扩展点"><span class="nav-text"> Cluster扩展点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#routefactory扩展点"><span class="nav-text"> RouteFactory扩展点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loadbalance扩展点"><span class="nav-text"> LoadBalance扩展点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#configuratorfactory"><span class="nav-text"> ConfiguratorFactory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#merge扩展点"><span class="nav-text"> Merge扩展点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote层扩展点"><span class="nav-text"> Remote层扩展点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#protocol层扩展点"><span class="nav-text"> Protocol层扩展点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#protocol扩展点"><span class="nav-text"> Protocol扩展点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#export方法"><span class="nav-text"> export方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#refer方法"><span class="nav-text"> refer方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#destroy方法"><span class="nav-text"> destroy方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter扩展点"><span class="nav-text"> Filter扩展点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#exporterlistenerinvokerlistener扩展点"><span class="nav-text"> ExporterListener/InvokerListener扩展点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exchange层扩展点"><span class="nav-text"> Exchange层扩展点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transport层扩展点"><span class="nav-text"> Transport层扩展点</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -950,7 +1082,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">228k</span>
   
 
   

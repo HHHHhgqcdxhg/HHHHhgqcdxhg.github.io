@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="Dubbo高级特性概述 Dubbo解决了分布式场景RPC通信调用的问题,但是要满足各种业务场景还是不够的.场景:  支付业务需要自身迭代版本,比如1.0和2.0版本,在2.0版本做了大量性能改进,需要发布到性能测试环境与1.0版本做对比,这个时候需要框架提供服务隔离的能力. 客户端消费远程服务时不希望阻塞,这个时候业务方可以在线程池中发起RPC调用,但这样不够优雅,需要框架支持异步调用和回调">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-23T03:55:12.903Z">
+<meta property="og:updated_time" content="2019-08-23T09:10:15.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo笔记-8-Dubbo高级特性">
 <meta name="twitter:description" content="Dubbo高级特性概述 Dubbo解决了分布式场景RPC通信调用的问题,但是要满足各种业务场景还是不够的.场景:  支付业务需要自身迭代版本,比如1.0和2.0版本,在2.0版本做了大量性能改进,需要发布到性能测试环境与1.0版本做对比,这个时候需要框架提供服务隔离的能力. 客户端消费远程服务时不希望阻塞,这个时候业务方可以在线程池中发起RPC调用,但这样不够优雅,需要框架支持异步调用和回调">
@@ -460,7 +460,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-08-23 01:23:32 / 修改时间：11:55:12" itemprop="dateCreated datePublished" datetime="2019-08-23T01:23:32+08:00">2019-08-23</time>
+              <time title="创建时间：2019-08-23 01:23:32 / 修改时间：17:10:15" itemprop="dateCreated datePublished" datetime="2019-08-23T01:23:32+08:00">2019-08-23</time>
             
 
             
@@ -565,6 +565,8 @@ window.console.log=()=>{};
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ClassPathXmlApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:consumer.xml"</span>);</span><br><span class="line">context.start();</span><br><span class="line"></span><br><span class="line">CallbackService callbackService = (CallbackService)context.getBean(<span class="string">"callbackService"</span>);</span><br><span class="line">callbackService.addListener(<span class="string">"foo.bar"</span>, <span class="keyword">new</span> CallbackListener()&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changed</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"callback1:"</span> + msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="隐式参数"><a class="markdownIt-Anchor" href="#隐式参数"></a> 隐式参数</h2>
 <p>Dubbo服务提供者或消费者启动时,配置元数据会生成URL,一般是不可变的.在很多场景中,在服务运行期需要动态改变属性值,在做动态路由和灰度发布场景中需要这个特性.Dubbo框架支持消费方在RpcContext#setAttachment方法中设置隐式参数,在服务端RpcContext#getAttachment方法中获取隐式传递</p>
+<p>TODO:具体实现</p>
+<h2 id="异步调用"><a class="markdownIt-Anchor" href="#异步调用"></a> 异步调用</h2>
 
       
     </div>
@@ -912,7 +914,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo高级特性概述"><span class="nav-text"> Dubbo高级特性概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务分组和版本"><span class="nav-text"> 服务分组和版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数回调"><span class="nav-text"> 参数回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式参数"><span class="nav-text"> 隐式参数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo高级特性概述"><span class="nav-text"> Dubbo高级特性概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务分组和版本"><span class="nav-text"> 服务分组和版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数回调"><span class="nav-text"> 参数回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式参数"><span class="nav-text"> 隐式参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步调用"><span class="nav-text"> 异步调用</span></a></li></ol></div>
             
 
           </div>

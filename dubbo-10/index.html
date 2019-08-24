@@ -103,23 +103,27 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/tags/GC/index.html">
+  <meta name="description" content="概述 过滤器提供了服务提供者和消费者调用过程的拦截,即每次执行RPC调用的时候,对应的过滤器都会生效  过滤器的使用 Dubbo中已经有很多内置的过滤器,并且大多数都是默认启动的,如ContextFilter,对于自行扩展的过滤器,一种方式是使用@Active注解默认启动,另一种方式是在配置文件中配置 1234567891011&amp;lt;!-- 消费方调用过程拦截 --&amp;gt;&amp;lt;dubbo:">
+<meta name="keywords" content="Dubbo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dubbo笔记-10-Dubbo过滤器">
+<meta property="og:url" content="https://blog.ggemo.com/dubbo-10/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="概述 过滤器提供了服务提供者和消费者调用过程的拦截,即每次执行RPC调用的时候,对应的过滤器都会生效  过滤器的使用 Dubbo中已经有很多内置的过滤器,并且大多数都是默认启动的,如ContextFilter,对于自行扩展的过滤器,一种方式是使用@Active注解默认启动,另一种方式是在配置文件中配置 1234567891011&amp;lt;!-- 消费方调用过程拦截 --&amp;gt;&amp;lt;dubbo:">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190824200528.png">
+<meta property="og:updated_time" content="2019-08-24T12:43:22.204Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="Dubbo笔记-10-Dubbo过滤器">
+<meta name="twitter:description" content="概述 过滤器提供了服务提供者和消费者调用过程的拦截,即每次执行RPC调用的时候,对应的过滤器都会生效  过滤器的使用 Dubbo中已经有很多内置的过滤器,并且大多数都是默认启动的,如ContextFilter,对于自行扩展的过滤器,一种方式是使用@Active注解默认启动,另一种方式是在配置文件中配置 1234567891011&amp;lt;!-- 消费方调用过程拦截 --&amp;gt;&amp;lt;dubbo:">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190824200528.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/tags/GC/">
+  <link rel="canonical" href="https://blog.ggemo.com/dubbo-10/">
 
 
 
@@ -129,7 +133,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>标签: GC | 黄瓜养殖基地！</title>
+  <title>Dubbo笔记-10-Dubbo过滤器 | 黄瓜养殖基地！</title>
   
 
 
@@ -217,7 +221,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,7 +293,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -394,82 +398,253 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>GC<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/dubbo-10/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/jvm-understanding-gc/" itemprop="url">
-            
-              <span itemprop="name">《深入理解JVM》笔记-2-垃圾收集器与内存分配策略</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Dubbo笔记-10-Dubbo过滤器
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T23:19:27+08:00" content="2019-06-15">
-          06-15
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-24 16:28:51 / 修改时间：20:43:22" itemprop="dateCreated datePublished" datetime="2019-08-24T16:28:51+08:00">2019-08-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Dubbo笔记/" itemprop="url" rel="index"><span itemprop="name">Dubbo笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/dubbo-10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/dubbo-10/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.1k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>过滤器提供了服务提供者和消费者调用过程的拦截,即每次执行RPC调用的时候,对应的过滤器都会生效</p>
+<h3 id="过滤器的使用"><a class="markdownIt-Anchor" href="#过滤器的使用"></a> 过滤器的使用</h3>
+<p>Dubbo中已经有很多内置的过滤器,并且大多数都是默认启动的,如ContextFilter,对于自行扩展的过滤器,一种方式是使用@Active注解默认启动,另一种方式是在配置文件中配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 消费方调用过程拦截 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">filter</span>=<span class="string">"xxx,yyy"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 消费方调用过程默认拦截器,将拦截所有reference --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:consumer</span> <span class="attr">filter</span>=<span class="string">"xxx,yyy"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 服务提供方调用过程拦截 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">filter</span>=<span class="string">"xxx,yyy"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 服务提供方调用过程默认拦截器,将拦截所有service --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:provider</span> <span class="attr">filter</span>=<span class="string">"xxx,yyy"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上就是配置方式,下面是一些规则:</p>
+<ol>
+<li>过滤器顺序
+<ul>
+<li>用户自定义的过滤器的顺序默认会在框架内置过滤器之后,我们可以使用filter=&quot;xxx,default&quot;这种配置方式让自定义的过滤器顺序靠前</li>
+<li>我们在配置filter=&quot;xxx,yyy&quot;时,写在前面的xxx会比后面的yyy顺序靠前</li>
+</ul>
+</li>
+<li>剔除过滤器<br>
+对于一些默认的过滤器或自动激活的过滤器,有些方法不想使用这些过滤器,则可以使用&quot;-“加过滤器名称来剔除,如filter=”-xxFilter&quot;会让xxFilter不生效.如果不想使用所有默认启用的过滤器,则可以配置filter=&quot;-default&quot;来进行剔除</li>
+<li>过滤器的叠加<br>
+如果服务提供者,消费者端都配置了过滤器,则两边的过滤器不会互相覆盖,而是相互叠加,都会生效,如果需要覆盖,则可在消费方使用&quot;-&quot;的方式剔除对应的过滤器</li>
+</ol>
+<h3 id="过滤器的总体结构"><a class="markdownIt-Anchor" href="#过滤器的总体结构"></a> 过滤器的总体结构</h3>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190824200528.png" alt="QQ图片20190824200528.png"></p>
+<p>只有CompatibleFilter只继承Filter接口,不会默认被激活.其他的内置过滤器都使用了Activate注解,默认激活;Filter接口上有@SPI注解,用户可以基于这个扩展点接口实现字的过滤器.所有过滤器会被分为消费者和服务提供者两种.消费者类型的过滤器只会在服务引用时被加入Invoker,服务提供者类型的过滤器只会在暴露的时候加入对应的Invoker.</p>
+<h3 id="自带过滤器"><a class="markdownIt-Anchor" href="#自带过滤器"></a> 自带过滤器</h3>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Dubbo/" rel="tag"># Dubbo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/dubbo-9/" rel="next" title="Dubbo笔记-9-Dubbo高级特性">
+                <i class="fa fa-chevron-left"></i> Dubbo笔记-9-Dubbo高级特性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -492,8 +667,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -725,6 +909,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器的使用"><span class="nav-text"> 过滤器的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器的总体结构"><span class="nav-text"> 过滤器的总体结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自带过滤器"><span class="nav-text"> 自带过滤器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -868,6 +1069,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -914,6 +1119,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

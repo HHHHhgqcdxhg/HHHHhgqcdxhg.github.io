@@ -106,15 +106,17 @@ window.console.log=()=>{};
   <meta name="description" content="Dubbo高级特性概述 Dubbo解决了分布式场景RPC通信调用的问题,但是要满足各种业务场景还是不够的.场景:  支付业务需要自身迭代版本,比如1.0和2.0版本,在2.0版本做了大量性能改进,需要发布到性能测试环境与1.0版本做对比,这个时候需要框架提供服务隔离的能力. 客户端消费远程服务时不希望阻塞,这个时候业务方可以在线程池中发起RPC调用,但这样不够优雅,需要框架支持异步调用和回调">
 <meta name="keywords" content="Dubbo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dubbo笔记-8-Dubbo高级特性">
+<meta property="og:title" content="Dubbo笔记-9-Dubbo高级特性">
 <meta property="og:url" content="https://blog.ggemo.com/dubbo-9/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="Dubbo高级特性概述 Dubbo解决了分布式场景RPC通信调用的问题,但是要满足各种业务场景还是不够的.场景:  支付业务需要自身迭代版本,比如1.0和2.0版本,在2.0版本做了大量性能改进,需要发布到性能测试环境与1.0版本做对比,这个时候需要框架提供服务隔离的能力. 客户端消费远程服务时不希望阻塞,这个时候业务方可以在线程池中发起RPC调用,但这样不够优雅,需要框架支持异步调用和回调">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-23T09:10:15.437Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190823204920.png">
+<meta property="og:updated_time" content="2019-08-24T08:30:29.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dubbo笔记-8-Dubbo高级特性">
+<meta name="twitter:title" content="Dubbo笔记-9-Dubbo高级特性">
 <meta name="twitter:description" content="Dubbo高级特性概述 Dubbo解决了分布式场景RPC通信调用的问题,但是要满足各种业务场景还是不够的.场景:  支付业务需要自身迭代版本,比如1.0和2.0版本,在2.0版本做了大量性能改进,需要发布到性能测试环境与1.0版本做对比,这个时候需要框架提供服务隔离的能力. 客户端消费远程服务时不希望阻塞,这个时候业务方可以在线程池中发起RPC调用,但这样不够优雅,需要框架支持异步调用和回调">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190823204920.png">
 
 
 
@@ -131,7 +133,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>Dubbo笔记-8-Dubbo高级特性 | 黄瓜养殖基地！</title>
+  <title>Dubbo笔记-9-Dubbo高级特性 | 黄瓜养殖基地！</title>
   
 
 
@@ -433,7 +435,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">Dubbo笔记-8-Dubbo高级特性
+          <h2 class="post-title" itemprop="name headline">Dubbo笔记-9-Dubbo高级特性
 
               
             
@@ -460,12 +462,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-08-23 01:23:32 / 修改时间：17:10:15" itemprop="dateCreated datePublished" datetime="2019-08-23T01:23:32+08:00">2019-08-23</time>
+              <time title="创建时间：2019-08-23 01:23:32" itemprop="dateCreated datePublished" datetime="2019-08-23T01:23:32+08:00">2019-08-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-24 16:30:29" itemprop="dateModified" datetime="2019-08-24T16:30:29+08:00">2019-08-24</time>
               
             
           </span>
@@ -524,7 +538,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.5k</span>
+                <span title="本文字数">5.4k</span>
               
 
               
@@ -567,6 +581,32 @@ window.console.log=()=>{};
 <p>Dubbo服务提供者或消费者启动时,配置元数据会生成URL,一般是不可变的.在很多场景中,在服务运行期需要动态改变属性值,在做动态路由和灰度发布场景中需要这个特性.Dubbo框架支持消费方在RpcContext#setAttachment方法中设置隐式参数,在服务端RpcContext#getAttachment方法中获取隐式传递</p>
 <p>TODO:具体实现</p>
 <h2 id="异步调用"><a class="markdownIt-Anchor" href="#异步调用"></a> 异步调用</h2>
+<p>在客户端实现异步调用非常简单,在消费接口时配置异步标识,在调用时从上下文中获取Future对象,在期望结果返回时再调用阻塞方法Future.get()即可.</p>
+<p>客户端异步调用:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fooService.findFoo(fooId);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在发起其他RPC调用时,现获取Future引用,当结果返回后,会被通知和设置到此Future</span></span><br><span class="line">Future&lt;Foo&gt; fooFuture = RpcContext.getContext().getFuture();</span><br><span class="line"></span><br><span class="line">Foo foo = fooFuture.get();</span><br></pre></td></tr></table></figure>
+<p>Dubbo异步调用流程:</p>
+<p><img src="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190823204920.png" alt="QQ截图20190823204920.png"></p>
+<p>站在Dubbo客户端角度来说,直接发起RPC调用属于用户线程.用户线程①发起任意的远程方法调用,最终会通过I/O线程发送网络报文,在真实发送报文前会让用户线程中设置当前异步请求Future(③).因此在此用户线程发起下一个远程方法调用前,需要先保存异步Future对象(④).Dubbo框架会把异步请求放到DefaultFuture类中,当服务端响应或超时时,被挂起的用户线程将被唤醒(⑤).用户线程设置异步Future对象的逻辑在DubboInvoker#doInvoke方法中完成.(详细参阅DubboInvoker)</p>
+<h2 id="泛化调用"><a class="markdownIt-Anchor" href="#泛化调用"></a> 泛化调用</h2>
+<p>Dubbo繁华调用特性可以在不依赖服务接口API包的场景中发起远程调用.这种特性特别适合框架集成和网关类应用开发.Dubbo在客户端发起泛化调用并不要求服务端是泛化暴露.<br>
+泛化调用实例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ReferenceConfig&lt;GenericService&gt; ref = <span class="keyword">new</span> ReferenceConfig&lt;&gt;();</span><br><span class="line">ApplicationConfig appConfig = <span class="keyword">new</span> ApplicationConfig(<span class="string">"demo-consumer"</span>);</span><br><span class="line"></span><br><span class="line">RegistryConfig registryConfig = <span class="keyword">new</span> RegistryConfig();</span><br><span class="line">registryConfig.setProtocol(<span class="string">"zookeeper"</span>);</span><br><span class="line">registryConfig.setAddress(<span class="string">"localhost:2181"</span>);</span><br><span class="line"></span><br><span class="line">ref.setProtocol(<span class="string">"dubbo"</span>);</span><br><span class="line">ref.setApplication(appConfig);</span><br><span class="line">ref.setRegistry(registryConfig);</span><br><span class="line">ref.setInterface(<span class="string">"com.xxx.XxxService"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 标识泛化调用</span></span><br><span class="line">ref.setGeneric(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建远程代理</span></span><br><span class="line">GenericService genericService = ref.get();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发起远程调用</span></span><br><span class="line">Object result = genericService.$invoe(<span class="string">"sayHello"</span>, <span class="keyword">new</span> String[]&#123;<span class="string">"java.lang.String"</span>&#125;, <span class="keyword">new</span> Object[] &#123;<span class="string">"word"</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>泛化调用必需的参数主要包括:应用名称,注册中心,直接接口名称和泛化标识.在发起远程调用时,GenericService方法参数类型分别为真实方法名,真实方法参数类型签名和真实参数值.<br>
+这里需要注意的是,每次动态创建的GenericService实例比较重,需要建立TCP连接,处理注册中心订阅和服务列表等计算,因此需要缓存ReferenceConfig进行复用.</p>
+<p>服务端在处理服务调用时,在GenericFilter拦截器中先把RpcInvocation中传递过来的参数类型和参数值提取出来,然后根据传递过来的接口名,方法名和参数类型查找服务端被调用的方法,获取真实方法后,主要提取真实方法参数类型(可能包含泛化类型),然后将参数值做Java类型转换.最后用解析后的参数值构造新的RpcInvocation对象发起调用</p>
+<h2 id="上下文信息"><a class="markdownIt-Anchor" href="#上下文信息"></a> 上下文信息</h2>
+<p>Dubbo上下文的获取和存储同样是基于JDKThreadLocal实现的.上下文中存放的是当前调用过程中所需的环境信息.RpcContext是一个ThreadLocal的临时状态记录器,当收到或发送RPC时,当前线程关联的RpcContext状态都会变化.比如:A调用B,B再调用C,则在B机器上,在B调用C之前,RpcContext记录的是A调用B的信息,在B调用C之后,RpcContext记录的是B调用C的信息.<br>
+服务端上下文的获取和使用:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoServiceImpl</span> <span class="keyword">implements</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> isProviderSide = RpcContext.getContext)().isProviderSide();</span><br><span class="line">        String clientIP = RpcContext.getContext().getRemoteHost();</span><br><span class="line">        String application = RpcContext.getContext().getUrl().getPatameter(<span class="string">"application"</span>);</span><br><span class="line">        yyyService.done();</span><br><span class="line">        <span class="keyword">boolean</span> isProviderSide = RpcContext.getContext.isProviderSide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在客户端和服务端分别有一个拦截设置当前上下文信息,分别对应ConsumerContextFilter和ContextFilter.在客户端拦截器实现中,因为Invoker包含远程服务信息,因此直接设置远程IP等信息.在服务端拦截器中主要设置本地地址,这个时候无法获取远程调用地址.设置远程地址主要在DubboProtocol#ExchangeHandlerAdapter.reply方法中完成,可以直接通过channel.getRemoteAddress方法获取</p>
+<h2 id="telnet操作"><a class="markdownIt-Anchor" href="#telnet操作"></a> Telnet操作</h2>
+<p>TODO</p>
+<h2 id="mock调用"><a class="markdownIt-Anchor" href="#mock调用"></a> Mock调用</h2>
+<p>Dubbo提供服务容错的能力,通常用于服务降级,比如验权服务,当服务提供方&quot;挂掉&quot;后,客户端不抛出异常,而是通过Mock数据返回授权失败.<br>
+TODO</p>
+<h2 id="结果缓存"><a class="markdownIt-Anchor" href="#结果缓存"></a> 结果缓存</h2>
+<p>Dubbo框架提供了对服务调用结果尽心缓存的特性,用于加速热门数据的访问速度,Dubbo提供声明式缓存,以减少用户加载缓存的工作量.因为每次调用都会使用JSON.toString方法将请求参数转换成字符串,然后拼装唯一的key,用于缓存唯一键.</p>
+<p>lru缓存策略是框架默认使用的.</p>
 
       
     </div>
@@ -603,8 +643,8 @@ window.console.log=()=>{};
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/dubbo-8/" rel="next" title="Dubbo笔记-7-Dubbo扩展点">
-                <i class="fa fa-chevron-left"></i> Dubbo笔记-7-Dubbo扩展点
+              <a href="/dubbo-8/" rel="next" title="Dubbo笔记-8-Dubbo扩展点">
+                <i class="fa fa-chevron-left"></i> Dubbo笔记-8-Dubbo扩展点
               </a>
             
           </div>
@@ -612,6 +652,10 @@ window.console.log=()=>{};
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/dubbo-10/" rel="prev" title="Dubbo笔记-10-Dubbo过滤器">
+                Dubbo笔记-10-Dubbo过滤器 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -689,7 +733,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-count">69</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -914,7 +958,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo高级特性概述"><span class="nav-text"> Dubbo高级特性概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务分组和版本"><span class="nav-text"> 服务分组和版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数回调"><span class="nav-text"> 参数回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式参数"><span class="nav-text"> 隐式参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步调用"><span class="nav-text"> 异步调用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo高级特性概述"><span class="nav-text"> Dubbo高级特性概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务分组和版本"><span class="nav-text"> 服务分组和版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数回调"><span class="nav-text"> 参数回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式参数"><span class="nav-text"> 隐式参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步调用"><span class="nav-text"> 异步调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛化调用"><span class="nav-text"> 泛化调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文信息"><span class="nav-text"> 上下文信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#telnet操作"><span class="nav-text"> Telnet操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mock调用"><span class="nav-text"> Mock调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果缓存"><span class="nav-text"> 结果缓存</span></a></li></ol></div>
             
 
           </div>
@@ -954,7 +998,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">233k</span>
+    <span title="站点总字数">237k</span>
   
 
   

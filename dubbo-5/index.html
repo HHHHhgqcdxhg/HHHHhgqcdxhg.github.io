@@ -106,7 +106,7 @@ window.console.log=()=>{};
   <meta name="description" content="Dubbo调用介绍  首先客户端启动时会从注册中心拉取和订阅对应的服务列表,Cluster会把拉取到的服务列表聚合成一个Invoker,每次RPC调用前会通过Directory#list获取provider地址,获取这些服务列表给后续路由和负载均衡使用 应图中①中主要是将多个服务提供者做聚合.在框架内部另外一个实现Directory接口RegistryDirectory类,它和接口名是一一对应的">
 <meta name="keywords" content="Dubbo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dubbo笔记-4-Dubbo远程调用">
+<meta property="og:title" content="Dubbo笔记-5-Dubbo远程调用">
 <meta property="og:url" content="https://blog.ggemo.com/dubbo-5/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="Dubbo调用介绍  首先客户端启动时会从注册中心拉取和订阅对应的服务列表,Cluster会把拉取到的服务列表聚合成一个Invoker,每次RPC调用前会通过Directory#list获取provider地址,获取这些服务列表给后续路由和负载均衡使用 应图中①中主要是将多个服务提供者做聚合.在框架内部另外一个实现Directory接口RegistryDirectory类,它和接口名是一一对应的">
@@ -114,9 +114,9 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818201742.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818204244.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E5%9B%BE%E7%89%8720190818211509.jpg">
-<meta property="og:updated_time" content="2019-08-18T15:42:26.093Z">
+<meta property="og:updated_time" content="2019-08-24T08:30:29.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dubbo笔记-4-Dubbo远程调用">
+<meta name="twitter:title" content="Dubbo笔记-5-Dubbo远程调用">
 <meta name="twitter:description" content="Dubbo调用介绍  首先客户端启动时会从注册中心拉取和订阅对应的服务列表,Cluster会把拉取到的服务列表聚合成一个Invoker,每次RPC调用前会通过Directory#list获取provider地址,获取这些服务列表给后续路由和负载均衡使用 应图中①中主要是将多个服务提供者做聚合.在框架内部另外一个实现Directory接口RegistryDirectory类,它和接口名是一一对应的">
 <meta name="twitter:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190818201742.png">
 
@@ -135,7 +135,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>Dubbo笔记-4-Dubbo远程调用 | 黄瓜养殖基地！</title>
+  <title>Dubbo笔记-5-Dubbo远程调用 | 黄瓜养殖基地！</title>
   
 
 
@@ -437,7 +437,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">Dubbo笔记-4-Dubbo远程调用
+          <h2 class="post-title" itemprop="name headline">Dubbo笔记-5-Dubbo远程调用
 
               
             
@@ -464,12 +464,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-08-18 20:06:59 / 修改时间：23:42:26" itemprop="dateCreated datePublished" datetime="2019-08-18T20:06:59+08:00">2019-08-18</time>
+              <time title="创建时间：2019-08-18 20:06:59" itemprop="dateCreated datePublished" datetime="2019-08-18T20:06:59+08:00">2019-08-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-24 16:30:29" itemprop="dateModified" datetime="2019-08-24T16:30:29+08:00">2019-08-24</time>
               
             
           </span>
@@ -717,8 +729,8 @@ window.console.log=()=>{};
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/dubbo-4/" rel="next" title="Dubbo笔记-3-Dubbo起停原理">
-                <i class="fa fa-chevron-left"></i> Dubbo笔记-3-Dubbo起停原理
+              <a href="/dubbo-4/" rel="next" title="Dubbo笔记-4-Dubbo起停原理">
+                <i class="fa fa-chevron-left"></i> Dubbo笔记-4-Dubbo起停原理
               </a>
             
           </div>
@@ -727,8 +739,8 @@ window.console.log=()=>{};
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/dubbo-6/" rel="prev" title="Dubbo笔记-5-Dubbo集群容错">
-                Dubbo笔记-5-Dubbo集群容错 <i class="fa fa-chevron-right"></i>
+              <a href="/dubbo-6/" rel="prev" title="Dubbo笔记-6-Dubbo集群容错">
+                Dubbo笔记-6-Dubbo集群容错 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -807,7 +819,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-count">69</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1072,7 +1084,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">233k</span>
+    <span title="站点总字数">237k</span>
   
 
   

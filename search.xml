@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2020校招]]></title>
+    <url>%2Fseek-job-2020%2F</url>
+    <content type="text"><![CDATA[公司 职位 简历投递时间 笔试时间 简历评估 面试时间 offer时间 我的 流程 阿里巴巴 研发工程师JAVA 8.1-10月中旬 链接 链接 百度 上海-Java研发工程师 7.5-9.21 9.24 10.8-10.13（暂定） 9月中旬-11月上旬 链接 腾讯 软件开发-后台开发方向 8.1-9.12 9.18-9.20 9.15-10.23 链接 字节跳动 后端开发工程师 7.19-10.31 7月下旬-11月上旬 链接 美团点评 后台开发工程师 -09.17 9.18 9.16-9.20 链接 网易 Java开发工程师-杭州 8.1~9.3 9.7 or 9.21 9月中旬~10月 面试后10个工作日内 链接 小米 软件开发工程师-Java方向-上海 尽快 携程 后台开发工程师-上海 -9.2 9.4 9月-10月 10月-11月 爱奇艺 Java开发工程师-上海 8.15起 9.8 or 9.18 8.26- 9月起 链接]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Dubbo笔记-10-Dubbo过滤器]]></title>
     <url>%2Fdubbo-10%2F</url>
     <content type="text"><![CDATA[概述 过滤器提供了服务提供者和消费者调用过程的拦截,即每次执行RPC调用的时候,对应的过滤器都会生效 过滤器的使用 Dubbo中已经有很多内置的过滤器,并且大多数都是默认启动的,如ContextFilter,对于自行扩展的过滤器,一种方式是使用@Active注解默认启动,另一种方式是在配置文件中配置 1234567891011&lt;!-- 消费方调用过程拦截 --&gt;&lt;dubbo:reference filter="xxx,yyy" /&gt;&lt;!-- 消费方调用过程默认拦截器,将拦截所有reference --&gt;&lt;dubbo:consumer filter="xxx,yyy" /&gt;&lt;!-- 服务提供方调用过程拦截 --&gt;&lt;dubbo:service filter="xxx,yyy" /&gt;&lt;!-- 服务提供方调用过程默认拦截器,将拦截所有service --&gt;&lt;dubbo:provider filter="xxx,yyy" /&gt; 以上就是配置方式,下面是一些规则: 过滤器顺序 用户自定义的过滤器的顺序默认会在框架内置过滤器之后,我们可以使用filter=&quot;xxx,default&quot;这种配置方式让自定义的过滤器顺序靠前 我们在配置filter=&quot;xxx,yyy&quot;时,写在前面的xxx会比后面的yyy顺序靠前 剔除过滤器 对于一些默认的过滤器或自动激活的过滤器,有些方法不想使用这些过滤器,则可以使用&quot;-“加过滤器名称来剔除,如filter=”-xxFilter&quot;会让xxFilter不生效.如果不想使用所有默认启用的过滤器,则可以配置filter=&quot;-default&quot;来进行剔除 过滤器的叠加 如果服务提供者,消费者端都配置了过滤器,则两边的过滤器不会互相覆盖,而是相互叠加,都会生效,如果需要覆盖,则可在消费方使用&quot;-&quot;的方式剔除对应的过滤器 过滤器的总体结构 只有CompatibleFilter只继承Filter接口,不会默认被激活.其他的内置过滤器都使用了Activate注解,默认激活;Filter接口上有@SPI注解,用户可以基于这个扩展点接口实现字的过滤器.所有过滤器会被分为消费者和服务提供者两种.消费者类型的过滤器只会在服务引用时被加入Invoker,服务提供者类型的过滤器只会在暴露的时候加入对应的Invoker. 自带过滤器]]></content>
@@ -698,8 +703,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>动漫</tag>
+        <tag>python</tag>
         <tag>gui</tag>
       </tags>
   </entry>

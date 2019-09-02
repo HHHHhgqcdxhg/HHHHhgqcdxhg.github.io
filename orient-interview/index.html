@@ -103,24 +103,25 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="介绍 这里是蔳莼菂䒕黃苽,软工专业大四狗一名 在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽 曾混迹车万stg圈,Kirara Fantasia圈和舰b圈 喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端  喜好 喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花 喜欢的颜色是粉蓝和鲜艳的黄色 喜欢的动漫是女孩子们在一起打情骂俏的那种 喜欢的人是待人真诚的那">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://blog.ggemo.com/about/index.html">
+  <meta name="description" content="Java  泛型的实现方式  多态的原理  反射的实现和原理  Java并发  饿汉懒汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络  每层的协议都有什么  窗口机制  websocket  http1.1 2.0  https加密方式  DMS寻址过程  粘包和拆包  Lin">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向面试笔记">
+<meta property="og:url" content="https://blog.ggemo.com/orient-interview/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="介绍 这里是蔳莼菂䒕黃苽,软工专业大四狗一名 在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽 曾混迹车万stg圈,Kirara Fantasia圈和舰b圈 喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端  喜好 喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花 喜欢的颜色是粉蓝和鲜艳的黄色 喜欢的动漫是女孩子们在一起打情骂俏的那种 喜欢的人是待人真诚的那">
+<meta property="og:description" content="Java  泛型的实现方式  多态的原理  反射的实现和原理  Java并发  饿汉懒汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络  每层的协议都有什么  窗口机制  websocket  http1.1 2.0  https加密方式  DMS寻址过程  粘包和拆包  Lin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T18:15:46.614Z">
+<meta property="og:updated_time" content="2019-09-02T11:35:48.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="介绍 这里是蔳莼菂䒕黃苽,软工专业大四狗一名 在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽 曾混迹车万stg圈,Kirara Fantasia圈和舰b圈 喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端  喜好 喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花 喜欢的颜色是粉蓝和鲜艳的黄色 喜欢的动漫是女孩子们在一起打情骂俏的那种 喜欢的人是待人真诚的那">
+<meta name="twitter:title" content="面向面试笔记">
+<meta name="twitter:description" content="Java  泛型的实现方式  多态的原理  反射的实现和原理  Java并发  饿汉懒汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络  每层的协议都有什么  窗口机制  websocket  http1.1 2.0  https加密方式  DMS寻址过程  粘包和拆包  Lin">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/about/">
+  <link rel="canonical" href="https://blog.ggemo.com/orient-interview/">
 
 
 
@@ -130,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>about | 黄瓜养殖基地！</title>
+  <title>面向面试笔记 | 黄瓜养殖基地！</title>
   
 
 
@@ -273,7 +274,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -395,157 +396,245 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/orient-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">about
-
-</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h2>
-<p>这里是蔳莼菂䒕黃苽,软工专业大四狗一名<br>
-在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽<br>
-曾混迹车万stg圈,Kirara Fantasia圈和舰b圈<br>
-喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端</p>
-<h2 id="喜好"><a class="markdownIt-Anchor" href="#喜好"></a> 喜好</h2>
-<p>喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花<br>
-喜欢的颜色是粉蓝和鲜艳的黄色<br>
-喜欢的动漫是女孩子们在一起打情骂俏的那种<br>
-喜欢的人是待人真诚的那种,讨厌的人是待人不真诚,恃才傲物和自我中心的那种<br>
-最喜欢的声优是水濑祈,东山奈央,丰崎爱生和井口裕香,最喜欢的监督是新房昭之和汤浅政明,最喜欢的原画师是野中正幸<br>
-最喜欢的妹子是不到1米6,小小的,每天都很开心,非常甜美的</p>
-<h2 id="社交账号"><a class="markdownIt-Anchor" href="#社交账号"></a> 社交账号</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">平台</th>
-<th>id or 账号 or 主页</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Github</td>
-<td><a href="https://github.com/HHHHhgqcdxhg" target="_blank" rel="noopener">HHHHhgqcdxhg</a></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">Coding</td>
-<td><a href="https://dev.tencent.com/u/hhhhhg" target="_blank" rel="noopener">hhhhhg</a></td>
-<td>Coding已经不用了,现在还是Github用的多</td>
-</tr>
-<tr>
-<td style="text-align:center">LeetCode</td>
-<td><a href="https://leetcode-cn.com/u/hhhhhgqcdxhg" target="_blank" rel="noopener">蔳莼菂䒕黃苽</a></td>
-<td>小菜鸡学习中…</td>
-</tr>
-<tr>
-<td style="text-align:center">QQ</td>
-<td><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2894700792" target="_blank" rel="noopener">2894700792</a></td>
-<td>常用号</td>
-</tr>
-<tr>
-<td style="text-align:center">QQ</td>
-<td><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2482513293" target="_blank" rel="noopener">2482513293</a></td>
-<td>小号,机器人. <a href="https://blog.ggemo.com/bot-help/">详细介绍</a></td>
-</tr>
-<tr>
-<td style="text-align:center">Discord</td>
-<td>蔳莼菂䒕黃苽#7999</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">bilibili</td>
-<td><a href="https://space.bilibili.com/13578650" target="_blank" rel="noopener">蔳莼菂小黃苽</a></td>
-<td>常用号</td>
-</tr>
-<tr>
-<td style="text-align:center">bilibili</td>
-<td><a href="https://space.bilibili.com/300123440" target="_blank" rel="noopener">碧蓝航线转推姬</a></td>
-<td>小号,机器人. <a href="https://blog.ggemo.com/bili-bot/">详细介绍</a></td>
-</tr>
-<tr>
-<td style="text-align:center">知乎</td>
-<td><a href="https://www.zhihu.com/people/purecucumber/" target="_blank" rel="noopener">清纯的小黄瓜</a></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">百度贴吧</td>
-<td><a href="http://tieba.baidu.com/home/main?un=%E7%89%9B%E5%A5%B6%E5%A5%B6%E5%96%9D%E5%B0%8F%E5%AE%9D%E5%AE%9D" target="_blank" rel="noopener">蔳莼菂小黃苽♂</a></td>
-<td>玩的少</td>
-</tr>
-<tr>
-<td style="text-align:center">twitter</td>
-<td><a href="https://twitter.com/_HHHHhg" target="_blank" rel="noopener">䒕黃苽</a></td>
-<td>玩的少</td>
-</tr>
-<tr>
-<td style="text-align:center">网易云</td>
-<td><a href="https://music.163.com/#/user/home?id=316748739" target="_blank" rel="noopener">蔳莼菂䒕黃苽</a></td>
-<td>听歌听的少</td>
-</tr>
-</tbody>
-</table>
+          <h2 class="post-title" itemprop="name headline">面向面试笔记
 
+              
+            
+          </h2>
         
-      </div>
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-02 18:12:11 / 修改时间：19:35:48" itemprop="dateCreated datePublished" datetime="2019-09-02T18:12:11+08:00">2019-09-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/orient-interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/orient-interview/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">388</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="java"><a class="markdownIt-Anchor" href="#java"></a> Java</h2>
+<h3 id="泛型的实现方式"><a class="markdownIt-Anchor" href="#泛型的实现方式"></a> 泛型的实现方式</h3>
+<h3 id="多态的原理"><a class="markdownIt-Anchor" href="#多态的原理"></a> 多态的原理</h3>
+<h3 id="反射的实现和原理"><a class="markdownIt-Anchor" href="#反射的实现和原理"></a> 反射的实现和原理</h3>
+<h2 id="java并发"><a class="markdownIt-Anchor" href="#java并发"></a> Java并发</h2>
+<h3 id="饿汉懒汉"><a class="markdownIt-Anchor" href="#饿汉懒汉"></a> 饿汉懒汉</h3>
+<h3 id="cyclicbarrier-和countdownlatch"><a class="markdownIt-Anchor" href="#cyclicbarrier-和countdownlatch"></a> cyclicbarrier 和countdownlatch</h3>
+<h3 id="消费者生产者模型"><a class="markdownIt-Anchor" href="#消费者生产者模型"></a> 消费者生产者模型</h3>
+<h3 id="线程回调"><a class="markdownIt-Anchor" href="#线程回调"></a> 线程回调</h3>
+<h3 id="线程的几种状态"><a class="markdownIt-Anchor" href="#线程的几种状态"></a> 线程的几种状态</h3>
+<h3 id="sleep和yield"><a class="markdownIt-Anchor" href="#sleep和yield"></a> sleep和yield</h3>
+<h2 id="锁"><a class="markdownIt-Anchor" href="#锁"></a> 锁</h2>
+<h3 id="mvcc"><a class="markdownIt-Anchor" href="#mvcc"></a> MVCC</h3>
+<h2 id="网络"><a class="markdownIt-Anchor" href="#网络"></a> 网络</h2>
+<h3 id="每层的协议都有什么"><a class="markdownIt-Anchor" href="#每层的协议都有什么"></a> 每层的协议都有什么</h3>
+<h3 id="窗口机制"><a class="markdownIt-Anchor" href="#窗口机制"></a> 窗口机制</h3>
+<h3 id="websocket"><a class="markdownIt-Anchor" href="#websocket"></a> websocket</h3>
+<h3 id="http11-20"><a class="markdownIt-Anchor" href="#http11-20"></a> http1.1 2.0</h3>
+<h3 id="https加密方式"><a class="markdownIt-Anchor" href="#https加密方式"></a> https加密方式</h3>
+<h3 id="dms寻址过程"><a class="markdownIt-Anchor" href="#dms寻址过程"></a> DMS寻址过程</h3>
+<h3 id="粘包和拆包"><a class="markdownIt-Anchor" href="#粘包和拆包"></a> 粘包和拆包</h3>
+<h2 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h2>
+<h3 id="sed和awk"><a class="markdownIt-Anchor" href="#sed和awk"></a> sed和awk</h3>
+<h3 id="查看进程和杀死进程"><a class="markdownIt-Anchor" href="#查看进程和杀死进程"></a> 查看进程和杀死进程</h3>
+<h2 id="组原"><a class="markdownIt-Anchor" href="#组原"></a> 组原</h2>
+<h3 id="float存储"><a class="markdownIt-Anchor" href="#float存储"></a> float存储</h3>
+<h3 id="线程的通信方式"><a class="markdownIt-Anchor" href="#线程的通信方式"></a> 线程的通信方式</h3>
+<h3 id="进程的通信方式"><a class="markdownIt-Anchor" href="#进程的通信方式"></a> 进程的通信方式</h3>
+<h3 id="系统线程数量上限"><a class="markdownIt-Anchor" href="#系统线程数量上限"></a> 系统线程数量上限</h3>
+<h3 id="页式存储"><a class="markdownIt-Anchor" href="#页式存储"></a> 页式存储</h3>
+<h3 id="内存碎片"><a class="markdownIt-Anchor" href="#内存碎片"></a> 内存碎片</h3>
+<h2 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h2>
+<h3 id="innodb和myisam的区别"><a class="markdownIt-Anchor" href="#innodb和myisam的区别"></a> Innodb和MyIsam的区别</h3>
+<h3 id="联合索引"><a class="markdownIt-Anchor" href="#联合索引"></a> 联合索引</h3>
+<h3 id="mysql事务是如何实现的"><a class="markdownIt-Anchor" href="#mysql事务是如何实现的"></a> mysql事务是如何实现的</h3>
+<h2 id="spring"><a class="markdownIt-Anchor" href="#spring"></a> Spring</h2>
+<h3 id="bean依赖冲突"><a class="markdownIt-Anchor" href="#bean依赖冲突"></a> bean依赖冲突</h3>
+<h3 id="beanfactory"><a class="markdownIt-Anchor" href="#beanfactory"></a> BeanFactory</h3>
+<h3 id="自动装配的方式"><a class="markdownIt-Anchor" href="#自动装配的方式"></a> 自动装配的方式</h3>
+<h3 id="dispatch-servlet"><a class="markdownIt-Anchor" href="#dispatch-servlet"></a> dispatch-servlet</h3>
+<h3 id="spring事务"><a class="markdownIt-Anchor" href="#spring事务"></a> spring事务</h3>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/to-learn/" rel="next" title="to-learn">
+                <i class="fa fa-chevron-left"></i> to-learn
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/spring-ioc/" rel="prev" title="SpringIoC">
+                SpringIoC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -837,7 +926,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-text"> 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#喜好"><span class="nav-text"> 喜好</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社交账号"><span class="nav-text"> 社交账号</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-text"> Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型的实现方式"><span class="nav-text"> 泛型的实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态的原理"><span class="nav-text"> 多态的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射的实现和原理"><span class="nav-text"> 反射的实现和原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java并发"><span class="nav-text"> Java并发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉懒汉"><span class="nav-text"> 饿汉懒汉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cyclicbarrier-和countdownlatch"><span class="nav-text"> cyclicbarrier 和countdownlatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消费者生产者模型"><span class="nav-text"> 消费者生产者模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程回调"><span class="nav-text"> 线程回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的几种状态"><span class="nav-text"> 线程的几种状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sleep和yield"><span class="nav-text"> sleep和yield</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁"><span class="nav-text"> 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mvcc"><span class="nav-text"> MVCC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-text"> 网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每层的协议都有什么"><span class="nav-text"> 每层的协议都有什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口机制"><span class="nav-text"> 窗口机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websocket"><span class="nav-text"> websocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http11-20"><span class="nav-text"> http1.1 2.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https加密方式"><span class="nav-text"> https加密方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dms寻址过程"><span class="nav-text"> DMS寻址过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#粘包和拆包"><span class="nav-text"> 粘包和拆包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-text"> Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sed和awk"><span class="nav-text"> sed和awk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看进程和杀死进程"><span class="nav-text"> 查看进程和杀死进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组原"><span class="nav-text"> 组原</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#float存储"><span class="nav-text"> float存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的通信方式"><span class="nav-text"> 线程的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的通信方式"><span class="nav-text"> 进程的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统线程数量上限"><span class="nav-text"> 系统线程数量上限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页式存储"><span class="nav-text"> 页式存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存碎片"><span class="nav-text"> 内存碎片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-text"> 数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#innodb和myisam的区别"><span class="nav-text"> Innodb和MyIsam的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联合索引"><span class="nav-text"> 联合索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql事务是如何实现的"><span class="nav-text"> mysql事务是如何实现的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-text"> Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bean依赖冲突"><span class="nav-text"> bean依赖冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beanfactory"><span class="nav-text"> BeanFactory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动装配的方式"><span class="nav-text"> 自动装配的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dispatch-servlet"><span class="nav-text"> dispatch-servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring事务"><span class="nav-text"> spring事务</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -103,24 +103,26 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="介绍 这里是蔳莼菂䒕黃苽,软工专业大四狗一名 在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽 曾混迹车万stg圈,Kirara Fantasia圈和舰b圈 喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端  喜好 喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花 喜欢的颜色是粉蓝和鲜艳的黄色 喜欢的动漫是女孩子们在一起打情骂俏的那种 喜欢的人是待人真诚的那">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://blog.ggemo.com/about/index.html">
+  <meta name="description" content="概述 Spring中,IoC容器是实现IoC的载体,它可以在对象生成或初始化时直接将数据注入到对象中,也可以通过将对象引用注入到对象数据域中的方式来注入对方法调用的依赖. 这种依赖注入是递归的,对象被组成注入  依赖注入流程  阶段一: 收集和注册 第一个阶段可以认为是构建和收集bean定义的阶段,在这个阶段中,我们可以通过XML或者Java代码的方式定义一些bean,然后通过手动组装或者让容器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringIoC">
+<meta property="og:url" content="https://blog.ggemo.com/spring-ioc/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="介绍 这里是蔳莼菂䒕黃苽,软工专业大四狗一名 在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽 曾混迹车万stg圈,Kirara Fantasia圈和舰b圈 喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端  喜好 喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花 喜欢的颜色是粉蓝和鲜艳的黄色 喜欢的动漫是女孩子们在一起打情骂俏的那种 喜欢的人是待人真诚的那">
+<meta property="og:description" content="概述 Spring中,IoC容器是实现IoC的载体,它可以在对象生成或初始化时直接将数据注入到对象中,也可以通过将对象引用注入到对象数据域中的方式来注入对方法调用的依赖. 这种依赖注入是递归的,对象被组成注入  依赖注入流程  阶段一: 收集和注册 第一个阶段可以认为是构建和收集bean定义的阶段,在这个阶段中,我们可以通过XML或者Java代码的方式定义一些bean,然后通过手动组装或者让容器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T18:15:46.614Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190902202114.png">
+<meta property="og:updated_time" content="2019-09-02T12:35:20.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="介绍 这里是蔳莼菂䒕黃苽,软工专业大四狗一名 在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽 曾混迹车万stg圈,Kirara Fantasia圈和舰b圈 喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端  喜好 喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花 喜欢的颜色是粉蓝和鲜艳的黄色 喜欢的动漫是女孩子们在一起打情骂俏的那种 喜欢的人是待人真诚的那">
+<meta name="twitter:title" content="SpringIoC">
+<meta name="twitter:description" content="概述 Spring中,IoC容器是实现IoC的载体,它可以在对象生成或初始化时直接将数据注入到对象中,也可以通过将对象引用注入到对象数据域中的方式来注入对方法调用的依赖. 这种依赖注入是递归的,对象被组成注入  依赖注入流程  阶段一: 收集和注册 第一个阶段可以认为是构建和收集bean定义的阶段,在这个阶段中,我们可以通过XML或者Java代码的方式定义一些bean,然后通过手动组装或者让容器">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190902202114.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/about/">
+  <link rel="canonical" href="https://blog.ggemo.com/spring-ioc/">
 
 
 
@@ -130,7 +132,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>about | 黄瓜养殖基地！</title>
+  <title>SpringIoC | 黄瓜养殖基地！</title>
   
 
 
@@ -273,7 +275,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -395,157 +397,221 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/spring-ioc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">about
-
-</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h2>
-<p>这里是蔳莼菂䒕黃苽,软工专业大四狗一名<br>
-在网上的用户名通常叫蔳莼菂䒕黃苽或清纯的小黄瓜或蔳莼菂小黃苽<br>
-曾混迹车万stg圈,Kirara Fantasia圈和舰b圈<br>
-喜欢用的语言是Java,Python,偶尔写写前端,最近在学习Java后端</p>
-<h2 id="喜好"><a class="markdownIt-Anchor" href="#喜好"></a> 喜好</h2>
-<p>喜欢的吃的是生煎,排骨,薯片(已经戒了),爆米花<br>
-喜欢的颜色是粉蓝和鲜艳的黄色<br>
-喜欢的动漫是女孩子们在一起打情骂俏的那种<br>
-喜欢的人是待人真诚的那种,讨厌的人是待人不真诚,恃才傲物和自我中心的那种<br>
-最喜欢的声优是水濑祈,东山奈央,丰崎爱生和井口裕香,最喜欢的监督是新房昭之和汤浅政明,最喜欢的原画师是野中正幸<br>
-最喜欢的妹子是不到1米6,小小的,每天都很开心,非常甜美的</p>
-<h2 id="社交账号"><a class="markdownIt-Anchor" href="#社交账号"></a> 社交账号</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">平台</th>
-<th>id or 账号 or 主页</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Github</td>
-<td><a href="https://github.com/HHHHhgqcdxhg" target="_blank" rel="noopener">HHHHhgqcdxhg</a></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">Coding</td>
-<td><a href="https://dev.tencent.com/u/hhhhhg" target="_blank" rel="noopener">hhhhhg</a></td>
-<td>Coding已经不用了,现在还是Github用的多</td>
-</tr>
-<tr>
-<td style="text-align:center">LeetCode</td>
-<td><a href="https://leetcode-cn.com/u/hhhhhgqcdxhg" target="_blank" rel="noopener">蔳莼菂䒕黃苽</a></td>
-<td>小菜鸡学习中…</td>
-</tr>
-<tr>
-<td style="text-align:center">QQ</td>
-<td><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2894700792" target="_blank" rel="noopener">2894700792</a></td>
-<td>常用号</td>
-</tr>
-<tr>
-<td style="text-align:center">QQ</td>
-<td><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2482513293" target="_blank" rel="noopener">2482513293</a></td>
-<td>小号,机器人. <a href="https://blog.ggemo.com/bot-help/">详细介绍</a></td>
-</tr>
-<tr>
-<td style="text-align:center">Discord</td>
-<td>蔳莼菂䒕黃苽#7999</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">bilibili</td>
-<td><a href="https://space.bilibili.com/13578650" target="_blank" rel="noopener">蔳莼菂小黃苽</a></td>
-<td>常用号</td>
-</tr>
-<tr>
-<td style="text-align:center">bilibili</td>
-<td><a href="https://space.bilibili.com/300123440" target="_blank" rel="noopener">碧蓝航线转推姬</a></td>
-<td>小号,机器人. <a href="https://blog.ggemo.com/bili-bot/">详细介绍</a></td>
-</tr>
-<tr>
-<td style="text-align:center">知乎</td>
-<td><a href="https://www.zhihu.com/people/purecucumber/" target="_blank" rel="noopener">清纯的小黄瓜</a></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">百度贴吧</td>
-<td><a href="http://tieba.baidu.com/home/main?un=%E7%89%9B%E5%A5%B6%E5%A5%B6%E5%96%9D%E5%B0%8F%E5%AE%9D%E5%AE%9D" target="_blank" rel="noopener">蔳莼菂小黃苽♂</a></td>
-<td>玩的少</td>
-</tr>
-<tr>
-<td style="text-align:center">twitter</td>
-<td><a href="https://twitter.com/_HHHHhg" target="_blank" rel="noopener">䒕黃苽</a></td>
-<td>玩的少</td>
-</tr>
-<tr>
-<td style="text-align:center">网易云</td>
-<td><a href="https://music.163.com/#/user/home?id=316748739" target="_blank" rel="noopener">蔳莼菂䒕黃苽</a></td>
-<td>听歌听的少</td>
-</tr>
-</tbody>
-</table>
+          <h2 class="post-title" itemprop="name headline">SpringIoC
 
+              
+            
+          </h2>
         
-      </div>
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-02 19:12:37 / 修改时间：20:35:20" itemprop="dateCreated datePublished" datetime="2019-09-02T19:12:37+08:00">2019-09-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/spring-ioc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/spring-ioc/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.5k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>Spring中,IoC容器是实现IoC的载体,它可以在对象生成或初始化时直接将数据注入到对象中,也可以通过将对象引用注入到对象数据域中的方式来注入对方法调用的依赖.</p>
+<p>这种依赖注入是<mark>递归</mark>的,对象被<mark>组成注入</mark></p>
+<h2 id="依赖注入流程"><a class="markdownIt-Anchor" href="#依赖注入流程"></a> 依赖注入流程</h2>
+<h3 id="阶段一-收集和注册"><a class="markdownIt-Anchor" href="#阶段一-收集和注册"></a> 阶段一: 收集和注册</h3>
+<p>第一个阶段可以认为是构建和收集bean定义的阶段,在这个阶段中,我们可以通过XML或者Java代码的方式定义一些bean,然后通过手动组装或者让容器基于某些机制自动扫描的形式,将这些bean定义收集到IoC容器中</p>
+<h3 id="阶段二-分析和组装"><a class="markdownIt-Anchor" href="#阶段二-分析和组装"></a> 阶段二: 分析和组装</h3>
+<p>第一阶段完成后,可以暂且认为IoC容器中充斥着一个个独立的bean,这是它们之间还没有任何关系.但实际上,它们之间是有依赖关系的,所以,IoC容器在第二阶段要干的事情就是分析这些已经在IoC容器中的bean,然后根据它们之间的依赖关系先后组装它们</p>
+<h2 id="ioc容器"><a class="markdownIt-Anchor" href="#ioc容器"></a> IoC容器</h2>
+<p>在Spring IoC容器的设计中,我们可以看到两个主要的容器系列,一个是实现<strong>BeanFactory</strong>接口的简单容器系列,这系列容器只实现了容器最基本的功能;另一个是<strong>ApplicationContext</strong>应用上下文,它作为容器的高级形态而存在.应用上下文在简单容器的基础上增加了许多面向框架的特性,同时对应用环境做出了许多适配</p>
+<h3 id="beanfactory"><a class="markdownIt-Anchor" href="#beanfactory"></a> BeanFactory</h3>
+<h4 id="beanfactory的应用场景"><a class="markdownIt-Anchor" href="#beanfactory的应用场景"></a> BeanFactory的应用场景</h4>
+<p>BeanFactory接口设计了getBean方法,这个方法是使用IoC容器API的主要方法,通过这个方法,可以取得IoC容器中管理的Bean,Bean的取得是通过指定名字来索引的.如果需要在获取Bean时对Bean的类型进行检查,BeanFactory接口定义了带有参数的getBean方法,这个方法的使用与不带参数的getBean方法类似,不同的是增加了对Bean检索的类型的要求.</p>
+<p>用户可以通过BeanFactory接口方法中的getBeean使用Bean的名字,从而在获取Bean时,如果需要获取的Bean是prototype类型的,用户还可以为这个prototype类型的Bean生成指定构造函数的对应参数.这使得在一定程度上可以控制生成prototype类型的Bean<br>
+有了BeanFactory的定义,用户可以执行以下操作:</p>
+<ul>
+<li>通过接口方法containsBean让用户能够判断容器是否含有指定名字的Bean</li>
+<li>通过接口方法isSingleton来查询指定名字的Bean是否是Singleton类型的Bean.对于Singleton属性,用户可以在BeaDefinition中指定</li>
+<li>通过接口方法isPrototype来查询指定名字的Bean是否是prototype类型的.对于prototype属性,用户可以在BeanDefinition中指定</li>
+<li>通过接口方法isTypeMatch来查询指定了名字的Bean的Class类型是否是特定的Class类型.这个Class类型可以由用户来指定</li>
+<li>通过接口方法getType来查询指定名字的Bean的Class类型</li>
+<li>通过接口方法getAliases来查询指定了名字的Bean的所有别名,这些别名都是用户在BeaDefinition中定义的</li>
+</ul>
+<h4 id="beanfactory容器的设计原理"><a class="markdownIt-Anchor" href="#beanfactory容器的设计原理"></a> BeanFactory容器的设计原理</h4>
+<p>BeanFactory接口提供了使用IoC容器的规范.在这个基础上,Spring还提供了符合这个IoC容器接口的一系列容器的实现供开发人员使用.比如,XmlBeanFactory设计的类继承关系:<br>
+<img src="https://pic.ggemo.com/picgo/QQ%E6%88%AA%E5%9B%BE20190902202114.png" alt="QQ截图20190902202114.png"></p>
+<p>它只提供最基本的IoC容器的功能.</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/orient-interview/" rel="next" title="面向面试笔记">
+                <i class="fa fa-chevron-left"></i> 面向面试笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -837,7 +903,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-text"> 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#喜好"><span class="nav-text"> 喜好</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社交账号"><span class="nav-text"> 社交账号</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入流程"><span class="nav-text"> 依赖注入流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阶段一-收集和注册"><span class="nav-text"> 阶段一: 收集和注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阶段二-分析和组装"><span class="nav-text"> 阶段二: 分析和组装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ioc容器"><span class="nav-text"> IoC容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beanfactory"><span class="nav-text"> BeanFactory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#beanfactory的应用场景"><span class="nav-text"> BeanFactory的应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#beanfactory容器的设计原理"><span class="nav-text"> BeanFactory容器的设计原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

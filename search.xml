@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[节食日记]]></title>
+    <url>%2Fgo-on-a-diet%2F</url>
+    <content type="text"><![CDATA[记个这个玩意督促我减肥 我想吃东西了怎么办啊啊啊啊啊啊啊啊啊 点开淘宝,看买家秀 吃木糖醇(不能多吃) 摸摸肚子 记录 2019年9月3日 午餐吃了两道菜,鸭肉和炸鸡,没吃主食 2019年9月2日 下午吃的冒菜,不小心点多了,点了30块的…没吃主食 2019年9月1日 拿快递时在一食堂吃的,点了两个鸡锁骨,一根香肠,一份土豆鸡,没吃主食]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[SpringIoC]]></title>
     <url>%2Fspring-ioc%2F</url>
     <content type="text"><![CDATA[概述 Spring中,IoC容器是实现IoC的载体,它可以在对象生成或初始化时直接将数据注入到对象中,也可以通过将对象引用注入到对象数据域中的方式来注入对方法调用的依赖. 这种依赖注入是递归的,对象被组成注入 依赖注入流程 阶段一: 收集和注册 第一个阶段可以认为是构建和收集bean定义的阶段,在这个阶段中,我们可以通过XML或者Java代码的方式定义一些bean,然后通过手动组装或者让容器基于某些机制自动扫描的形式,将这些bean定义收集到IoC容器中 阶段二: 分析和组装 第一阶段完成后,可以暂且认为IoC容器中充斥着一个个独立的bean,这是它们之间还没有任何关系.但实际上,它们之间是有依赖关系的,所以,IoC容器在第二阶段要干的事情就是分析这些已经在IoC容器中的bean,然后根据它们之间的依赖关系先后组装它们 IoC容器 在Spring IoC容器的设计中,我们可以看到两个主要的容器系列,一个是实现BeanFactory接口的简单容器系列,这系列容器只实现了容器最基本的功能;另一个是ApplicationContext应用上下文,它作为容器的高级形态而存在.应用上下文在简单容器的基础上增加了许多面向框架的特性,同时对应用环境做出了许多适配 BeanFactory BeanFactory的应用场景 BeanFactory接口设计了getBean方法,这个方法是使用IoC容器API的主要方法,通过这个方法,可以取得IoC容器中管理的Bean,Bean的取得是通过指定名字来索引的.如果需要在获取Bean时对Bean的类型进行检查,BeanFactory接口定义了带有参数的getBean方法,这个方法的使用与不带参数的getBean方法类似,不同的是增加了对Bean检索的类型的要求. 用户可以通过BeanFactory接口方法中的getBeean使用Bean的名字,从而在获取Bean时,如果需要获取的Bean是prototype类型的,用户还可以为这个prototype类型的Bean生成指定构造函数的对应参数.这使得在一定程度上可以控制生成prototype类型的Bean 有了BeanFactory的定义,用户可以执行以下操作: 通过接口方法containsBean让用户能够判断容器是否含有指定名字的Bean 通过接口方法isSingleton来查询指定名字的Bean是否是Singleton类型的Bean.对于Singleton属性,用户可以在BeaDefinition中指定 通过接口方法isPrototype来查询指定名字的Bean是否是prototype类型的.对于prototype属性,用户可以在BeanDefinition中指定 通过接口方法isTypeMatch来查询指定了名字的Bean的Class类型是否是特定的Class类型.这个Class类型可以由用户来指定 通过接口方法getType来查询指定名字的Bean的Class类型 通过接口方法getAliases来查询指定了名字的Bean的所有别名,这些别名都是用户在BeaDefinition中定义的 BeanFactory容器的设计原理 BeanFactory接口提供了使用IoC容器的规范.在这个基础上,Spring还提供了符合这个IoC容器接口的一系列容器的实现供开发人员使用.比如,XmlBeanFactory设计的类继承关系: 它只提供最基本的IoC容器的功能.]]></content>
@@ -8,7 +13,7 @@
   <entry>
     <title><![CDATA[面向面试笔记]]></title>
     <url>%2Forient-interview%2F</url>
-    <content type="text"><![CDATA[Java 泛型的实现方式 多态的原理 反射的实现和原理 Java并发 饿汉懒汉 cyclicbarrier 和countdownlatch 消费者生产者模型 线程回调 线程的几种状态 sleep和yield 锁 MVCC 网络 每层的协议都有什么 窗口机制 websocket http1.1 2.0 https加密方式 DMS寻址过程 粘包和拆包 Linux sed和awk 查看进程和杀死进程 组原 float存储 线程的通信方式 进程的通信方式 系统线程数量上限 页式存储 内存碎片 数据库 Innodb和MyIsam的区别 联合索引 mysql事务是如何实现的 Spring bean依赖冲突 BeanFactory 自动装配的方式 dispatch-servlet spring事务]]></content>
+    <content type="text"><![CDATA[Java 泛型的实现方式 类型擦除 多态的原理 动态绑定 反射的实现和原理 读写锁的实现 Java并发 饿汉懒汉 是指单例模式的懒汉饿汉 cyclicbarrier 和countdownlatch 消费者生产者模型 线程回调 线程的几种状态 sleep和yield 锁 MVCC 网络与IO 每层的协议都有什么 窗口机制 websocket http1.1 2.0 https加密方式 DMS寻址过程 粘包和拆包 epoll、poll、select Linux sed和awk 查看进程和杀死进程 组原 float存储 线程的通信方式 进程的通信方式 系统线程数量上限 页式存储 内存碎片 数据库 Innodb和MyIsam的区别 聚簇索引和非聚簇索引 聚簇索引: 叶子结点即存储了真实的数据行，不再有另外单独的数据页。 在一张表上最多只能创建一个聚集索引 非聚簇索引: 叶结点包含索引字段值及指向数据页数据行的逻辑指针 联合索引 https://cloud.tencent.com/developer/article/1030117 mysql事务是如何实现的 Spring bean依赖冲突 BeanFactory 自动装配的方式 dispatch-servlet spring事务 中间件 redis SDS 算法 大数运算 一致性hash]]></content>
       <tags>
         <tag>面试</tag>
       </tags>

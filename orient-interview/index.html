@@ -103,18 +103,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="Java  泛型的实现方式  多态的原理  反射的实现和原理  Java并发  饿汉懒汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络  每层的协议都有什么  窗口机制  websocket  http1.1 2.0  https加密方式  DMS寻址过程  粘包和拆包  Lin">
+  <meta name="description" content="Java  泛型的实现方式 类型擦除  多态的原理 动态绑定  反射的实现和原理  读写锁的实现  Java并发  饿汉懒汉 是指单例模式的懒汉饿汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络与IO  每层的协议都有什么  窗口机制  websocket  http1.1 2.">
 <meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向面试笔记">
 <meta property="og:url" content="https://blog.ggemo.com/orient-interview/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="Java  泛型的实现方式  多态的原理  反射的实现和原理  Java并发  饿汉懒汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络  每层的协议都有什么  窗口机制  websocket  http1.1 2.0  https加密方式  DMS寻址过程  粘包和拆包  Lin">
+<meta property="og:description" content="Java  泛型的实现方式 类型擦除  多态的原理 动态绑定  反射的实现和原理  读写锁的实现  Java并发  饿汉懒汉 是指单例模式的懒汉饿汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络与IO  每层的协议都有什么  窗口机制  websocket  http1.1 2.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-02T11:35:48.173Z">
+<meta property="og:updated_time" content="2019-09-03T14:43:31.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向面试笔记">
-<meta name="twitter:description" content="Java  泛型的实现方式  多态的原理  反射的实现和原理  Java并发  饿汉懒汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络  每层的协议都有什么  窗口机制  websocket  http1.1 2.0  https加密方式  DMS寻址过程  粘包和拆包  Lin">
+<meta name="twitter:description" content="Java  泛型的实现方式 类型擦除  多态的原理 动态绑定  反射的实现和原理  读写锁的实现  Java并发  饿汉懒汉 是指单例模式的懒汉饿汉  cyclicbarrier 和countdownlatch  消费者生产者模型  线程回调  线程的几种状态  sleep和yield  锁  MVCC  网络与IO  每层的协议都有什么  窗口机制  websocket  http1.1 2.">
 
 
 
@@ -460,12 +460,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-02 18:12:11 / 修改时间：19:35:48" itemprop="dateCreated datePublished" datetime="2019-09-02T18:12:11+08:00">2019-09-02</time>
+              <time title="创建时间：2019-09-02 18:12:11" itemprop="dateCreated datePublished" datetime="2019-09-02T18:12:11+08:00">2019-09-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-03 22:43:31" itemprop="dateModified" datetime="2019-09-03T22:43:31+08:00">2019-09-03</time>
               
             
           </span>
@@ -506,7 +518,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">388</span>
+                <span title="本文字数">623</span>
               
 
               
@@ -532,10 +544,14 @@ window.console.log=()=>{};
       
         <h2 id="java"><a class="markdownIt-Anchor" href="#java"></a> Java</h2>
 <h3 id="泛型的实现方式"><a class="markdownIt-Anchor" href="#泛型的实现方式"></a> 泛型的实现方式</h3>
+<p>类型擦除</p>
 <h3 id="多态的原理"><a class="markdownIt-Anchor" href="#多态的原理"></a> 多态的原理</h3>
+<p>动态绑定</p>
 <h3 id="反射的实现和原理"><a class="markdownIt-Anchor" href="#反射的实现和原理"></a> 反射的实现和原理</h3>
+<h3 id="读写锁的实现"><a class="markdownIt-Anchor" href="#读写锁的实现"></a> 读写锁的实现</h3>
 <h2 id="java并发"><a class="markdownIt-Anchor" href="#java并发"></a> Java并发</h2>
 <h3 id="饿汉懒汉"><a class="markdownIt-Anchor" href="#饿汉懒汉"></a> 饿汉懒汉</h3>
+<p>是指单例模式的懒汉饿汉</p>
 <h3 id="cyclicbarrier-和countdownlatch"><a class="markdownIt-Anchor" href="#cyclicbarrier-和countdownlatch"></a> cyclicbarrier 和countdownlatch</h3>
 <h3 id="消费者生产者模型"><a class="markdownIt-Anchor" href="#消费者生产者模型"></a> 消费者生产者模型</h3>
 <h3 id="线程回调"><a class="markdownIt-Anchor" href="#线程回调"></a> 线程回调</h3>
@@ -543,7 +559,7 @@ window.console.log=()=>{};
 <h3 id="sleep和yield"><a class="markdownIt-Anchor" href="#sleep和yield"></a> sleep和yield</h3>
 <h2 id="锁"><a class="markdownIt-Anchor" href="#锁"></a> 锁</h2>
 <h3 id="mvcc"><a class="markdownIt-Anchor" href="#mvcc"></a> MVCC</h3>
-<h2 id="网络"><a class="markdownIt-Anchor" href="#网络"></a> 网络</h2>
+<h2 id="网络与io"><a class="markdownIt-Anchor" href="#网络与io"></a> 网络与IO</h2>
 <h3 id="每层的协议都有什么"><a class="markdownIt-Anchor" href="#每层的协议都有什么"></a> 每层的协议都有什么</h3>
 <h3 id="窗口机制"><a class="markdownIt-Anchor" href="#窗口机制"></a> 窗口机制</h3>
 <h3 id="websocket"><a class="markdownIt-Anchor" href="#websocket"></a> websocket</h3>
@@ -551,6 +567,7 @@ window.console.log=()=>{};
 <h3 id="https加密方式"><a class="markdownIt-Anchor" href="#https加密方式"></a> https加密方式</h3>
 <h3 id="dms寻址过程"><a class="markdownIt-Anchor" href="#dms寻址过程"></a> DMS寻址过程</h3>
 <h3 id="粘包和拆包"><a class="markdownIt-Anchor" href="#粘包和拆包"></a> 粘包和拆包</h3>
+<h3 id="epoll-poll-select"><a class="markdownIt-Anchor" href="#epoll-poll-select"></a> epoll、poll、select</h3>
 <h2 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h2>
 <h3 id="sed和awk"><a class="markdownIt-Anchor" href="#sed和awk"></a> sed和awk</h3>
 <h3 id="查看进程和杀死进程"><a class="markdownIt-Anchor" href="#查看进程和杀死进程"></a> 查看进程和杀死进程</h3>
@@ -563,7 +580,13 @@ window.console.log=()=>{};
 <h3 id="内存碎片"><a class="markdownIt-Anchor" href="#内存碎片"></a> 内存碎片</h3>
 <h2 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h2>
 <h3 id="innodb和myisam的区别"><a class="markdownIt-Anchor" href="#innodb和myisam的区别"></a> Innodb和MyIsam的区别</h3>
+<h3 id="聚簇索引和非聚簇索引"><a class="markdownIt-Anchor" href="#聚簇索引和非聚簇索引"></a> 聚簇索引和非聚簇索引</h3>
+<p>聚簇索引:<br>
+叶子结点即存储了<strong>真实的数据行</strong>，不再有另外单独的数据页。 在一张表上最多只能创建一个聚集索引</p>
+<p>非聚簇索引:<br>
+叶结点包含索引字段值及<strong>指向数据页数据行的逻辑指针</strong></p>
 <h3 id="联合索引"><a class="markdownIt-Anchor" href="#联合索引"></a> 联合索引</h3>
+<p><a href="https://cloud.tencent.com/developer/article/1030117" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1030117</a></p>
 <h3 id="mysql事务是如何实现的"><a class="markdownIt-Anchor" href="#mysql事务是如何实现的"></a> mysql事务是如何实现的</h3>
 <h2 id="spring"><a class="markdownIt-Anchor" href="#spring"></a> Spring</h2>
 <h3 id="bean依赖冲突"><a class="markdownIt-Anchor" href="#bean依赖冲突"></a> bean依赖冲突</h3>
@@ -571,6 +594,11 @@ window.console.log=()=>{};
 <h3 id="自动装配的方式"><a class="markdownIt-Anchor" href="#自动装配的方式"></a> 自动装配的方式</h3>
 <h3 id="dispatch-servlet"><a class="markdownIt-Anchor" href="#dispatch-servlet"></a> dispatch-servlet</h3>
 <h3 id="spring事务"><a class="markdownIt-Anchor" href="#spring事务"></a> spring事务</h3>
+<h2 id="中间件"><a class="markdownIt-Anchor" href="#中间件"></a> 中间件</h2>
+<h3 id="redis-sds"><a class="markdownIt-Anchor" href="#redis-sds"></a> redis SDS</h3>
+<h2 id="算法"><a class="markdownIt-Anchor" href="#算法"></a> 算法</h2>
+<h3 id="大数运算"><a class="markdownIt-Anchor" href="#大数运算"></a> 大数运算</h3>
+<h3 id="一致性hash"><a class="markdownIt-Anchor" href="#一致性hash"></a> 一致性hash</h3>
 
       
     </div>
@@ -697,7 +725,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -926,7 +954,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-text"> Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型的实现方式"><span class="nav-text"> 泛型的实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态的原理"><span class="nav-text"> 多态的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射的实现和原理"><span class="nav-text"> 反射的实现和原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java并发"><span class="nav-text"> Java并发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉懒汉"><span class="nav-text"> 饿汉懒汉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cyclicbarrier-和countdownlatch"><span class="nav-text"> cyclicbarrier 和countdownlatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消费者生产者模型"><span class="nav-text"> 消费者生产者模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程回调"><span class="nav-text"> 线程回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的几种状态"><span class="nav-text"> 线程的几种状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sleep和yield"><span class="nav-text"> sleep和yield</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁"><span class="nav-text"> 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mvcc"><span class="nav-text"> MVCC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-text"> 网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每层的协议都有什么"><span class="nav-text"> 每层的协议都有什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口机制"><span class="nav-text"> 窗口机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websocket"><span class="nav-text"> websocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http11-20"><span class="nav-text"> http1.1 2.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https加密方式"><span class="nav-text"> https加密方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dms寻址过程"><span class="nav-text"> DMS寻址过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#粘包和拆包"><span class="nav-text"> 粘包和拆包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-text"> Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sed和awk"><span class="nav-text"> sed和awk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看进程和杀死进程"><span class="nav-text"> 查看进程和杀死进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组原"><span class="nav-text"> 组原</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#float存储"><span class="nav-text"> float存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的通信方式"><span class="nav-text"> 线程的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的通信方式"><span class="nav-text"> 进程的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统线程数量上限"><span class="nav-text"> 系统线程数量上限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页式存储"><span class="nav-text"> 页式存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存碎片"><span class="nav-text"> 内存碎片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-text"> 数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#innodb和myisam的区别"><span class="nav-text"> Innodb和MyIsam的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联合索引"><span class="nav-text"> 联合索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql事务是如何实现的"><span class="nav-text"> mysql事务是如何实现的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-text"> Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bean依赖冲突"><span class="nav-text"> bean依赖冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beanfactory"><span class="nav-text"> BeanFactory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动装配的方式"><span class="nav-text"> 自动装配的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dispatch-servlet"><span class="nav-text"> dispatch-servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring事务"><span class="nav-text"> spring事务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-text"> Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型的实现方式"><span class="nav-text"> 泛型的实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态的原理"><span class="nav-text"> 多态的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射的实现和原理"><span class="nav-text"> 反射的实现和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写锁的实现"><span class="nav-text"> 读写锁的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java并发"><span class="nav-text"> Java并发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉懒汉"><span class="nav-text"> 饿汉懒汉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cyclicbarrier-和countdownlatch"><span class="nav-text"> cyclicbarrier 和countdownlatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消费者生产者模型"><span class="nav-text"> 消费者生产者模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程回调"><span class="nav-text"> 线程回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的几种状态"><span class="nav-text"> 线程的几种状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sleep和yield"><span class="nav-text"> sleep和yield</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁"><span class="nav-text"> 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mvcc"><span class="nav-text"> MVCC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络与io"><span class="nav-text"> 网络与IO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每层的协议都有什么"><span class="nav-text"> 每层的协议都有什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口机制"><span class="nav-text"> 窗口机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websocket"><span class="nav-text"> websocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http11-20"><span class="nav-text"> http1.1 2.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https加密方式"><span class="nav-text"> https加密方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dms寻址过程"><span class="nav-text"> DMS寻址过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#粘包和拆包"><span class="nav-text"> 粘包和拆包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-poll-select"><span class="nav-text"> epoll、poll、select</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-text"> Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sed和awk"><span class="nav-text"> sed和awk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看进程和杀死进程"><span class="nav-text"> 查看进程和杀死进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组原"><span class="nav-text"> 组原</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#float存储"><span class="nav-text"> float存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的通信方式"><span class="nav-text"> 线程的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的通信方式"><span class="nav-text"> 进程的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统线程数量上限"><span class="nav-text"> 系统线程数量上限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页式存储"><span class="nav-text"> 页式存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存碎片"><span class="nav-text"> 内存碎片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-text"> 数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#innodb和myisam的区别"><span class="nav-text"> Innodb和MyIsam的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚簇索引和非聚簇索引"><span class="nav-text"> 聚簇索引和非聚簇索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联合索引"><span class="nav-text"> 联合索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql事务是如何实现的"><span class="nav-text"> mysql事务是如何实现的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-text"> Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bean依赖冲突"><span class="nav-text"> bean依赖冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beanfactory"><span class="nav-text"> BeanFactory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动装配的方式"><span class="nav-text"> 自动装配的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dispatch-servlet"><span class="nav-text"> dispatch-servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring事务"><span class="nav-text"> spring事务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中间件"><span class="nav-text"> 中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-sds"><span class="nav-text"> redis SDS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text"> 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大数运算"><span class="nav-text"> 大数运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性hash"><span class="nav-text"> 一致性hash</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -966,7 +994,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">242k</span>
+    <span title="站点总字数">243k</span>
   
 
   

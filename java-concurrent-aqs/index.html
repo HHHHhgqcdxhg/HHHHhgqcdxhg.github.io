@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概述 在基于AQS构建的同步器类中,最基本的操作包括各种形式的获取操作和释放操作. 获取操作是一种依赖状态的操作,并且通常会阻塞.当使用锁或信号量时,&amp;quot;获取&amp;quot;操作的含义就很直观,即获取的是锁或者许可,并且调用者可能会一直等待直到同步器类处于可被获取的状态.在使用CountDownLatch时,“获取&amp;quot;操作意味着&amp;quot;等待并直到闭锁到达结束状态”,而在使用Fut">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-04T10:55:34.724Z">
+<meta property="og:updated_time" content="2019-09-04T14:59:39.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AQS">
 <meta name="twitter:description" content="概述 在基于AQS构建的同步器类中,最基本的操作包括各种形式的获取操作和释放操作. 获取操作是一种依赖状态的操作,并且通常会阻塞.当使用锁或信号量时,&amp;quot;获取&amp;quot;操作的含义就很直观,即获取的是锁或者许可,并且调用者可能会一直等待直到同步器类处于可被获取的状态.在使用CountDownLatch时,“获取&amp;quot;操作意味着&amp;quot;等待并直到闭锁到达结束状态”,而在使用Fut">
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-04 17:17:45 / 修改时间：18:55:34" itemprop="dateCreated datePublished" datetime="2019-09-04T17:17:45+08:00">2019-09-04</time>
+              <time title="创建时间：2019-09-04 17:17:45 / 修改时间：22:59:39" itemprop="dateCreated datePublished" datetime="2019-09-04T17:17:45+08:00">2019-09-04</time>
             
 
             
@@ -572,7 +572,6 @@ window.console.log=()=>{};
 <p>根据同步器不同,获取操作可以是一种独占操作(如ReentrantLock),也可以是一个非独占操作(例如Semaphore和CountDownLatch).一个获取操作包括两部分.<br>
 首先,同步器判断当前状态是否允许获得操作,如果是,则允许线程执行,否则获取操作将阻塞或失败.这种判断是由同步器的语义决定的.例如,对于锁来说,如果它没有被某个线程持有,那么它就能被成功地获取.而对于闭锁来说,如果它处于结束状态,那么也能被成功地获取.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">acquire</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(当前状态不允许操作)&#123;</span><br><span class="line">        <span class="keyword">if</span> (需要阻塞获取请求) &#123;</span><br><span class="line">            如果当前线程不在队列中,则将其插入队列;</span><br><span class="line">            阻塞当前线程;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            返回失败</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    可能更新同步器状态;</span><br><span class="line">    如果线程位于队列中,则将其移出队列;</span><br><span class="line">    返回成功;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">release</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    更新同步器状态;</span><br><span class="line">    <span class="keyword">if</span> (新的状态允许某个被阻塞的线程获取成功) &#123;</span><br><span class="line">        解除队列中一个或多个线程的阻塞状态;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
 

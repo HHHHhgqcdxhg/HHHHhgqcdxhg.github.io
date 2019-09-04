@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[同步工具类]]></title>
+    <url>%2Fjava-concurrent-sync-tool-class%2F</url>
+    <content type="text"><![CDATA[闭锁 闭锁(Latch)是一种同步工具类,可以延迟线程的进度知道到达中止状态. 闭锁的作用相当于一扇门: 在闭锁到达结束状态之前,这扇门是一直关闭的,并且没有任何线程能够通过. 在闭锁到达结束状态时,这扇门会打开并允许所有的线程通过. 当闭锁到达结束状态后,将不再改变状态,这扇门永远保持打开状态. 闭锁可以用来确保某些活动直到其他活动都完成后才继续执行,例如: 确保某个计算在其需要的所有资源都被初始化之后才继续执行.二元闭锁(包括两个状态)可以用来表示&quot;资源R已经被初始化&quot;,而所有需要R的操作都必须现在这个闭锁上等待. 确保某个服务在其依赖的所有其他服务都已经启动之后才启动.每个服务都有一个相关的二元闭锁.当启动服务S时,将首先在S依赖的其他服务上等待,在所有依赖的服务都启动后会释放闭锁S,这样其他依赖S的服务才能继续执行 等待知道某个操作的所有参与者都就绪再继续执行.这种情况下,当所有参与者都准备就绪时,闭锁将到达结束状态 CountDownLatch是一种灵活的闭锁实现,可以在上述各种情况中使用,它可以是一个或多个线程等待一组事件发生.闭锁状态包括一个计数器,该计数器被初始化为一个正数,表示需要等待的事件数量.countDown方法递减计数器,表示有一个时间已经发生了,而await方法等待计数器达到0,这表示所有需要等待的事件都已经发生.如果计数器的值非0,那么await会一直阻塞直到计数器为0,或者等待中的线程中断,或者等待超时 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import java.util.concurrent.CountDownLatch;class Tmp &#123; static long timeTasks(int nThreads, final Runnable task) throws InterruptedException &#123; final CountDownLatch startGate = new CountDownLatch(1); final CountDownLatch endGate = new CountDownLatch(nThreads); for (int i = 0; i &lt; nThreads; i++) &#123; new Thread() &#123; @Override public void run() &#123; try &#123; // 等待startGate信号 startGate.await(); try &#123; task.run(); &#125; finally &#123; // endState信号减一 endGate.countDown(); &#125; &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; &#125; &#125;.start(); &#125; long start = System.nanoTime(); // startGate信号减一,线程继续执行 startGate.countDown(); // 等待线程执行完 endGate.await(); long end = System.nanoTime(); return end - start; &#125; public static void main(String[] args) &#123; long l = 0; try &#123; l = timeTasks(100, () -&gt; &#123; System.out.print(123); &#125;); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; System.out.println(); System.out.println(l); &#125;&#125; FutureTask FutureTask也可用作闭锁.FutureTask表示的计算是通过Callable来实现的,相当于一种可生成结果的Runnable,并且可以处于以下三种状态:等待运行(Waiting to run), 正在运行(running)和运行完成(conpleted). 执行完成表示计算的所有可能结束方式,包括正常完成,由于取消结束和由于异常结束等.当FurureTask进入完成状态后,它会永远停止在这个状态. Future.get的行为取决于任务的状态. 如果任务已经完成,那么get会立即返回结果,否则将get阻塞直到任务进入完成状态,然后返回结果或抛出异常.FutureTask将计算结果从执行计算的线程传递到获取这个结果的线程,而FutureTask的规范确保了这种传递过程能实现结果的安全发布. 信号量 计数信号量(Counting Semaphore)用来控制同时访问某个特定资源的操作数量,或者同时执行某个指定操作的数量.计数信号还可以用来实现某种资源池,或者对容器市价边界. Semaphore中管理着一组虚拟的许可(permit),许可的初始数量可通过构造函数来指定,在执行操作时可以首先获取许可(只要还有剩余的许可),并在使用以后释放许可.如果没有许可,那么acquire将阻塞直到有许可(或者终端后者操作超时).release方法将返回一个许可信号量. 计算信号量的一种简化形式是二值信号量,即初始值为1的Semaphore,二值信号量可以用作互斥体(mutex),并具备不可重入的加锁语义:谁拥有这个唯一的许可,谁就拥有了互斥锁. Semaphore]]></content>
+      <categories>
+        <category>Java并发实战</category>
+      </categories>
+      <tags>
+        <tag>Java并发实战</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[节食日记]]></title>
     <url>%2Fgo-on-a-diet%2F</url>
-    <content type="text"><![CDATA[记个这个玩意督促我减肥 我想吃东西了怎么办啊啊啊啊啊啊啊啊啊 点开淘宝,看买家秀 吃木糖醇(不能多吃) 摸摸肚子 记录 2019年9月3日 午餐吃了两道菜,鸭肉和炸鸡,没吃主食 2019年9月2日 下午吃的冒菜,不小心点多了,点了30块的…没吃主食 2019年9月1日 拿快递时在一食堂吃的,点了两个鸡锁骨,一根香肠,一份土豆鸡,没吃主食]]></content>
+    <content type="text"><![CDATA[记个这个玩意督促我减肥 我想吃东西了怎么办啊啊啊啊啊啊啊啊啊 点开淘宝,看买家秀 摸摸肚子 喝水 吃木糖醇(不能多吃) 记录 2019年9月3日 午餐吃了两道菜,鸭肉和炸鸡,没吃主食 2019年9月2日 下午吃的冒菜,不小心点多了,点了30块的…没吃主食 2019年9月1日 拿快递时在一食堂吃的,点了两个鸡锁骨,一根香肠,一份土豆鸡,没吃主食]]></content>
   </entry>
   <entry>
     <title><![CDATA[SpringIoC]]></title>
@@ -13,7 +24,7 @@
   <entry>
     <title><![CDATA[面向面试笔记]]></title>
     <url>%2Forient-interview%2F</url>
-    <content type="text"><![CDATA[Java 泛型的实现方式 类型擦除 多态的原理 动态绑定 反射的实现和原理 读写锁的实现 Java并发 饿汉懒汉 是指单例模式的懒汉饿汉 cyclicbarrier 和countdownlatch 消费者生产者模型 线程回调 线程的几种状态 sleep和yield 锁 MVCC 网络与IO 每层的协议都有什么 窗口机制 websocket http1.1 2.0 https加密方式 DMS寻址过程 粘包和拆包 epoll、poll、select Linux sed和awk 查看进程和杀死进程 组原 float存储 线程的通信方式 进程的通信方式 系统线程数量上限 页式存储 内存碎片 数据库 Innodb和MyIsam的区别 聚簇索引和非聚簇索引 聚簇索引: 叶子结点即存储了真实的数据行，不再有另外单独的数据页。 在一张表上最多只能创建一个聚集索引 非聚簇索引: 叶结点包含索引字段值及指向数据页数据行的逻辑指针 联合索引 https://cloud.tencent.com/developer/article/1030117 mysql事务是如何实现的 Spring bean依赖冲突 BeanFactory 自动装配的方式 dispatch-servlet spring事务 中间件 redis SDS 算法 大数运算 一致性hash]]></content>
+    <content type="text"><![CDATA[Java 泛型的实现方式 类型擦除 多态的原理 动态绑定 反射的实现和原理 读写锁的实现 Java并发 饿汉懒汉 是指单例模式的懒汉饿汉 cyclicbarrier 和countdownlatch 消费者生产者模型 线程回调 线程的几种状态 sleep和yield MVCC 网络与IO 每层的协议都有什么 窗口机制 websocket http1.1 2.0 https加密方式 DMS寻址过程 粘包和拆包 epoll、poll、select Linux sed和awk 查看进程和杀死进程 组原 float存储 线程的通信方式 进程的通信方式 系统线程数量上限 页式存储 内存碎片 数据库 Innodb和MyIsam的区别 聚簇索引和非聚簇索引 聚簇索引: 叶子结点即存储了真实的数据行，不再有另外单独的数据页。 在一张表上最多只能创建一个聚集索引 非聚簇索引: 叶结点包含索引字段值及指向数据页数据行的逻辑指针 联合索引 https://cloud.tencent.com/developer/article/1030117 mysql事务是如何实现的 Spring bean依赖冲突 BeanFactory 自动装配的方式 dispatch-servlet spring事务 中间件 redis SDS 算法 大数运算 一致性hash]]></content>
       <tags>
         <tag>面试</tag>
       </tags>

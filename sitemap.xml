@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/go-on-a-diet/</loc>
+    
+    <lastmod>2019-09-05T13:24:45.770Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/java-concurrent-aqs/</loc>
     
     <lastmod>2019-09-05T04:53:13.592Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://blog.ggemo.com/links/index.html</loc>
     
     <lastmod>2019-09-04T08:51:43.840Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/go-on-a-diet/</loc>
-    
-    <lastmod>2019-09-04T06:54:26.937Z</lastmod>
     
   </url>
   
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-8/</loc>
+    <loc>https://blog.ggemo.com/dubbo-4/</loc>
     
     <lastmod>2019-08-24T08:30:29.264Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-4/</loc>
+    <loc>https://blog.ggemo.com/dubbo-8/</loc>
     
     <lastmod>2019-08-24T08:30:29.264Z</lastmod>
     
@@ -121,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-7/</loc>
+    <loc>https://blog.ggemo.com/dubbo-5/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-5/</loc>
+    <loc>https://blog.ggemo.com/dubbo-7/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     
@@ -156,14 +156,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-1/</loc>
+    <loc>https://blog.ggemo.com/dubbo-2/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-2/</loc>
+    <loc>https://blog.ggemo.com/dubbo-1/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
     

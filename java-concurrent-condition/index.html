@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概述 条件队列就像烤面包机中通知&amp;quot;面包已烤好&amp;quot;的铃声.如果注意听着铃声,那么当面包烤好后可以立刻得到通知,开始吃面包.如果没有听见铃声,那么会错过消息通知,但回到厨房时还可以观察烤面包机的状态,如果已经烤好,就取出面包;没有烤好就再次留意铃声 &amp;quot;条件队列&amp;quot;这个名字来源于:它使得一组线程(称之为等待线程集合)能够通过某种方式来等待特定的条件为真.传统队列的元">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-08T12:41:31.979Z">
+<meta property="og:updated_time" content="2019-09-08T15:16:55.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="条件队列">
 <meta name="twitter:description" content="概述 条件队列就像烤面包机中通知&amp;quot;面包已烤好&amp;quot;的铃声.如果注意听着铃声,那么当面包烤好后可以立刻得到通知,开始吃面包.如果没有听见铃声,那么会错过消息通知,但回到厨房时还可以观察烤面包机的状态,如果已经烤好,就取出面包;没有烤好就再次留意铃声 &amp;quot;条件队列&amp;quot;这个名字来源于:它使得一组线程(称之为等待线程集合)能够通过某种方式来等待特定的条件为真.传统队列的元">
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-08 13:35:03 / 修改时间：20:41:31" itemprop="dateCreated datePublished" datetime="2019-09-08T13:35:03+08:00">2019-09-08</time>
+              <time title="创建时间：2019-09-08 13:35:03 / 修改时间：23:16:55" itemprop="dateCreated datePublished" datetime="2019-09-08T13:35:03+08:00">2019-09-08</time>
             
 
             
@@ -541,7 +541,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">650</span>
+                <span title="本文字数">3.1k</span>
               
 
               
@@ -570,6 +570,23 @@ window.console.log=()=>{};
 <p>&quot;条件队列&quot;这个名字来源于:它使得一组线程(称之为等待线程集合)能够通过某种方式来等待特定的条件为真.传统队列的元素是一个个数据,而与之不同的是,条件队列中的元素是一个个正在等待相关条件的线程.</p>
 <p>正如每个java对象都可以作为一个锁,每个对象同样可以作为一个条件队列,并且Object中的wait,notify和notifyAll方法就构成了内部条件队列的API.对象的内置锁与其内部条件队列是相互关联的,要调用对象X中的条件队列的任何一个方法,必须持有对象X上的锁.这是因为&quot;等待由状态构成条件&quot;与&quot;维护状态一致性&quot;这两种机制必须被紧密地绑定在一起:只有能对状态进行检查时,才能在某个条件上等待,并且只有能修改状态时,才能从条件等待中释放另一个线程.</p>
 <p>Object.wait会自动释放锁,并请求操作系统挂起当前线程,从而使其他线程能够获得这个锁并修改对象的状态.当被挂起的线程醒来时,它将在返回之前重新获取锁.从直观上来理解,调用wait意味着&quot;我要去休息了,但当发生特定的事情时唤醒我&quot;,而调用通知方法就意味着&quot;特定事件发生了&quot;</p>
+<h2 id="一个条件队列"><a class="markdownIt-Anchor" href="#一个条件队列"></a> 一个条件队列</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BoundedBuffer</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">BaseBoundedBuffer</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BoundedBuffer</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(capacity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(V v)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(isFull())&#123;</span><br><span class="line">            <span class="comment">// 如果资源满了,则挂起线程,等待notifyAll()</span></span><br><span class="line">            wait();</span><br><span class="line">        &#125;</span><br><span class="line">        doPut(v);</span><br><span class="line">        notifyAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(isEmpty())&#123;</span><br><span class="line">            <span class="comment">// 如果资源空的,则挂起线程,等待notifyAll</span></span><br><span class="line">            wait();</span><br><span class="line">        &#125;</span><br><span class="line">        V v = doTake();</span><br><span class="line">        notifyAll();</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显式的condition对象"><a class="markdownIt-Anchor" href="#显式的condition对象"></a> 显式的Condition对象</h2>
+<p>一个Condition和一个Lock关联在一起.Condition比内置条件队列提供了更丰富的功能:</p>
+<ul>
+<li>在每个锁上柯村仔多个等待</li>
+<li>条件等待可以是可中断的或不可中断的</li>
+<li>基于时限的等待</li>
+<li>公平或非公平的队列操作<br>
+Condition对象会继承Lock对象的公平性</li>
+<li>每个Lock都可以有任意数量的Condition对象</li>
+</ul>
+<h3 id="condition的使用"><a class="markdownIt-Anchor" href="#condition的使用"></a> Condition的使用</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConditionBoundedBuffer</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">final</span> Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Condition notFull = lock.newCondition();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Condition notEmpty = lock.newCondition();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GuardedBy</span>(<span class="string">"lock"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> tail, head, count;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GuardedBy</span>(<span class="string">"lock"</span>)</span><br><span class="line">    <span class="keyword">private</span> T[] items;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BoundedBuffer</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.items = (T[]) <span class="keyword">new</span> Object[capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(T t)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (count == items.length) &#123;</span><br><span class="line">                notFull.await();</span><br><span class="line">            &#125;</span><br><span class="line">            items[tail] = t;</span><br><span class="line">            <span class="keyword">if</span> (++tail == items.length) &#123;</span><br><span class="line">                tail = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            notEmpty.notify();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                notFull.await();</span><br><span class="line">            &#125;</span><br><span class="line">            T x = items[head];</span><br><span class="line">            items[head] = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (++head == items.length) &#123;</span><br><span class="line">                head = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            --count;</span><br><span class="line">            notFull.signal();</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ConditionBoundedBudder的行为与BoundedBuffer相同,但它对条件队列的使用方式更容易理解.<br>
+通过将两个条件谓词分开并放到两个等待线程集中,Condition使其更容易满足单次通知的需求<br>
+signal比signalAll更高效.</p>
 
       
     </div>
@@ -925,7 +942,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个条件队列"><span class="nav-text"> 一个条件队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显式的condition对象"><span class="nav-text"> 显式的Condition对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#condition的使用"><span class="nav-text"> Condition的使用</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -965,7 +982,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">260k</span>
   
 
   

@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Redis数据结构-链表]]></title>
+    <url>%2Fredis-1%2F</url>
+    <content type="text"><![CDATA[概述 链表提供了高效的节点重排能力,以及顺序性的节点访问方式,并且可以通过增删节点来灵活地调整链表的长度 链表在Redis中的应用非常广泛,比如列表键的底层实现之一就是链表.当一个列表键包含了数量比较多的元素,又或者列表中包含的元素都是比较长的字符串时,Redis就会使用链表作为列表键的底层实现 除了链表键之外,发布与订阅,慢查询,监视器等功能也用到了链表,Redis服务器本身还使用链表来保存多个客户端的状态信息,以及使用链表来构建客户端缓冲区 Redis链表和链表节点的实现 1234567891011typedef struct listNode &#123; // 前置节点 struct listNode *prev; // 后置节点 struct listNode *tail; // 节点的值 void *value;&#125;listNode; // 链表所包含的节点数量 unsigned long len; // 节点值赋值函数 void *(*dup)(void *ptr); // 节点值释放函数 void (*free)(void *ptr); // 节点值对比函数 int (*match)(void *ptr, void *key); }]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>Redis数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis数据结构-字符串]]></title>
+    <url>%2Fredis-0%2F</url>
+    <content type="text"><![CDATA[简单动态字符串(SDS) Redis自己构建了一种名为简单动态字符串(simple dynamic string, SDS)的抽象类型,并将SDS用作Redis的默认字符串表示. 在Redis中,C字符串只会作为字符串字面量用在一些无需对字符串值进行修改的地方,比如打印日志: 1redisLog(REDIS_WARNING, "Redis is now ready to exit"); 当Redis需要的不仅仅是一个字符串字面量,而是一个可以被修改的字符串值时,Redis就会使用SDS来表示字符串值,比如在Redis的数据库里面,包含字符串值的键值对在底层都是由SDS实现的. SDS除了用来保存数据库中的字符串之外,SDS还被用作缓冲区:AOF模块中的AOF缓冲区,以及客户端状态中的输入缓冲区,都是由SDS实现的 SDS的定义 123456789101112struct sdshdr &#123; // 记录buf数组中已使用字节的数量 // 等于SDS所保存的字符串的长度 int len; // 记录buf数组中未使用字节的数量 int free; // 字节数组,用于保存字符串 char buf[];&#125; SDS遵循C字符串以空字符结尾的管理,保存空字符串的1字节空间不计算在SDS的len属性里面. 为空字符自动分配额外的1字节空间,以及添加空字符串到字符串末尾等操作都是由SDS函数自动完成的,所以这个空字符串对于SDS的使用者来说是完全透明的. 遵循空字符串结尾这一管理的好处是,SDS可以直接重用一部分C字符串函数库里面的函数 SDS与C字符串的区别 根据传统,C语言使用长度为N+!的字符串数组来表示长度为N的字符串,并且字符数组的最后一个元素总是空字符’\0’ C语言使用这种简单的字符串表示方式,并不能满足Redis对字符串在安全性,效率以及功能方面的要求 区别总结: - C字符串 SDS 获取字符串长度的复杂度 O(N) O(1) 缓冲区安全 不安全 安全 修改字符串长度N次需要的重分配次数 N次 最多N次 保存数据 只能保存文本数据 可以保存文本或者二进制数据 可以使用&lt;string.h&gt;库中的函数 所有 部分 常数复杂度获取字符串长度 因为C字符串并不记录自身的长度信息,所以为了获取一个C字符串的长度,程序必须遍历整个字符串 和C字符串不同,因为SDS在len属性中记录了SDS本身的长度,所以获取一个SDS长度的复杂度近位O(1) 使用SDS确保了获取字符串长度的工作不会成为Redis的性能瓶颈 杜绝缓冲区溢出 当SDS API需要对SDS进行修改时,API会先检查SDS的空间是否满足修改所需的要求,如果不满足的话,API会自动将SDS的空间扩展至执行修改所需的大小,然后才执行实际的修改操作,所以使用SDS既不需要手动修改SDS空间大小,也不会出现缓冲区溢出问题 减少修改字符串时带来的内存重分配次数 因为C字符串并不记录自身的长度,所以对于一个包含了N个字符串的C字符串来说,这个C字符串的底层实现总是一个N+1字符长的数组.因为字符串的长度和底层数组长度之间存在着这种关联性,所以每次增长或者缩短一个C字符串,程序都总要对保存这个C字符串的数组进行一次内存重分配操作: 如果程序执行的是增长字符串的操作,比如拼接操作(append),那么在执行这个操作之前,程序需要先通过内存重分配来扩展底层数组的空间大小,如果忘了这一步就会产生缓冲区溢出 如果程序执行的是缩短字符串的操作,比如截断操作(trim),那么在执行这个操作之后,程序需要通过对内存重分配来释放字符串不再使用的那部分空间,如果忘了这一步就会产生内存泄露 因为内存重分配设计复杂的算法,并且可能需要执行系统调用,所以它通常是一个比较耗时的操作,在一般程序中,如果修改字符串长度的情况不太常出现,那么每次修改都执行一次内存重分配是可以接受的;而对于Redis数据库,经常被用于速度要求严苛,数据频繁被修改的场合,如果每次修改字符串的长度都需要执行一次内存重分配的话,那么光是执行内存重分配的时间就会占去修改字符串所用时间的一大部分,如果频繁发生更改的话,可能还会对性能造成影响 为了避免C字符串的这种缺陷,SDS通过未使用空间解除了字符串长度和底层数组长度之间的关联:在SDS中,buf数组的长度不一定就是字符数量加一,数组里面可以包含未使用的字节,而这些字节的数量就由SDS的free属性记录 通过未使用空间,SDS实现了空间预分配和惰性空间释放两种优化策略 空间预分配 空间预分配用于优化SDS的字符串增长操作:当SDS的API对一个SDS进行修改,并且需要对SDS进行空间扩展的时候,程序不仅会为SDS分配修改所必须要的空间,还会为SDS分配额外的未实用空间. 其中,额外分配的未实用空间矢量由以下规则决定: 如果对SDS进行修改之后,SDS的长度将小于1MB,那么程序分配和len属性同样大小的未实用空间(这时SDS的len属性的值将和free属性的值相同) 如果对SDS进行修改之后,SDS的长度将大于1MB,那么程序会分配1MB的未实用空间 通过空间预分配策略,Redis可以减少连续执行字符串增长操作所需的内存重分配次数 在扩展SDS空间之前,SDSAPI会先检查未实用空间是否足够,如果足够的话,API就会直接使用未使用的空间,而无需执行内存重分配 惰性空间释放 惰性空间释放用于优化SDS的字符串缩短操作:当SDS的API需要缩短SDS保存的字符串时,程序并不立即使用内存重分配来回收缩短后多出来的字节,而是使用free属性将这些字节的数量记录起来,并等待将来使用 与此同时,SDS也提供了相应的API,让我们可以在有需要时,真正地释放SDS的未使用空间,所以不用担心惰性空间释放策略会造成内存浪费 二进制安全 C字符串中的字符必须符合某种编码(比如ASCII),并且除了字符串的末尾之外,字符串里面不能包含空字符,否则最先被程序读入的空字符创将被认为是字符串结尾,这些限制使得C字符串只能保存文本数据,而不能保存像图片,音频,视频,压缩文件这样的二进制数据 虽然数据库一般用于保存文本数据,但使用数据库来保存二进制数据的场景也不少见,因此,为了确保Redis可以适用于各种不同的使用场景,SDS的API都是二进制安全的(binary-safe),所有SDS API都会以处理二进制的方式来处理SDS存放在buf数组里的数据,程序不会对其中的数据做任何限制,过滤,或者假设,数据在写入时是什么样的,它被读取时就是什么样的 这也是我们将SDS的buf属性成为字节数组的原因:Redis不是用这个数组来保存字符,而是用它保存一系列二进制数据. 兼容部分C字符串函数 虽然SDS的API都是二进制安全的,但他们一样遵循C字符串以空字符结尾的惯例,这是为了让那些保存文本数据的SDS可以重用一部分库定义的函数 SDS API 函数 作用 时间复杂度 sdnew 创建一个包含给定C字符串的SDS O(N) sdsempty 创建一个不包含任何内容的空SDS O(1) sdsfree 释放给定的SDS O(N) sdslen 返回SDS已使用空间字节数 O(1) sdsavail 返回SDS的未实用空间字节数 O(1) sdsdup 创建一个给定SDS的副本 O(N) sdsclear 清空SDS保存的字符串内容 惰性释放:O(1) sdscat 将给定C字符串拼接到SDS字符串的末尾 O(N) sdscatsds 将给定SDS字符串拼接到另一个SDS字符串的末尾 O(N) sdscpy 将给定的C字符串复制到SDS里面,覆盖SDS原有的字符串 O(N) sdsgrowzero 用空字符将SDS扩展至给定长度 O(N) sdsrange 保留SDS给定区间内的数据,不在区间内的数据会被覆盖或清除 O(N) sdstrim 接受一个SDS和一个C字符串作为参数,从SDS左右两端分别溢出所有在C字符串中出现过的字符 O(M*N) sdscmp 对比两个SDS字符串是否相同 O(N) 重点回顾 Redis只会使用C字符串作为字面量,在大多数情况下,Redis使用SDS作为字符串表示 SDS具有以下优点: 常数复杂度获取字符串长度 杜绝缓冲区溢出 减少修改字符串长度时所需的内存重分配次数 二进制安全 兼容部分C字符串函数]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>Redis数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[条件队列]]></title>
     <url>%2Fjava-concurrent-condition%2F</url>
     <content type="text"><![CDATA[概述 条件队列就像烤面包机中通知&quot;面包已烤好&quot;的铃声.如果注意听着铃声,那么当面包烤好后可以立刻得到通知,开始吃面包.如果没有听见铃声,那么会错过消息通知,但回到厨房时还可以观察烤面包机的状态,如果已经烤好,就取出面包;没有烤好就再次留意铃声 &quot;条件队列&quot;这个名字来源于:它使得一组线程(称之为等待线程集合)能够通过某种方式来等待特定的条件为真.传统队列的元素是一个个数据,而与之不同的是,条件队列中的元素是一个个正在等待相关条件的线程. 正如每个java对象都可以作为一个锁,每个对象同样可以作为一个条件队列,并且Object中的wait,notify和notifyAll方法就构成了内部条件队列的API.对象的内置锁与其内部条件队列是相互关联的,要调用对象X中的条件队列的任何一个方法,必须持有对象X上的锁.这是因为&quot;等待由状态构成条件&quot;与&quot;维护状态一致性&quot;这两种机制必须被紧密地绑定在一起:只有能对状态进行检查时,才能在某个条件上等待,并且只有能修改状态时,才能从条件等待中释放另一个线程. Object.wait会自动释放锁,并请求操作系统挂起当前线程,从而使其他线程能够获得这个锁并修改对象的状态.当被挂起的线程醒来时,它将在返回之前重新获取锁.从直观上来理解,调用wait意味着&quot;我要去休息了,但当发生特定的事情时唤醒我&quot;,而调用通知方法就意味着&quot;特定事件发生了&quot; 一个条件队列 123456789101112131415161718192021222324public class BoundedBuffer&lt;V&gt; extends BaseBoundedBuffer&lt;V&gt; &#123; public BoundedBuffer(int capacity) &#123; super(capacity); &#125; public synchronized void put(V v) throws InterruptedException &#123; while(isFull())&#123; // 如果资源满了,则挂起线程,等待notifyAll() wait(); &#125; doPut(v); notifyAll(); &#125; public synchronized V take() throws InterruptedException &#123; while(isEmpty())&#123; // 如果资源空的,则挂起线程,等待notifyAll wait(); &#125; V v = doTake(); notifyAll(); return v; &#125;&#125; 显式的Condition对象 一个Condition和一个Lock关联在一起.Condition比内置条件队列提供了更丰富的功能: 在每个锁上柯村仔多个等待 条件等待可以是可中断的或不可中断的 基于时限的等待 公平或非公平的队列操作 Condition对象会继承Lock对象的公平性 每个Lock都可以有任意数量的Condition对象 Condition的使用 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152public class ConditionBoundedBuffer&lt;T&gt; &#123; protected final Lock lock = new ReentrantLock(); private final Condition notFull = lock.newCondition(); private final Condition notEmpty = lock.newCondition(); @GuardedBy("lock") private int tail, head, count; @GuardedBy("lock") private T[] items; public BoundedBuffer(int capacity) &#123; this.items = (T[]) new Object[capacity]; &#125; public void put(T t) throws InterruptedException &#123; lock.lock(); try &#123; while (count == items.length) &#123; notFull.await(); &#125; items[tail] = t; if (++tail == items.length) &#123; tail = 0; &#125; notEmpty.notify(); &#125; finally &#123; lock.unlock(); &#125; &#125; public T take() throws InterruptedException &#123; lock.lock(); try &#123; while (count == 0) &#123; notFull.await(); &#125; T x = items[head]; items[head] = null; if (++head == items.length) &#123; head = 0; &#125; --count; notFull.signal(); return x; &#125; finally &#123; lock.unlock(); &#125; &#125;&#125; ConditionBoundedBudder的行为与BoundedBuffer相同,但它对条件队列的使用方式更容易理解. 通过将两个条件谓词分开并放到两个等待线程集中,Condition使其更容易满足单次通知的需求 signal比signalAll更高效.]]></content>
@@ -47,7 +71,7 @@
   <entry>
     <title><![CDATA[节食日记]]></title>
     <url>%2Fgo-on-a-diet%2F</url>
-    <content type="text"><![CDATA[记个这个玩意督促我减肥 general 我想吃东西了怎么办啊啊啊啊啊啊啊啊啊 点开淘宝,看买家秀 摸摸肚子 喝水 吃木糖醇(不能多吃) 去洗洗衣服啥的,找点其他事情做 吃 饿了或者馋了都要忍,但是饿到四肢无力的时候必须吃点 记录 2019年9月8日 没吃 2019年9月7日 中午点了份炸鸡 2019年9月6日 上午10点去领快递,在一食堂吃了一份大荤两个鸡锁骨和一根炸香肠 下午6点去领快递在正新鸡排点了一份鸡米花两根炸香肠 2019年9月5日 晚饭吃的,一份小荤一份小青菜 2019年9月4日 下午吃的,点了20块的冒菜 2019年9月3日 午餐吃了两道菜,鸭肉和炸鸡 2019年9月2日 下午吃的冒菜,不小心点多了,点了30块的… 2019年9月1日 拿快递时在一食堂吃的,点了两块鸡锁骨,一根香肠,一份土豆鸡]]></content>
+    <content type="text"><![CDATA[记个这个玩意督促我减肥 general 我想吃东西了怎么办啊啊啊啊啊啊啊啊啊 点开淘宝,看买家秀 摸摸肚子 喝水 吃木糖醇(不能多吃) 去洗洗衣服啥的,找点其他事情做 吃 饿了或者馋了都要忍,但是饿到四肢无力的时候必须吃点 记录 2019年9月9日 中午吃的,一份大荤,一份藕,一份海带 2019年9月8日 没吃 2019年9月7日 中午点了份炸鸡 2019年9月6日 上午10点去领快递,在一食堂吃了一份大荤两个鸡锁骨和一根炸香肠 下午6点去领快递在正新鸡排点了一份鸡米花两根炸香肠 2019年9月5日 晚饭吃的,一份小荤一份小青菜 2019年9月4日 下午吃的,点了20块的冒菜 2019年9月3日 午餐吃了两道菜,鸭肉和炸鸡 2019年9月2日 下午吃的冒菜,不小心点多了,点了30块的… 2019年9月1日 拿快递时在一食堂吃的,点了两块鸡锁骨,一根香肠,一份土豆鸡]]></content>
   </entry>
   <entry>
     <title><![CDATA[SpringIoC]]></title>
@@ -700,8 +724,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -792,8 +816,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>动漫</tag>
+        <tag>python</tag>
         <tag>gui</tag>
       </tags>
   </entry>

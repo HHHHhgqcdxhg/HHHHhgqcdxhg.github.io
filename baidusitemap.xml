@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.ggemo.com/redis-3/</loc>
+    <lastmod>2019-09-10</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/redis-2/</loc>
+    <lastmod>2019-09-10</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/redis-1/</loc>
-    <lastmod>2019-09-09</lastmod>
+    <lastmod>2019-09-10</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/redis-0/</loc>
     <lastmod>2019-09-09</lastmod>
@@ -13,10 +19,10 @@
     <loc>https://blog.ggemo.com/java-concurrent-condition/</loc>
     <lastmod>2019-09-08</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
+    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
     <lastmod>2019-09-06</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
+    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
     <lastmod>2019-09-06</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/java-concurrent-aqs/</loc>
@@ -46,10 +52,10 @@
     <loc>https://blog.ggemo.com/dubbo-10/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-4/</loc>
+    <loc>https://blog.ggemo.com/dubbo-8/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-8/</loc>
+    <loc>https://blog.ggemo.com/dubbo-4/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-9/</loc>
@@ -70,10 +76,10 @@
     <loc>https://blog.ggemo.com/dubbo-1/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-0/</loc>
+    <loc>https://blog.ggemo.com/dubbo-2/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-2/</loc>
+    <loc>https://blog.ggemo.com/dubbo-0/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/interview-ali-1/</loc>
@@ -148,10 +154,10 @@
     <loc>https://blog.ggemo.com/shader-r-optimalize/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
+    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
+    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/csnote-2/</loc>

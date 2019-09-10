@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Redis数据结构-跳跃表]]></title>
+    <url>%2Fredis-3%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>Redis数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis数据结构-字典]]></title>
+    <url>%2Fredis-2%2F</url>
+    <content type="text"><![CDATA[字典的实现 跟HashMap差不多,不过hash碰撞不使用红黑树而是一昧拉链 哈希算法 Redis使用MurmurHash2算法来计算键的哈希值 渐进式rehash 扩展或收缩哈希表的动作并不是一次性,集中地完成的,而是分多次,渐进式地完成的.]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>Redis数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Redis数据结构-链表]]></title>
     <url>%2Fredis-1%2F</url>
-    <content type="text"><![CDATA[概述 链表提供了高效的节点重排能力,以及顺序性的节点访问方式,并且可以通过增删节点来灵活地调整链表的长度 链表在Redis中的应用非常广泛,比如列表键的底层实现之一就是链表.当一个列表键包含了数量比较多的元素,又或者列表中包含的元素都是比较长的字符串时,Redis就会使用链表作为列表键的底层实现 除了链表键之外,发布与订阅,慢查询,监视器等功能也用到了链表,Redis服务器本身还使用链表来保存多个客户端的状态信息,以及使用链表来构建客户端缓冲区 Redis链表和链表节点的实现 1234567891011typedef struct listNode &#123; // 前置节点 struct listNode *prev; // 后置节点 struct listNode *tail; // 节点的值 void *value;&#125;listNode; // 链表所包含的节点数量 unsigned long len; // 节点值赋值函数 void *(*dup)(void *ptr); // 节点值释放函数 void (*free)(void *ptr); // 节点值对比函数 int (*match)(void *ptr, void *key); }]]></content>
+    <content type="text"><![CDATA[概述 链表提供了高效的节点重排能力,以及顺序性的节点访问方式,并且可以通过增删节点来灵活地调整链表的长度 链表在Redis中的应用非常广泛,比如列表键的底层实现之一就是链表.当一个列表键包含了数量比较多的元素,又或者列表中包含的元素都是比较长的字符串时,Redis就会使用链表作为列表键的底层实现 除了链表键之外,发布与订阅,慢查询,监视器等功能也用到了链表,Redis服务器本身还使用链表来保存多个客户端的状态信息,以及使用链表来构建客户端缓冲区 Redis链表和链表节点的实现 1234567891011typedef struct listNode &#123; // 前置节点 struct listNode *prev; // 后置节点 struct listNode *tail; // 节点的值 void *value;&#125;listNode; 1234567891011121314151617181920typedef struct list &#123; // 表头节点 listNode *head; // 表尾节点 listNode *tail; // 链表所包含的节点数量 unsigned long len; // 节点值赋值函数 void *(*dup)(void *ptr); // 节点值释放函数 void (*free)(void *ptr); // 节点值对比函数 int (*match)(void *ptr, void *key);&#125; Redis链表实现的特性: 双端 链表节点带有prev和next指针,获取某个节点的前置节点和后置节点的复杂度都是O(1) 无环 表头节点的prev指针和表尾节点的next指针都指向null,对链表的访问以null为终点 带表头指针和表尾指针 通过list结构的head指针和tail指针,程序获取链表的表头节点和表尾节点的复杂度是O(1) 带连表长度计数器 程序使用list结构的len属性来对list持有的链表节点进行计数,程序获取链表中节点数量的复杂度为O(1) 多态 链表节点使用void*指针来保存节点值,并且可以通过list结构的dup,free,match三个属性为节点值设置类型特定加密手机,所以链表可用于保存各种不同的值 重点回顾 链表被广泛用于实现Redis的各种功能,比如列表键,发布与订阅,慢查询,监视器等 每个链表节点由一个listNode结构来表示,每个节点都有一个指向前置节点的后置节点的指针,所以Redis的链表实现是双端链表 每个链表使用一个list结构来表示,这个结构带有表头结点指针,表尾结点指针以及链表长度等信息 因为链表表头节点的前置节点和表尾节点的后置节点都指向null,所以Redis的链表实现是无环链表 通过为链表设置不同的类型特定函数,Redis的链表可以用于保存各种不同类型的值]]></content>
       <categories>
         <category>Redis</category>
       </categories>
@@ -724,8 +748,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>碧蓝航线</tag>
         <tag>python</tag>
+        <tag>碧蓝航线</tag>
       </tags>
   </entry>
   <entry>
@@ -816,8 +840,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>动漫</tag>
         <tag>python</tag>
+        <tag>动漫</tag>
         <tag>gui</tag>
       </tags>
   </entry>

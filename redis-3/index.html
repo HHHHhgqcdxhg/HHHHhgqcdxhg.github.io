@@ -103,18 +103,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
+  <meta name="description" content="跳跃表通过在每个节点中维持多个指向其他节点的指针,从而达到快速访问节点的目的. 跳跃表支持平均O(logN),最坏O(N)复杂度的节点查找,还可以通过顺序性操作来批量处理节点 在大部分情况下,跳跃表的效率可以和平衡树相媲美,并且因为跳跃表的实现比平衡术要来的更为简单,所以有不少程序都使用跳跃表来代替平衡树 Redis使用跳跃表作为有序集合键的底层实现之一,吐过一个有序集合包含的元素数量比较多,又或">
 <meta name="keywords" content="Redis,Redis数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis数据结构-跳跃表">
 <meta property="og:url" content="https://blog.ggemo.com/redis-3/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="跳跃表通过在每个节点中维持多个指向其他节点的指针,从而达到快速访问节点的目的. 跳跃表支持平均O(logN),最坏O(N)复杂度的节点查找,还可以通过顺序性操作来批量处理节点 在大部分情况下,跳跃表的效率可以和平衡树相媲美,并且因为跳跃表的实现比平衡术要来的更为简单,所以有不少程序都使用跳跃表来代替平衡树 Redis使用跳跃表作为有序集合键的底层实现之一,吐过一个有序集合包含的元素数量比较多,又或">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-10T05:44:23.962Z">
+<meta property="og:updated_time" content="2019-09-10T06:07:43.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis数据结构-跳跃表">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:description" content="跳跃表通过在每个节点中维持多个指向其他节点的指针,从而达到快速访问节点的目的. 跳跃表支持平均O(logN),最坏O(N)复杂度的节点查找,还可以通过顺序性操作来批量处理节点 在大部分情况下,跳跃表的效率可以和平衡树相媲美,并且因为跳跃表的实现比平衡术要来的更为简单,所以有不少程序都使用跳跃表来代替平衡树 Redis使用跳跃表作为有序集合键的底层实现之一,吐过一个有序集合包含的元素数量比较多,又或">
 
 
 
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-10 13:43:58 / 修改时间：13:44:23" itemprop="dateCreated datePublished" datetime="2019-09-10T13:43:58+08:00">2019-09-10</time>
+              <time title="创建时间：2019-09-10 13:43:58 / 修改时间：14:07:43" itemprop="dateCreated datePublished" datetime="2019-09-10T13:43:58+08:00">2019-09-10</time>
             
 
             
@@ -541,7 +541,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">843</span>
               
 
               
@@ -565,7 +565,22 @@ window.console.log=()=>{};
       
 
       
-        
+        <p>跳跃表通过在每个节点中维持多个指向其他节点的指针,从而达到快速访问节点的目的.<br>
+跳跃表支持平均O(logN),最坏O(N)复杂度的节点查找,还可以通过顺序性操作来批量处理节点</p>
+<p>在大部分情况下,跳跃表的效率可以和平衡树相媲美,并且因为跳跃表的实现比平衡术要来的更为简单,所以有不少程序都使用跳跃表来代替平衡树</p>
+<p>Redis使用跳跃表作为有序集合键的底层实现之一,吐过一个有序集合包含的元素数量比较多,又或者有序集合中元素成员是比较长的字符串时,Redis就会使用跳跃表来作为有序集合键的底层实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; ZRANGE fruit-price 0 2 WITHSCORES</span><br><span class="line">1) &quot;banana&quot;</span><br><span class="line">2) &quot;5&quot;</span><br><span class="line">3) &quot;cherry&quot;</span><br><span class="line">4) &quot;6.5&quot;</span><br><span class="line">5) &quot;apple&quot;</span><br><span class="line">6) &quot;8&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; ZCARD fruit-price</span><br><span class="line">(integer)130</span><br></pre></td></tr></table></figure>
+<p>fruit-price有序集合的所有数据都保存在一个跳跃表里面,其中每个跳跃表节点都保存了一款水果的价钱信息,所有水果按价钱的高低从低到高在跳跃表里面排序</p>
+<p>和链表,字典等数据结构被广泛地应用在Redis内部不同,Redis只在两个地方用到了跳跃表,一个是实现有序集合键,另一个是在集群节点中用作内部数据结构,除此之外,跳跃表在Redis里面没有其他用途</p>
+<h2 id="重点回顾"><a class="markdownIt-Anchor" href="#重点回顾"></a> 重点回顾</h2>
+<ul>
+<li>跳跃表是有序集合的底层实现稚艺</li>
+<li>Redis的跳跃表实现由zskiplist和zskiplistNode两个结构组成,其中zskiplist用于保存跳跃表信息,而zskiplistNode则用于表示跳跃表节点</li>
+<li>每个跳跃表节点的层高都是1至32之间的随机数</li>
+<li>在同一个跳跃表中,多个节点可以包含相同的分支,但每个节点的对象必须是唯一的</li>
+<li>跳跃表中的节点按照分值大小进行排序,当分值相同时,节点按照成员对象的大小进行排序</li>
+</ul>
+
       
     </div>
 
@@ -612,6 +627,10 @@ window.console.log=()=>{};
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/redis-4/" rel="prev" title="Redis数据结构-整数集合">
+                Redis数据结构-整数集合 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -662,8 +681,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -680,7 +708,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-count">88</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -909,6 +937,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重点回顾"><span class="nav-text"> 重点回顾</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -942,7 +987,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">265k</span>
+    <span title="站点总字数">272k</span>
   
 
   

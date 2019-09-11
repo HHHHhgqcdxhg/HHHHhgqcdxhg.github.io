@@ -103,23 +103,25 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/tags/数据库/index.html">
+  <meta name="description" content="概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&amp;gt; SET msg &amp;quot;hello&amp;quot;OKredis&amp;gt; SADD fruits &amp;quot;apple&amp;quot; &amp;quot;banana&amp;quot; &amp;quot;cherry&amp;quot;(">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis-AOF持久化">
+<meta property="og:url" content="https://blog.ggemo.com/redis-9/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&amp;gt; SET msg &amp;quot;hello&amp;quot;OKredis&amp;gt; SADD fruits &amp;quot;apple&amp;quot; &amp;quot;banana&amp;quot; &amp;quot;cherry&amp;quot;(">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-11T14:25:25.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="Redis-AOF持久化">
+<meta name="twitter:description" content="概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&amp;gt; SET msg &amp;quot;hello&amp;quot;OKredis&amp;gt; SADD fruits &amp;quot;apple&amp;quot; &amp;quot;banana&amp;quot; &amp;quot;cherry&amp;quot;(">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/tags/数据库/">
+  <link rel="canonical" href="https://blog.ggemo.com/redis-9/">
 
 
 
@@ -129,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>标签: 数据库 | 黄瓜养殖基地！</title>
+  <title>Redis-AOF持久化 | 黄瓜养殖基地！</title>
   
 
 
@@ -217,7 +219,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,7 +291,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -411,111 +413,248 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>数据库<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/redis-9/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/database-lock/" itemprop="url">
-            
-              <span itemprop="name">数据库中的各种锁</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Redis-AOF持久化
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-02T09:24:39+08:00" content="2019-07-02">
-          07-02
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-11 21:44:40 / 修改时间：22:25:25" itemprop="dateCreated datePublished" datetime="2019-09-11T21:44:40+08:00">2019-09-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/redis-9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/redis-9/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.1k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/transaction-isolation/" itemprop="url">
-            
-              <span itemprop="name">事务隔离和Spring事务传播特性</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-01T21:41:51+08:00" content="2019-07-01">
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>RDB持久化通过保存数据库中的键值对来记录数据库状态<br>
+AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
+<p>比如,空白的数据库执行以下命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET msg &quot;hello&quot;</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; SADD fruits &quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;</span><br><span class="line">(integer) 3</span><br><span class="line"></span><br><span class="line">redis&gt; RPUSH numbers 128 256 512</span><br><span class="line">(integer) 3</span><br></pre></td></tr></table></figure>
+<p>RDB持久化保存数据库状态的方法是将msg,fruits,numbers三个键的键值对保存到RDB文件中,而AOF持久化保存数据库状态的方法则是将服务器执行的SET,SADD,RPUSH三个命令保存到AOF文件中</p>
+<p>被写入AOF文件的所有命令都是以Redis的命令请求协议格式保存的,因为Redis的命令请求协议是纯文本格式,所以我们可以直接打开一个AOF文件来观察里面的内容</p>
+<p>比如,对于上面的三个写命令来说,服务器将产生包涵一下内容的AOF文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*2\r\n$6\r\nSELECT\r\n$1\r\n0\r\n</span><br><span class="line">*3\r\n$3\r\nSET\r\n$3\r\nmsg\r\n$5\r\nhello\r\n</span><br><span class="line">*5\r\n$4\r\nSADD\r\n$6\r\nfruits\r\n$5\r\napple\r\n$6\r\nbanana\r\n$6\r\ncherry\r\n</span><br><span class="line">*5\r\n$5\r\nRPUSH\r\n$7\r\nnumbers\r\n$3\r\n123\r\n$3\r\n256\r\n$3\r\n512\r\n</span><br></pre></td></tr></table></figure>
+<p>在这个AOF文件里面,除了用于指定数据库的SELECT命令是服务器自动添加的之外,其他都是我们之前通过客户端发送的命令</p>
+<h2 id="aof持久化的实现"><a class="markdownIt-Anchor" href="#aof持久化的实现"></a> AOF持久化的实现</h2>
+<p>AOF持久化功能的实现可以分为命令追加,文件写入,文件同步三个步骤</p>
+<h3 id="命令追加"><a class="markdownIt-Anchor" href="#命令追加"></a> 命令追加</h3>
+<p>当AOF持久化功能处于打开状态时,服务器在执行完一个写命令后,回忆协议格式将被执行的谢明令追加到服务器状态的aof_buf缓冲区的末尾</p>
+<h3 id="aof文件的写入与同步"><a class="markdownIt-Anchor" href="#aof文件的写入与同步"></a> AOF文件的写入与同步</h3>
+<p>Redis的服务器进程就是一个时间循环(loop),这个循环中的时间负责接收客户端的命令请求,以及像客户端发送命令回复,而时间事件则负责像serverCron函数这样需要定时运行的函数</p>
+<p>因为服务器在处理文件事件时可能会执行写命令,使得一些内容被追加到aof_buf缓冲区里面,所以服务器每次结束一个事件循环,它都会调用flushAppendOnlyFile函数,考虑是否将aof_buf缓冲区中的内容写入或保存到AOF文件里面.</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/redis-8/" rel="next" title="Redis-RDB持久化">
+                <i class="fa fa-chevron-left"></i> Redis-RDB持久化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -538,8 +677,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -785,6 +933,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof持久化的实现"><span class="nav-text"> AOF持久化的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令追加"><span class="nav-text"> 命令追加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof文件的写入与同步"><span class="nav-text"> AOF文件的写入与同步</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -928,6 +1093,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -974,6 +1143,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

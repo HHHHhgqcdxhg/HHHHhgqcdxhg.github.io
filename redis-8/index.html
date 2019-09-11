@@ -106,14 +106,14 @@ window.console.log=()=>{};
   <meta name="description" content="概述 RDB出九华既可以手动执行,也可以根据服务器配置选项进行定期执行,该功能可以将某个时间点上的数据库状态保存到一个RDB文件中;RDB出九华功能所生成的RDB文件是一个经过压缩的二进制文件,通过该文件可以还原生成RDB文件生成时的数据库状态  RDB文件的创建与载入 SAVE命令和BGSAVE命令可以用于生成RDB文件,SAVE命令会阻塞Redis服务器进程,直到RDB文件创建完毕为止,在服">
 <meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis-RDB持久化">
+<meta property="og:title" content="Redis-RDB持久化">
 <meta property="og:url" content="https://blog.ggemo.com/redis-8/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概述 RDB出九华既可以手动执行,也可以根据服务器配置选项进行定期执行,该功能可以将某个时间点上的数据库状态保存到一个RDB文件中;RDB出九华功能所生成的RDB文件是一个经过压缩的二进制文件,通过该文件可以还原生成RDB文件生成时的数据库状态  RDB文件的创建与载入 SAVE命令和BGSAVE命令可以用于生成RDB文件,SAVE命令会阻塞Redis服务器进程,直到RDB文件创建完毕为止,在服">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-11T11:39:50.221Z">
+<meta property="og:updated_time" content="2019-09-11T13:44:17.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis-RDB持久化">
+<meta name="twitter:title" content="Redis-RDB持久化">
 <meta name="twitter:description" content="概述 RDB出九华既可以手动执行,也可以根据服务器配置选项进行定期执行,该功能可以将某个时间点上的数据库状态保存到一个RDB文件中;RDB出九华功能所生成的RDB文件是一个经过压缩的二进制文件,通过该文件可以还原生成RDB文件生成时的数据库状态  RDB文件的创建与载入 SAVE命令和BGSAVE命令可以用于生成RDB文件,SAVE命令会阻塞Redis服务器进程,直到RDB文件创建完毕为止,在服">
 
 
@@ -131,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>redis-RDB持久化 | 黄瓜养殖基地！</title>
+  <title>Redis-RDB持久化 | 黄瓜养殖基地！</title>
   
 
 
@@ -450,7 +450,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">redis-RDB持久化
+          <h2 class="post-title" itemprop="name headline">Redis-RDB持久化
 
               
             
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-11 18:58:39 / 修改时间：19:39:50" itemprop="dateCreated datePublished" datetime="2019-09-11T18:58:39+08:00">2019-09-11</time>
+              <time title="创建时间：2019-09-11 18:58:39 / 修改时间：21:44:17" itemprop="dateCreated datePublished" datetime="2019-09-11T18:58:39+08:00">2019-09-11</time>
             
 
             
@@ -541,7 +541,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">983</span>
+                <span title="本文字数">3.4k</span>
               
 
               
@@ -589,6 +589,142 @@ window.console.log=()=>{};
 <li>服务器在300s之内对数据库进行了至少10次修改</li>
 <li>服务器在60s之内对数据库进行了至少10000次修改</li>
 </ul>
+<h3 id="dirty计数器和lastsave属性"><a class="markdownIt-Anchor" href="#dirty计数器和lastsave属性"></a> dirty计数器和lastsave属性</h3>
+<p>除了saveParams数组之外,服务器状态还维持着一个dirty计数器,以及一个lastsave属性:</p>
+<ul>
+<li>dirty计数器距离上一次成功执行SAVE命令或者BGSAVE命令之后,服务器对数据库状态进行了多少次修改</li>
+<li>lastsave属性是一个UNIX时间戳,记录了服务器上一次成功执行SAVE命令或者BGSAVE命令的时间</li>
+</ul>
+<h3 id="检查保存条件是否满足"><a class="markdownIt-Anchor" href="#检查保存条件是否满足"></a> 检查保存条件是否满足</h3>
+<p>Redis的服务器周期性操作函数serverCron默认每隔100毫秒会执行一次,该函数用于对正在运行的服务器进行维护,它的其中一项工作就是检查save选项锁设置的保存条件是否已经满足,如果满足的话,就执行BGSAVE命令</p>
+<h2 id="rdb文件结构"><a class="markdownIt-Anchor" href="#rdb文件结构"></a> RDB文件结构</h2>
+<p>一个完整的RDB文件包含的各个部分:</p>
+<table>
+<thead>
+<tr>
+<th>REDIS</th>
+<th>db_version</th>
+<th>databases</th>
+<th>EOF</th>
+<th>check_num</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<blockquote>
+<p>上表中的字母大写的单词表示常量,小写的单词表示变量</p>
+</blockquote>
+<ul>
+<li>REDIS<br>
+RDB文件最开头是&quot;REDIS&quot;五个字符.通过这五个字符,程序可以在载入文件时,快速检查锁载入的文件是不是RDB文件(类似魔数?)</li>
+<li>db_version<br>
+记录RDB文件版本号的整数</li>
+<li>database<br>
+database部分包含着零个或任意多个数据库,以及各个数据库中的键值对数据</li>
+<li>EOF<br>
+EOF常量的长度为1字节,标志着RDB文件正文内容的结束,当读入程序遇到EOF的时候,他知道所有数据库的所有键值对都已经载入完毕了</li>
+<li>check_num<br>
+check_num是一个8字节长度的无符号证书,保存着一个校验和,这个校验和是程序通过对REDIS,db_version,database,EOF四个部分内容进行计算得出的,服务器在载入RDB文件时会将载入数据所计算得出的校验和与check_num所记录的校验和进行对比,以此来检查RDB文件是否有出错或者损坏的情况出现.(类似于下载文件后,用于校验的md5?)</li>
+</ul>
+<h3 id="database部分"><a class="markdownIt-Anchor" href="#database部分"></a> database部分</h3>
+<p>一个RDB文件的database部分可以保存任意多个非空数据库</p>
+<p>例如,如果服务器的0号数据库和3号数据库非空,那么服务器将创建一个如下所示的RDB文件:</p>
+<table>
+<thead>
+<tr>
+<th>REDIS</th>
+<th>db_version</th>
+<th>database0</th>
+<th>database3</th>
+<th>EOF</th>
+<th>check_num</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p>每个非空数据库在RDB文件中都保存为SELECTDB,db_number,key_value_pairs三个部分:</p>
+<table>
+<thead>
+<tr>
+<th>SELECTDB</th>
+<th>db_number</th>
+<th>key_value_pairs</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<ul>
+<li>SELECTDB常量<br>
+长度为1字节,当读入程序遇到这个值的时候,它知道接下来要读入的将是一个数据库号码</li>
+<li>db_number<br>
+保存着一个数据库号码,当程序读入db_number部分之后,服务器会调用SELECT命令,根据读入的数据库号码进行数据库切换,似的之后读入的键值对可以载入到正确的数据库中</li>
+<li>key_value_pairs<br>
+保存了数据库中的所有键值对数据,如果键值对带有过期时间,那么过期时间也会和键值对保存在一起.</li>
+</ul>
+<h3 id="key_value_pairs部分"><a class="markdownIt-Anchor" href="#key_value_pairs部分"></a> key_value_pairs部分</h3>
+<p>RDB文件中每个key_value_pairs部分都保存了一个活以上数量的键值对,如果键值对带有过期时间的话,那么键值对的过期时间也会被保存在内.</p>
+<p>不带过期时间的键值对在RDB文件中由TYPE,key,value三部分组成.</p>
+<table>
+<thead>
+<tr>
+<th>TYPE</th>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p>TYPE记录了value的类型</p>
+<details>
+<summary>TYPE值可以是以下常量的其中一个</summary>
+<ul>
+<li>REDIS_RDB_TYPE_STRING</li>
+<li>REDIS_RDB_TYPE_LIST</li>
+<li>REDIS_RDB_TYPE_SET</li>
+<li>REDIS_RDB_TYPE_ZSET</li>
+<li>REDIS_RDB_TYPE_HASH</li>
+<li>REDIS_RDB_TYPE_LIST_ZIPLIST</li>
+<li>REDIS_RDB_TYPE_SET_INTLIST</li>
+<li>REDIS_RDB_TYPE_ZSET_ZIPLIST</li>
+<li>REDIS_RDB_TYPE_HASH_ZIPLIST</li>
+</ul>
+</details>
+<p>当服务器读入RDB文件中的键值对数据时,程序会根据TYPE的值来决定如何读入和解释value的数据</p>
+<p>设有过期时间的键值对在RDB文件中的结构:</p>
+<table>
+<thead>
+<tr>
+<th>EXPIRETIME_MS</th>
+<th>ms</th>
+<th>TYPE</th>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p>EXPIRETIME_MS常量告知读入程序,接下来要读入的僵尸一个以毫秒为单位的过期时间</p>
+<p>ms是一个8字节长的带符号的证书,记录着一个以毫秒为单位的UNIX时间戳,代表键值对的过期时间</p>
+<h3 id="value的编码"><a class="markdownIt-Anchor" href="#value的编码"></a> value的编码</h3>
+<p>TODO</p>
+<h2 id="分析rdb文件"><a class="markdownIt-Anchor" href="#分析rdb文件"></a> 分析RDB文件</h2>
+<p>od命令</p>
+<h3 id="不包含任何键值对的rdb文件"><a class="markdownIt-Anchor" href="#不包含任何键值对的rdb文件"></a> 不包含任何键值对的RDB文件</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; FLUSHALL</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; SAVE</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<p>然后调用od命令,打印RDB文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> od -c dump.rdb</span></span><br><span class="line">0000000   R E D I S 0 0 0 6 377 334 263 C 360 Z 334</span><br><span class="line">0000020 362 V</span><br><span class="line">0000022</span><br></pre></td></tr></table></figure>
+<p>最开头是&quot;REDIS&quot;字符串,之后的006是版本号,再之后的一个字节377代表EOF常量,最后的334 263 C 360 Z 334 362 V八个字节则代表RDB文件的校验和</p>
+<h3 id="包含字符串键的rdb文件"><a class="markdownIt-Anchor" href="#包含字符串键的rdb文件"></a> 包含字符串键的RDB文件</h3>
+<p>TODO</p>
+<h2 id="重点回顾"><a class="markdownIt-Anchor" href="#重点回顾"></a> 重点回顾</h2>
+<ul>
+<li>RDB文件用于保存和还原Redis服务器所有数据库中的所有键值对数据</li>
+<li>SAVE命令由服务器进程直接执行保存操作,所以该命令会阻塞服务器</li>
+<li>BGSAVE命令由子进程执行保存操作,所以该命令不会阻塞服务器</li>
+<li>服务器状态中会保存所有用save选项设置的保存条件,当任意一个条件被满足时,服务器会自动执行BGSAVE命令</li>
+<li>RDB文件是一个经过亚索的二进制文件,由多个部分组成</li>
+<li>对于不同的键值对,RDB文件会用不同的方式保存它们</li>
+</ul>
 
       
     </div>
@@ -634,6 +770,10 @@ window.console.log=()=>{};
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/redis-9/" rel="prev" title="Redis-AOF持久化">
+                Redis-AOF持久化 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -711,7 +851,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">88</span>
+                    <span class="site-state-item-count">89</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -950,7 +1090,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdb文件的创建与载入"><span class="nav-text"> RDB文件的创建与载入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#save命令执行时的服务器状态"><span class="nav-text"> SAVE命令执行时的服务器状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bgsave命令执行时的服务器状态"><span class="nav-text"> BGSAVE命令执行时的服务器状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdb文件载入时的服务器状态"><span class="nav-text"> RDB文件载入时的服务器状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动间隔保存"><span class="nav-text"> 自动间隔保存</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdb文件的创建与载入"><span class="nav-text"> RDB文件的创建与载入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#save命令执行时的服务器状态"><span class="nav-text"> SAVE命令执行时的服务器状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bgsave命令执行时的服务器状态"><span class="nav-text"> BGSAVE命令执行时的服务器状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdb文件载入时的服务器状态"><span class="nav-text"> RDB文件载入时的服务器状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动间隔保存"><span class="nav-text"> 自动间隔保存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dirty计数器和lastsave属性"><span class="nav-text"> dirty计数器和lastsave属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查保存条件是否满足"><span class="nav-text"> 检查保存条件是否满足</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdb文件结构"><span class="nav-text"> RDB文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#database部分"><span class="nav-text"> database部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key_value_pairs部分"><span class="nav-text"> key_value_pairs部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#value的编码"><span class="nav-text"> value的编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析rdb文件"><span class="nav-text"> 分析RDB文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不包含任何键值对的rdb文件"><span class="nav-text"> 不包含任何键值对的RDB文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包含字符串键的rdb文件"><span class="nav-text"> 包含字符串键的RDB文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点回顾"><span class="nav-text"> 重点回顾</span></a></li></ol></div>
             
 
           </div>
@@ -990,7 +1130,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">272k</span>
+    <span title="站点总字数">276k</span>
   
 
   

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.ggemo.com/redis-9/</loc>
-    <lastmod>2019-09-11</lastmod>
+    <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/redis-8/</loc>
     <lastmod>2019-09-11</lastmod>
@@ -67,22 +67,22 @@
     <loc>https://blog.ggemo.com/dubbo-10/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-8/</loc>
-    <lastmod>2019-08-24</lastmod>
-  </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-4/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-7/</loc>
+    <loc>https://blog.ggemo.com/dubbo-8/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-5/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-9/</loc>
+    <loc>https://blog.ggemo.com/dubbo-6/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-6/</loc>
+    <loc>https://blog.ggemo.com/dubbo-7/</loc>
+    <lastmod>2019-08-24</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/dubbo-9/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-3/</loc>
@@ -91,10 +91,10 @@
     <loc>https://blog.ggemo.com/dubbo-1/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-2/</loc>
+    <loc>https://blog.ggemo.com/dubbo-0/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-0/</loc>
+    <loc>https://blog.ggemo.com/dubbo-2/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/interview-ali-1/</loc>
@@ -169,10 +169,10 @@
     <loc>https://blog.ggemo.com/shader-r-optimalize/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
+    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
+    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/csnote-2/</loc>
@@ -214,10 +214,10 @@
     <loc>https://blog.ggemo.com/shader-r-standard-texture/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-lsx/</loc>

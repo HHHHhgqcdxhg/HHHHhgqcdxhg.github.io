@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&amp;gt; SET msg &amp;quot;hello&amp;quot;OKredis&amp;gt; SADD fruits &amp;quot;apple&amp;quot; &amp;quot;banana&amp;quot; &amp;quot;cherry&amp;quot;(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-11T14:25:25.815Z">
+<meta property="og:updated_time" content="2019-09-13T15:34:42.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis-AOF持久化">
 <meta name="twitter:description" content="概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&amp;gt; SET msg &amp;quot;hello&amp;quot;OKredis&amp;gt; SADD fruits &amp;quot;apple&amp;quot; &amp;quot;banana&amp;quot; &amp;quot;cherry&amp;quot;(">
@@ -477,12 +477,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-11 21:44:40 / 修改时间：22:25:25" itemprop="dateCreated datePublished" datetime="2019-09-11T21:44:40+08:00">2019-09-11</time>
+              <time title="创建时间：2019-09-11 21:44:40" itemprop="dateCreated datePublished" datetime="2019-09-11T21:44:40+08:00">2019-09-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-13 23:34:42" itemprop="dateModified" datetime="2019-09-13T23:34:42+08:00">2019-09-13</time>
               
             
           </span>
@@ -541,7 +553,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.1k</span>
+                <span title="本文字数">2.1k</span>
               
 
               
@@ -580,8 +592,47 @@ AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
 <h3 id="命令追加"><a class="markdownIt-Anchor" href="#命令追加"></a> 命令追加</h3>
 <p>当AOF持久化功能处于打开状态时,服务器在执行完一个写命令后,回忆协议格式将被执行的谢明令追加到服务器状态的aof_buf缓冲区的末尾</p>
 <h3 id="aof文件的写入与同步"><a class="markdownIt-Anchor" href="#aof文件的写入与同步"></a> AOF文件的写入与同步</h3>
-<p>Redis的服务器进程就是一个时间循环(loop),这个循环中的时间负责接收客户端的命令请求,以及像客户端发送命令回复,而时间事件则负责像serverCron函数这样需要定时运行的函数</p>
+<p>Redis的服务器进程就是一个时间循环(loop),这个循环中的时间负责接收客户端的命令请求,以及向客户端发送命令回复,而时间事件则负责像serverCron函数这样需要定时运行的函数</p>
 <p>因为服务器在处理文件事件时可能会执行写命令,使得一些内容被追加到aof_buf缓冲区里面,所以服务器每次结束一个事件循环,它都会调用flushAppendOnlyFile函数,考虑是否将aof_buf缓冲区中的内容写入或保存到AOF文件里面.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">eventLoop</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 处理文件时间,接受命令请求以及发送命令回复</span></span><br><span class="line">        <span class="comment"># 处理命令请求时可能会有新内容被追加到aof_buf中</span></span><br><span class="line">        processFileEvents()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 处理时间事件</span></span><br><span class="line">        processTimeEvents()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 考虑是否将aof_buf中俄内容写入和保存到APF文件里面</span></span><br><span class="line">        flushAppendOnlyFile()</span><br></pre></td></tr></table></figure>
+<p>flushAppendOnlyFile函数的行为由服务器配置的appendfsync选项的值来决定,各个不同值代表的行为:</p>
+<table>
+<thead>
+<tr>
+<th>appendfsync选项值</th>
+<th>flushAppendOnlyFile函数的行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>always</td>
+<td>将aof_buf缓冲区中的所有内容写入并同步到AOF文件</td>
+</tr>
+<tr>
+<td>everysec(默认)</td>
+<td>将aof_buf缓冲区中的所有内容写入到AOF文件,如果上次同步AOF文件的时间距离现在超过一秒钟,那么在此对AOF文件进行同步,并且这个同步操作是有一个线程专门负责执行的</td>
+</tr>
+<tr>
+<td>no</td>
+<td>将aof_buf缓冲区中的所有内容写入到AOF文件,但并不对AOF文件进行同步,何时同步由系统决定</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>文件的写入与同步<br>为了提高文件写入的效率,在现代操作系统中,当用户调用write函数,将一些数据写入到文件的时候,操作系统通常会将写入数据暂时保存在一个内存缓冲区里面,等到缓冲区的时间被填满,或者超过了指定的时限之后,才真正地将缓冲区中的数据写入到磁盘<br>如果极端及发生停机的话,缓冲区里的数据将会消失.</p>
+</blockquote>
+<h3 id="aof持久化的效率和安全性"><a class="markdownIt-Anchor" href="#aof持久化的效率和安全性"></a> AOF持久化的效率和安全性</h3>
+<p>服务器配置appendfsync选项的值直接决定AOF持久化功能的效率和安全性</p>
+<ul>
+<li>always<br>
+服务器在每个事件循环都要将aof_buf缓冲区中的所有内容写入到AOF文件,并且同步AOF文件,所以always失效率最慢的,但也是最安全的,因为即使出现故障停机,AOF持久化也只会丢失一个时间循环中所产生的的命令数据</li>
+<li>everysec<br>
+效率:足够快,就算出现故障停机,数据库只会丢掉1秒钟的命令数据</li>
+<li>no<br>
+效率:最快,安全:我谔谔</li>
+</ul>
+<h2 id="aof文件的载入与数据还原"><a class="markdownIt-Anchor" href="#aof文件的载入与数据还原"></a> AOF文件的载入与数据还原</h2>
+<p>TODO</p>
 
       
     </div>
@@ -943,7 +994,7 @@ AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof持久化的实现"><span class="nav-text"> AOF持久化的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令追加"><span class="nav-text"> 命令追加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof文件的写入与同步"><span class="nav-text"> AOF文件的写入与同步</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof持久化的实现"><span class="nav-text"> AOF持久化的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令追加"><span class="nav-text"> 命令追加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof文件的写入与同步"><span class="nav-text"> AOF文件的写入与同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof持久化的效率和安全性"><span class="nav-text"> AOF持久化的效率和安全性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof文件的载入与数据还原"><span class="nav-text"> AOF文件的载入与数据还原</span></a></li></ol></div>
             
 
           </div>
@@ -983,7 +1034,7 @@ AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">277k</span>
   
 
   

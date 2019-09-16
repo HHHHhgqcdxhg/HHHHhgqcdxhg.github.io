@@ -103,18 +103,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
+  <meta name="description" content="插入缓冲 Insert Buffer和数据页一样,是物理页中的一部分. 在InndoDB存储引擎中,主键是行唯一的标识符.通常应用程序中行记录的插入顺序是按照主键递增的顺序插入的">
 <meta name="keywords" content="InnoDB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="innodb">
+<meta property="og:title" content="InnoDB关键特性">
 <meta property="og:url" content="https://blog.ggemo.com/innodb/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="插入缓冲 Insert Buffer和数据页一样,是物理页中的一部分. 在InndoDB存储引擎中,主键是行唯一的标识符.通常应用程序中行记录的插入顺序是按照主键递增的顺序插入的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-16T04:49:43.910Z">
+<meta property="og:updated_time" content="2019-09-16T13:56:48.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="innodb">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="InnoDB关键特性">
+<meta name="twitter:description" content="插入缓冲 Insert Buffer和数据页一样,是物理页中的一部分. 在InndoDB存储引擎中,主键是行唯一的标识符.通常应用程序中行记录的插入顺序是按照主键递增的顺序插入的">
 
 
 
@@ -131,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>innodb | 黄瓜养殖基地！</title>
+  <title>InnoDB关键特性 | 黄瓜养殖基地！</title>
   
 
 
@@ -450,7 +450,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">innodb
+          <h2 class="post-title" itemprop="name headline">InnoDB关键特性
 
               
             
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-16 12:49:02 / 修改时间：12:49:43" itemprop="dateCreated datePublished" datetime="2019-09-16T12:49:02+08:00">2019-09-16</time>
+              <time title="创建时间：2019-09-16 12:49:02 / 修改时间：21:56:48" itemprop="dateCreated datePublished" datetime="2019-09-16T12:49:02+08:00">2019-09-16</time>
             
 
             
@@ -541,7 +541,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">91</span>
               
 
               
@@ -565,7 +565,10 @@ window.console.log=()=>{};
       
 
       
-        
+        <h2 id="插入缓冲"><a class="markdownIt-Anchor" href="#插入缓冲"></a> 插入缓冲</h2>
+<p>Insert Buffer和数据页一样,是物理页中的一部分.</p>
+<p>在InndoDB存储引擎中,主键是行唯一的标识符.通常应用程序中行记录的插入顺序是按照主键递增的顺序插入的</p>
+
       
     </div>
 
@@ -664,8 +667,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -915,6 +927,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入缓冲"><span class="nav-text"> 插入缓冲</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -948,7 +977,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">281k</span>
   
 
   

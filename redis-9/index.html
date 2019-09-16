@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&amp;gt; SET msg &amp;quot;hello&amp;quot;OKredis&amp;gt; SADD fruits &amp;quot;apple&amp;quot; &amp;quot;banana&amp;quot; &amp;quot;cherry&amp;quot;(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-13T15:34:42.499Z">
+<meta property="og:updated_time" content="2019-09-16T13:56:48.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis-AOF持久化">
 <meta name="twitter:description" content="概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&amp;gt; SET msg &amp;quot;hello&amp;quot;OKredis&amp;gt; SADD fruits &amp;quot;apple&amp;quot; &amp;quot;banana&amp;quot; &amp;quot;cherry&amp;quot;(">
@@ -494,7 +494,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-13 23:34:42" itemprop="dateModified" datetime="2019-09-13T23:34:42+08:00">2019-09-13</time>
+                <time title="修改时间：2019-09-16 21:56:48" itemprop="dateModified" datetime="2019-09-16T21:56:48+08:00">2019-09-16</time>
               
             
           </span>
@@ -553,7 +553,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">3.4k</span>
               
 
               
@@ -632,7 +632,45 @@ AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
 效率:最快,安全:我谔谔</li>
 </ul>
 <h2 id="aof文件的载入与数据还原"><a class="markdownIt-Anchor" href="#aof文件的载入与数据还原"></a> AOF文件的载入与数据还原</h2>
-<p>TODO</p>
+<p>Redis读取AOF文件并还原数据库状态的详细步骤如下:</p>
+<ol>
+<li>创建一个不带网络连接的伪客户端<br>
+因为Redis的命令只能在客户端上下文中执行,而载入AOF问件事所使用的命令直接来源于AOF文件而不是网络连接,所有服务器使用了一个没有网络连接的伪客户端来执行AOF文件保存的谢明令,伪客户端执行命令的效果和带网络连接的客户端执行命令的效果完全一样</li>
+<li>从AOF文件中分析并读取一条写命令</li>
+<li>使用伪客户端执行被独处的写命令</li>
+<li>不断重复2和3,知道AOF文件中的所有写命令都被处理完毕为止</li>
+</ol>
+<h2 id="aof重写"><a class="markdownIt-Anchor" href="#aof重写"></a> AOF重写</h2>
+<p>随着服务器运行时间的流逝,AOF文件中的内容会越来越多,文件体积也会越来越大,如果不加以控制,体积过大的AOF文件很可能会对Redis服务器甚至整个宿主计算机造成影响,并且使用AOF文件来进行数据还原所需的时间就越多</p>
+<p>为了解决AOF文件体积膨胀的问题,Redis提供了AOF文件重写功能,通过该功能,Redis服务器可以创建一个新的AOF文件来替代现有的AOF文件,新旧两个AOF文件所保存的数据库状态相同,但新AOF文件不会包含任何浪费空间的冗余命令.</p>
+<h3 id="aof文件重写的实现"><a class="markdownIt-Anchor" href="#aof文件重写的实现"></a> AOF文件重写的实现</h3>
+<p>AOF文件重写并不需要对现有的AOF文件进行任何读取,分析或者写入操作,这个功能是通过读取服务器当前数据库状态来实现的</p>
+<h3 id="aof后台重写"><a class="markdownIt-Anchor" href="#aof后台重写"></a> AOF后台重写</h3>
+<p>Redis将AOF重写程序放到子进程里面执行,这样做可以同时达到两个目的:</p>
+<ul>
+<li>子进程进行AOF重写期间,服务器进程可以继续处理命令请求</li>
+<li>子进程带有服务器进程的数据副本,使用子进程而不是线程,可以在避免使用锁的情况下,保证数据的安全</li>
+</ul>
+<p>不过,使用子进程也有一个问题需要解决:因为子进程在进行AOF重写期间,服务器进程还需要继续处理命令请求,而新的命令可能会对现有的数据库状态进行修改,从而使得服务器当前的数据库状态和重写后的AOF文件所保存的数据库状态不一致.<br>
+为结局这种数据不一致的问题,Redis服务器设置了一个AOF重写缓冲区,这个缓冲区在服务器创建子进程之后开始使用,当Redis服务器执行完一个命令之后,它会同时将这个写命令发送给AOF缓冲区与AOF重写缓冲区.<br>
+这样一来可以保证:</p>
+<ul>
+<li>AOF缓冲区的内容会被定期写入和同步到AOF文件,对现有AOF文件的处理工作会如常进行</li>
+<li>从创建子进程开始,服务器执行的所有写命令都会被记录到AOF重写缓冲区里面</li>
+</ul>
+<p>当子进程完成AOF重写工作执行,它会想主进程发送一个信号,主进程在接受到信号后,会调用一个信号处理函数:</p>
+<ul>
+<li>将AOF重写缓冲区中的所有内容写入到新AOF文件中</li>
+<li>对新AOF文件进行改名,覆盖现有的AOF文件,完成新旧AOF文件的替换</li>
+</ul>
+<h2 id="重点回顾"><a class="markdownIt-Anchor" href="#重点回顾"></a> 重点回顾</h2>
+<ul>
+<li>AOF文件通过保存所有修改数据库的写命令请求来记录服务器的数据库状态</li>
+<li>AOF文件中的所有命令都以Redis命令请求协议的格式保存</li>
+<li>命令请求会先保存到AOF缓冲区里面,之后再定期写入并同步到AOF文件</li>
+<li>服务器载入并重新执行保存在AOF文件中的命令来还原数据库原本的状态</li>
+<li>AOF重写可以产生一个新的AOF文件,这个新的AOF文件和原有的AOF文件所保存的数据库状态一样,但体积更小</li>
+</ul>
 
       
     </div>
@@ -679,8 +717,8 @@ AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/innodb/" rel="prev" title="innodb">
-                innodb <i class="fa fa-chevron-right"></i>
+              <a href="/innodb/" rel="prev" title="InnoDB关键特性">
+                InnoDB关键特性 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1002,7 +1040,7 @@ AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof持久化的实现"><span class="nav-text"> AOF持久化的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令追加"><span class="nav-text"> 命令追加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof文件的写入与同步"><span class="nav-text"> AOF文件的写入与同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof持久化的效率和安全性"><span class="nav-text"> AOF持久化的效率和安全性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof文件的载入与数据还原"><span class="nav-text"> AOF文件的载入与数据还原</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof持久化的实现"><span class="nav-text"> AOF持久化的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令追加"><span class="nav-text"> 命令追加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof文件的写入与同步"><span class="nav-text"> AOF文件的写入与同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof持久化的效率和安全性"><span class="nav-text"> AOF持久化的效率和安全性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof文件的载入与数据还原"><span class="nav-text"> AOF文件的载入与数据还原</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aof重写"><span class="nav-text"> AOF重写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#aof文件重写的实现"><span class="nav-text"> AOF文件重写的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aof后台重写"><span class="nav-text"> AOF后台重写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点回顾"><span class="nav-text"> 重点回顾</span></a></li></ol></div>
             
 
           </div>
@@ -1042,7 +1080,7 @@ AOF通过Redis服务器所执行的写命令来记录数据库状态</p>
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">281k</span>
   
 
   

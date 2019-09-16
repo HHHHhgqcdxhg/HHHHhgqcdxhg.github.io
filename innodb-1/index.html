@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概述 InnoDB存储引擎支持以下索引:  B+树索引 B+树索引是传统意义上的索引.B+树索引并不能找到一个给定键值的具体行,只能找到备查找数据行所在的页,然后把页读入内存,再在内存中查找 全文索引 哈希索引 InnoDB支持的哈希索引是自适应的,InnoDB存储引擎会根据表的使用情况自动为表生产哈希索引,不能人为干预是否在一张表中生成哈希索引   B+树 B+树是为磁盘或其他直接存取辅助设备">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-16T10:31:36.888Z">
+<meta property="og:updated_time" content="2019-09-16T13:56:48.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InnoDB-索引与算法">
 <meta name="twitter:description" content="概述 InnoDB存储引擎支持以下索引:  B+树索引 B+树索引是传统意义上的索引.B+树索引并不能找到一个给定键值的具体行,只能找到备查找数据行所在的页,然后把页读入内存,再在内存中查找 全文索引 哈希索引 InnoDB支持的哈希索引是自适应的,InnoDB存储引擎会根据表的使用情况自动为表生产哈希索引,不能人为干预是否在一张表中生成哈希索引   B+树 B+树是为磁盘或其他直接存取辅助设备">
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-16 12:49:11 / 修改时间：18:31:36" itemprop="dateCreated datePublished" datetime="2019-09-16T12:49:11+08:00">2019-09-16</time>
+              <time title="创建时间：2019-09-16 12:49:11 / 修改时间：21:56:48" itemprop="dateCreated datePublished" datetime="2019-09-16T12:49:11+08:00">2019-09-16</time>
             
 
             
@@ -541,7 +541,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.5k</span>
+                <span title="本文字数">2.8k</span>
               
 
               
@@ -617,6 +617,57 @@ InnoDB支持的哈希索引是自适应的,InnoDB存储引擎会根据表的使�
 <h3 id="概述-2"><a class="markdownIt-Anchor" href="#概述-2"></a> 概述</h3>
 <p>并不是在所有的查询条件中出现的列都需要添加索引.如果某个字段取值范围很窄,则完全没有必要,相反,如果某个字段取值范围很广,几乎没有重复,即属于高选择性,则此时使用B+树索引是最合适的</p>
 <p>索引是否有高选择性可以通过SHOW INDEX结果中的列Cardinality值来观察.Cardinality值非常关键,表示索引中不重复记录数量的预估值.在实际应用中,Cardinality/n_rows_in_table应尽可能地接近于1.如果非常小,那么用户需要考虑是否还有创建这个索引的必要.故在访问高选择性属性的字段并从表中取出很少一部分数据时,对这个字段添加B+树索引是非常有必要的.</p>
+<h3 id="innodb存储引擎的cardinality统计"><a class="markdownIt-Anchor" href="#innodb存储引擎的cardinality统计"></a> InnoDB存储引擎的Cardinality统计</h3>
+<p>数据库对Cardinality值的统计都是通过采样的方法来完成的.</p>
+<p>在InnoDB存储引擎中,Cardinality统计信息的更新发生在两个操作中:INSERT和UPDATE.不可能每次发生INSERT和UPDATE时就去更新Cardinality信息,这样会增加数据库系统的负荷.<br>
+InnoDB存储引擎内部对更新Cardinality信息的策略为:</p>
+<ul>
+<li>表中1/16的数据已发生过变化</li>
+<li>stat_modified_counter&gt;2000000000</li>
+</ul>
+<h2 id="b树索引的使用"><a class="markdownIt-Anchor" href="#b树索引的使用"></a> B+树索引的使用</h2>
+<h3 id="联合索引"><a class="markdownIt-Anchor" href="#联合索引"></a> 联合索引</h3>
+<p>联合索引也是一棵B+树,不同的是联合索引的键值的数量不是1,而是大于等于2.</p>
+<h3 id="覆盖索引"><a class="markdownIt-Anchor" href="#覆盖索引"></a> 覆盖索引</h3>
+<h3 id="优化器选择不适用索引的情况"><a class="markdownIt-Anchor" href="#优化器选择不适用索引的情况"></a> 优化器选择不适用索引的情况</h3>
+<p>多发生于范围查找,JOIN链接操作等情况下.</p>
+<p>若用户有足够信心使用辅助索引可以带来更好的性能,那么可以使用关键字FORCE INDEX来强制使用某个索引</p>
+<h3 id="索引提示"><a class="markdownIt-Anchor" href="#索引提示"></a> 索引提示</h3>
+<p>MySQL数据库支持索引提示,显式地告诉优化器使用哪个索引.下面时两种可能需要用到INDEX HINT的情况:</p>
+<ul>
+<li>MySQL数据库的的优化器错误地选择了某个索引,导致SQL语句运行的很慢</li>
+<li>某SQL语句可以选择的索引非常多,这时优化器选择执行时间的开销可能会大于SQL语句本身的时间开销</li>
+</ul>
+<h3 id="mult-range-read优化"><a class="markdownIt-Anchor" href="#mult-range-read优化"></a> Mult-Range Read优化</h3>
+<p>Multi-Range Read(MRR)优化的目的是为了减少磁盘的随机访问,并且将随机访问转化为较为顺序的数据访问,这对于IO-bound类型的SQL查询语句带来性能极大的提升.MRR优化可适用于range,ref,eq_ref类型的查询</p>
+<p>MRR优化有以下好处:</p>
+<ul>
+<li>MRR是数据访问变得较为顺序<br>
+在查询辅助索引时,首先根据得到的查询结果按照主键进行排序,并按照主键顺序进行书签查找</li>
+<li>减少缓冲池中页被替换的次数</li>
+<li>批量处理对键值的查询操作</li>
+</ul>
+<p>对于InnoDB和MyISAM存储引擎的范围查询和JOIN查询操作,MRR的工作方式如下:</p>
+<ul>
+<li>将查询得到的辅助索引键值存放于一个缓存中,这时缓存中的数据时根据辅助索引键值排序的</li>
+<li>将缓存中的键值根据RowId进行排序</li>
+<li>根据RowID的排序顺序来访问实际的数据文件</li>
+</ul>
+<h3 id="index-condition-pushdownicp优化"><a class="markdownIt-Anchor" href="#index-condition-pushdownicp优化"></a> Index Condition Pushdown(ICP)优化</h3>
+<p>TODO</p>
+<h2 id="哈希算法"><a class="markdownIt-Anchor" href="#哈希算法"></a> 哈希算法</h2>
+<h3 id="哈希表"><a class="markdownIt-Anchor" href="#哈希表"></a> 哈希表</h3>
+<h3 id="innodb存储引擎中的哈希算法"><a class="markdownIt-Anchor" href="#innodb存储引擎中的哈希算法"></a> InnoDB存储引擎中的哈希算法</h3>
+<p>InnoDB存储引擎使用哈希算法来对字典进行查找,其冲突机制采用链表方式,哈希函数采用除法散列方式.</p>
+<h3 id="自适应哈希索引"><a class="markdownIt-Anchor" href="#自适应哈希索引"></a> 自适应哈希索引</h3>
+<p>自适应哈希索引经哈希函数映射到一个哈希表中,因此对于字典类型的查找非常快速.但是范围查找就无能为力了.</p>
+<h2 id="全文检索"><a class="markdownIt-Anchor" href="#全文检索"></a> 全文检索</h2>
+<h3 id="概述-3"><a class="markdownIt-Anchor" href="#概述-3"></a> 概述</h3>
+<p>全文检索是将存储于数据库中的整本书或整篇文章中的任意内容信息查找出来的技术.它可以根据需要获得全文中有关章节段句词等信息,也可以进行各种统计和分析</p>
+<h3 id="倒排索引"><a class="markdownIt-Anchor" href="#倒排索引"></a> 倒排索引</h3>
+<p>全文检索通常使用倒排索引来实现.倒排索引同B+树索引一样,也是一种索引结构,它在辅助表中存出来单词与单词自身在一个活多个文档中所在位置之间的映射.这通常利用关联数组实现.</p>
+<h3 id="innodb全文索引"><a class="markdownIt-Anchor" href="#innodb全文索引"></a> InnoDB全文索引</h3>
+<p>TODO</p>
 
       
     </div>
@@ -653,8 +704,8 @@ InnoDB支持的哈希索引是自适应的,InnoDB存储引擎会根据表的使�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/innodb/" rel="next" title="innodb">
-                <i class="fa fa-chevron-left"></i> innodb
+              <a href="/innodb/" rel="next" title="InnoDB关键特性">
+                <i class="fa fa-chevron-left"></i> InnoDB关键特性
               </a>
             
           </div>
@@ -982,7 +1033,7 @@ InnoDB支持的哈希索引是自适应的,InnoDB存储引擎会根据表的使�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b树"><span class="nav-text"> B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#b树的插入操作"><span class="nav-text"> B+树的插入操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b树索引"><span class="nav-text"> B+树索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#聚集索引"><span class="nav-text"> 聚集索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助索引"><span class="nav-text"> 辅助索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cardinality值"><span class="nav-text"> Cardinality值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-2"><span class="nav-text"> 概述</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b树"><span class="nav-text"> B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#b树的插入操作"><span class="nav-text"> B+树的插入操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b树索引"><span class="nav-text"> B+树索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#聚集索引"><span class="nav-text"> 聚集索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助索引"><span class="nav-text"> 辅助索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cardinality值"><span class="nav-text"> Cardinality值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-2"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innodb存储引擎的cardinality统计"><span class="nav-text"> InnoDB存储引擎的Cardinality统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b树索引的使用"><span class="nav-text"> B+树索引的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联合索引"><span class="nav-text"> 联合索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖索引"><span class="nav-text"> 覆盖索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化器选择不适用索引的情况"><span class="nav-text"> 优化器选择不适用索引的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引提示"><span class="nav-text"> 索引提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mult-range-read优化"><span class="nav-text"> Mult-Range Read优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-condition-pushdownicp优化"><span class="nav-text"> Index Condition Pushdown(ICP)优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希算法"><span class="nav-text"> 哈希算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希表"><span class="nav-text"> 哈希表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innodb存储引擎中的哈希算法"><span class="nav-text"> InnoDB存储引擎中的哈希算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应哈希索引"><span class="nav-text"> 自适应哈希索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全文检索"><span class="nav-text"> 全文检索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-3"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#倒排索引"><span class="nav-text"> 倒排索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innodb全文索引"><span class="nav-text"> InnoDB全文索引</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1022,7 +1073,7 @@ InnoDB支持的哈希索引是自适应的,InnoDB存储引擎会根据表的使�
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">281k</span>
   
 
   

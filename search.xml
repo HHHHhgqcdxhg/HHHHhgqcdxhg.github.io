@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[InnoDB-索引与算法]]></title>
+    <url>%2Finnodb-1%2F</url>
+    <content type="text"><![CDATA[概述 InnoDB存储引擎支持以下索引: B+树索引 B+树索引是传统意义上的索引.B+树索引并不能找到一个给定键值的具体行,只能找到备查找数据行所在的页,然后把页读入内存,再在内存中查找 全文索引 哈希索引 InnoDB支持的哈希索引是自适应的,InnoDB存储引擎会根据表的使用情况自动为表生产哈希索引,不能人为干预是否在一张表中生成哈希索引 B+树 B+树是为磁盘或其他直接存取辅助设备设计的一种平衡查找树 B+树的插入操作 Leaf Page满 Index Page满 操作 false false 直接将记录插入到叶子节点 true false 1. 拆分Leaf Page2. 将中间的节点放入到Index Page中3. 小于中间结点的记录放左边4. 大于或等于中间结点的记录放右边 true true 1. 拆分Leaf Page2. 小于中间节点的记录放左边3. 大于或等于中间节点的记录放右边4. 拆分Index Page5. 小于中间结点的记录放左边6. 大于中间结点的记录放右边7. 中间结点放入上一层Index Page 不管怎么变化,B+树总会保持平衡.但是为了保持平衡对于新插入的键值可能会做大量的拆分页操作.因为B+树结构主要用于磁盘,页的拆分意味着磁盘操作,所以应该在可能的情况下尽量减少页的拆分操作,因此,B+数同样提供了类似平衡二叉树的旋转的功能 B+树索引 B+树做引在数据库中有一个特点是高扇出性,因此在数据库中,B+树高度一般都在24层,也就是说查找某一键值记录时最多只需要24次磁盘IO B+树索引可以分为聚集索引和辅助索引.不管是聚集索引还是辅助索引,其内部都是B+树的,即高度平衡,叶子节点存放着所有的数据.聚集索引与辅助索引不同的是,叶子节点存放的是否是一整行的信息 聚集索引 InnoDB存储引擎表是索引组织表,即表中数据按照主键顺序存放,而聚集索引就是按照每张表的主键构造一棵B+树,同时叶子节点存放的即为整张表的行记录数据,也将聚集索引的叶子节点成为数据页.聚集索引的这个特性决定了索引组织表中数据也是索引的一部分 由于实际的数据页只能按照一棵B+树进行排序,因此每张表只能拥有一个聚集索引. 辅助索引 对于辅助索引,叶子节点并不包含行记录的全部数据.叶子节点除了包含键值以外,每个叶子节点中的索引行中还包含了一个书签,该书签告诉InnoDB存储引擎哪里可以找到与索引相对应的行数据.由于InnoDB存储引擎表是索引组织表,因此InnoDB存储引擎的辅助索引的书签就是相应行数据的聚集索引键 辅助索引的存在并不影响数据在聚集索引中的组织,因此每张表上可以有多个辅助索引.当通过辅助索引来寻找数据时,InnoDB存储引擎会遍历辅助索引并通过叶级别的指针获取指向主键索引的主键,然后再通过主键索引来找到一个完整的行记录 Cardinality值 概述 并不是在所有的查询条件中出现的列都需要添加索引.如果某个字段取值范围很窄,则完全没有必要,相反,如果某个字段取值范围很广,几乎没有重复,即属于高选择性,则此时使用B+树索引是最合适的 索引是否有高选择性可以通过SHOW INDEX结果中的列Cardinality值来观察.Cardinality值非常关键,表示索引中不重复记录数量的预估值.在实际应用中,Cardinality/n_rows_in_table应尽可能地接近于1.如果非常小,那么用户需要考虑是否还有创建这个索引的必要.故在访问高选择性属性的字段并从表中取出很少一部分数据时,对这个字段添加B+树索引是非常有必要的.]]></content>
+      <categories>
+        <category>InnoDB</category>
+      </categories>
+      <tags>
+        <tag>InnoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[innodb]]></title>
+    <url>%2Finnodb%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>InnoDB</category>
+      </categories>
+      <tags>
+        <tag>InnoDB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Redis-AOF持久化]]></title>
     <url>%2Fredis-9%2F</url>
     <content type="text"><![CDATA[概述 RDB持久化通过保存数据库中的键值对来记录数据库状态 AOF通过Redis服务器所执行的写命令来记录数据库状态 比如,空白的数据库执行以下命令: 12345678redis&gt; SET msg &quot;hello&quot;OKredis&gt; SADD fruits &quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;(integer) 3redis&gt; RPUSH numbers 128 256 512(integer) 3 RDB持久化保存数据库状态的方法是将msg,fruits,numbers三个键的键值对保存到RDB文件中,而AOF持久化保存数据库状态的方法则是将服务器执行的SET,SADD,RPUSH三个命令保存到AOF文件中 被写入AOF文件的所有命令都是以Redis的命令请求协议格式保存的,因为Redis的命令请求协议是纯文本格式,所以我们可以直接打开一个AOF文件来观察里面的内容 比如,对于上面的三个写命令来说,服务器将产生包涵一下内容的AOF文件: 1234*2\r\n$6\r\nSELECT\r\n$1\r\n0\r\n*3\r\n$3\r\nSET\r\n$3\r\nmsg\r\n$5\r\nhello\r\n*5\r\n$4\r\nSADD\r\n$6\r\nfruits\r\n$5\r\napple\r\n$6\r\nbanana\r\n$6\r\ncherry\r\n*5\r\n$5\r\nRPUSH\r\n$7\r\nnumbers\r\n$3\r\n123\r\n$3\r\n256\r\n$3\r\n512\r\n 在这个AOF文件里面,除了用于指定数据库的SELECT命令是服务器自动添加的之外,其他都是我们之前通过客户端发送的命令 AOF持久化的实现 AOF持久化功能的实现可以分为命令追加,文件写入,文件同步三个步骤 命令追加 当AOF持久化功能处于打开状态时,服务器在执行完一个写命令后,回忆协议格式将被执行的谢明令追加到服务器状态的aof_buf缓冲区的末尾 AOF文件的写入与同步 Redis的服务器进程就是一个时间循环(loop),这个循环中的时间负责接收客户端的命令请求,以及向客户端发送命令回复,而时间事件则负责像serverCron函数这样需要定时运行的函数 因为服务器在处理文件事件时可能会执行写命令,使得一些内容被追加到aof_buf缓冲区里面,所以服务器每次结束一个事件循环,它都会调用flushAppendOnlyFile函数,考虑是否将aof_buf缓冲区中的内容写入或保存到AOF文件里面. 123456789101112def eventLoop(): while True: # 处理文件时间,接受命令请求以及发送命令回复 # 处理命令请求时可能会有新内容被追加到aof_buf中 processFileEvents() # 处理时间事件 processTimeEvents() # 考虑是否将aof_buf中俄内容写入和保存到APF文件里面 flushAppendOnlyFile() flushAppendOnlyFile函数的行为由服务器配置的appendfsync选项的值来决定,各个不同值代表的行为: appendfsync选项值 flushAppendOnlyFile函数的行为 always 将aof_buf缓冲区中的所有内容写入并同步到AOF文件 everysec(默认) 将aof_buf缓冲区中的所有内容写入到AOF文件,如果上次同步AOF文件的时间距离现在超过一秒钟,那么在此对AOF文件进行同步,并且这个同步操作是有一个线程专门负责执行的 no 将aof_buf缓冲区中的所有内容写入到AOF文件,但并不对AOF文件进行同步,何时同步由系统决定 文件的写入与同步为了提高文件写入的效率,在现代操作系统中,当用户调用write函数,将一些数据写入到文件的时候,操作系统通常会将写入数据暂时保存在一个内存缓冲区里面,等到缓冲区的时间被填满,或者超过了指定的时限之后,才真正地将缓冲区中的数据写入到磁盘如果极端及发生停机的话,缓冲区里的数据将会消失. AOF持久化的效率和安全性 服务器配置appendfsync选项的值直接决定AOF持久化功能的效率和安全性 always 服务器在每个事件循环都要将aof_buf缓冲区中的所有内容写入到AOF文件,并且同步AOF文件,所以always失效率最慢的,但也是最安全的,因为即使出现故障停机,AOF持久化也只会丢失一个时间循环中所产生的的命令数据 everysec 效率:足够快,就算出现故障停机,数据库只会丢掉1秒钟的命令数据 no 效率:最快,安全:我谔谔 AOF文件的载入与数据还原 TODO]]></content>
@@ -897,8 +919,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>动漫</tag>
         <tag>python</tag>
+        <tag>动漫</tag>
         <tag>gui</tag>
       </tags>
   </entry>

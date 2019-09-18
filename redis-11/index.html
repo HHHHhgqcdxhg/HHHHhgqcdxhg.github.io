@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概览 Sentinel(哨兵)是Redis高可用性解决方案: 由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器  获取主服务器信息 哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-18T11:15:47.760Z">
+<meta property="og:updated_time" content="2019-09-18T11:43:58.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis-哨兵">
 <meta name="twitter:description" content="概览 Sentinel(哨兵)是Redis高可用性解决方案: 由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器  获取主服务器信息 哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息">
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-18 14:17:44 / 修改时间：19:15:47" itemprop="dateCreated datePublished" datetime="2019-09-18T14:17:44+08:00">2019-09-18</time>
+              <time title="创建时间：2019-09-18 14:17:44 / 修改时间：19:43:58" itemprop="dateCreated datePublished" datetime="2019-09-18T14:17:44+08:00">2019-09-18</time>
             
 
             
@@ -541,7 +541,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.2k</span>
+                <span title="本文字数">2.3k</span>
               
 
               
@@ -592,6 +592,32 @@ window.console.log=()=>{};
 <li>如果有某个哨兵被半数以上的哨兵设置成了局部领头哨兵,那么这个哨兵成为领头哨兵</li>
 <li>因为哨兵的产生需要半数以上哨兵的支持,并且每个哨兵在背个配置纪元里面只能设置一次局部领头哨兵,所以在一个配置纪元里面只会出现一个领头哨兵</li>
 <li>在给定期限内如果没有一个哨兵被选举为领头哨兵,那么哥哥哨兵将在一段时间之后再次进行选举,直到选出领头哨兵为止</li>
+</ul>
+<h2 id="故障转移"><a class="markdownIt-Anchor" href="#故障转移"></a> 故障转移</h2>
+<p>在选举产生出领头哨兵之后,领头哨兵将对已下线的主服务器执行故障转移操作,该操作包含以下三个步骤:</p>
+<ol>
+<li>在已下线主服务器所辖所有从服务器里面,挑选出一个从服务器,并将其转换为主服务器</li>
+<li>让已下线主服务器输下的所有从服务器改为新主服务器的从服务器</li>
+<li>将已下线主服务器设置为新的主服务器的从服务器,当这个旧的主服务器重新上线时,他就会成为新的主服务器的从服务器</li>
+</ol>
+<h3 id="选出新的主服务器"><a class="markdownIt-Anchor" href="#选出新的主服务器"></a> 选出新的主服务器</h3>
+<p>大概规则就是挑选出在线的,复制偏移量最大的服务器,一样大就比较runID</p>
+<h3 id="修改从服务器的复制目标"><a class="markdownIt-Anchor" href="#修改从服务器的复制目标"></a> 修改从服务器的复制目标</h3>
+<p>即向从服务器发送SLAVEOF指令</p>
+<h3 id="将旧的主服务器变为从服务器"><a class="markdownIt-Anchor" href="#将旧的主服务器变为从服务器"></a> 将旧的主服务器变为从服务器</h3>
+<p>因为旧的主服务器已经下线,所以这种设置是保存在已下线旧主服务器对应的实例结构里面的,当就主服务器重新上线后,哨兵就会立即向他发送SLAVEOF命令</p>
+<h2 id="重点回顾"><a class="markdownIt-Anchor" href="#重点回顾"></a> 重点回顾</h2>
+<ul>
+<li>哨兵值是一个运行在特殊模式下的Redis服务器,它使用了和普通模式不同的命令表,所以哨兵模式能使用的命令和普通的Redis服务器能够使用的命令不同</li>
+<li>哨兵会读入用户指定的配置文件,为每个要被检视的主服务器创建响应的实例结构,并创建连向主服务器的命令连接和订阅连接</li>
+<li>哨兵通过向主服务器发送INFO命令来获得主服务器属下所有从服务器的地址信息,并为这些从服务器创建相应的实力结构,以及连向这些从服务器的命令连接和订阅连接</li>
+<li>在一般情况下,哨兵以每十秒一次的频率向被监视的主服务器和从服务器发送INFO命令,当主服务器处于下线状态,或者哨兵正在对主服务器进行故障转移操作时,哨兵向从服务器发送INFO命令的频率会改为每秒一次</li>
+<li>对于监视同一个主服务器和从服务器的说个哨兵来说,它们会每两秒一次通过向被监视服务器的__sentinel__:hello频道发送消息来向其他哨兵宣告自己的存在</li>
+<li>每个哨兵也会从__sentinel__:hello频道中接受其他哨兵发来的信息,并根据这些信息为其他哨兵创建响应的实例结构以及命令连接</li>
+<li>哨兵只会与主服务器和从服务器创建命令连接和订阅连接,哨兵与哨兵之间只会创建命令连接</li>
+<li>哨兵会以每秒一次的频率向实例(包括主服务器,从服务器,其他哨兵)发送PING命令,并根据实例对PING命令的回复来判断实例是否在线,当一个实例在指定的市场中连续向哨兵发送无效回复时,哨兵会将这个实例判断为主观下线</li>
+<li>当哨兵将一个主服务器判断为主观下线时,它会向同样监视这个主服务器的其他哨兵进行询问,看他们是否同意这个主服务器已经进入主观下线的状态</li>
+<li>当哨兵收集到足够多的的主观下线投票之后,它会将主服务器判断为客观下线,并发起一次针对主服务器的故障转移操作</li>
 </ul>
 
       
@@ -958,7 +984,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-text"> 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取主服务器信息"><span class="nav-text"> 获取主服务器信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选举领头哨兵"><span class="nav-text"> 选举领头哨兵</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-text"> 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取主服务器信息"><span class="nav-text"> 获取主服务器信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选举领头哨兵"><span class="nav-text"> 选举领头哨兵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#故障转移"><span class="nav-text"> 故障转移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选出新的主服务器"><span class="nav-text"> 选出新的主服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改从服务器的复制目标"><span class="nav-text"> 修改从服务器的复制目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将旧的主服务器变为从服务器"><span class="nav-text"> 将旧的主服务器变为从服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点回顾"><span class="nav-text"> 重点回顾</span></a></li></ol></div>
             
 
           </div>
@@ -998,7 +1024,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">285k</span>
+    <span title="站点总字数">286k</span>
   
 
   

@@ -103,23 +103,27 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/categories/Dubbo笔记/index.html">
+  <meta name="description" content="概述 Redis通过MULTI,EXEC,WATCH等命令来实现事务功能 以下是一个事务的执行过程,该事务由一个MULTI命令开始,接着将多个命令放入事务当众,最后由EXEC命令将这个事务提交给服务器 1234567891011121314151617181920redis&amp;gt; MULTIOKredis&amp;gt; SET &amp;quot;name&amp;quot; &amp;quot;Practical Com">
+<meta name="keywords" content="Redis,事务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis-事务">
+<meta property="og:url" content="https://blog.ggemo.com/redis-12/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="概述 Redis通过MULTI,EXEC,WATCH等命令来实现事务功能 以下是一个事务的执行过程,该事务由一个MULTI命令开始,接着将多个命令放入事务当众,最后由EXEC命令将这个事务提交给服务器 1234567891011121314151617181920redis&amp;gt; MULTIOKredis&amp;gt; SET &amp;quot;name&amp;quot; &amp;quot;Practical Com">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20190918204413.png">
+<meta property="og:updated_time" content="2019-09-18T12:59:19.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="Redis-事务">
+<meta name="twitter:description" content="概述 Redis通过MULTI,EXEC,WATCH等命令来实现事务功能 以下是一个事务的执行过程,该事务由一个MULTI命令开始,接着将多个命令放入事务当众,最后由EXEC命令将这个事务提交给服务器 1234567891011121314151617181920redis&amp;gt; MULTIOKredis&amp;gt; SET &amp;quot;name&amp;quot; &amp;quot;Practical Com">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/20190918204413.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/categories/Dubbo笔记/">
+  <link rel="canonical" href="https://blog.ggemo.com/redis-12/">
 
 
 
@@ -129,7 +133,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>分类: Dubbo笔记 | 黄瓜养殖基地！</title>
+  <title>Redis-事务 | 黄瓜养殖基地！</title>
   
 
 
@@ -217,7 +221,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,7 +310,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -411,346 +415,329 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Dubbo笔记<small>分类</small>
-        </h2>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/redis-12/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/dubbo-10/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-10-Dubbo过滤器</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Redis-事务
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-24T16:28:51+08:00" content="2019-08-24">
-          08-24
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-18 20:14:55 / 修改时间：20:59:19" itemprop="dateCreated datePublished" datetime="2019-09-18T20:14:55+08:00">2019-09-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/redis-12/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/redis-12/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.7k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-9/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-9-Dubbo高级特性</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-23T01:23:32+08:00" content="2019-08-23">
-          08-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-8/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-8-Dubbo扩展点</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-21T02:14:34+08:00" content="2019-08-21">
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-7/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-7-负载均衡</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-19T23:31:50+08:00" content="2019-08-19">
-          08-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-6/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-6-Dubbo集群容错</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-18T23:42:41+08:00" content="2019-08-18">
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-5/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-5-Dubbo远程调用</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-18T20:06:59+08:00" content="2019-08-18">
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-4/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-4-Dubbo起停原理</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-17T17:12:49+08:00" content="2019-08-17">
-          08-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-3/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-3-Dubbo扩展点机制</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-14T16:01:01+08:00" content="2019-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-2/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-2-注册中心</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-14T01:50:23+08:00" content="2019-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-1/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-1-总体大图</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-13T18:15:48+08:00" content="2019-08-13">
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/dubbo-0/" itemprop="url">
-            
-              <span itemprop="name">Dubbo笔记-0-概述</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-13T17:42:11+08:00" content="2019-08-13">
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>Redis通过MULTI,EXEC,WATCH等命令来实现事务功能</p>
+<p>以下是一个事务的执行过程,该事务由一个MULTI命令开始,接着将多个命令放入事务当众,最后由EXEC命令将这个事务提交给服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; MULTI</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; SET &quot;name&quot; &quot;Practical Common Lisp&quot;</span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line">redis&gt; GET &quot;name&quot;</span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line">redis&gt; SET &quot;author&quot; &quot;Peter Seibel&quot;</span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line">redis&gt; GET &quot;author&quot;</span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line">redis&gt; EXEC</span><br><span class="line">1) OK</span><br><span class="line">2) &quot;Practical Common Lisp&quot;</span><br><span class="line">3) OK</span><br><span class="line">4) &quot;Peter Seibel&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="事务的实现"><a class="markdownIt-Anchor" href="#事务的实现"></a> 事务的实现</h2>
+<p>一个事务从开始到结束通常会经历以下三个阶段:</p>
+<ol>
+<li>事务开始</li>
+<li>命令入队</li>
+<li>事务执行</li>
+</ol>
+<h3 id="事务开始"><a class="markdownIt-Anchor" href="#事务开始"></a> 事务开始</h3>
+<p>MULTI命令的执行标志着事务的开始,将执行该命令的客户端从非事务状态切换到事务状态</p>
+<h3 id="命令入队"><a class="markdownIt-Anchor" href="#命令入队"></a> 命令入队</h3>
+<p>当一个客户端处于非事务状态时,这个客户端发送的命令会立即被服务端执行<br>
+当一个客户端处于事务状态时,服务端会根据这个客户端发来的不同命令执行不同的操作:</p>
+<ul>
+<li>如果客户端发送的命令是EXEC,DISCARD,WATCH,MULTI四个命令中的一个,那么服务器会立即执行这个命令</li>
+<li>如果是那四个之外的命令,服务器不会立即执行这个命令,而是将这个命令放入一个事务队列里面,然后向客户端返回QUEUED回复</li>
+</ul>
+<h3 id="事务队列"><a class="markdownIt-Anchor" href="#事务队列"></a> 事务队列</h3>
+<p>每个Redis客户端都有自己的事务状态,这个事务状态保存在客户端状态的mstate属性里面</p>
+<p>事务状态包含一个事务队列,以及一个已入队命令的计数器<br>
+事务队列是一个multiCmd类型的数组,数组中每个multi结构都保存了一个已入队命令的相关信息,包括指向命令实现函数的指针,命令的参数,以及参数的数量</p>
+<p>事务队列以FIFO的方式保存入队的命令.</p>
+<h3 id="执行事务"><a class="markdownIt-Anchor" href="#执行事务"></a> 执行事务</h3>
+<p>当一个处于事务状态的客户端向服务器发送EXEC命令时,这个EXEC命令将立即被服务器执行.服务器会遍历这个客户端的事务队列,执行队列中保存的所有命令,最后将执行命令所得的结果全部返回给客户端</p>
+<h2 id="watch命令的实现"><a class="markdownIt-Anchor" href="#watch命令的实现"></a> WATCH命令的实现</h2>
+<p>WATCH命令是一个乐观锁,它可以在EXEC命令执行之前监视任意数量的数据库键,并在EXEC命令执行时,检查被监视的键是否至少有一个已经被修改过了,如果是的话,服务器将拒绝执行事务,并向客户端返回代表事务执行失败的空回复</p>
+<p>一个事务失败的例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; WATCH &quot;name&quot;</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; MULTI</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; SET &quot;name&quot; &quot;peter&quot;</span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line">redis&gt; EXEC</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<p>发生上面的情况是因为:</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>客户端A</th>
+<th>客户端B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>WATCH “name”</td>
+<td></td>
+</tr>
+<tr>
+<td>T2</td>
+<td>MULTI</td>
+<td></td>
+</tr>
+<tr>
+<td>T3</td>
+<td>SET “name” “peter”</td>
+<td></td>
+</tr>
+<tr>
+<td>T4</td>
+<td></td>
+<td>SET “name” “john”</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>EXEC</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用watch命令监视数据库键"><a class="markdownIt-Anchor" href="#使用watch命令监视数据库键"></a> 使用WATCH命令监视数据库键</h3>
+<p>每个Redis数据库都保存着一个watched_keys字典,这个字典的键是某个被WATCH命令监视的数据库键,而字典的值则是一个链表,链表中记录了所有监视响应数据库键的客户端</p>
+<h3 id="监视机制的触发"><a class="markdownIt-Anchor" href="#监视机制的触发"></a> 监视机制的触发</h3>
+<p>所有对数据库进行修改的命令在执行之后斗湖调用touchWatchKey函数对watched_keys字典进行检查,查看是否有客户端正在监视刚刚被命令修改过的数据库键,如果有的话,那么touchWatchKey函数将监视被修改键的客户端的REDIS_DIRTY_CAS标识打开,表示该客户端的事务安全性已经被破坏</p>
+<h3 id="判断事务是否安全"><a class="markdownIt-Anchor" href="#判断事务是否安全"></a> 判断事务是否安全</h3>
+<p>当服务器收到一个客户端发来的EXEC命令时,服务器会根据这个客户端是否打开了REDIS_DIRTY_CAS标识来决定是否执行事务</p>
+<h3 id="一个完整的watch事务执行过程"><a class="markdownIt-Anchor" href="#一个完整的watch事务执行过程"></a> 一个完整的WATCH事务执行过程</h3>
+<p>假设当前客户端为c10086,而数据库watched_keys字典的当前状态如图19-7所示,那么当c10086执行以下WATCH命令之后:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c10086&gt; WATCH &quot;name&quot;</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<p>watched_keys字典将更新至图19-8所示的状态:<br>
+<img src="https://pic.ggemo.com/picgo/20190918204413.png" alt="20190918204413.png"></p>
+<p>接下来,客户端c10086继续向服务器发送MULTI命令,并将一个SET命令放入事务队列:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c10086&gt; MULTI</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">SET &quot;name&quot; &quot;peter&quot;</span><br><span class="line">QUEUED</span><br></pre></td></tr></table></figure>
+<p>这时,另一个客户端c999向服务器发送了一条SET命令,设置&quot;name&quot;键值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c999&gt; SET &quot;name&quot; &quot;john&quot;</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<p>c999执行的这个SET命令会导致正在监视&quot;name&quot;键的所有客户端的REDIS_DIRTY_CAS标识被打开,其中包括客户端c10086.</p>
+<p>之后,c10086向服务器发送EXEC命令的时候,因为c10086的REDIS_DIRTY_CAS已经被打开,所以服务器将拒绝执行它提交的事务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c10086&gt; EXEC</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<h2 id="事务的acid性质"><a class="markdownIt-Anchor" href="#事务的acid性质"></a> 事务的ACID性质</h2>
+<p>在Redis中,事务总有原子性,一致性和隔离性,并且当Redis运行在某种特定的持久化模式下时,事务也具有持久性</p>
+<h2 id="重点回顾"><a class="markdownIt-Anchor" href="#重点回顾"></a> 重点回顾</h2>
+<ul>
+<li>在事务中多个命令会被入队到FIFO队列中等待执行</li>
+<li>事务在执行过程中不会被终端,当十五队列中的梭鱼命令都被执行完毕之后,事务才会结束</li>
+<li>带有WATCH命令的事务会将客户端和被监视的键在数据库的watched_keys字典中进行关联,当键值被修改时,程序会将所有监视被修改的键的客户端的REDIS_DIRTY_CAS标识打开</li>
+<li>只有在REDIS_DIRTY_CAS标志未被打开时,服务器才会执行客户端提交的事务,否则的话,服务器将拒绝执行客户端提交的事务</li>
+<li>Redis的事务总是具有ACID中的原子性,一致性和隔离性的,当服务器运行在AOF持久化模式下,并且appendfsync选项值为always时,事务也具有耐久性</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+            <a href="/tags/事务/" rel="tag"># 事务</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/redis-11/" rel="next" title="Redis-哨兵">
+                <i class="fa fa-chevron-left"></i> Redis-哨兵
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -773,8 +760,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1026,6 +1022,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的实现"><span class="nav-text"> 事务的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务开始"><span class="nav-text"> 事务开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令入队"><span class="nav-text"> 命令入队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务队列"><span class="nav-text"> 事务队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行事务"><span class="nav-text"> 执行事务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch命令的实现"><span class="nav-text"> WATCH命令的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用watch命令监视数据库键"><span class="nav-text"> 使用WATCH命令监视数据库键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监视机制的触发"><span class="nav-text"> 监视机制的触发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断事务是否安全"><span class="nav-text"> 判断事务是否安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个完整的watch事务执行过程"><span class="nav-text"> 一个完整的WATCH事务执行过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的acid性质"><span class="nav-text"> 事务的ACID性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点回顾"><span class="nav-text"> 重点回顾</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -1169,6 +1182,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -1215,6 +1232,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

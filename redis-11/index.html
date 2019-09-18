@@ -103,23 +103,25 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="小黄瓜的blog哦！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/tags/bilibot/index.html">
+  <meta name="description" content="概览 Sentinel(哨兵)是Redis高可用性解决方案: 由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器  获取主服务器信息 哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis-哨兵">
+<meta property="og:url" content="https://blog.ggemo.com/redis-11/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="小黄瓜的blog哦！">
+<meta property="og:description" content="概览 Sentinel(哨兵)是Redis高可用性解决方案: 由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器  获取主服务器信息 哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-18T11:09:57.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄瓜养殖基地！">
-<meta name="twitter:description" content="小黄瓜的blog哦！">
+<meta name="twitter:title" content="Redis-哨兵">
+<meta name="twitter:description" content="概览 Sentinel(哨兵)是Redis高可用性解决方案: 由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器  获取主服务器信息 哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/tags/bilibot/">
+  <link rel="canonical" href="https://blog.ggemo.com/redis-11/">
 
 
 
@@ -129,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>标签: bilibot | 黄瓜养殖基地！</title>
+  <title>Redis-哨兵 | 黄瓜养殖基地！</title>
   
 
 
@@ -217,7 +219,7 @@ window.console.log=()=>{};
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,7 +291,7 @@ window.console.log=()=>{};
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -411,111 +413,259 @@ window.console.log=()=>{};
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>bilibot<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/redis-11/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清纯的小黄瓜">
+      <meta itemprop="description" content="小黄瓜的blog哦！">
+      <meta itemprop="image" content="//pic.ggemo.com/picgo/QQ图片20190220011027.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄瓜养殖基地！">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/bili-bot-release-log/" itemprop="url">
-            
-              <span itemprop="name">bilibili机器人更新日志</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Redis-哨兵
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-19T15:26:03+08:00" content="2019-02-19">
-          02-19
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-18 14:17:44 / 修改时间：19:09:57" itemprop="dateCreated datePublished" datetime="2019-09-18T14:17:44+08:00">2019-09-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/redis-11/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/redis-11/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.2k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/bili-bot/" itemprop="url">
-            
-              <span itemprop="name">B站碧蓝航线转推姬介绍</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-19T15:25:52+08:00" content="2019-02-19">
-          02-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h2 id="概览"><a class="markdownIt-Anchor" href="#概览"></a> 概览</h2>
+<p>Sentinel(哨兵)是Redis高可用性解决方案:<br>
+由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器</p>
+<h2 id="获取主服务器信息"><a class="markdownIt-Anchor" href="#获取主服务器信息"></a> 获取主服务器信息</h2>
+<p>哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息</p>
+<p>通过分析主服务器返回的INFO命令回复,哨兵可以获取一下两方面的信息:</p>
+<ul>
+<li>关于主服务器本身的信息<br>
+包括run_id域记录的服务器运行ID,以及role域记录的服务器角色</li>
+<li>关于主服务器属下所有从服务器的信息<br>
+记录了从服务器的IP地址和端口号,哨兵无需用户提供从服务器的地址信息就可以发现从服务器</li>
+</ul>
+<h2 id="选举领头哨兵"><a class="markdownIt-Anchor" href="#选举领头哨兵"></a> 选举领头哨兵</h2>
+<p>当一个主服务器被判断为客观下线时,见识这个下线主服务器的各个哨兵会进行协商,选举出一个领头哨兵,并由领头哨兵对下线主服务器执行故障转移操作</p>
+<p>以下是Redis选举领头哨兵的方法:</p>
+<ul>
+<li>所有在线的哨兵都有被选为领头哨兵的资格,换句话说,监视同一个主服务器的多个在线哨兵中的任意一个都有可能成为领头哨兵</li>
+<li>每次进行领头哨兵选举之后,不论选举是否成功,所有哨兵的配置纪元的值都会自增一次</li>
+<li>在一个配置纪元里面,所有哨兵都有一次将某个哨兵设置为局部领头哨兵的机会,并且局部领头一旦设置,在这个配置纪元里面就不能再更改</li>
+<li>每个发现主服务器进入客观下线的哨兵都会要求其他哨兵将自己设置为局部领头</li>
+<li>当一个源哨兵向另一个目标哨兵发送SENTINEL is-master-down-by-addr命令,并且命令中的runid参数不是*符号而是源哨兵的运行ID时,表示源哨兵要求目标哨兵将前者设置为后者的局部领头哨兵</li>
+<li>哨兵设置领头哨兵的规则是先到先得,最先向目标哨兵发送设置要求的源哨兵将成为目标哨兵的局部领头哨兵,而之后接收到的所有设置要求都会被目标哨兵拒绝</li>
+<li>目标哨兵在接收到SENTINEL is-master-down-by-addr命令之后将向源哨兵返回一条命令回复,回复中的leader_runid参数和leader_epoch参数分别记录了目标哨兵的局部领头哨兵的运行ID和配置纪元</li>
+<li>源哨兵在接收到目标哨兵返回的命令回复之后,会检查其中的leader_epoch参数值和自己的配置纪元是否相同,如果相同的话,那么源哨兵将继续取出回复中的leader_runid参数,如果leader_runuid参数的值和源哨兵的运行ID一致,那么表示目标哨兵将源哨兵设置为了局部哨兵</li>
+<li>如果有某个哨兵被半数以上的哨兵设置成了局部领头哨兵,那么这个哨兵成为领头哨兵</li>
+<li>因为哨兵的产生需要半数以上哨兵的支持,并且每个哨兵在背个配置纪元里面只能设置一次局部领头哨兵,所以在一个配置纪元里面只会出现一个领头哨兵</li>
+<li>在给定期限内如果没有一个哨兵被选举为领头哨兵,那么哥哥哨兵将在一段时间之后再次进行选举,知道选出领头哨兵为止</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/redis-10/" rel="next" title="Redis-复制">
+                <i class="fa fa-chevron-left"></i> Redis-复制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -538,8 +688,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -789,6 +948,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-text"> 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取主服务器信息"><span class="nav-text"> 获取主服务器信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选举领头哨兵"><span class="nav-text"> 选举领头哨兵</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -932,6 +1108,10 @@ window.console.log=()=>{};
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -978,6 +1158,8 @@ window.console.log=()=>{};
 
 
 
+
+  
 
 
   

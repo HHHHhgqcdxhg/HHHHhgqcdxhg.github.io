@@ -111,7 +111,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概览 Sentinel(哨兵)是Redis高可用性解决方案: 由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器  获取主服务器信息 哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-18T11:09:57.057Z">
+<meta property="og:updated_time" content="2019-09-18T11:15:47.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis-哨兵">
 <meta name="twitter:description" content="概览 Sentinel(哨兵)是Redis高可用性解决方案: 由一个或多个哨兵实例组成的哨兵系统可以监视任意多个主服务器,以及这些主服务器属下的所有从服务器,并在被监视的主服务器进入下线状态时,自动将下线主服务器属下的某个从服务器升级为新的主服务器  获取主服务器信息 哨兵默认会以十秒一次的频率,通过命令连接向被监视的主服务器发送INFO命令,并通过分析INFO命令的回复来获取主服务器的当前信息">
@@ -477,7 +477,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-18 14:17:44 / 修改时间：19:09:57" itemprop="dateCreated datePublished" datetime="2019-09-18T14:17:44+08:00">2019-09-18</time>
+              <time title="创建时间：2019-09-18 14:17:44 / 修改时间：19:15:47" itemprop="dateCreated datePublished" datetime="2019-09-18T14:17:44+08:00">2019-09-18</time>
             
 
             
@@ -591,7 +591,7 @@ window.console.log=()=>{};
 <li>源哨兵在接收到目标哨兵返回的命令回复之后,会检查其中的leader_epoch参数值和自己的配置纪元是否相同,如果相同的话,那么源哨兵将继续取出回复中的leader_runid参数,如果leader_runuid参数的值和源哨兵的运行ID一致,那么表示目标哨兵将源哨兵设置为了局部哨兵</li>
 <li>如果有某个哨兵被半数以上的哨兵设置成了局部领头哨兵,那么这个哨兵成为领头哨兵</li>
 <li>因为哨兵的产生需要半数以上哨兵的支持,并且每个哨兵在背个配置纪元里面只能设置一次局部领头哨兵,所以在一个配置纪元里面只会出现一个领头哨兵</li>
-<li>在给定期限内如果没有一个哨兵被选举为领头哨兵,那么哥哥哨兵将在一段时间之后再次进行选举,知道选出领头哨兵为止</li>
+<li>在给定期限内如果没有一个哨兵被选举为领头哨兵,那么哥哥哨兵将在一段时间之后再次进行选举,直到选出领头哨兵为止</li>
 </ul>
 
       

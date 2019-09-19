@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[InnoDB-事务]]></title>
+    <url>%2Finnodb-2%2F</url>
+    <content type="text"><![CDATA[概述 分类 从事务理论的角度来说,可以把事务分为以下几种类型: 扁平事务 带有保存点的扁平事务 链事务 嵌套事务 分布式事务 扁平事务 是事务类型中最简单的一种,也是实际生产环境中使用最频繁的事务 在扁平事务中,所有操作都处于同一层次,由BEGIN WORK开始,由COMMIT WORK或ROLLBACK WORK结束,其间的操作是原字的,要么都执行,要么都回滚,因此扁平事务是应用程序成为原子操作的基本组成模块 扁平事务的主要限制是不能提交或回滚事务的某一部分,或分几个步骤提交. 带有保存点的扁平事务 除了支持扁平事务支持的操作外,允许在事务执行过程中回滚到同一事务中较早的一个状态,这是因为某些事务可能在执行过程中会先的错误并不会导致所有的操作都无效,放弃整个事务不合乎要求,开销也太大,保存点用来通知系统应该记住事务当前的状态,以便当发生错误时,事务能回到保存点当时的状态 链事务 可视为保存点模式的一种变种.带有保存点的扁平事务在系统崩溃时所有保存点都将小时,因为其保存点是易失的,而非持久的. 链事务的思想是:在提交一个事务时,释放不需要的数据对象,将必要的处理上下文隐式地传给下一个要开始的事务.链事务中提交事务操作和开始下一个事务操作将合并为一个原子操作.这意味着下一个事务能看到上一个事务的结果,就好像在一个事务中进行的. 链事务与带保存点的扁平事务不同的是带有保存点的扁平事务能回滚到任意正确的保存点,而链事务中的回滚仅限于当前事务,即只能恢复到最近一个的保存点.对于锁的处理,两者也不相同,链事务在执行COMMIT后释放了当前事务所持有的锁,而带有保存点的扁平事务不影响迄今为止所持有的锁 嵌套事务 是一个层次结构框架,由一个顶层事务控制各个层次的事务.顶层事务之下嵌套的事务被称为子事务,其控制每一个局部的变换. 嵌套事务是由若干事务组成的一棵树,子树既可以是嵌套事务,也可以是扁平事务 处在叶子节点的事务是扁平事务 处于根节点的事务成为顶层事务,其他事务成为子事务 子事务既可以提交也可以回滚,但它的操作并不是马上生效,除非其父事务已提交 树中任意一个事务的回滚会引起它所有子事务一起回滚 实际的工作是交由叶子节点来完成的,即只有叶子节点的事务才能访问数据库,发送信息,获取其他类型的资源,而高层的事务仅负责逻辑控制,决定何时调用相关的子事务 分布式事务 通常是一个在分布式环境下运行的扁平事务 事务的实现 事务隔离性由锁来实现,原子性,一致性,持久性通过数据库的redo log和undo log来完成.redo log称为重做日志,用来保证事务的原子性和持久性,undo log用来保证事务的一致性 redo 重做日志用来实现事务的持久性,其由两部分组成:一是内存中的重做日志缓冲,是易失的,而是重做日志文件,是持久的 InnoDB是事务的存储引擎,其通过Force Log at Commit机制实现事务的持久性,即当事务提交时,必须先将事务的所有日志写入到重做日志文件进行持久化,待事务的COMMIT操作完成才算完成 重做日志在InnoDB中有两部分组成,即redo log和undo log.redo log用来保证事务的持久性,undo log用来帮助事务回滚及MVCC的功能.redo log基本上都是顺序写的,在数据库运行时不需要对redo log的文件进行读取操作.而undo log是需要进行随机读写的]]></content>
+      <categories>
+        <category>InnoDB</category>
+      </categories>
+      <tags>
+        <tag>InnoDB</tag>
+        <tag>事务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Redis-事务]]></title>
     <url>%2Fredis-12%2F</url>
     <content type="text"><![CDATA[概述 Redis通过MULTI,EXEC,WATCH等命令来实现事务功能 以下是一个事务的执行过程,该事务由一个MULTI命令开始,接着将多个命令放入事务当众,最后由EXEC命令将这个事务提交给服务器 1234567891011121314151617181920redis&gt; MULTIOKredis&gt; SET &quot;name&quot; &quot;Practical Common Lisp&quot;QUEUEDredis&gt; GET &quot;name&quot;QUEUEDredis&gt; SET &quot;author&quot; &quot;Peter Seibel&quot;QUEUEDredis&gt; GET &quot;author&quot;QUEUEDredis&gt; EXEC1) OK2) &quot;Practical Common Lisp&quot;3) OK4) &quot;Peter Seibel&quot; 事务的实现 一个事务从开始到结束通常会经历以下三个阶段: 事务开始 命令入队 事务执行 事务开始 MULTI命令的执行标志着事务的开始,将执行该命令的客户端从非事务状态切换到事务状态 命令入队 当一个客户端处于非事务状态时,这个客户端发送的命令会立即被服务端执行 当一个客户端处于事务状态时,服务端会根据这个客户端发来的不同命令执行不同的操作: 如果客户端发送的命令是EXEC,DISCARD,WATCH,MULTI四个命令中的一个,那么服务器会立即执行这个命令 如果是那四个之外的命令,服务器不会立即执行这个命令,而是将这个命令放入一个事务队列里面,然后向客户端返回QUEUED回复 事务队列 每个Redis客户端都有自己的事务状态,这个事务状态保存在客户端状态的mstate属性里面 事务状态包含一个事务队列,以及一个已入队命令的计数器 事务队列是一个multiCmd类型的数组,数组中每个multi结构都保存了一个已入队命令的相关信息,包括指向命令实现函数的指针,命令的参数,以及参数的数量 事务队列以FIFO的方式保存入队的命令. 执行事务 当一个处于事务状态的客户端向服务器发送EXEC命令时,这个EXEC命令将立即被服务器执行.服务器会遍历这个客户端的事务队列,执行队列中保存的所有命令,最后将执行命令所得的结果全部返回给客户端 WATCH命令的实现 WATCH命令是一个乐观锁,它可以在EXEC命令执行之前监视任意数量的数据库键,并在EXEC命令执行时,检查被监视的键是否至少有一个已经被修改过了,如果是的话,服务器将拒绝执行事务,并向客户端返回代表事务执行失败的空回复 一个事务失败的例子: 1234567891011redis&gt; WATCH &quot;name&quot;OKredis&gt; MULTIOKredis&gt; SET &quot;name&quot; &quot;peter&quot;QUEUEDredis&gt; EXEC(nil) 发生上面的情况是因为: 时间 客户端A 客户端B T1 WATCH “name” T2 MULTI T3 SET “name” “peter” T4 SET “name” “john” T5 EXEC 使用WATCH命令监视数据库键 每个Redis数据库都保存着一个watched_keys字典,这个字典的键是某个被WATCH命令监视的数据库键,而字典的值则是一个链表,链表中记录了所有监视响应数据库键的客户端 监视机制的触发 所有对数据库进行修改的命令在执行之后斗湖调用touchWatchKey函数对watched_keys字典进行检查,查看是否有客户端正在监视刚刚被命令修改过的数据库键,如果有的话,那么touchWatchKey函数将监视被修改键的客户端的REDIS_DIRTY_CAS标识打开,表示该客户端的事务安全性已经被破坏 判断事务是否安全 当服务器收到一个客户端发来的EXEC命令时,服务器会根据这个客户端是否打开了REDIS_DIRTY_CAS标识来决定是否执行事务 一个完整的WATCH事务执行过程 假设当前客户端为c10086,而数据库watched_keys字典的当前状态如图19-7所示,那么当c10086执行以下WATCH命令之后: 12c10086&gt; WATCH &quot;name&quot;OK watched_keys字典将更新至图19-8所示的状态: 接下来,客户端c10086继续向服务器发送MULTI命令,并将一个SET命令放入事务队列: 12345c10086&gt; MULTIOKSET &quot;name&quot; &quot;peter&quot;QUEUED 这时,另一个客户端c999向服务器发送了一条SET命令,设置&quot;name&quot;键值 12c999&gt; SET &quot;name&quot; &quot;john&quot;OK c999执行的这个SET命令会导致正在监视&quot;name&quot;键的所有客户端的REDIS_DIRTY_CAS标识被打开,其中包括客户端c10086. 之后,c10086向服务器发送EXEC命令的时候,因为c10086的REDIS_DIRTY_CAS已经被打开,所以服务器将拒绝执行它提交的事务 12c10086&gt; EXEC(nil) 事务的ACID性质 在Redis中,事务总有原子性,一致性和隔离性,并且当Redis运行在某种特定的持久化模式下时,事务也具有持久性 重点回顾 在事务中多个命令会被入队到FIFO队列中等待执行 事务在执行过程中不会被终端,当十五队列中的梭鱼命令都被执行完毕之后,事务才会结束 带有WATCH命令的事务会将客户端和被监视的键在数据库的watched_keys字典中进行关联,当键值被修改时,程序会将所有监视被修改的键的客户端的REDIS_DIRTY_CAS标识打开 只有在REDIS_DIRTY_CAS标志未被打开时,服务器才会执行客户端提交的事务,否则的话,服务器将拒绝执行客户端提交的事务 Redis的事务总是具有ACID中的原子性,一致性和隔离性的,当服务器运行在AOF持久化模式下,并且appendfsync选项值为always时,事务也具有耐久性]]></content>
@@ -8,8 +20,8 @@
         <category>Redis</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>事务</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>

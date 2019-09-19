@@ -103,25 +103,25 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="看完数学部分后再来写的  CPU流水线  将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCall Draw Call是一个命令,发起方是CPU,接收方是G">
-<meta name="keywords" content="unity,shader,《shader入门精要》">
+  <meta name="description" content="概述  分类 从事务理论的角度来说,可以把事务分为以下几种类型:  扁平事务 带有保存点的扁平事务 链事务 嵌套事务 分布式事务   扁平事务 是事务类型中最简单的一种,也是实际生产环境中使用最频繁的事务 在扁平事务中,所有操作都处于同一层次,由BEGIN WORK开始,由COMMIT WORK或ROLLBACK WORK结束,其间的操作是原字的,要么都执行,要么都回滚,因此扁平事务是应用程序成">
+<meta name="keywords" content="InnoDB,事务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《shader入门精要》笔记-第2章-渲染流水线">
-<meta property="og:url" content="https://blog.ggemo.com/shader-r-lsx/index.html">
+<meta property="og:title" content="InnoDB-事务">
+<meta property="og:url" content="https://blog.ggemo.com/innodb-2/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="看完数学部分后再来写的  CPU流水线  将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCall Draw Call是一个命令,发起方是CPU,接收方是G">
+<meta property="og:description" content="概述  分类 从事务理论的角度来说,可以把事务分为以下几种类型:  扁平事务 带有保存点的扁平事务 链事务 嵌套事务 分布式事务   扁平事务 是事务类型中最简单的一种,也是实际生产环境中使用最频繁的事务 在扁平事务中,所有操作都处于同一层次,由BEGIN WORK开始,由COMMIT WORK或ROLLBACK WORK结束,其间的操作是原字的,要么都执行,要么都回滚,因此扁平事务是应用程序成">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-24T13:01:04.678Z">
+<meta property="og:updated_time" content="2019-09-19T04:19:14.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《shader入门精要》笔记-第2章-渲染流水线">
-<meta name="twitter:description" content="看完数学部分后再来写的  CPU流水线  将数据加载到显存中  把渲染所需所有数据从硬盘加载到系统内存中 网格和纹理等数据又被加载到显存中   设置渲染状态 这些状态定义了场景中的网格是怎么被渲染的 例如,使用哪个顶点着色器/片元着色器,光源属性,材质等. 如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态  调用DrawCall Draw Call是一个命令,发起方是CPU,接收方是G">
+<meta name="twitter:title" content="InnoDB-事务">
+<meta name="twitter:description" content="概述  分类 从事务理论的角度来说,可以把事务分为以下几种类型:  扁平事务 带有保存点的扁平事务 链事务 嵌套事务 分布式事务   扁平事务 是事务类型中最简单的一种,也是实际生产环境中使用最频繁的事务 在扁平事务中,所有操作都处于同一层次,由BEGIN WORK开始,由COMMIT WORK或ROLLBACK WORK结束,其间的操作是原字的,要么都执行,要么都回滚,因此扁平事务是应用程序成">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/shader-r-lsx/">
+  <link rel="canonical" href="https://blog.ggemo.com/innodb-2/">
 
 
 
@@ -131,7 +131,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>《shader入门精要》笔记-第2章-渲染流水线 | 黄瓜养殖基地！</title>
+  <title>InnoDB-事务 | 黄瓜养殖基地！</title>
   
 
 
@@ -433,7 +433,7 @@ window.console.log=()=>{};
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/shader-r-lsx/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/innodb-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="清纯的小黄瓜">
@@ -450,7 +450,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">《shader入门精要》笔记-第2章-渲染流水线
+          <h2 class="post-title" itemprop="name headline">InnoDB-事务
 
               
             
@@ -477,24 +477,12 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-03-17 00:13:21" itemprop="dateCreated datePublished" datetime="2019-03-17T00:13:21+08:00">2019-03-17</time>
+              <time title="创建时间：2019-09-19 10:41:01 / 修改时间：12:19:14" itemprop="dateCreated datePublished" datetime="2019-09-19T10:41:01+08:00">2019-09-19</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-24 21:01:04" itemprop="dateModified" datetime="2019-03-24T21:01:04+08:00">2019-03-24</time>
               
             
           </span>
@@ -511,7 +499,7 @@ window.console.log=()=>{};
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/shader/" itemprop="url" rel="index"><span itemprop="name">shader</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/InnoDB/" itemprop="url" rel="index"><span itemprop="name">InnoDB</span></a></span>
 
                 
                 
@@ -530,8 +518,8 @@ window.console.log=()=>{};
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/shader-r-lsx/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/shader-r-lsx/" itemprop="commentCount"></span>
+                <a href="/innodb-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/innodb-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -553,7 +541,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.9k</span>
+                <span title="本文字数">1.4k</span>
               
 
               
@@ -577,70 +565,44 @@ window.console.log=()=>{};
       
 
       
-        <p>看完数学部分后再来写的</p>
-<h2 id="cpu流水线"><a class="markdownIt-Anchor" href="#cpu流水线"></a> CPU流水线</h2>
-<h3 id="将数据加载到显存中"><a class="markdownIt-Anchor" href="#将数据加载到显存中"></a> 将数据加载到显存中</h3>
-<ol>
-<li>把渲染所需所有数据从硬盘加载到系统内存中</li>
-<li>网格和纹理等数据又被加载到显存中</li>
-</ol>
-<h3 id="设置渲染状态"><a class="markdownIt-Anchor" href="#设置渲染状态"></a> 设置渲染状态</h3>
-<p>这些状态定义了场景中的网格是怎么被渲染的<br>
-例如,使用哪个顶点着色器/片元着色器,光源属性,材质等.<br>
-如果我们没有设置渲染状态,那么所有网格都将使用同一种渲染状态</p>
-<h3 id="调用drawcall"><a class="markdownIt-Anchor" href="#调用drawcall"></a> 调用DrawCall</h3>
-<p>Draw Call是一个命令,发起方是CPU,接收方是GPU.<br>
-这个命令仅仅会指向一个需要被渲染的图元的列表,而不再包含任何材质信息–因为已经在上个阶段完成了.</p>
-<p>当给定一个Draw Call时,GPU会根据渲染状态(材质,纹理,着色器等)和所有输入的顶点数据来进行计算,最终输出到屏幕</p>
-<h2 id="gpu流水线"><a class="markdownIt-Anchor" href="#gpu流水线"></a> GPU流水线</h2>
-<p>顶点数据 -&gt; 顶点着色器 -&gt; 曲面细分着色器 -&gt; 几何着色器 -&gt; 裁剪 -&gt; 屏幕映射 -&gt; 三角形设置 -&gt; 三角形遍历 -&gt; 片元着色器 -&gt; 逐片元操作 -&gt; 屏幕图像</p>
-<h3 id="顶点着色器"><a class="markdownIt-Anchor" href="#顶点着色器"></a> 顶点着色器</h3>
-<p>顶点无法销毁或创建顶点,也不可以获得顶点之间的联系.例如,我们无法判断两个顶点是否处于同一个网格.正是因为这样的相互独立性,GPU可以利用本身的特性并行化处理每一个顶点,这意味着这一阶段的处理速度会更快.<br>
-顶点着色器需要完成的主要工作有:<strong>坐标变换</strong>和<strong>逐顶点光照</strong><br>
-当然除了这两个主要任务外,顶点着色器还可以输出后续阶段所需的数据.</p>
-<h4 id="坐标变换"><a class="markdownIt-Anchor" href="#坐标变换"></a> 坐标变换</h4>
-<p><strong>把顶点坐标从模型空间变换到齐次剪裁空间</strong></p>
-<h3 id="剪裁"><a class="markdownIt-Anchor" href="#剪裁"></a> 剪裁</h3>
-<p>摄像机的视野范围内很有可能不会覆盖场景中的所有物体.不在摄像机视野范围内的物体不需要处理.剪裁就是为了完成这个目标而被提出来的.</p>
-<p>我们无法通过编程来控制剪裁的过程,而是硬件上的固定操作,但我们可以自定义一个剪裁操作来对这一步进行配置.</p>
-<h3 id="屏幕映射"><a class="markdownIt-Anchor" href="#屏幕映射"></a> 屏幕映射</h3>
-<p>屏幕映射的任务是把每个图元的x,y坐标转换到屏幕坐标系.</p>
-<h3 id="三角形设置"><a class="markdownIt-Anchor" href="#三角形设置"></a> 三角形设置</h3>
-<p>从这一步开始进入光栅化阶段.<br>
-从上一个阶段输出的信息是屏幕坐标系下的顶点位置以及它们的额外信息,如深度值(z坐标),法线方向,视角方向等.<br>
-光栅化阶段有两个最重要的目标:<strong>计算每个图元覆盖了哪些像素</strong>,以及<strong>为这些像素计算它们的颜色</strong>.</p>
-<p>三角形设置阶段会计算光栅化一个三角网格所需的信息.具体来说,上个阶段输出的都是三角网格<strong>顶点</strong>.但如果要得到整个三角网格对像素覆盖的情况,我们就必须计算每条边上的像素坐标.<br>
-为了能够计算边界像素的坐标信息,我们就需要得到三角形边界的表达方式.这样一个计算三角形网格表示数据的过程就叫做三角形设置.它的输出是为了给下一步做准备.</p>
-<h3 id="三角形遍历"><a class="markdownIt-Anchor" href="#三角形遍历"></a> 三角形遍历</h3>
-<p>三角形遍历阶段会检查每个像素是否被一个三角网格所覆盖.<br>
-如果被覆盖的话,就生成一个<strong>片元</strong><br>
-而这个找到哪些像素被三角网格覆盖的过程就是三角形遍历,这个阶段也被称为扫描变换.</p>
-<p>三角形遍历会根据上一个阶段的计算结果来判断一个三角网格覆盖了哪些像素,并使用三角网格三个顶点的顶点信息对整个覆盖区域的像素进行插值.</p>
-<p>这一步的输出就是得到一个片元序列.<br>
-需要注意的是,一个片元并不是真正意义上的像素,而是包含了很多状态的集合,这些状态用于计算每个像素的最终颜色<br>
-这些状态包括了(但不限于)它的屏幕坐标,深度信息,以及其他从几何阶段输出的顶点信息,如法线,纹理坐标等.</p>
-<h3 id="片元着色器"><a class="markdownIt-Anchor" href="#片元着色器"></a> 片元着色器</h3>
-<p>前面的光栅化操作并不会影响屏幕上每个像素的颜色值,而是会产生一系列的数据信息,来描述一个三角网格是怎样覆盖每个像素的.而片元就是负责存储这样一系列数据.<br>
-真正会对像素产生影响的是下一个阶段–逐片元操作</p>
-<p>片元着色器的输入是上一个阶段对顶点信息插值得到的结果.<br>
-更具体来说,是根据那些从顶点着色器中输出的数据差值得到的.<br>
-它的输出是一个或多个颜色值.</p>
-<p>这一阶段可以完成很多重要的渲染技术,其中最重要的技术之一是<strong>纹理采样</strong>.<br>
-为了在片元着色器中进行纹理采样,我们通常会在顶点着色器阶段输出<strong>每个顶点对应的纹理坐标</strong><br>
-然后经过光栅化阶段对三角形网格的三个顶点对应的纹理坐标进行插值后,就可以得到其覆盖片元的纹理坐标了.</p>
-<p>片元着色器的局限在于,它仅可影响单个片元.<br>
-也就是说,在执行片元着色器时,它不可以将自己的任何结果发送给它的邻居们.<br>
-有一个情况例外,就是片元着色器可以访问到导数信息(扩展阅读)(smjb)</p>
-<h3 id="逐片元操作"><a class="markdownIt-Anchor" href="#逐片元操作"></a> 逐片元操作</h3>
-<p>也被称为<strong>输出合并阶段</strong><br>
-这一阶段的几个重要任务:</p>
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<h3 id="分类"><a class="markdownIt-Anchor" href="#分类"></a> 分类</h3>
+<p>从事务理论的角度来说,可以把事务分为以下几种类型:</p>
 <ul>
-<li>决定每个片元的可见性.<br>
-这涉及很多测试工作,如深度测试,模板测试等</li>
-<li>合并<br>
-如果一个片元通过了所以测试,就需要把这个片元的颜色值和已经存储在颜色缓冲区中的颜色进行混合</li>
+<li>扁平事务</li>
+<li>带有保存点的扁平事务</li>
+<li>链事务</li>
+<li>嵌套事务</li>
+<li>分布式事务</li>
 </ul>
-<p>逐片元操作是高度可配置的.即我们可以设置每一步的操作细节.</p>
+<h4 id="扁平事务"><a class="markdownIt-Anchor" href="#扁平事务"></a> 扁平事务</h4>
+<p>是事务类型中最简单的一种,也是实际生产环境中使用最频繁的事务<br>
+在扁平事务中,所有操作都处于同一层次,由BEGIN WORK开始,由COMMIT WORK或ROLLBACK WORK结束,其间的操作是原字的,要么都执行,要么都回滚,因此扁平事务是应用程序成为原子操作的基本组成模块</p>
+<p>扁平事务的主要限制是不能提交或回滚事务的某一部分,或分几个步骤提交.</p>
+<h4 id="带有保存点的扁平事务"><a class="markdownIt-Anchor" href="#带有保存点的扁平事务"></a> 带有保存点的扁平事务</h4>
+<p>除了支持扁平事务支持的操作外,允许在事务执行过程中回滚到同一事务中较早的一个状态,这是因为某些事务可能在执行过程中会先的错误并不会导致所有的操作都无效,放弃整个事务不合乎要求,开销也太大,保存点用来通知系统应该记住事务当前的状态,以便当发生错误时,事务能回到保存点当时的状态</p>
+<h4 id="链事务"><a class="markdownIt-Anchor" href="#链事务"></a> 链事务</h4>
+<p>可视为保存点模式的一种变种.带有保存点的扁平事务在系统崩溃时所有保存点都将小时,因为其保存点是易失的,而非持久的.</p>
+<p>链事务的思想是:在提交一个事务时,释放不需要的数据对象,将必要的处理上下文隐式地传给下一个要开始的事务.链事务中提交事务操作和开始下一个事务操作将合并为一个原子操作.这意味着下一个事务能看到上一个事务的结果,就好像在一个事务中进行的.</p>
+<p>链事务与带保存点的扁平事务不同的是带有保存点的扁平事务能回滚到任意正确的保存点,而链事务中的回滚仅限于当前事务,即只能恢复到最近一个的保存点.对于锁的处理,两者也不相同,链事务在执行COMMIT后释放了当前事务所持有的锁,而带有保存点的扁平事务不影响迄今为止所持有的锁</p>
+<h4 id="嵌套事务"><a class="markdownIt-Anchor" href="#嵌套事务"></a> 嵌套事务</h4>
+<p>是一个层次结构框架,由一个顶层事务控制各个层次的事务.顶层事务之下嵌套的事务被称为子事务,其控制每一个局部的变换.</p>
+<ul>
+<li>嵌套事务是由若干事务组成的一棵树,子树既可以是嵌套事务,也可以是扁平事务</li>
+<li>处在叶子节点的事务是扁平事务</li>
+<li>处于根节点的事务成为顶层事务,其他事务成为子事务</li>
+<li>子事务既可以提交也可以回滚,但它的操作并不是马上生效,除非其父事务已提交</li>
+<li>树中任意一个事务的回滚会引起它所有子事务一起回滚</li>
+</ul>
+<p>实际的工作是交由叶子节点来完成的,即只有叶子节点的事务才能访问数据库,发送信息,获取其他类型的资源,而高层的事务仅负责逻辑控制,决定何时调用相关的子事务</p>
+<h4 id="分布式事务"><a class="markdownIt-Anchor" href="#分布式事务"></a> 分布式事务</h4>
+<p>通常是一个在分布式环境下运行的扁平事务</p>
+<h2 id="事务的实现"><a class="markdownIt-Anchor" href="#事务的实现"></a> 事务的实现</h2>
+<p>事务隔离性由锁来实现,原子性,一致性,持久性通过数据库的redo log和undo log来完成.redo log称为重做日志,用来保证事务的原子性和持久性,undo log用来保证事务的一致性</p>
+<h3 id="redo"><a class="markdownIt-Anchor" href="#redo"></a> redo</h3>
+<p>重做日志用来实现事务的持久性,其由两部分组成:一是内存中的重做日志缓冲,是易失的,而是重做日志文件,是持久的</p>
+<p>InnoDB是事务的存储引擎,其通过Force Log at Commit机制实现事务的持久性,即当事务提交时,必须先将事务的所有日志写入到重做日志文件进行持久化,待事务的COMMIT操作完成才算完成</p>
+<p>重做日志在InnoDB中有两部分组成,即redo log和undo log.redo log用来保证事务的持久性,undo log用来帮助事务回滚及MVCC的功能.redo log基本上都是顺序写的,在数据库运行时不需要对redo log的文件进行读取操作.而undo log是需要进行随机读写的</p>
 
       
     </div>
@@ -664,11 +626,9 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/unity/" rel="tag"># unity</a>
+            <a href="/tags/InnoDB/" rel="tag"># InnoDB</a>
           
-            <a href="/tags/shader/" rel="tag"># shader</a>
-          
-            <a href="/tags/《shader入门精要》/" rel="tag"># 《shader入门精要》</a>
+            <a href="/tags/事务/" rel="tag"># 事务</a>
           
         </div>
       
@@ -681,8 +641,8 @@ window.console.log=()=>{};
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/bili-api/" rel="next" title="bili-api">
-                <i class="fa fa-chevron-left"></i> bili-api
+              <a href="/redis-12/" rel="next" title="Redis-事务">
+                <i class="fa fa-chevron-left"></i> Redis-事务
               </a>
             
           </div>
@@ -690,10 +650,6 @@ window.console.log=()=>{};
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/shader-r-unity-shader/" rel="prev" title="《shader入门精要》笔记-第3章-Unity Shader 基础">
-                《shader入门精要》笔记-第3章-Unity Shader 基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1016,7 +972,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu流水线"><span class="nav-text"> CPU流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将数据加载到显存中"><span class="nav-text"> 将数据加载到显存中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置渲染状态"><span class="nav-text"> 设置渲染状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用drawcall"><span class="nav-text"> 调用DrawCall</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpu流水线"><span class="nav-text"> GPU流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器"><span class="nav-text"> 顶点着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#坐标变换"><span class="nav-text"> 坐标变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪裁"><span class="nav-text"> 剪裁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕映射"><span class="nav-text"> 屏幕映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角形设置"><span class="nav-text"> 三角形设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角形遍历"><span class="nav-text"> 三角形遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#片元着色器"><span class="nav-text"> 片元着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逐片元操作"><span class="nav-text"> 逐片元操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text"> 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-text"> 分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扁平事务"><span class="nav-text"> 扁平事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带有保存点的扁平事务"><span class="nav-text"> 带有保存点的扁平事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链事务"><span class="nav-text"> 链事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套事务"><span class="nav-text"> 嵌套事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式事务"><span class="nav-text"> 分布式事务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的实现"><span class="nav-text"> 事务的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redo"><span class="nav-text"> redo</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -103,18 +103,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群  节点数据结构 clusterNode结构保存了一个节点">
+  <meta name="description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群.  节点数据结构 clusterNode结构保存了一个节">
 <meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis-集群">
 <meta property="og:url" content="https://blog.ggemo.com/redis-13/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群  节点数据结构 clusterNode结构保存了一个节点">
+<meta property="og:description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群.  节点数据结构 clusterNode结构保存了一个节">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T07:04:24.414Z">
+<meta property="og:updated_time" content="2019-09-25T14:46:17.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis-集群">
-<meta name="twitter:description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群  节点数据结构 clusterNode结构保存了一个节点">
+<meta name="twitter:description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群.  节点数据结构 clusterNode结构保存了一个节">
 
 
 
@@ -477,12 +477,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-23 12:50:38 / 修改时间：15:04:24" itemprop="dateCreated datePublished" datetime="2019-09-23T12:50:38+08:00">2019-09-23</time>
+              <time title="创建时间：2019-09-23 12:50:38" itemprop="dateCreated datePublished" datetime="2019-09-23T12:50:38+08:00">2019-09-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-25 22:46:17" itemprop="dateModified" datetime="2019-09-25T22:46:17+08:00">2019-09-25</time>
               
             
           </span>
@@ -568,7 +580,7 @@ window.console.log=()=>{};
         <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
 <p>Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能</p>
 <h2 id="节点"><a class="markdownIt-Anchor" href="#节点"></a> 节点</h2>
-<p>一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群</p>
+<p>一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群.</p>
 <h3 id="节点数据结构"><a class="markdownIt-Anchor" href="#节点数据结构"></a> 节点数据结构</h3>
 <p>clusterNode结构保存了一个节点的当前状态,比如节点的创建时间,节点的名字,节点当前的配置纪元,节点的IP地址和端口号等等</p>
 <p>每个节点都会保存自己和集群中所有其他节点的状态</p>

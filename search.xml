@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019-45周周报]]></title>
+    <url>%2Fweekly-2019-45%2F</url>
+    <content type="text"><![CDATA[这周去玩maimai玩的有点多,因为出门比较多 周一去了金智科技的一面,周三去的它的二面,周六去的省招会 这周把转推姬用java重构完毕了 开始读java性能优化权威指南了]]></content>
+      <tags>
+        <tag>周报</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一次ThreadLocal踩坑]]></title>
     <url>%2Fthreadlocal-hool%2F</url>
     <content type="text"><![CDATA[123private static final MultipartEntityBuilder BUILDER = MultipartEntityBuilder.create().addPart(BIZ, BIZ_VALUE).addPart(CATEGORY, CATEGORY_VALUE);private static final ThreadLocal&lt;MultipartEntityBuilder&gt; BUILDER_THREAD_LOCAL = ThreadLocal.withInitial(() -&gt; BUILDER); 这样是不行的,作为initial的对象不能是static. 改成下面这样就好了: 123456private static final ThreadLocal&lt;MultipartEntityBuilder&gt; BUILDER_THREAD_LOCAL = new ThreadLocal&lt;&gt;()&#123; @Override protected MultipartEntityBuilder initialValue() &#123; return MultipartEntityBuilder.create().addPart(BIZ, BIZ_VALUE).addPart(CATEGORY, CATEGORY_VALUE); &#125;&#125;;]]></content>
@@ -990,8 +998,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>动漫</tag>
         <tag>python</tag>
+        <tag>动漫</tag>
         <tag>gui</tag>
       </tags>
   </entry>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/weekly-2019-45/</loc>
+    
+    <lastmod>2019-11-17T09:53:11.621Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/balabala/index.html</loc>
     
     <lastmod>2019-11-12T15:19:41.419Z</lastmod>
@@ -156,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
+    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
     
     <lastmod>2019-09-06T13:00:05.233Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
+    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
     
     <lastmod>2019-09-06T13:00:05.233Z</lastmod>
     
@@ -240,13 +247,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-4/</loc>
-    
-    <lastmod>2019-08-24T08:30:29.264Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/dubbo-8/</loc>
     
     <lastmod>2019-08-24T08:30:29.264Z</lastmod>
@@ -254,14 +254,21 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-5/</loc>
+    <loc>https://blog.ggemo.com/dubbo-4/</loc>
+    
+    <lastmod>2019-08-24T08:30:29.264Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/dubbo-6/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-6/</loc>
+    <loc>https://blog.ggemo.com/dubbo-5/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     
@@ -296,6 +303,13 @@
   </url>
   
   <url>
+    <loc>https://blog.ggemo.com/dubbo-2/</loc>
+    
+    <lastmod>2019-08-14T08:02:18.985Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/dubbo-1/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
@@ -304,13 +318,6 @@
   
   <url>
     <loc>https://blog.ggemo.com/dubbo-0/</loc>
-    
-    <lastmod>2019-08-14T08:02:18.985Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/dubbo-2/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
     
@@ -338,13 +345,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/java-and-thread/</loc>
-    
-    <lastmod>2019-07-30T05:19:37.931Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
@@ -353,6 +353,13 @@
   
   <url>
     <loc>https://blog.ggemo.com/io-model/</loc>
+    
+    <lastmod>2019-07-30T05:19:37.931Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/java-and-thread/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
     

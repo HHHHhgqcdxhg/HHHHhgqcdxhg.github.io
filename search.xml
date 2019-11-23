@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[kafka-enable-remote]]></title>
+    <url>%2Fkafka-enable-remote%2F</url>
+    <content type="text"><![CDATA[用的sptingboot的KafkaTemplate连接kafka,结果出现java.net.UnknownHostException 然后改了kafka server配置 1vi config/server.properties 就行了]]></content>
+      <tags>
+        <tag>kafka</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2019-45周周报]]></title>
     <url>%2Fweekly-2019-45%2F</url>
     <content type="text"><![CDATA[这周去玩maimai玩的有点多,因为出门比较多 周一去了金智科技的一面,周三去的它的二面,周六去的省招会 这周把转推姬用java重构完毕了 开始读java性能优化权威指南了]]></content>

@@ -103,18 +103,18 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取. 有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化…">
+  <meta name="description" content="想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取. 有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化… 回头看下hessian能不能拿来做这个序列化?">
 <meta name="keywords" content="kafka">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python-kafka-java">
 <meta property="og:url" content="https://blog.ggemo.com/python-kafka-java/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取. 有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化…">
+<meta property="og:description" content="想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取. 有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化… 回头看下hessian能不能拿来做这个序列化?">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-25T14:44:01.965Z">
+<meta property="og:updated_time" content="2019-11-25T14:50:12.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python-kafka-java">
-<meta name="twitter:description" content="想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取. 有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化…">
+<meta name="twitter:description" content="想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取. 有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化… 回头看下hessian能不能拿来做这个序列化?">
 
 
 
@@ -494,7 +494,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-25 22:44:01" itemprop="dateModified" datetime="2019-11-25T22:44:01+08:00">2019-11-25</time>
+                <time title="修改时间：2019-11-25 22:50:12" itemprop="dateModified" datetime="2019-11-25T22:50:12+08:00">2019-11-25</time>
               
             
           </span>
@@ -535,7 +535,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">141</span>
+                <span title="本文字数">165</span>
               
 
               
@@ -561,6 +561,7 @@ window.console.log=()=>{};
       
         <p>想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取.</p>
 <p>有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化…</p>
+<p>回头看下hessian能不能拿来做这个序列化?</p>
 
       
     </div>

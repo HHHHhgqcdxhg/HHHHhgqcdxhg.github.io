@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-46/</loc>
-    
-    <lastmod>2019-11-25T14:46:24.115Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/python-kafka-java/</loc>
     
-    <lastmod>2019-11-25T14:44:01.965Z</lastmod>
+    <lastmod>2019-11-25T14:50:12.293Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.ggemo.com/kafka-enable-remote/</loc>
     
-    <lastmod>2019-11-23T18:05:15.636Z</lastmod>
+    <lastmod>2019-11-25T14:48:58.306Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/weekly-2019-46/</loc>
+    
+    <lastmod>2019-11-25T14:46:24.115Z</lastmod>
     
   </url>
   

@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[weekly-2019-46]]></title>
+    <url>%2Fweekly-2019-46%2F</url>
+    <content type="text"><![CDATA[这周尝试了kafka,另外研究了下websocket. 这周只有周一去了maimai 看了永生之酒.蛮好玩的 这周有两天都只睡了一小时…相应的有两天睡了10小时…]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+      <tags>
+        <tag>周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python-kafka-java]]></title>
+    <url>%2Fpython-kafka-java%2F</url>
+    <content type="text"><![CDATA[想用python作为producer,往kafka中塞数据,然后java作为consumer,从kafka中取. 有点麻烦,用kafka自带的序列化的话,好像就只能java对象转java对象了,没得从python的转.所以…我的解决方法是都传json字符串,然后再自己控制序列化…]]></content>
+      <tags>
+        <tag>kafka</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[kafka-enable-remote]]></title>
     <url>%2Fkafka-enable-remote%2F</url>
     <content type="text"><![CDATA[用的sptingboot的KafkaTemplate连接kafka,结果出现java.net.UnknownHostException 然后改了kafka server配置 1vi config/server.properties 就行了]]></content>

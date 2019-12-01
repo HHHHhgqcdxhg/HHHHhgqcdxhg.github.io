@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.ggemo.com/weekly-2019-45/</loc>
+    <lastmod>2019-12-01</lastmod>
+  </url>  <url>
+    <loc>https://blog.ggemo.com/weekly-2019-47/</loc>
+    <lastmod>2019-12-01</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/weekly-2019-46/</loc>
     <lastmod>2019-11-27</lastmod>
   </url>  <url>
@@ -9,9 +15,6 @@
   </url>  <url>
     <loc>https://blog.ggemo.com/kafka-enable-remote/</loc>
     <lastmod>2019-11-25</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/weekly-2019-45/</loc>
-    <lastmod>2019-11-17</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/threadlocal-hool/</loc>
     <lastmod>2019-11-09</lastmod>
@@ -115,13 +118,13 @@
     <loc>https://blog.ggemo.com/dubbo-4/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-7/</loc>
+    <loc>https://blog.ggemo.com/dubbo-5/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-6/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-5/</loc>
+    <loc>https://blog.ggemo.com/dubbo-7/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-9/</loc>
@@ -133,10 +136,10 @@
     <loc>https://blog.ggemo.com/dubbo-2/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-0/</loc>
+    <loc>https://blog.ggemo.com/dubbo-1/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-1/</loc>
+    <loc>https://blog.ggemo.com/dubbo-0/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/interview-ali-1/</loc>
@@ -148,10 +151,10 @@
     <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
     <lastmod>2019-07-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/java-and-thread/</loc>
+    <loc>https://blog.ggemo.com/io-model/</loc>
     <lastmod>2019-07-30</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/io-model/</loc>
+    <loc>https://blog.ggemo.com/java-and-thread/</loc>
     <lastmod>2019-07-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/feed/</loc>

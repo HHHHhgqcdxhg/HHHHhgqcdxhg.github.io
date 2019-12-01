@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/weekly-2019-45/</loc>
+    
+    <lastmod>2019-12-01T15:51:31.445Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/weekly-2019-47/</loc>
+    
+    <lastmod>2019-12-01T15:51:20.666Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/weekly-2019-46/</loc>
     
     <lastmod>2019-11-27T07:53:12.926Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://blog.ggemo.com/kafka-enable-remote/</loc>
     
     <lastmod>2019-11-25T14:48:58.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/weekly-2019-45/</loc>
-    
-    <lastmod>2019-11-17T09:53:11.621Z</lastmod>
     
   </url>
   
@@ -268,13 +275,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-4/</loc>
-    
-    <lastmod>2019-08-24T08:30:29.264Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/dubbo-8/</loc>
     
     <lastmod>2019-08-24T08:30:29.264Z</lastmod>
@@ -282,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-5/</loc>
+    <loc>https://blog.ggemo.com/dubbo-4/</loc>
     
-    <lastmod>2019-08-24T08:30:29.263Z</lastmod>
+    <lastmod>2019-08-24T08:30:29.264Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-6/</loc>
+    <loc>https://blog.ggemo.com/dubbo-5/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     
@@ -304,6 +304,13 @@
   
   <url>
     <loc>https://blog.ggemo.com/dubbo-9/</loc>
+    
+    <lastmod>2019-08-24T08:30:29.263Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/dubbo-6/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     

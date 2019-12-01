@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[weekly-2019-47]]></title>
+    <url>%2Fweekly-2019-47%2F</url>
+    <content type="text"><![CDATA[这周金思维复试,拿到了offer,下周二去签三方 去打了一次maimai 斩服少女看了10集,jojo看了10集.感觉jojo没那么好看…]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+      <tags>
+        <tag>周报</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[weekly-2019-46]]></title>
     <url>%2Fweekly-2019-46%2F</url>
     <content type="text"><![CDATA[这周尝试了kafka,另外研究了下websocket. 这周只有周一去了maimai 看了永生之酒.蛮好玩的 这周有两天都只睡了一小时…相应的有两天睡了10小时… 看了360话火影漫画]]></content>
@@ -34,6 +45,9 @@
     <title><![CDATA[2019-45周周报]]></title>
     <url>%2Fweekly-2019-45%2F</url>
     <content type="text"><![CDATA[这周去玩maimai玩的有点多,因为出门比较多 周一去了金智科技的一面,周三去的它的二面,周六去的省招会 这周把转推姬用java重构完毕了 开始读java性能优化权威指南了]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
       <tags>
         <tag>周报</tag>
       </tags>

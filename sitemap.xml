@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/balabala/index.html</loc>
+    
+    <lastmod>2019-12-05T14:52:39.081Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/weekly-2019-45/</loc>
     
     <lastmod>2019-12-01T15:51:31.445Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://blog.ggemo.com/kafka-enable-remote/</loc>
     
     <lastmod>2019-11-25T14:48:58.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/balabala/index.html</loc>
-    
-    <lastmod>2019-11-12T15:19:41.419Z</lastmod>
     
   </url>
   

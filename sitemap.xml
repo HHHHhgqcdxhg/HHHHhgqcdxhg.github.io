@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/weekly-2019-48/</loc>
+    
+    <lastmod>2019-12-10T12:03:37.612Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/qri/index.html</loc>
     
     <lastmod>2019-12-07T07:47:33.281Z</lastmod>
@@ -198,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
+    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
     
     <lastmod>2019-09-06T13:00:05.233Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
+    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
     
     <lastmod>2019-09-06T13:00:05.233Z</lastmod>
     
@@ -296,7 +303,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-6/</loc>
+    <loc>https://blog.ggemo.com/dubbo-9/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     
@@ -310,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-9/</loc>
+    <loc>https://blog.ggemo.com/dubbo-6/</loc>
     
     <lastmod>2019-08-24T08:30:29.263Z</lastmod>
     
@@ -387,14 +394,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/io-model/</loc>
+    <loc>https://blog.ggemo.com/java-and-thread/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/java-and-thread/</loc>
+    <loc>https://blog.ggemo.com/io-model/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
     
@@ -534,14 +541,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
+    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
     
     <lastmod>2019-04-30T03:25:32.600Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/azurlane-llk/</loc>
+    <loc>https://blog.ggemo.com/blhx-fanpai/</loc>
     
     <lastmod>2019-04-30T03:25:32.600Z</lastmod>
     

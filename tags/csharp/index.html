@@ -106,7 +106,7 @@ window.console.log=()=>{};
   <meta name="description" content="小黄瓜的blog哦！">
 <meta property="og:type" content="website">
 <meta property="og:title" content="黄瓜养殖基地！">
-<meta property="og:url" content="https://blog.ggemo.com/tags/csharp/index.html">
+<meta property="og:url" content="https://blog.ggemo.com/tags/CSharp/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="小黄瓜的blog哦！">
 <meta property="og:locale" content="zh-CN">
@@ -119,7 +119,7 @@ window.console.log=()=>{};
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/tags/csharp/">
+  <link rel="canonical" href="https://blog.ggemo.com/tags/CSharp/">
 
 
 
@@ -129,7 +129,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>标签: csharp | 黄瓜养殖基地！</title>
+  <title>标签: CSharp | 黄瓜养殖基地！</title>
   
 
 
@@ -447,7 +447,7 @@ window.console.log=()=>{};
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>csharp<small>标签</small>
+        <h2>CSharp<small>标签</small>
         </h2>
       </div>
 
@@ -459,43 +459,17 @@ window.console.log=()=>{};
 
       <h3 class="post-title">
         
-          <a class="post-title-link" href="/csnote-2/" itemprop="url">
+          <a class="post-title-link" href="/diff-csharp-java/" itemprop="url">
             
-              <span itemprop="name">CSharp笔记-装箱与拆箱</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T10:43:43+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/csnote-1/" itemprop="url">
-            
-              <span itemprop="name">CSharp笔记-值类型与引用类型</span>
+              <span itemprop="name">CSharp和java的区别</span>
             
           </a>
         
       </h3>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T03:29:15+08:00" content="2019-04-22">
-          04-22
+        <time class="post-time" itemprop="dateCreated" datetime="2019-12-15T00:51:06+08:00" content="2019-12-15">
+          12-15
         </time>
       </div>
 
@@ -556,7 +530,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">105</span>
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -716,7 +690,9 @@ window.console.log=()=>{};
                     
                       
                     
-                    <span class="site-state-item-count">47</span>
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1389,6 +1365,36 @@ window.console.log=()=>{};
         sel.addRange(range);
         ta.setSelectionRange(0, code.length);
         var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+
+  
+
+
+  <script src="/js/src/live2d.js?v=7.0.0"></script>
+
+  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
+
+<script type="text/javascript">
+    loadlive2d("live2d", "../src/pio/model.json");
+</script>
+</body>
+</html>
+mand('copy');
         
           if (result) $(this).text('复制成功');
           else $(this).text('复制失败');

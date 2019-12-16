@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[weekly-2019-49]]></title>
+    <url>%2Fweekly-2019-49%2F</url>
+    <content type="text"><![CDATA[周二打了一天maimai…从机厅上午开门开始打的,一直打到累 bililivestatis在运行了,修了好几次报错了…]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+      <tags>
+        <tag>周报</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSharp和java的区别]]></title>
     <url>%2Fdiff-csharp-java%2F</url>
     <content type="text"><![CDATA[java经常是, 需要操作一个变量的时候,选择去调用方法,而C#感觉是反过来,操作变量的时候去执行某些方法]]></content>
@@ -17,6 +28,12 @@
     <title><![CDATA[weekly-2019-48]]></title>
     <url>%2Fweekly-2019-48%2F</url>
     <content type="text"><![CDATA[周二去把三方签了 虚拟形象开始安排了,策划本写了半本了,画师也有约到了]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+      <tags>
+        <tag>周报</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[weekly-2019-47]]></title>
@@ -369,7 +386,7 @@
     <url>%2Fdubbo-9%2F</url>
     <content type="text"><![CDATA[Dubbo高级特性概述 Dubbo解决了分布式场景RPC通信调用的问题,但是要满足各种业务场景还是不够的.场景: 支付业务需要自身迭代版本,比如1.0和2.0版本,在2.0版本做了大量性能改进,需要发布到性能测试环境与1.0版本做对比,这个时候需要框架提供服务隔离的能力. 客户端消费远程服务时不希望阻塞,这个时候业务方可以在线程池中发起RPC调用,但这样不够优雅,需要框架支持异步调用和回调 Dubbo提供了大量的高级特性. 服务分组和版本 Dubbo中提供的服务分组和版本是强隔离的,如果制定了服务分组和版本,则消费方调用也必须传递相同的分组名称和版本名称 参数回调 Dubbo支持异步参数回调,当消费方调用服务端方法时,允许服务端在某个时间点回调回客户端的方法.在服务端回调客户端时,服务端不会重新开启TCP连接,会复用已经建立的从客户端到服务端的TCP连接.下面是一个参数回调的例子: 异步回调服务端实现 123456789101112131415161718192021222324252627282930313233343536373839404142// 服务提供方暴露的接口public interface CallbackService &#123; void addListener(String key, CallbackListener listener);&#125;// 消费方被回调的方法public interface CallbackListener &#123; void changed(String msg);&#125;// 服务提供方接口实现public class CallbackServiceImpl implements CallbackService &#123; private Map&lt;String, CallbackListener&gt; listeners = new ConcurrentHashMap&lt;String, CallbackListener&gt;(); public void addListener(String key, CallbackListener listener) &#123; listeners.put(key, listener); &#125; public CallbackServiceImpl() &#123; Thread t = new Thread(new Runnable() &#123; public void run() &#123; while(true) &#123; try &#123; for(Map.Entry&lt;String, CallbackListener&gt; entry : listeners.entrySet())&#123; try&#123; entry.getValue().changed(getChanged(entry.getKey())); &#125; catch (Throwable t) &#123; listeners.remove(entry,.getKey); &#125; &#125; Thread.sleep(5000); &#125; catch(Throwable ignored) &#123;&#125; &#125; &#125; &#125;) t.start() &#125; private String getChanged(String key) &#123; return "Changed: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()); &#125;&#125; 消费异步回调服务 123456789ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:consumer.xml");context.start();CallbackService callbackService = (CallbackService)context.getBean("callbackService");callbackService.addListener("foo.bar", new CallbackListener()&#123; public void changed(String msg) &#123; System.out.println("callback1:" + msg); &#125;&#125;) 隐式参数 Dubbo服务提供者或消费者启动时,配置元数据会生成URL,一般是不可变的.在很多场景中,在服务运行期需要动态改变属性值,在做动态路由和灰度发布场景中需要这个特性.Dubbo框架支持消费方在RpcContext#setAttachment方法中设置隐式参数,在服务端RpcContext#getAttachment方法中获取隐式传递 TODO:具体实现 异步调用 在客户端实现异步调用非常简单,在消费接口时配置异步标识,在调用时从上下文中获取Future对象,在期望结果返回时再调用阻塞方法Future.get()即可. 客户端异步调用: 123456fooService.findFoo(fooId);// 在发起其他RPC调用时,现获取Future引用,当结果返回后,会被通知和设置到此FutureFuture&lt;Foo&gt; fooFuture = RpcContext.getContext().getFuture();Foo foo = fooFuture.get(); Dubbo异步调用流程: 站在Dubbo客户端角度来说,直接发起RPC调用属于用户线程.用户线程①发起任意的远程方法调用,最终会通过I/O线程发送网络报文,在真实发送报文前会让用户线程中设置当前异步请求Future(③).因此在此用户线程发起下一个远程方法调用前,需要先保存异步Future对象(④).Dubbo框架会把异步请求放到DefaultFuture类中,当服务端响应或超时时,被挂起的用户线程将被唤醒(⑤).用户线程设置异步Future对象的逻辑在DubboInvoker#doInvoke方法中完成.(详细参阅DubboInvoker) 泛化调用 Dubbo繁华调用特性可以在不依赖服务接口API包的场景中发起远程调用.这种特性特别适合框架集成和网关类应用开发.Dubbo在客户端发起泛化调用并不要求服务端是泛化暴露. 泛化调用实例: 1234567891011121314151617181920ReferenceConfig&lt;GenericService&gt; ref = new ReferenceConfig&lt;&gt;();ApplicationConfig appConfig = new ApplicationConfig("demo-consumer");RegistryConfig registryConfig = new RegistryConfig();registryConfig.setProtocol("zookeeper");registryConfig.setAddress("localhost:2181");ref.setProtocol("dubbo");ref.setApplication(appConfig);ref.setRegistry(registryConfig);ref.setInterface("com.xxx.XxxService");// 标识泛化调用ref.setGeneric(true);// 创建远程代理GenericService genericService = ref.get();// 发起远程调用Object result = genericService.$invoe("sayHello", new String[]&#123;"java.lang.String"&#125;, new Object[] &#123;"word"&#125;); 泛化调用必需的参数主要包括:应用名称,注册中心,直接接口名称和泛化标识.在发起远程调用时,GenericService方法参数类型分别为真实方法名,真实方法参数类型签名和真实参数值. 这里需要注意的是,每次动态创建的GenericService实例比较重,需要建立TCP连接,处理注册中心订阅和服务列表等计算,因此需要缓存ReferenceConfig进行复用. 服务端在处理服务调用时,在GenericFilter拦截器中先把RpcInvocation中传递过来的参数类型和参数值提取出来,然后根据传递过来的接口名,方法名和参数类型查找服务端被调用的方法,获取真实方法后,主要提取真实方法参数类型(可能包含泛化类型),然后将参数值做Java类型转换.最后用解析后的参数值构造新的RpcInvocation对象发起调用 上下文信息 Dubbo上下文的获取和存储同样是基于JDKThreadLocal实现的.上下文中存放的是当前调用过程中所需的环境信息.RpcContext是一个ThreadLocal的临时状态记录器,当收到或发送RPC时,当前线程关联的RpcContext状态都会变化.比如:A调用B,B再调用C,则在B机器上,在B调用C之前,RpcContext记录的是A调用B的信息,在B调用C之后,RpcContext记录的是B调用C的信息. 服务端上下文的获取和使用: 123456789public class DemoServiceImpl implements DemoService &#123; public void hello() &#123; boolean isProviderSide = RpcContext.getContext)().isProviderSide(); String clientIP = RpcContext.getContext().getRemoteHost(); String application = RpcContext.getContext().getUrl().getPatameter("application"); yyyService.done(); boolean isProviderSide = RpcContext.getContext.isProviderSide(); &#125;&#125; 在客户端和服务端分别有一个拦截设置当前上下文信息,分别对应ConsumerContextFilter和ContextFilter.在客户端拦截器实现中,因为Invoker包含远程服务信息,因此直接设置远程IP等信息.在服务端拦截器中主要设置本地地址,这个时候无法获取远程调用地址.设置远程地址主要在DubboProtocol#ExchangeHandlerAdapter.reply方法中完成,可以直接通过channel.getRemoteAddress方法获取 Telnet操作 TODO Mock调用 Dubbo提供服务容错的能力,通常用于服务降级,比如验权服务,当服务提供方&quot;挂掉&quot;后,客户端不抛出异常,而是通过Mock数据返回授权失败. TODO 结果缓存 Dubbo框架提供了对服务调用结果尽心缓存的特性,用于加速热门数据的访问速度,Dubbo提供声明式缓存,以减少用户加载缓存的工作量.因为每次调用都会使用JSON.toString方法将请求参数转换成字符串,然后拼装唯一的key,用于缓存唯一键. lru缓存策略是框架默认使用的.]]></content>
       <categories>
-        <category>Dubbo笔记</category>
+        <category>dubbo笔记</category>
       </categories>
       <tags>
         <tag>Dubbo</tag>

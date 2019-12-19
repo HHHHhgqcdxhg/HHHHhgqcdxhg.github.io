@@ -59,7 +59,7 @@ const ap = new APlayer({
         {
             name: "春よ、来い",
             artist: 'Smooth J',
-            url: 'https://music.163.com/song/media/outer/url?id=511369.mp3',
+            url: 'https://pic.ggemo.com/%E6%98%A5%E3%82%88%E3%80%81%E6%9D%A5%E3%81%84.mp3',
             cover: 'https://pic.ggemo.com/6050612487861686.jpg',
         }
     ]

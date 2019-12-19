@@ -111,7 +111,9 @@ window.console.log=()=>{};
 <meta property="og:description" content="b站弹幕是用的ws与服务器连接来接收/发送消息的 这个弹幕和礼物的推送我感觉并不是很可靠,很有可能会有网络波动或连接断开的情况,所以我选择多个线程同时监听弹幕服务器的推送(当然多个线程可以选择跑在不同的进程跑在不同的机器上). 然后的问题是,把消息往mq里塞,还要消息不重复传.我这里没有选择用自带去重功能的rocketMQ,而是用的kafka(毕竟kafka性能和多语言客户端支持比rocketMQ">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20191212010837.png">
-<meta property="og:updated_time" content="2019-12-11T17:11:11.423Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20191219214424.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/20191219214459.png">
+<meta property="og:updated_time" content="2019-12-19T13:51:01.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哔哩哔哩直播统计项目">
 <meta name="twitter:description" content="b站弹幕是用的ws与服务器连接来接收/发送消息的 这个弹幕和礼物的推送我感觉并不是很可靠,很有可能会有网络波动或连接断开的情况,所以我选择多个线程同时监听弹幕服务器的推送(当然多个线程可以选择跑在不同的进程跑在不同的机器上). 然后的问题是,把消息往mq里塞,还要消息不重复传.我这里没有选择用自带去重功能的rocketMQ,而是用的kafka(毕竟kafka性能和多语言客户端支持比rocketMQ">
@@ -479,12 +481,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-12-12 00:55:35 / 修改时间：01:11:11" itemprop="dateCreated datePublished" datetime="2019-12-12T00:55:35+08:00">2019-12-12</time>
+              <time title="创建时间：2019-12-12 00:55:35" itemprop="dateCreated datePublished" datetime="2019-12-12T00:55:35+08:00">2019-12-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-12-19 21:51:01" itemprop="dateModified" datetime="2019-12-19T21:51:01+08:00">2019-12-19</time>
               
             
           </span>
@@ -525,7 +539,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">498</span>
+                <span title="本文字数">865</span>
               
 
               
@@ -555,6 +569,12 @@ window.console.log=()=>{};
 <p>然后mq的消息广播机制就很有作用了,我们可以有多个consumer,比如我服务器一直跑着一个consumer来往db里记录数据,然后我自己桌面可以开一个consumer来看实时弹幕(我这b站web端看直播经常没弹幕可看…)</p>
 <p>大概画个图如下<br>
 <img src="https://pic.ggemo.com/picgo/20191212010837.png" alt="20191212010837.png"></p>
+<hr>
+<h2 id="2019年12月19日214229-更新"><a class="markdownIt-Anchor" href="#2019年12月19日214229-更新"></a> 2019年12月19日21:42:29 更新</h2>
+<p>最近把xshell换掉了,换了个新的ssh工具叫MobaXterm,这个工具在最底下就能看到资源使用情况,然后<img src="https://pic.ggemo.com/picgo/20191219214424.png" alt="20191219214424.png">???<br>
+然后看一下htop<img src="https://pic.ggemo.com/picgo/20191219214459.png" alt="20191219214459.png">这个这么长java运行参数的就是kafka…光它就吃了我5的内存…然后上网上看了一下,说是kafka要服务器内存5g起步…算了算了</p>
+<p>然后回想一下,我当初为啥用kafka来着???消息队列的意义在于解耦,削峰填谷和消息广播,我这个并发级别没那么高,应该没有什么峰谷可言,出于解耦和消息广播的目的用的mq.</p>
+<p>emm,大致想到替代方案–用微服务架构,去掉mq,监听弹幕的线程写redis成功后直接调存db的服务.微服务架构感觉要选用grpc而不是dubbo了,出于解耦方面考虑.不过grpc好像没看到比较好的服务治理框架?周末去上海回来再看看吧(埋坑)</p>
 
       
     </div>
@@ -648,8 +668,17 @@ window.console.log=()=>{};
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -902,6 +931,23 @@ window.console.log=()=>{};
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年12月19日214229-更新"><span class="nav-text"> 2019年12月19日21:42:29 更新</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -936,7 +982,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
   
 
   

@@ -104,7 +104,7 @@ window.console.log=()=>{};
 
 
   <meta name="description" content="本项目git仓库:https://dev.tencent.com/u/hhhhhg/p/bangumiDesktopAssistant 尝试了打包成exe却做不到,所以应该只有装了python才能用了XD python版本是3.6.4(因为用到了f前缀字符串,所以大概需要至少3.6版本),操作系统只试了windows 使用: 1234git clone https://git.dev.tencen">
-<meta name="keywords" content="动漫,python,gui">
+<meta name="keywords" content="python,动漫,gui">
 <meta property="og:type" content="article">
 <meta property="og:title" content="桌面追番助手">
 <meta property="og:url" content="https://blog.ggemo.com/bangumiDesktopAssistant/index.html">
@@ -191,8 +191,8 @@ window.console.log=()=>{};
   </style>
 </noscript>
 
-  <!-- <link rel="stylesheet" href="https://blog.ggemo.com/src/APlayer.min.css"/> -->
-  <!-- <link rel="stylesheet" href="https://blog.ggemo.com/src/live2d.css"/> -->
+  <link rel="stylesheet" href="https://blog.ggemo.com/src/APlayer.min.css">
+  <link rel="stylesheet" href="https://blog.ggemo.com/src/live2d.css">
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -211,12 +211,12 @@ window.console.log=()=>{};
      <a href="https://blog.ggemo.com/feed/"><img width="150px" src="https://pic.ggemo.com/picgo/bot-feed-zfb-any.png"></img></a>
      <div style="float:left;height:40px;width:150px;font-size:18px;padding-top:2px;padding-left:35px;background:linear-gradient(90deg,#946ce6,#7e5fd9);border-radius: 0.166666666666667rem;align-self: center;cursor: pointer;line-height: 1;box-sizing: border-box;font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;"><span style="line-height:40px;color: white !important">￥ 爱发电</span></div></a>
    </div> -->
-<!--
+
   <div class="waifu">
     <div class="waifu-tips"></div>
     <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
   </div> 
--->
+
 
   
   
@@ -636,9 +636,9 @@ python版本是3.6.4(因为用到了<a href="https://docs.python.org/3/whatsnew/
       
         <div class="post-tags">
           
-            <a href="/tags/动漫/" rel="tag"># 动漫</a>
-          
             <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/动漫/" rel="tag"># 动漫</a>
           
             <a href="/tags/gui/" rel="tag"># gui</a>
           
@@ -986,7 +986,7 @@ python版本是3.6.4(因为用到了<a href="https://docs.python.org/3/whatsnew/
       </div>
     </main>
 
-<!--
+
     <div id="aplayer"></div>
     <footer id="footer" class="footer">
       <div class="footer-inner">
@@ -1030,7 +1030,7 @@ python版本是3.6.4(因为用到了<a href="https://docs.python.org/3/whatsnew/
         
       </div>
     </footer>
--->
+
 
     
 
@@ -1126,7 +1126,15 @@ python版本是3.6.4(因为用到了<a href="https://docs.python.org/3/whatsnew/
   <script src="/js/src/bootstrap.js?v=7.0.0"></script>
 
 
+
   
+
+
+  <script src="/js/src/APlayer.min.js?v=7.0.0"></script>
+
+  <script src="/js/src/audioPlayer.js?v=7.0.0"></script>
+
+
   
   
 
@@ -1589,6 +1597,17 @@ python版本是3.6.4(因为用到了<a href="https://docs.python.org/3/whatsnew/
 
 
 
+
+  
+
+
+  <script src="/js/src/live2d.js?v=7.0.0"></script>
+
+  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
+
+<script type="text/javascript">
+    loadlive2d("live2d", "../src/pio/model.json");
+</script>
 
 
 </body>

@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/weekly-2019-50/</loc>
+    
+    <lastmod>2019-12-23T13:42:57.615Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/bili-live-statis/</loc>
     
-    <lastmod>2019-12-21T15:02:03.837Z</lastmod>
+    <lastmod>2019-12-22T17:23:35.700Z</lastmod>
     
   </url>
   
@@ -695,14 +702,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/shader-r-start/</loc>
+    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
     
     <lastmod>2019-03-24T13:01:47.426Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/shader-r-standard-lighting/</loc>
+    <loc>https://blog.ggemo.com/shader-r-start/</loc>
     
     <lastmod>2019-03-24T13:01:47.426Z</lastmod>
     

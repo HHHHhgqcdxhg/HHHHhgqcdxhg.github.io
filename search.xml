@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[记一次maven踩坑]]></title>
+    <url>%2Fmaven-hole%2F</url>
+    <content type="text"><![CDATA[一个项目 包含多个moudule 某些module互相依赖的话 我之前的做法都是把被依赖的module package &amp; deploy之后,再去挨个package其他依赖它的module 现在发现直接在总的项目哪里package就能在各个项目的target那里打出jar包了…]]></content>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[weekly-2019-50]]></title>
     <url>%2Fweekly-2019-50%2F</url>
     <content type="text"><![CDATA[看完了斩服少女 周五去百度上研面试了,周六去了cp,本来计算周日还在cp的,但是太累了又下雨,就鸽了]]></content>

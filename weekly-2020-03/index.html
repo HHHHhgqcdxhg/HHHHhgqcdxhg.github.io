@@ -106,25 +106,25 @@ window.console.log=()=>{};
 
 
 
-  <meta name="description" content="字典的实现 跟HashMap差不多,不过hash碰撞不使用红黑树而是一昧拉链  哈希算法 Redis使用MurmurHash2算法来计算键的哈希值  渐进式rehash 扩展或收缩哈希表的动作并不是一次性,集中地完成的,而是分多次,渐进式地完成的.">
-<meta name="keywords" content="Redis,Redis数据结构">
+  <meta name="description" content="这周就寒假在家了 15号中午收到了百度offer, 然后晚上玩英雄联盟拿厄斐琉斯拿到了个五杀, 实属幸运日">
+<meta name="keywords" content="周报">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis数据结构-字典">
-<meta property="og:url" content="https://blog.ggemo.com/redis-2/index.html">
+<meta property="og:title" content="weekly-2020-03">
+<meta property="og:url" content="https://blog.ggemo.com/weekly-2020-03/index.html">
 <meta property="og:site_name" content="黄瓜养殖基地！">
-<meta property="og:description" content="字典的实现 跟HashMap差不多,不过hash碰撞不使用红黑树而是一昧拉链  哈希算法 Redis使用MurmurHash2算法来计算键的哈希值  渐进式rehash 扩展或收缩哈希表的动作并不是一次性,集中地完成的,而是分多次,渐进式地完成的.">
+<meta property="og:description" content="这周就寒假在家了 15号中午收到了百度offer, 然后晚上玩英雄联盟拿厄斐琉斯拿到了个五杀, 实属幸运日">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-10T05:43:51.921Z">
+<meta property="og:updated_time" content="2020-01-19T09:19:16.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis数据结构-字典">
-<meta name="twitter:description" content="字典的实现 跟HashMap差不多,不过hash碰撞不使用红黑树而是一昧拉链  哈希算法 Redis使用MurmurHash2算法来计算键的哈希值  渐进式rehash 扩展或收缩哈希表的动作并不是一次性,集中地完成的,而是分多次,渐进式地完成的.">
+<meta name="twitter:title" content="weekly-2020-03">
+<meta name="twitter:description" content="这周就寒假在家了 15号中午收到了百度offer, 然后晚上玩英雄联盟拿厄斐琉斯拿到了个五杀, 实属幸运日">
 
 
 
 
 
 
-  <link rel="canonical" href="https://blog.ggemo.com/redis-2/">
+  <link rel="canonical" href="https://blog.ggemo.com/weekly-2020-03/">
 
 
 
@@ -134,7 +134,7 @@ window.console.log=()=>{};
   };
 </script>
 
-  <title>Redis数据结构-字典 | 黄瓜养殖基地！</title>
+  <title>weekly-2020-03 | 黄瓜养殖基地！</title>
   
 
 
@@ -437,7 +437,7 @@ window.console.log=()=>{};
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/redis-2/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ggemo.com/weekly-2020-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="清纯的小黄瓜">
@@ -454,7 +454,7 @@ window.console.log=()=>{};
 
         
         
-          <h2 class="post-title" itemprop="name headline">Redis数据结构-字典
+          <h2 class="post-title" itemprop="name headline">weekly-2020-03
 
               
             
@@ -481,7 +481,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2019-09-10 13:32:01 / 修改时间：13:43:51" itemprop="dateCreated datePublished" datetime="2019-09-10T13:32:01+08:00">2019-09-10</time>
+              <time title="创建时间：2020-01-19 17:18:23 / 修改时间：17:19:16" itemprop="dateCreated datePublished" datetime="2020-01-19T17:18:23+08:00">2020-01-19</time>
             
 
             
@@ -503,7 +503,7 @@ window.console.log=()=>{};
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/周报/" itemprop="url" rel="index"><span itemprop="name">周报</span></a></span>
 
                 
                 
@@ -522,8 +522,8 @@ window.console.log=()=>{};
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/redis-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/redis-2/" itemprop="commentCount"></span>
+                <a href="/weekly-2020-03/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/weekly-2020-03/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -545,7 +545,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">126</span>
+                <span title="本文字数">54</span>
               
 
               
@@ -569,12 +569,8 @@ window.console.log=()=>{};
       
 
       
-        <h2 id="字典的实现"><a class="markdownIt-Anchor" href="#字典的实现"></a> 字典的实现</h2>
-<p>跟HashMap差不多,不过hash碰撞不使用红黑树而是一昧拉链</p>
-<h2 id="哈希算法"><a class="markdownIt-Anchor" href="#哈希算法"></a> 哈希算法</h2>
-<p>Redis使用MurmurHash2算法来计算键的哈希值</p>
-<h2 id="渐进式rehash"><a class="markdownIt-Anchor" href="#渐进式rehash"></a> 渐进式rehash</h2>
-<p>扩展或收缩哈希表的动作并不是一次性,集中地完成的,而是分多次,渐进式地完成的.</p>
+        <p>这周就寒假在家了</p>
+<p>15号中午收到了百度offer, 然后晚上玩英雄联盟拿厄斐琉斯拿到了个五杀, 实属幸运日</p>
 
       
     </div>
@@ -598,9 +594,7 @@ window.console.log=()=>{};
       
         <div class="post-tags">
           
-            <a href="/tags/Redis/" rel="tag"># Redis</a>
-          
-            <a href="/tags/Redis数据结构/" rel="tag"># Redis数据结构</a>
+            <a href="/tags/周报/" rel="tag"># 周报</a>
           
         </div>
       
@@ -613,8 +607,8 @@ window.console.log=()=>{};
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/redis-1/" rel="next" title="Redis数据结构-链表">
-                <i class="fa fa-chevron-left"></i> Redis数据结构-链表
+              <a href="/weekly-2020-02/" rel="next" title="weekly-2020-02">
+                <i class="fa fa-chevron-left"></i> weekly-2020-02
               </a>
             
           </div>
@@ -622,10 +616,6 @@ window.console.log=()=>{};
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/redis-3/" rel="prev" title="Redis数据结构-跳跃表">
-                Redis数据结构-跳跃表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -676,17 +666,8 @@ window.console.log=()=>{};
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -940,23 +921,6 @@ window.console.log=()=>{};
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典的实现"><span class="nav-text"> 字典的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希算法"><span class="nav-text"> 哈希算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进式rehash"><span class="nav-text"> 渐进式rehash</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       

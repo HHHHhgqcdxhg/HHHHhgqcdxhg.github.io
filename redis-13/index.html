@@ -114,7 +114,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群.  节点数据结构 clusterNode结构保存了一个节">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T14:46:17.257Z">
+<meta property="og:updated_time" content="2020-01-29T15:08:12.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis-集群">
 <meta name="twitter:description" content="概述 Redis集群是Redis提供的分布式数据库方案,集群通过分片(sharding)来进行数据共享,并提供复制和故障转移功能  节点 一个Redis集群通常由多个节点组成,在刚开始的时候,每个节点都是相互独立的,它们都处于一个只包含自己的集群当众,要组建一个真正可工作的集群,我们必须将各个独立的节点连接起来,构成一个包含多个节点的集群.  节点数据结构 clusterNode结构保存了一个节">
@@ -498,7 +498,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-25 22:46:17" itemprop="dateModified" datetime="2019-09-25T22:46:17+08:00">2019-09-25</time>
+                <time title="修改时间：2020-01-29 23:08:12" itemprop="dateModified" datetime="2020-01-29T23:08:12+08:00">2020-01-29</time>
               
             
           </span>
@@ -601,7 +601,7 @@ window.console.log=()=>{};
 </ol>
 <h2 id="槽指派"><a class="markdownIt-Anchor" href="#槽指派"></a> 槽指派</h2>
 <p>Redis集群通过分片的方式来保存数据库中的键值对:集群的整个数据库被分为16384个槽,数据库中的每个键都属于这16384个槽的其中一个,集群中的每个节点可以处理0或最多16384个槽</p>
-<p>当数据库中的16384个槽都有节点在处理时,集群处于上线状态;相反地,如果数据库中有任何一个草没有得到处理,那么集群处于下线状态</p>
+<p>当数据库中的16384个槽都有节点在处理时,集群处于上线状态;相反地,如果数据库中有任何一个槽没有得到处理,那么集群处于下线状态</p>
 <p>执行完CLUSTER MEET命令后的集群还是下线状态,通过向节点发送CLUSTER ADDSLOTS命令可以将槽指派给节点负责</p>
 <h3 id="记录节点的槽指派信息"><a class="markdownIt-Anchor" href="#记录节点的槽指派信息"></a> 记录节点的槽指派信息</h3>
 <p>记录在clusterNode结构的slots属性和numslot属性</p>

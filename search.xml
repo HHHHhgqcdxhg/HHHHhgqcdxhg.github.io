@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[weekly-2020-06]]></title>
+    <url>%2Fweekly-2020-06%2F</url>
+    <content type="text"><![CDATA[依然是因为疫情没有出门的一周 最近作息非常上房揭瓦, 基本都是早上8点左右睡觉, 下午五六点起床, 爸妈也习惯我这作息了]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+      <tags>
+        <tag>周报</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[weekly-2020-05]]></title>
     <url>%2Fweekly-2020-05%2F</url>
-    <content type="text"><![CDATA[这周应该一周没出门 给va平台买了一些mysql, redis什么的]]></content>
+    <content type="text"><![CDATA[这周应该一周没出门 做了一些va平台的论坛功能 给va平台买了一些mysql, redis什么的]]></content>
       <categories>
         <category>周报</category>
       </categories>

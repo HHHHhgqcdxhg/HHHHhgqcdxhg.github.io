@@ -1,91 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[weekly-2020-06]]></title>
-    <url>%2Fweekly-2020-06%2F</url>
-    <content type="text"><![CDATA[依然是因为疫情没有出门的一周 最近作息非常上房揭瓦, 基本都是早上8点左右睡觉, 下午五六点起床, 爸妈也习惯我这作息了]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2020-05]]></title>
-    <url>%2Fweekly-2020-05%2F</url>
-    <content type="text"><![CDATA[这周应该一周没出门 做了一些va平台的论坛功能 给va平台买了一些mysql, redis什么的]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[va的副产物]]></title>
     <url>%2Fva-by-product%2F</url>
     <content type="text"><![CDATA[突然发现va平台搞出来的副产物还蛮多的… JAVA版的cqHttpClient https://github.com/HHHHhgqcdxhg/cqhttp-client vaScript https://github.com/HHHHhgqcdxhg/va-script 哔哩哔哩httpClient https://github.com/HHHHhgqcdxhg/bili-client 主站相关client https://github.com/HHHHhgqcdxhg/bili-dynamic-client 动态相关client 哔哩哔哩直播弹幕Client https://github.com/HHHHhgqcdxhg/bili-danmaku-client]]></content>
   </entry>
   <entry>
-    <title><![CDATA[weekly-2020-04]]></title>
-    <url>%2Fweekly-2020-04%2F</url>
-    <content type="text"><![CDATA[这周是过年的一周了 最近武汉那个肺炎流行, 爸爸在这个时间点上感冒发烧了, 还好不咳嗽, 要是咳嗽就要怀疑是不是肺炎了. 然后因为生病的缘故过年没有回奶奶家, 第一次在姥姥家过了大年三十和大年初一. 这次过年给居依苒买的一个罗小黑的抱枕, 给居一诺买的一套百乐的笔和一个国誉的本子, 居依苒不太喜欢那个抱枕的样子, 拿着玩扔到地上也一点都不可惜, 倒是很喜欢居一诺的本子 大年三十的年夜饭的时候, 大姨他们一家也在姥姥这. 有一会儿姨夫跟佳伟互相拿手机拍着玩的时候, 我说了句不太尊重长辈的话, 被佳伟嘲讽了 实际上, 打心底属实不尊重他, 没什么文化, 为人也不太好, 但是说出来就是我的问题了 va平台在做了, 这周前端做了很多]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2020-03]]></title>
-    <url>%2Fweekly-2020-03%2F</url>
-    <content type="text"><![CDATA[这周就寒假在家了 15号中午收到了百度offer, 然后晚上玩英雄联盟拿厄斐琉斯拿到了个五杀, 实属幸运日]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2020-02]]></title>
-    <url>%2Fweekly-2020-02%2F</url>
-    <content type="text"><![CDATA[依旧是复习期末考 周末wasup来南京玩了 周日回家, 去了小姨家找表妹玩]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2020-01]]></title>
-    <url>%2Fweekly-2020-01%2F</url>
-    <content type="text"><![CDATA[跨年自己跨的… 这周开始复习期末考了, 没怎么写代码]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[摘抄笔记]]></title>
     <url>%2Freading-notes%2F</url>
     <content type="text"><![CDATA[记录一些好的句子段落 Jiever - 知乎 多年后，我们早就脱贫了，我妈从衣柜里拿出一个大包袱，打开包袱，里面是一条一条摆的整整齐齐的布条，我问她要这么多布条干什么呀？她说，当年爸爸闯事业，要是万一失败了，她还要留着这些布条给我和姐姐补衣服用呢。听完我们哈哈大笑，现在回想起来却是泪流满面，我妈妈下了多大的决心，不管是落魄，还是腾达，都跟定了我爸。 摘抄于2020年1月3日00:25:07 董明珠名言 要么全力以赴的干, 要么早点滚蛋, 在任何一个位置混日子迟早会有人拿你开刀, 你要明白, 做企业不是做慈善, 如果你愿意被慈善, 我建议你去要饭. 摘抄于2020年1月27日19:26:29]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2019-51]]></title>
-    <url>%2Fweekly-2019-51%2F</url>
-    <content type="text"><![CDATA[这周没啥好写的…va平台在做了]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[记一次maven踩坑]]></title>
@@ -96,31 +19,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[weekly-2019-50]]></title>
-    <url>%2Fweekly-2019-50%2F</url>
-    <content type="text"><![CDATA[看完了斩服少女 周五去百度上研面试了,周六去了cp,本来计算周日还在cp的,但是太累了又下雨,就鸽了]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[阿里云全站加速]]></title>
     <url>%2Fali-dcdn%2F</url>
     <content type="text"><![CDATA[好好好好好好好好快啊这个 配置了有一会儿,照着这篇文章弄的使用阿里云CDN全站加速gitpages - 简书 快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快快]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2019-49]]></title>
-    <url>%2Fweekly-2019-49%2F</url>
-    <content type="text"><![CDATA[周二打了一天maimai…从机厅上午开门开始打的,一直打到累 bililivestatis在运行了,修了好几次报错了… 百度又来了个电话,说是补面,21号去cp的也要去上海,就约了20号去一趟百度上研]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[CSharp和java的区别]]></title>
@@ -134,39 +35,6 @@
     <title><![CDATA[哔哩哔哩直播统计项目]]></title>
     <url>%2Fbili-live-statis%2F</url>
     <content type="text"><![CDATA[b站弹幕是用的ws与服务器连接来接收/发送消息的 这个弹幕和礼物的推送我感觉并不是很可靠,很有可能会有网络波动或连接断开的情况,所以我选择多个线程同时监听弹幕服务器的推送(当然多个线程可以选择跑在不同的进程跑在不同的机器上). 然后的问题是,把消息往mq里塞,还要消息不重复传.我这里没有选择用自带去重功能的rocketMQ,而是用的kafka(毕竟kafka性能和多语言客户端支持比rocketMQ好),三个Producer往mq里写消息之前,先试图往Redis里SetNX一个键值对,这个键就根据消息内容生成的,值为空字符串就好,如果写入成功,就由该线程将消息写入mq,如果没有写入成功,则表示有其他线程来往mq里写消息,自己直接返回即可.这里往redis里写的时候 过期时间我也不晓得应该设多少合适…多了占内存少了可能起不到作用…我现在是设的5s 然后mq的消息广播机制就很有作用了,我们可以有多个consumer,比如我服务器一直跑着一个consumer来往db里记录数据,然后我自己桌面可以开一个consumer来看实时弹幕(我这b站web端看直播经常没弹幕可看…) 大概画个图如下 2019年12月19日21:42:29 更新 最近把xshell换掉了,换了个新的ssh工具叫MobaXterm,这个工具在最底下就能看到资源使用情况,然后??? 然后看一下htop这个这么长java运行参数的就是kafka…光它就吃了我一半的内存…然后上网上看了一下,说是kafka要服务器内存5g起步…算了算了 然后回想一下,我当初为啥用kafka来着???消息队列的意义在于解耦,削峰填谷和消息广播,我这个并发级别没那么高,应该没有什么峰谷可言,出于解耦和消息广播的目的用的mq. emm,大致想到替代方案–用微服务架构,去掉mq,监听弹幕的线程写redis成功后直接调存db的服务.微服务架构感觉要选用grpc而不是dubbo了,出于解耦方面考虑.不过grpc好像没看到比较好的服务治理框架?周末去上海回来再看看吧(埋坑) 换微服务那一套的话,服务治理方面,集群容错机制也有广播的机制,在我这个项目中可以完美替代mq了.(毕竟别人用mq都是削峰填谷…)]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2019-48]]></title>
-    <url>%2Fweekly-2019-48%2F</url>
-    <content type="text"><![CDATA[周二去把三方签了 虚拟形象开始安排了,策划本写了半本了,画师也有约到了]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2019-47]]></title>
-    <url>%2Fweekly-2019-47%2F</url>
-    <content type="text"><![CDATA[这周金思维复试,拿到了offer,下周二去签三方 去打了一次maimai 斩服少女看了10集,jojo看了10集.感觉jojo没那么好看…]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[weekly-2019-46]]></title>
-    <url>%2Fweekly-2019-46%2F</url>
-    <content type="text"><![CDATA[这周尝试了kafka,另外研究了下websocket. 这周只有周一去了maimai 看了永生之酒.蛮好玩的 这周有两天都只睡了一小时…相应的有两天睡了10小时… 看了360话火影漫画]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[python-kafka-java]]></title>
@@ -185,17 +53,6 @@
       </categories>
       <tags>
         <tag>kafka</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2019-45周周报]]></title>
-    <url>%2Fweekly-2019-45%2F</url>
-    <content type="text"><![CDATA[这周去玩maimai玩的有点多,因为出门比较多 周一去了金智科技的一面,周三去的它的二面,周六去的省招会 这周把转推姬用java重构完毕了 开始读java性能优化权威指南了]]></content>
-      <categories>
-        <category>周报</category>
-      </categories>
-      <tags>
-        <tag>周报</tag>
       </tags>
   </entry>
   <entry>

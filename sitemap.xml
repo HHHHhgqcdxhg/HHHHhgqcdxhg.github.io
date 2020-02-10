@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2020-06/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2020-06.html</loc>
     
-    <lastmod>2020-02-09T20:10:05.258Z</lastmod>
+    <lastmod>2020-02-10T18:05:55.040Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2020-05/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2020-05.html</loc>
     
     <lastmod>2020-02-02T21:42:35.726Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2020-04/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2020-04.html</loc>
     
     <lastmod>2020-02-02T21:40:04.000Z</lastmod>
     
@@ -100,28 +100,28 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2020-03/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2020-03.html</loc>
     
     <lastmod>2020-01-19T09:19:16.786Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2020-02/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2020-02.html</loc>
     
     <lastmod>2020-01-16T05:50:11.569Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2020-01/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2020-01.html</loc>
     
     <lastmod>2020-01-16T05:49:21.491Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-51/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2019-51.html</loc>
     
     <lastmod>2020-01-02T15:38:33.814Z</lastmod>
     
@@ -149,7 +149,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-50/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2019-50.html</loc>
     
     <lastmod>2019-12-23T13:42:57.615Z</lastmod>
     
@@ -184,7 +184,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-49/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2019-49.html</loc>
     
     <lastmod>2019-12-16T21:08:17.174Z</lastmod>
     
@@ -198,28 +198,28 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-48/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2019-48.html</loc>
     
     <lastmod>2019-12-16T10:44:50.257Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-45/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2019-45.html</loc>
     
     <lastmod>2019-12-01T15:51:31.445Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-47/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2019-47.html</loc>
     
     <lastmod>2019-12-01T15:51:20.666Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/weekly-2019-46/</loc>
+    <loc>https://blog.ggemo.com/weekly/weekly-2019-46.html</loc>
     
     <lastmod>2019-11-27T07:53:12.926Z</lastmod>
     
@@ -380,14 +380,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
+    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
     
     <lastmod>2019-09-06T13:00:05.233Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/learn-jdk-reentrantLock/</loc>
+    <loc>https://blog.ggemo.com/java-concurrent-reentrantlock/</loc>
     
     <lastmod>2019-09-06T13:00:05.233Z</lastmod>
     
@@ -457,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-4/</loc>
+    <loc>https://blog.ggemo.com/dubbo-8/</loc>
     
     <lastmod>2019-08-24T08:30:29.264Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-8/</loc>
+    <loc>https://blog.ggemo.com/dubbo-4/</loc>
     
     <lastmod>2019-08-24T08:30:29.264Z</lastmod>
     
@@ -499,13 +499,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-1/</loc>
-    
-    <lastmod>2019-08-14T08:02:18.985Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/dubbo-0/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
@@ -514,6 +507,13 @@
   
   <url>
     <loc>https://blog.ggemo.com/dubbo-2/</loc>
+    
+    <lastmod>2019-08-14T08:02:18.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/dubbo-1/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
     
@@ -548,14 +548,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
+    <loc>https://blog.ggemo.com/io-model/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/io-model/</loc>
+    <loc>https://blog.ggemo.com/haoyangmao-cloudService/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
     

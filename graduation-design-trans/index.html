@@ -118,7 +118,7 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20200214070651.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20200214145642.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20200214224050.png">
-<meta property="og:updated_time" content="2020-02-14T17:24:31.504Z">
+<meta property="og:updated_time" content="2020-02-16T12:14:53.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="外文翻译">
 <meta name="twitter:description" content="摘要——在对C/S和B/S模式的特征的完全分析的基础上，在化学的同分异构体的启发下提出了C/S和B/S混合架构。C/S和B/S混合架构在软件可靠性与可维护性测试平台的应用证明了这种模式可以满足更多平台的功能需求。 关键字——客户端/服务器；浏览器/服务器；C/S和B/S混合架构；软件可靠性与可维护性测试平台  I. 介绍 关于软件架构开发模式，有很多种软件架构被提出，如客户端/服务器模式，浏览器/">
@@ -486,7 +486,7 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2020-02-14 02:25:51" itemprop="dateCreated datePublished" datetime="2020-02-14T02:25:51+08:00">2020-02-14</time>
+              <time title="创建时间：1970-02-14 02:25:51" itemprop="dateCreated datePublished" datetime="1970-02-14T02:25:51+08:00">1970-02-14</time>
             
 
             
@@ -503,7 +503,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-15 01:24:31" itemprop="dateModified" datetime="2020-02-15T01:24:31+08:00">2020-02-15</time>
+                <time title="修改时间：2020-02-16 20:14:53" itemprop="dateModified" datetime="2020-02-16T20:14:53+08:00">2020-02-16</time>
               
             
           </span>
@@ -544,7 +544,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.5k</span>
+                <span title="本文字数">6.2k</span>
               
 
               
@@ -736,7 +736,18 @@ window.console.log=()=>{};
 <h2 id="v-cs和bs混合架构的应用"><a class="markdownIt-Anchor" href="#v-cs和bs混合架构的应用"></a> V. C/S和B/S混合架构的应用</h2>
 <p>可靠性和可维护性的软件测试平台（简称为RMTP）是一种通用的测试平台，可以同时测试嵌入式软件和非嵌入式软件。主要功能包括测试文档管理，专家判断，非嵌入式软件测试，嵌入式软件测试，测试跟踪与控制，测试评估。此外，还有一些必要的功能模块，如系统登录，系统初始化，系统维护，错误处理等，以确保系统安全运行。见图6。</p>
 <p><img src="https://pic.ggemo.com/picgo/20200214224050.png" alt="Figure 6. Classification of RMTP functions"></p>
-<p>鉴于要做大量的数据处理，RMTP需要数据库的支持。C/S和B/S架构都可以考虑。C/S架构构建在LAN上，具有良好的安全性和动态变更能力，然而几乎不能满足LAN外部用户的使用需求</p>
+<p>鉴于要做大量的数据处理，RMTP需要数据库的支持。C/S和B/S架构都可以考虑。C/S架构构建在LAN上，具有良好的安全性和动态变更能力，然而几乎不能满足LAN外部用户的使用需求,比如专家评判，放置和更新软件测试文档。借助在WAN上构建的B/S架构，只要安装了WWW浏览器，就可以轻松访问该平台，然而几乎不能确保安全性，并且数据替换受到限制，无法满足部分测试要求。基于以上分析，我们在RMTP中采用了C/S和B/S混合架构。参见图7。</p>
+<p>这种混合架构可以帮助满足内部和外部用户的不同需求。内部使用C/S架构。然后，用户可以直接通过LAN访问数据库服务器。在这种结构下，数据动态变更得到加强，系统安全性得到提高。外部使用B/S架构。然后，用户就可以通过Internet访问Web服务器，从而方便地访问数据库。一方面，非本地用户可以通过这种方式方便地登录平台，提交或更新相关文档并熟悉软件测试的现状。另一方面，专家可以通过Internet对测试文档进行交叉判断，从而宏观地控制软件测试。通过将这两种样式整合在一起，可以充分发挥优点，同时弥补缺点。外部用户不直接访问数据库服务器，因此可以确保数据库的安全性。同时，内部用户具有很强的动态变更能力，可以快速查询或修改数据。</p>
+<p>C/S和B/S混合架构也存在缺陷。由于动态更改能力受到B/S架构的限制，因此不支持远程软件测试。实际测试是在LAN内部进行的。因此，应做进一步的研究以实施远程软件测试。</p>
+<h2 id="致谢"><a class="markdownIt-Anchor" href="#致谢"></a> 致谢</h2>
+<p>在对C/S架构和B/S架构的特点进行分析的基础上，这篇文章将C/S和B/S混合风格应用于软件可靠性和可维护性测试平台上，更好地满足了系统要求。应进一步研究增强数据动态变更和实施远程软件测试的技术。感谢我们教员室中的讲师们无私的学术帮助。</p>
+<h2 id="引用"><a class="markdownIt-Anchor" href="#引用"></a> 引用</h2>
+<p>[1] WANG Yi-bin, LIU Kui, and WANG Yang, “Research and Practice of Software Architecture”, Computer Technology and Development, vol. 17, China, September 2007, pp. 142-146.<br>
+[2] SHEN Jian-qiao, and NIE Hua-bei, “Introduction to Software Architecture”, Computer Development and Application, vol. 21, February 2008, China, pp. 49-52.<br>
+[3] LIU Zhi-guo. “Analysis on the Styles of a Few Software System Structure”, Higher Vocational Education-Journal of Tianjing Professional College, vol. 12, China, October 2003, pp. 49-51.<br>
+[4] AN JIAN Cai-rang, and WU Jun-sheng, “Information Application System Development based on B/S and C/S Mixed Structure”, Microprocessors, February 2007, China, pp. 17-120.<br>
+[5] LIU Xue-wu, and PENG Ling-yi, “Discuss the development of system C/S and B/S mode”, Technological Development of Enterprise, vol. 27, China, February 2008, pp. 58-60.<br>
+[6] CHENG Yong-li, “Design of a financial expense system based on B/S and C/S”, Journal of Ningbo Polytechnic, vol. 12, China, April 2008, pp. 29-32.</p>
 
       
     </div>
@@ -773,15 +784,15 @@ window.console.log=()=>{};
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/va-by-product/" rel="next" title="va的副产物">
-                <i class="fa fa-chevron-left"></i> va的副产物
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/graduation-design-trans-raw/" rel="prev" title="外文翻译原文">
+                外文翻译原文 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -859,7 +870,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">107</span>
+                    <span class="site-state-item-count">108</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1025,7 +1036,9 @@ window.console.log=()=>{};
                     
                       
                     
-                    <span class="site-state-item-count">49</span>
+                      
+                    
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1107,7 +1120,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#i-介绍"><span class="nav-text"> I. 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ii-cs架构"><span class="nav-text"> II. C/S架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-cs架构的框架"><span class="nav-text"> A. C/S架构的框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-c-s架构的特征"><span class="nav-text"> B. C / S架构的特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iii-bs架构"><span class="nav-text"> III. B/S架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-bs架构的框架"><span class="nav-text"> A. B/S架构的框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-bs架构的特征"><span class="nav-text"> B. B/S架构的特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iv-cs和bs混合样式"><span class="nav-text"> IV. C/S和B/S混合样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-c-s和b-s混合样式的框架"><span class="nav-text"> A. C / S和B / S混合样式的框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-cs和bs混合架构的特征"><span class="nav-text"> B. C/S和B/S混合架构的特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-cs和bs混合架构的应用"><span class="nav-text"> V. C/S和B/S混合架构的应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#i-介绍"><span class="nav-text"> I. 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ii-cs架构"><span class="nav-text"> II. C/S架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-cs架构的框架"><span class="nav-text"> A. C/S架构的框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-c-s架构的特征"><span class="nav-text"> B. C / S架构的特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iii-bs架构"><span class="nav-text"> III. B/S架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-bs架构的框架"><span class="nav-text"> A. B/S架构的框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-bs架构的特征"><span class="nav-text"> B. B/S架构的特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iv-cs和bs混合样式"><span class="nav-text"> IV. C/S和B/S混合样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-c-s和b-s混合样式的框架"><span class="nav-text"> A. C / S和B / S混合样式的框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-cs和bs混合架构的特征"><span class="nav-text"> B. C/S和B/S混合架构的特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-cs和bs混合架构的应用"><span class="nav-text"> V. C/S和B/S混合架构的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#致谢"><span class="nav-text"> 致谢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-text"> 引用</span></a></li></ol></div>
             
 
           </div>
@@ -1148,7 +1161,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">319k</span>
+    <span title="站点总字数">352k</span>
   
 
   

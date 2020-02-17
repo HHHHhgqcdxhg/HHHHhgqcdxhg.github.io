@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/weekly/weekly-2020-07.html</loc>
+    
+    <lastmod>2020-02-17T12:30:37.058Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/note-python3-6/</loc>
     
     <lastmod>2020-02-16T12:16:45.409Z</lastmod>
@@ -9,14 +16,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/graduation-design-trans-raw/</loc>
+    <loc>https://blog.ggemo.com/graduation-design-trans/</loc>
     
     <lastmod>2020-02-16T12:14:53.840Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/graduation-design-trans/</loc>
+    <loc>https://blog.ggemo.com/graduation-design-trans-raw/</loc>
     
     <lastmod>2020-02-16T12:14:53.840Z</lastmod>
     
@@ -520,13 +527,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/dubbo-0/</loc>
-    
-    <lastmod>2019-08-14T08:02:18.985Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ggemo.com/dubbo-2/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
@@ -535,6 +535,13 @@
   
   <url>
     <loc>https://blog.ggemo.com/dubbo-1/</loc>
+    
+    <lastmod>2019-08-14T08:02:18.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ggemo.com/dubbo-0/</loc>
     
     <lastmod>2019-08-14T08:02:18.985Z</lastmod>
     
@@ -569,14 +576,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/java-and-thread/</loc>
+    <loc>https://blog.ggemo.com/io-model/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.ggemo.com/io-model/</loc>
+    <loc>https://blog.ggemo.com/java-and-thread/</loc>
     
     <lastmod>2019-07-30T05:19:37.931Z</lastmod>
     

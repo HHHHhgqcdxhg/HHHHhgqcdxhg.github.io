@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[剃刀]]></title>
+    <url>%2Frazor%2F</url>
+    <content type="text"><![CDATA[资料 wiki [知乎](剃刀原理都有哪些？ - 北境之王的回答 - 知乎 https://www.zhihu.com/question/49715115/answer/121378242) 理解&amp;看法 奥卡姆剃刀 如无必要, 勿增实体 格里斯剃刀 优先理解字面意思，然后再理解语境。 不太喜欢这个 汉隆剃刀 如果可以用愚蠢解释就不要恶意揣度 反阴谋论, 代表善良和自大? 休谟剃刀 抛开剂量谈毒性就是耍流氓 希钦斯剃刀 无证据的情况下提出的主张可以再无证据的情况下驳回 阿尔德剃刀(牛顿的烈焰激光剑) 不能以实验证明的事不值得争论]]></content>
+      <tags>
+        <tag>哲学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[va的副产物]]></title>
     <url>%2Fva-by-product%2F</url>
     <content type="text"><![CDATA[突然发现va平台搞出来的副产物还蛮多的… JAVA版的cqHttpClient https://github.com/HHHHhgqcdxhg/cqhttp-client vaScript https://github.com/HHHHhgqcdxhg/va-script 哔哩哔哩httpClient https://github.com/HHHHhgqcdxhg/bili-client 主站相关client https://github.com/HHHHhgqcdxhg/bili-dynamic-client 动态相关client 哔哩哔哩直播弹幕Client https://github.com/HHHHhgqcdxhg/bili-danmaku-client]]></content>

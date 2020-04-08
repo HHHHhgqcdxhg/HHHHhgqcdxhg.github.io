@@ -118,7 +118,7 @@ window.console.log=()=>{};
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190323093519.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190323121138.png">
 <meta property="og:image" content="https://pic.ggemo.com/picgo/20190323134011.png">
-<meta property="og:updated_time" content="2019-04-06T09:32:47.343Z">
+<meta property="og:updated_time" content="2020-04-08T18:39:46.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《shader入门精要》笔记-第8章-透明效果">
 <meta name="twitter:description" content="Unity中,有两种方式实现透明效果: 一种是透明度测试(Alpha Test),这种方法无法得到真正的半透明效果;另一种方法是透明度混合(Alpha Blending) 对于不透明物体,不考虑渲染顺序也能得到正确的排序结果,这是由于强大的深度缓冲(depth-buffer,也称z-buffer)的存在. 在实时渲染中,深度缓冲是用于解决可见性问题的,它会解决哪些物体的哪些部分会被渲染在前面,哪些">
@@ -503,7 +503,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-06 17:32:47" itemprop="dateModified" datetime="2019-04-06T17:32:47+08:00">2019-04-06</time>
+                <time title="修改时间：2020-04-09 02:39:46" itemprop="dateModified" datetime="2020-04-09T02:39:46+08:00">2020-04-09</time>
               
             
           </span>
@@ -600,7 +600,7 @@ window.console.log=()=>{};
 <h2 id="渲染顺序"><a class="markdownIt-Anchor" href="#渲染顺序"></a> 渲染顺序</h2>
 <h3 id="关闭深度写入很重要"><a class="markdownIt-Anchor" href="#关闭深度写入很重要"></a> 关闭深度写入很重要</h3>
 <p>使用透明度混合时,如果不关闭深度写入:<br>
-如果一个半透明表面背后的表面本是可以透过前面的表面被我妈看到的,但由于深度测试时判断结果是前面的半透明表面距离摄像机更近,导致后面的表面将会被剔除,我们无法透过半透明表面看到后面的物体了.<br>
+如果一个半透明表面背后的表面本是可以透过前面的表面被我们看到的,但由于深度测试时判断结果是前面的半透明表面距离摄像机更近,导致后面的表面将会被剔除,我们无法透过半透明表面看到后面的物体了.<br>
 但是,我们破坏了深度缓冲的工作机制,而这是一个非常非常糟糕的事情,尽管我们不得不这样做: 关闭深度写入导致渲染顺序变得非常重要</p>
 <h3 id="不同的渲染顺序会得到的结果"><a class="markdownIt-Anchor" href="#不同的渲染顺序会得到的结果"></a> 不同的渲染顺序会得到的结果</h3>
 <p>假设场景里有两个物体:A和B,其中A是半透明物体,B是不透明物体,如图所示<br>

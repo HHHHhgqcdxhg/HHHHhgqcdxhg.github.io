@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/note-python3-6/</loc>
+    
+    <lastmod>2020-04-08T18:41:48.587Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/shader-r-alpha-effect/</loc>
     
     <lastmod>2020-04-08T18:39:46.582Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>https://blog.ggemo.com/graduation-design-trans/</loc>
     
     <lastmod>2020-02-23T04:56:48.656Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/note-python3-6/</loc>
-    
-    <lastmod>2020-02-16T12:16:45.409Z</lastmod>
     
   </url>
   

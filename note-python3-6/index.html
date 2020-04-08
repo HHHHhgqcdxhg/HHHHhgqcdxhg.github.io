@@ -114,7 +114,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="参考资料    资料名 链接 作者 备注     Python文档 https://www.rddoc.com/doc/Python/3.6.0/zh/     python3官方教程 http://www.pythondoc.com/pythontutorial3/index.html     interview_python https://github.com/taizilongxu/in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T12:16:45.409Z">
+<meta property="og:updated_time" content="2020-04-08T18:41:48.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="note-python3.6">
 <meta name="twitter:description" content="参考资料    资料名 链接 作者 备注     Python文档 https://www.rddoc.com/doc/Python/3.6.0/zh/     python3官方教程 http://www.pythondoc.com/pythontutorial3/index.html     interview_python https://github.com/taizilongxu/in">
@@ -498,7 +498,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-16 20:16:45" itemprop="dateModified" datetime="2020-02-16T20:16:45+08:00">2020-02-16</time>
+                <time title="修改时间：2020-04-09 02:41:48" itemprop="dateModified" datetime="2020-04-09T02:41:48+08:00">2020-04-09</time>
               
             
           </span>
@@ -841,7 +841,7 @@ bytes.decode()可以用于实现相反.</p>
 <li>元组可以作为map的键,list不可以</li>
 <li>元组的拆包</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 一个元组只有一个元素时,一定要在这个元素后加逗号</span><br><span class="line">tup1=(&quot;sqh&quot;,)</span><br><span class="line">tup2=(&quot;sqh&quot;,&quot;qjb&quot;)</span><br><span class="line">print(tup1)</span><br><span class="line">#&gt;&gt;&gt; (&apos;sqh&apos;,)</span><br><span class="line">print(tup2)</span><br><span class="line">#&gt;&gt;&gt; (&apos;sqh&apos;, &apos;qjb&apos;)</span><br><span class="line">print(tup2[0])</span><br><span class="line">#&gt;&gt;&gt; sqh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 一个元组只有一个元素时,一定要在这个元素后加逗号</span><br><span class="line">tup1=(&quot;sqh&quot;,)</span><br><span class="line">tup2=(&quot;sqh&quot;,&quot;123&quot;)</span><br><span class="line">print(tup1)</span><br><span class="line">#&gt;&gt;&gt; (&apos;sqh&apos;,)</span><br><span class="line">print(tup2)</span><br><span class="line">#&gt;&gt;&gt; (&apos;sqh&apos;, &apos;123&apos;)</span><br><span class="line">print(tup2[0])</span><br><span class="line">#&gt;&gt;&gt; sqh</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">t = (&quot;ddd&quot;,&quot;sss&quot;)</span><br><span class="line">m = &#123;t:&quot;aaa&quot;&#125;</span><br><span class="line">print(m[t])</span><br><span class="line">#&gt;&gt;&gt; aaa</span><br><span class="line">#元组作为map的键</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a, b, c = (1, 2, 3)</span><br><span class="line">print(a, b, c)</span><br><span class="line">#&gt;&gt;&gt; 1 2 3</span><br><span class="line">#元组的平行赋值就是拆包</span><br><span class="line"></span><br><span class="line">x, y, *rest = range(5)</span><br><span class="line">print(x, y, rest)</span><br><span class="line">#&gt;&gt;&gt; 0 1 [2, 3, 4]</span><br><span class="line">#用*处理剩下的元素</span><br></pre></td></tr></table></figure>
 <h2 id="具名元组"><a class="markdownIt-Anchor" href="#具名元组"></a> 具名元组</h2>

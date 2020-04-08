@@ -1414,3 +1414,36 @@ window.console.log=()=>{};
 
 </body>
 </html>
+d('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+
+
+  
+
+
+  <script src="/js/src/live2d.js?v=7.0.0"></script>
+
+  <script src="/js/src/waifu-tips.js?v=7.0.0"></script>
+
+<script type="text/javascript">
+    loadlive2d("live2d", "../src/pio/model.json");
+</script>
+
+
+</body>
+</html>

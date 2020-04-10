@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ggemo.com/balabala/index.html</loc>
+    
+    <lastmod>2020-04-10T00:50:45.598Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ggemo.com/note-python3-6/</loc>
     
     <lastmod>2020-04-08T18:41:48.587Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://blog.ggemo.com/redis-8/</loc>
     
     <lastmod>2020-04-08T18:36:09.511Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ggemo.com/balabala/index.html</loc>
-    
-    <lastmod>2020-04-08T18:34:43.475Z</lastmod>
     
   </url>
   

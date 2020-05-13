@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[jvm-java-performance-hotspot]]></title>
+    <url>%2Fjvm-java-performance-hotspot%2F</url>
+    <content type="text"><![CDATA[有些东西在&lt;&lt;深入理解JVM&gt;&gt;里没写清楚 HotSpot VM 运行 命令行选项 标准选项 非标准选项 以-X开头, 不保证, 也不强制所有JVM实现都必须支持, 可能未经通知就在Java SDK发行版之间发生更改. 非稳定选项 以-XX开头, 通常是为了特定需要面对JVM的运行进行校正,并且可能需要有系统配置参数的访问权限.和非标准选项一样,非稳定选项也可能不经通知就在发行版之间发生变动. VM生命周期 HotSpot在Java程序运行前以及终止退出时所作的工作 启动HotSpot VM的组件是启动器, HotSpot VM有若干个启动器, 比如Windows上的java和javaw 启动器启动HotSpot VM时会执行一系列操作: 解析命令行选项 设置堆大小和JIT编译器 设定环境变量, 如LD_LIBRARY_PATH和CLASSPATH 如果命令行有-jar选项,启动器则从指定JAR的manifest中查找Main-Class, 否则从命令行读取Main-Class 使用标准Java本地接口(JNI)方法JNI_CreateJavaVM在新创建的线程中创建HotSpot VM 不在初始线程中创建HotSpot VM, 是为了可以对它进行定制, 例如Windows上更改栈的大小. 一单创建并初始化好HotSpot VM, 就会加载Java Main-Class, 启动器也会从Java Main-Class中得到Java main方法的参数 HotSpot VM通过JNI方法CallStaticVoidMethod调用Java main方法, 并将命令行选项转给它 至此, HotSpot VM开始正式执行命令行指定的Java程序了 一旦Java程序或者Java main方法执行结束, HotSpot VM就必须检查和清理所有程序或者方法执行过程中生成的未经处理异常. 此外, 方法的退出状态和程序的退出状态也必须返回给他们的调用者.调用Java本地接口方法DetachCurrentThread将Java main方法与HotSpot VM脱离.每次HotSpot VM调用DetachCurrentThread时,线程数就会减1, 因此Java本地接口知道何时可以安全地关闭HotSpot VM, 并能确保当时的HotSpot VM中没有正在执行的操作, Java栈中也没有激活的Java帧. JNI_CreateJavaVM详解 JNI_CreateJavaVM详解 HotSpot VM启动时JNI_CreateJavaVM方法将执行以下一系列操作. 确保只有一个线程调用这个方法并且确保只创建一个HotSpot VM实例 因为HotSpot VM创建的静态数据结构无法再次初始化, 所以一旦初始化达到某个确定点后, 进程空间里就只能有一个HotSpot VM 检查并确保支持当前的JNI版本, 初始化垃圾收集日志输出流 初始化OS模块 如随机数生成器(Random Number Generator), 当前进程id(Current Process id), 高精度计数器(High-Resolution Timer), 内存页尺寸(Memory Page Sizes), 保护页(Guard Pages). 保护页是不可访问的内存页, 用作内存访问区域的边界. 例如, 操作系统常在线程栈顶压入一个保护页以保证引用不会超出栈的边界. 解析传入JNI_CreateJavaVM的命令行选项, 保存以备将来使用 初始化标准的Java系统属性 例如java.version, java.vender, os.name等 初始化支持同步, 栈, 内存和安全点页的模块 加载libzip, libhpi, libjava及libthread等库 初始化并设置信号处理器(Signal Handler) 初始化线程库. 初始化输出流日志记录器(Logger) 如果用到Agent库(hprof, jdi), 则初始化并启动 初始化线程状态(Thread State)和线程本地存储(Thread Local Storage), 它们存储了线程的私有数据 初始化部分HotSpot VM全局数据 例如事件日志, OS同步原语, perfMemory(性能统计数据内存), 以及chunkPool(内存分配器) 至此, HotSpot VM可以创建线程了. 创建出来的Java版main线程被关联到当前操作系统的线程, 只不过还没有添加到一直线程列表中. 初始化并激活Java级别的同步 初始化启动类加载器(Bootclassloader), 代码缓存, 解释器, JIT编译器, JNI, 系统词典(System Dictionary)及universe(一种必备的全局数据结构集) 现在, 添加Java主线程到一只线程列表中,. 检查univers是否正常. 创建HotSpot VMThread, 它执行HotSpot VM所有的关键功能. 同时发出适当的JVMTI时间, 报告HotSpot VM的当前状态. 加载和初始化以下Java类: java.lang.String, java.lang.System, java.lang.Thread, java.lang.ThreadGroup, java.lang.reflect.Method, java.lang.ref.Finalizer, java.lang.Class以及余下的Java系统类. 此时, HotSpot已经初始化完毕并可使用, 只是功能还不完备 启动HotSpot VM的信号处理器线程, 初始化JIT编译器并启动HotSpot编译代理线程. 启动HotSpot VM辅助线程(如监控现场和统计抽样器). 此时, HotSpot VM已功能完备 最后生成JNIEnv对象返回给调用者, HotSpot则准备响应新的JNI请求. DestroyJavaVM详解 DestroyJavaVM详解 如果HotSpot VM启动过程中发生错误, 启动器则调用DestroyJavaVM方法关闭HotSpot VM. 如果HotSpot VM启动后的执行过程中发生很严重的错误, 也会调用DestroyJavaVM方法. DestroyJavaVM按一下步骤停止HotSpot VM: 一直等待, 直到只有一个非守护的线程(即当前线程)执行 此时HotSpot仍然可用 调用java.lang.Shutdown.shutdown(), 它会调用Java上的shutdown钩子方法, 如果finalization-on-exit为true, 则运行Java对象的finalizer. 运行HotSpot VM上的shutdown钩子(通过JVM_OnExit()注册), 停止以下线程: 性能分析器, 统计数据抽样器, 监控现场及垃圾收集器线程. 发出状态事件通知]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[游戏]]></title>
     <url>%2Fgame%2F</url>
     <content type="text"><![CDATA[我对游戏的看法 我认为游戏应该是能给人带来快乐的. 玩游戏是很花费时间的, 花费了时间想要得到的是快乐, 而不是生气 因此很多竞技游戏我是不喜欢去玩的 小时候别的小朋友家里都有那种插卡插光盘的游戏机, 我爸妈不给我买, 然后网络游戏兴起之后, 爸妈会限制我的上网时间. 小学的时候, 因为五六年级搬家了, 电脑没有搬到新家, 基本没得玩. 大家小学五六年级玩的赛尔号摩尔庄园我都没能怎么玩. 初中的时候都是周末的时候每天能玩半个小时, 上了高中给我加到了两个小时. 这里的时间还是考试考得好了能争取到的, 如果期末考试或者期中考试成绩不理想, 就把玩电脑的时间完全掐掉. 一腔热血最贪玩的时候被限制了…而现在我玩些游戏都提不起兴致. 通常我玩游戏感觉不好玩有大致以下几个原因: 重复作业, 游戏性低 比如碧蓝航线等手游 手机游戏 嗯…因为之前手机太卡了, 是16年一千多块钱买的vivo, 搁几年之后啥都玩不动了…最近换了手机之后也没兴致玩手游了… 竞技性强, 输了会不开心 比如英雄联盟, 守望先锋, 吃鸡之类的 难度太高, 自虐 比如蔚蓝, STG等 太过浪费时间, 一不小心沉迷其中就浪费大把时间; 等待时间过长, 不能有效利用游戏时间; 游戏进程太长, 没有大量时间玩不通 第一个有植物大战僵尸, 第二个有各种自走棋, 三国杀等, 第三个有很多日式RPG都满足 恐怖游戏 我胆子小…唯一玩过的恐怖游戏是当年大火特火但迅速凉了的还愿 视角会转的3D游戏 晕3D…不用说吃鸡那种游戏了, 我的世界都会晕. 甚至看主播玩那个勇者斗恶龙创世小玩家都会晕. 神奇的是守望先锋是唯一不晕的 再列几个喜欢的游戏吧 奥日 画面精美, 配乐好听, 游戏难度选简单的话基本没难度, 打击感强游戏体验好 英雄联盟 大乱斗, 无限火力, 克隆模式之类的很好玩, 不用在意输赢. 还有就是我喜欢开自定义模式 对面放五个电脑我1v5, 杀疯了确实很有快感 音游 偶尔会玩, 听听歌跟着节奏玩一玩 除了游戏本身的游戏性外, 游戏还有社交性. 比如王者荣耀有很强的社交性, 刚上大学的时候也会陪同学玩(后来身边同学都不玩了)]]></content>
@@ -511,8 +520,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>深入理解JVM</tag>
         <tag>jvm</tag>
+        <tag>深入理解JVM</tag>
         <tag>多线程</tag>
       </tags>
   </entry>
@@ -562,8 +571,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>深入理解JVM</tag>
         <tag>jvm</tag>
+        <tag>深入理解JVM</tag>
         <tag>GC</tag>
       </tags>
   </entry>
@@ -576,8 +585,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>深入理解JVM</tag>
         <tag>jvm</tag>
+        <tag>深入理解JVM</tag>
       </tags>
   </entry>
   <entry>

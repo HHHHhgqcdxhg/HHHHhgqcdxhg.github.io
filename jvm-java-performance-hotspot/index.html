@@ -114,7 +114,7 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="有些东西在&amp;lt;&amp;lt;深入理解JVM&amp;gt;&amp;gt;里没写清楚  HotSpot VM 运行  命令行选项  标准选项 非标准选项 以-X开头, 不保证, 也不强制所有JVM实现都必须支持, 可能未经通知就在Java SDK发行版之间发生更改. 非稳定选项 以-XX开头, 通常是为了特定需要面对JVM的运行进行校正,并且可能需要有系统配置参数的访问权限.和非标准选项一样,非稳定选项也可能不经通">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-14T18:07:20.534Z">
+<meta property="og:updated_time" content="2020-05-14T20:52:17.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm-java-performance-hotspot">
 <meta name="twitter:description" content="有些东西在&amp;lt;&amp;lt;深入理解JVM&amp;gt;&amp;gt;里没写清楚  HotSpot VM 运行  命令行选项  标准选项 非标准选项 以-X开头, 不保证, 也不强制所有JVM实现都必须支持, 可能未经通知就在Java SDK发行版之间发生更改. 非稳定选项 以-XX开头, 通常是为了特定需要面对JVM的运行进行校正,并且可能需要有系统配置参数的访问权限.和非标准选项一样,非稳定选项也可能不经通">
@@ -498,7 +498,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-15 02:07:20" itemprop="dateModified" datetime="2020-05-15T02:07:20+08:00">2020-05-15</time>
+                <time title="修改时间：2020-05-15 04:52:17" itemprop="dateModified" datetime="2020-05-15T04:52:17+08:00">2020-05-15</time>
               
             
           </span>
@@ -539,7 +539,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.5k</span>
+                <span title="本文字数">4.7k</span>
               
 
               
@@ -643,7 +643,28 @@ java.lang.String, java.lang.System, java.lang.Thread, java.lang.ThreadGroup, jav
 </ol>
 </details>
 <h3 id="vm类加载"><a class="markdownIt-Anchor" href="#vm类加载"></a> VM类加载</h3>
-<p>HotSpot VM和Java SE类加载库共同负责类加载. HotSpot VM负责解析常量池符号. 这个过程需要加载, 链接, 然后初始化Java类和Java接口. 类加载的最佳时机是在解析Java字节码类文件中常量池符号的时候. JavaAPI如Class.fromName(), ClassLoader.loadClass(), 反射API和JNI_FindClass都可以引发类加载. HotSpot VM自身也可以引起类加载. HotSpot VM启动时, 除了加载许多普通类, 也会加载注入java.lang.Object和java.lang.Thread这样的核心类. 加载类时需要加载它的所有Java超类和所有Java超接口.此外</p>
+<p>HotSpot VM和Java SE类加载库共同负责类加载. HotSpot VM负责解析常量池符号. 这个过程需要加载, 链接, 然后初始化Java类和Java接口. 类加载的最佳时机是在解析Java字节码类文件中常量池符号的时候. JavaAPI如Class.fromName(), ClassLoader.loadClass(), 反射API和JNI_FindClass都可以引发类加载. HotSpot VM自身也可以引起类加载. HotSpot VM启动时, 除了加载许多普通类, 也会加载注入java.lang.Object和java.lang.Thread这样的核心类. 加载类时需要加载它的所有Java超类和所有Java超接口. 此外, 作为链接阶段的一部分, 类文件验证也需要加载一些其他类. 实际上, 加载阶段是HotSpot VM和特定类加载器如java.lang.ClassLoader之间相互协作的过程.</p>
+<h4 id="类加载阶段"><a class="markdownIt-Anchor" href="#类加载阶段"></a> 类加载阶段</h4>
+<h4 id="类加载器委派"><a class="markdownIt-Anchor" href="#类加载器委派"></a> 类加载器委派</h4>
+<h4 id="启动类加载器"><a class="markdownIt-Anchor" href="#启动类加载器"></a> 启动类加载器</h4>
+<h4 id="类型安全"><a class="markdownIt-Anchor" href="#类型安全"></a> 类型安全</h4>
+<p>Java类或接口的名字为全限名. Java的类型由全限名和类加载器唯一确定. 类加载器定义了类型空间, 这意味着两个不同的类加载器加载的类, 即使全限名相同, 仍然是两个不同的类型. 如果有用户类加载器, HotSpot VM则需要确保类型安全不被恶意的类加载器破坏. 当类A调用B.someMethod()时, HotSpot VM会追踪和检查类加载器约束, 从而确保A和B的类加载器所看到的的someMethod()方法签名(包括参数列表和返回类型)是一致的</p>
+<h4 id="hotspot类元数据"><a class="markdownIt-Anchor" href="#hotspot类元数据"></a> HotSpot类元数据</h4>
+<p>类加载时, HotSpot VM会在永久代创建类的内部表示instanceKlass或arrayKlass. instanceKlass引用了与之对应的java.lang.Class实例, 后者是前者的Java镜像. HotSpot VM内部使用成为klassOop的数据结构访问instanceKlass. 后缀Oop表示普通对象指针, 所以klassOop是引用java.lang.Class的HotSpot内部抽象, 它是指向Klass的普通对象指针</p>
+<h4 id="内部类加载数据"><a class="markdownIt-Anchor" href="#内部类加载数据"></a> 内部类加载数据</h4>
+<p>类加载过程中, HotSpot VM维护了3张散列表:</p>
+<ul>
+<li>SystemDictionary<br>
+包含已加载的类, 它将建立类名/类加载器(包括初始类加载器和定义类加载器)与klassOop对象之间的映射. 目前只有在安全点时才能删除SystemDictionary中的元素</li>
+<li>PlaceholderTable<br>
+包含当前正在加载的类, 它用于检查ClassCircularError, 多线程类加载器并行加载类时也会用到它</li>
+<li>LoaderConstraintTable<br>
+用于追踪类型安全检查的约束条件</li>
+</ul>
+<p>这些散列表都需要加锁以保证访问安全, 这个锁成为SystemDictionary_lock. 通常, HotSpot VM借助类加载器对象锁对加载类的过程进行序列化.</p>
+<h3 id="字节码验证"><a class="markdownIt-Anchor" href="#字节码验证"></a> 字节码验证</h3>
+<p>Java是一门类型安全的语言, 官方标准的Java编译器可以生成合法的类文件和类型安全的字节码, 但Java虚拟机无法确保字节码一定是由可信的java编译器产生的, 所以在链接时必须进行字节码验证以保障类型安全. JVM Specification 4.8节规定了字节码验证. 这个规范规定了JVM需要进行字节码的静态和动态约束验证. 如果发现任何冲突, JVM就会抛出VertifyError并且阻止链接该类</p>
+<h3 id="类数据共享"><a class="markdownIt-Anchor" href="#类数据共享"></a> 类数据共享</h3>
 
       
     </div>
@@ -1022,7 +1043,7 @@ java.lang.String, java.lang.System, java.lang.Thread, java.lang.ThreadGroup, jav
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hotspot-vm-运行"><span class="nav-text"> HotSpot VM 运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行选项"><span class="nav-text"> 命令行选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vm生命周期"><span class="nav-text"> VM生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jni_createjavavm详解"><span class="nav-text"> JNI_CreateJavaVM详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#destroyjavavm详解"><span class="nav-text"> DestroyJavaVM详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vm类加载"><span class="nav-text"> VM类加载</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hotspot-vm-运行"><span class="nav-text"> HotSpot VM 运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行选项"><span class="nav-text"> 命令行选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vm生命周期"><span class="nav-text"> VM生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jni_createjavavm详解"><span class="nav-text"> JNI_CreateJavaVM详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#destroyjavavm详解"><span class="nav-text"> DestroyJavaVM详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vm类加载"><span class="nav-text"> VM类加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类加载阶段"><span class="nav-text"> 类加载阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类加载器委派"><span class="nav-text"> 类加载器委派</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动类加载器"><span class="nav-text"> 启动类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型安全"><span class="nav-text"> 类型安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hotspot类元数据"><span class="nav-text"> HotSpot类元数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内部类加载数据"><span class="nav-text"> 内部类加载数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节码验证"><span class="nav-text"> 字节码验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类数据共享"><span class="nav-text"> 类数据共享</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1063,7 +1084,7 @@ java.lang.String, java.lang.System, java.lang.Thread, java.lang.ThreadGroup, jav
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">357k</span>
+    <span title="站点总字数">358k</span>
   
 
   

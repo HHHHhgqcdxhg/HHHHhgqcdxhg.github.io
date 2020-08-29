@@ -114,10 +114,13 @@ window.console.log=()=>{};
 <meta property="og:site_name" content="黄瓜养殖基地！">
 <meta property="og:description" content="资料: b站有人传的一个公开课 可靠分布式系统基础 Paxos 的直观解释PPT   Basic Paxos  相关概念  Proposer 提议的发起者  Acceptor 提议的审批者  Leaner 提议的学习者  Quorum Acceptor的多数派  Phase Basic Paxos分为两阶段, Phase-1和Phase-2  Round 选举的轮次  rnd 轮次编号, 在不同">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-27T21:48:03.098Z">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/paxos-question-0-2020-5-29-22-55-06.png">
+<meta property="og:image" content="https://pic.ggemo.com/picgo/paxos-question-1-2020-5-29-22-55-06.png">
+<meta property="og:updated_time" content="2020-05-29T20:58:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式一致性算法paxos">
 <meta name="twitter:description" content="资料: b站有人传的一个公开课 可靠分布式系统基础 Paxos 的直观解释PPT   Basic Paxos  相关概念  Proposer 提议的发起者  Acceptor 提议的审批者  Leaner 提议的学习者  Quorum Acceptor的多数派  Phase Basic Paxos分为两阶段, Phase-1和Phase-2  Round 选举的轮次  rnd 轮次编号, 在不同">
+<meta name="twitter:image" content="https://pic.ggemo.com/picgo/paxos-question-0-2020-5-29-22-55-06.png">
 
 
 
@@ -481,12 +484,24 @@ window.console.log=()=>{};
                 
               
 
-              <time title="创建时间：2020-05-28 04:34:38 / 修改时间：05:48:03" itemprop="dateCreated datePublished" datetime="2020-05-28T04:34:38+08:00">2020-05-28</time>
+              <time title="创建时间：2020-05-28 04:34:38" itemprop="dateCreated datePublished" datetime="2020-05-28T04:34:38+08:00">2020-05-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-05-30 04:58:49" itemprop="dateModified" datetime="2020-05-30T04:58:49+08:00">2020-05-30</time>
               
             
           </span>
@@ -527,7 +542,7 @@ window.console.log=()=>{};
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.3k</span>
+                <span title="本文字数">2.4k</span>
               
 
               
@@ -607,6 +622,13 @@ window.console.log=()=>{};
 <figure class="highlight plain"><figcaption><span>```&#123;rnd: 1&#125;```, 将其发送给三个```acceptor```.  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### Phase-1 acceptor对收到的请求进行处理的阶段</span><br><span class="line">如果收到的```phase1ReqData```的```rnd```==大于==```acceptor```的```lastRnd```, 则通过该提案, 生成一个```phase1ResData```:  </span><br><span class="line">```ts</span><br><span class="line">phase1ResData = &#123;</span><br><span class="line">    lastRnd: acceptor.rnd</span><br><span class="line">    // Acceptor上次在Phase-2接受的提案的rnd</span><br><span class="line">    vRnd: acceptor.rnd;</span><br><span class="line">    // Acceptor上次接受的天的value</span><br><span class="line">    value: acceptor.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>之后, 将<code>acceptor</code>自身的<code>rnd</code>设为<code>phase1ReqData</code>的<code>rnd</code>, 然后将生成的生成一个phase1ResData返回. 即, 返回的<code>phase1ResData</code>中携带的<code>lastRnd</code>是<code>acceptor</code>先前的<code>lastRnd</code>, 然后<code>acceptor</code>的<code>lastRnd</code>设为收到的<code>phase1ReqData</code>的<code>rnd</code>.</p>
 <h4 id="phase-1-proposer"><a class="markdownIt-Anchor" href="#phase-1-proposer"></a> Phase-1 proposer</h4>
+<h3 id="两个问题"><a class="markdownIt-Anchor" href="#两个问题"></a> 两个问题</h3>
+<ul>
+<li>这个蓝色圈内如果timeout了怎么处理我是知道的, 红色圈内如果timeout了怎么办?<br>
+<img src="https://pic.ggemo.com/picgo/paxos-question-0-2020-5-29-22-55-06.png" alt="paxos-question-0-2020-5-29-22-55-06"></li>
+<li>acceptor返回数据的时候, 如果有一个acceptor实际返回的是reject, 但是timeout了怎么办?如果其他acceptor结果都是accept是不是有点不对劲…本来有一个reject就该失败的<br>
+<img src="https://pic.ggemo.com/picgo/paxos-question-1-2020-5-29-22-55-06.png" alt="paxos-question-1-2020-5-29-22-55-06"></li>
+</ul>
 
       
     </div>
@@ -654,6 +676,10 @@ window.console.log=()=>{};
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/family-education-as-a-baby/" rel="prev" title="本宝宝的想法">
+                本宝宝的想法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -731,7 +757,7 @@ window.console.log=()=>{};
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-count">114</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -907,7 +933,9 @@ window.console.log=()=>{};
                     
                       
                     
-                    <span class="site-state-item-count">54</span>
+                      
+                    
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -989,7 +1017,7 @@ window.console.log=()=>{};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-paxos"><span class="nav-text"> Basic Paxos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关概念"><span class="nav-text"> 相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#proposer"><span class="nav-text"> Proposer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#acceptor"><span class="nav-text"> Acceptor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#leaner"><span class="nav-text"> Leaner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#quorum"><span class="nav-text"> Quorum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase"><span class="nav-text"> Phase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#round"><span class="nav-text"> Round</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rnd"><span class="nav-text"> rnd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#value"><span class="nav-text"> Value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vrndvalue-round-number"><span class="nav-text"> vRnd(value round number)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据对象属性"><span class="nav-text"> 数据/对象属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#propose"><span class="nav-text"> Propose</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proposer-2"><span class="nav-text"> Proposer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase1reqdata"><span class="nav-text"> Phase1ReqData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#acceptor-2"><span class="nav-text"> Acceptor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase1resdata"><span class="nav-text"> Phase1ResData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase2reqdata"><span class="nav-text"> Phase2ReqData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase2resdata"><span class="nav-text"> Phase2ResData</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basic-paxos的过程"><span class="nav-text"> Basic Paxos的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开始前的状态"><span class="nav-text"> 开始前的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-1-proposer请求的阶段"><span class="nav-text"> Phase-1 proposer请求的阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-1-proposer"><span class="nav-text"> Phase-1 proposer</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-paxos"><span class="nav-text"> Basic Paxos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关概念"><span class="nav-text"> 相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#proposer"><span class="nav-text"> Proposer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#acceptor"><span class="nav-text"> Acceptor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#leaner"><span class="nav-text"> Leaner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#quorum"><span class="nav-text"> Quorum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase"><span class="nav-text"> Phase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#round"><span class="nav-text"> Round</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rnd"><span class="nav-text"> rnd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#value"><span class="nav-text"> Value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vrndvalue-round-number"><span class="nav-text"> vRnd(value round number)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据对象属性"><span class="nav-text"> 数据/对象属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#propose"><span class="nav-text"> Propose</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proposer-2"><span class="nav-text"> Proposer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase1reqdata"><span class="nav-text"> Phase1ReqData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#acceptor-2"><span class="nav-text"> Acceptor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase1resdata"><span class="nav-text"> Phase1ResData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase2reqdata"><span class="nav-text"> Phase2ReqData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase2resdata"><span class="nav-text"> Phase2ResData</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basic-paxos的过程"><span class="nav-text"> Basic Paxos的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开始前的状态"><span class="nav-text"> 开始前的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-1-proposer请求的阶段"><span class="nav-text"> Phase-1 proposer请求的阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-1-proposer"><span class="nav-text"> Phase-1 proposer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个问题"><span class="nav-text"> 两个问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1030,7 +1058,7 @@ window.console.log=()=>{};
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">361k</span>
+    <span title="站点总字数">362k</span>
   
 
   

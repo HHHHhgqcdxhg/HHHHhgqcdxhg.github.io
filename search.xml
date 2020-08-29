@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[本宝宝的想法]]></title>
+    <url>%2Ffamily-education-as-a-baby%2F</url>
+    <content type="text"><![CDATA[趁我还是个孩子, 从孩子的角度对家长的期盼写下来, 要是有孩子了翻来看看 不要制造对立 家长和孩子应该站在同一边, 而不是总将孩子放在对立面 把小孩当人看 尊重是相互的, 要给到孩子足够的尊重, 设身处地进行思考 教授爱与被爱 可能是时代问题, 老一辈喜欢教人间险恶, 而不教授爱与被爱, 认为人与人之间都是对立关系是不好的. 尤其是孩子之间的感情都是很纯粹的 站在孩子的角度去衡量资源 小孩子和成人在各种资源上的获取量是不同的, 比如小孩子觉得餐桌上的饭不是什么珍贵东西, 但是看似不起眼的&quot;玩具&quot;价值异常高. 比如: https://www.zhihu.com/question/398859457 小时候, 一年级还是二年级, 出去旅游一趟, 在游乐园买的那种自己上色的陶瓷娃娃, 我涂了一个黄色的哆啦A梦, 有次我妈忘记为啥发怒了, 把我那个哆啦A梦从床头扔到地上, 碎片划到阳台去; 还有一次也是一二年级出门玩买的一个花球, 可以收缩展开的那种, 有次表弟来我家玩, 我和表弟抢着那个玩闹矛盾, 被我妈一脚踩扁塞进垃圾桶; 还有一次还是一二年级的时候, 爸妈吵架, 我爸摔锅碗瓢盆, 我妈摔我玩具. 不应该 基于以上几点, 总结的不应该: 高考/中考 大敌当前, 总以为孩子不认真学习不努力, 不给孩子喘息的机会 摁着学习 胳膊肘往外拐: 你不得罪别人别人能得罪你? 生病/磕到碰到的时候: 摆一副臭脸, “跟你讲不要蹬被子 不要喝凉的你不听” 这是在制造对立, 孩子生病了都不敢说就不好了 孩子想要玩具, 有两个角度: 1. 那是及其无聊的玩意, 并且要花钱, 买它干啥 2. 买了孩子会很开心, 虽然要花点钱. 这两个角度的差别不在于结果买没买, 而是在于有没有真正的&quot;为孩子着想&quot; 最重要的一点: 要真正的爱孩子 “教育是最好的投资”, “养儿防老”, “孩子是父母生命的延续”, “父母做不到的, 交给孩子完成”, “长大了要好好孝顺爸妈”: 凡是抱有这种念头的通通不及格, 这不是&quot;为孩子着想&quot;, 这是父母的私愿, 并不是孩子本身所希望被&quot;着想&quot;的]]></content>
+      <tags>
+        <tag>教育</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[分布式一致性算法paxos]]></title>
     <url>%2Fpaxos%2F</url>
-    <content type="text"><![CDATA[资料: b站有人传的一个公开课 可靠分布式系统基础 Paxos 的直观解释PPT Basic Paxos 相关概念 Proposer 提议的发起者 Acceptor 提议的审批者 Leaner 提议的学习者 Quorum Acceptor的多数派 Phase Basic Paxos分为两阶段, Phase-1和Phase-2 Round 选举的轮次 rnd 轮次编号, 在不同资料中也被叫做提议的编号 Value 提议的内容(值) vRnd(value round number) vRnd是Acceptor的属性, 是Acceptor上次接受的提议的rnd 数据/对象属性 Propose 提议 123456class Propose &#123; // 提议的编号 rnd: number; // 提议的内容 value: Object;&#125; Proposer 提议的发起者 123class Proposer &#123; propose: Propose;&#125; 只携带一个propose. Phase1ReqData Phase-1中, Proposer向Acceptor发送的数据: 1234class Phase1ReqData&#123; // 提案的rnd rnd: number;&#125; Phase-1中, Proposer仅向Acceptor提交提案rnd Acceptor 12345678class Acceptor &#123; // 上次在Phase-1接受的提案的rnd lastRnd: number; // 上次在Phase-2接受的提案的rnd vRnd; // 接受的提案的value value: Object;&#125; Phase1ResData Phase-1中, Acceptor向Proposer返回的数据: 12345678class Phase1ResData &#123; // Acceptor上次在Phase-1接受的提案的rnd lastRnd: number; // Acceptor上次在Phase-2接受的提案的rnd vRnd; // Acceptor上次接受的天的value value;&#125; Phase2ReqData Phase-2中, Proposer向Acceptor发送的数据: 123456class Phase2ReqData &#123; // 提案的rnd rnd: number; // 提案的value value: Object;&#125; 注意, 这里的value并不一定是先前Proposer携带的Propose的value, 有可能会在Phase-1接受到返回数据之后发生改变. Phase2ResData Phase2中, Acceptor向Proposer返回的数据 1234class Phase2ResData &#123; // 是否已接受提案 accepted: boolean;&#125; Basic Paxos的过程 开始前的状态 初始数据用来模拟顺利提出, 接受一个Propose 12345678910111213141516proposer = &#123; propose: &#123; rnd: 1, value: "SomeValue" &#125;&#125;acceptor0 = &#123; lastRnd: 0, vRnd: 0, value: null&#125;// 初始化三个相同的acceptoracceptor1 = &#123;...acceptor0&#125;acceptor2 = &#123;...acceptor0&#125; Phase-1 proposer请求的阶段 ```&#123;rnd: 1&#125;```, 将其发送给三个```acceptor```. 1234567891011#### Phase-1 acceptor对收到的请求进行处理的阶段如果收到的```phase1ReqData```的```rnd```==大于==```acceptor```的```lastRnd```, 则通过该提案, 生成一个```phase1ResData```: ```tsphase1ResData = &#123; lastRnd: acceptor.rnd // Acceptor上次在Phase-2接受的提案的rnd vRnd: acceptor.rnd; // Acceptor上次接受的天的value value: acceptor.value;&#125; 之后, 将acceptor自身的rnd设为phase1ReqData的rnd, 然后将生成的生成一个phase1ResData返回. 即, 返回的phase1ResData中携带的lastRnd是acceptor先前的lastRnd, 然后acceptor的lastRnd设为收到的phase1ReqData的rnd. Phase-1 proposer]]></content>
+    <content type="text"><![CDATA[资料: b站有人传的一个公开课 可靠分布式系统基础 Paxos 的直观解释PPT Basic Paxos 相关概念 Proposer 提议的发起者 Acceptor 提议的审批者 Leaner 提议的学习者 Quorum Acceptor的多数派 Phase Basic Paxos分为两阶段, Phase-1和Phase-2 Round 选举的轮次 rnd 轮次编号, 在不同资料中也被叫做提议的编号 Value 提议的内容(值) vRnd(value round number) vRnd是Acceptor的属性, 是Acceptor上次接受的提议的rnd 数据/对象属性 Propose 提议 123456class Propose &#123; // 提议的编号 rnd: number; // 提议的内容 value: Object;&#125; Proposer 提议的发起者 123class Proposer &#123; propose: Propose;&#125; 只携带一个propose. Phase1ReqData Phase-1中, Proposer向Acceptor发送的数据: 1234class Phase1ReqData&#123; // 提案的rnd rnd: number;&#125; Phase-1中, Proposer仅向Acceptor提交提案rnd Acceptor 12345678class Acceptor &#123; // 上次在Phase-1接受的提案的rnd lastRnd: number; // 上次在Phase-2接受的提案的rnd vRnd; // 接受的提案的value value: Object;&#125; Phase1ResData Phase-1中, Acceptor向Proposer返回的数据: 12345678class Phase1ResData &#123; // Acceptor上次在Phase-1接受的提案的rnd lastRnd: number; // Acceptor上次在Phase-2接受的提案的rnd vRnd; // Acceptor上次接受的天的value value;&#125; Phase2ReqData Phase-2中, Proposer向Acceptor发送的数据: 123456class Phase2ReqData &#123; // 提案的rnd rnd: number; // 提案的value value: Object;&#125; 注意, 这里的value并不一定是先前Proposer携带的Propose的value, 有可能会在Phase-1接受到返回数据之后发生改变. Phase2ResData Phase2中, Acceptor向Proposer返回的数据 1234class Phase2ResData &#123; // 是否已接受提案 accepted: boolean;&#125; Basic Paxos的过程 开始前的状态 初始数据用来模拟顺利提出, 接受一个Propose 12345678910111213141516proposer = &#123; propose: &#123; rnd: 1, value: "SomeValue" &#125;&#125;acceptor0 = &#123; lastRnd: 0, vRnd: 0, value: null&#125;// 初始化三个相同的acceptoracceptor1 = &#123;...acceptor0&#125;acceptor2 = &#123;...acceptor0&#125; Phase-1 proposer请求的阶段 ```&#123;rnd: 1&#125;```, 将其发送给三个```acceptor```. 1234567891011#### Phase-1 acceptor对收到的请求进行处理的阶段如果收到的```phase1ReqData```的```rnd```==大于==```acceptor```的```lastRnd```, 则通过该提案, 生成一个```phase1ResData```: ```tsphase1ResData = &#123; lastRnd: acceptor.rnd // Acceptor上次在Phase-2接受的提案的rnd vRnd: acceptor.rnd; // Acceptor上次接受的天的value value: acceptor.value;&#125; 之后, 将acceptor自身的rnd设为phase1ReqData的rnd, 然后将生成的生成一个phase1ResData返回. 即, 返回的phase1ResData中携带的lastRnd是acceptor先前的lastRnd, 然后acceptor的lastRnd设为收到的phase1ReqData的rnd. Phase-1 proposer 两个问题 这个蓝色圈内如果timeout了怎么处理我是知道的, 红色圈内如果timeout了怎么办? acceptor返回数据的时候, 如果有一个acceptor实际返回的是reject, 但是timeout了怎么办?如果其他acceptor结果都是accept是不是有点不对劲…本来有一个reject就该失败的]]></content>
       <tags>
         <tag>分布式</tag>
         <tag>paxos</tag>
@@ -529,8 +537,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>jvm</tag>
         <tag>深入理解JVM</tag>
+        <tag>jvm</tag>
         <tag>多线程</tag>
       </tags>
   </entry>
@@ -580,8 +588,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>jvm</tag>
         <tag>深入理解JVM</tag>
+        <tag>jvm</tag>
         <tag>GC</tag>
       </tags>
   </entry>
@@ -594,8 +602,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>jvm</tag>
         <tag>深入理解JVM</tag>
+        <tag>jvm</tag>
       </tags>
   </entry>
   <entry>
@@ -990,8 +998,8 @@
         <category>碧蓝航线</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>碧蓝航线</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1043,7 +1051,7 @@
   <entry>
     <title><![CDATA[B站碧蓝航线转推姬介绍]]></title>
     <url>%2Fbili-bot%2F</url>
-    <content type="text"><![CDATA[简介 这里是䒕黃苽B站机器人的介绍 非碧蓝航线官方.是个机器人.会实时转发碧蓝航线新推特和Youtube上的新视频到B站.qq裙: 881800897 主要活动 转发碧蓝航线日服官推 由自动程序控制 会实时转发碧蓝航线官方推特@azurlane_staff的推文到bilibili动态,并在评论区附上百度翻译得来的译文 转载Youtube碧蓝航线频道的投稿 由自动程序控制 会实时转发碧蓝航线官方Youtube频道@アズールレーン的新视频到bilibili 碧蓝航线直播转播 墙外的直播会进行转播 转播是直接将直播源的媒体流转发,保证与直播源完全一致无任何私货. 直播间: https://live.bilibili.com/21334927 碧蓝航线直播录播 无论墙内还是墙外的直播都会进行录播. 录播同样是对直播源媒体流直接抓流,保证与直播源完全一致无任何私货. 机器人特性 因为是机器人,所以很多方面不可能比得上万物之灵长的人类啦 䒕黃苽机器人会无差别地搬运推特,做不到对优质内容的筛选 有时候主人会调试机器人功能,可能会发一些迷之动态,这时如果看到了无视就好 当然这种一般会在半夜进行,并且尽快删掉 虽说是机器人,主人也会上这个账号,偶尔注入灵魂不要吃惊哦 合作 片源合作 䒕黃苽有着一手瓜游相关的视频和直播的抓流资源,如果烤肉组需要片源可以联系我 想要其他的机器人? 如果你想像本转推姬一样,实时搬运其他的推主的推特或Youtuber的新视频到B站,都可以联系䒕黃苽 需要自备一个拿来转推的B站账号 注意B站限制绑定了手机号的账号才能发动态 联系主人 主人是@蔳莼菂小黃苽. 主人QQ:2894700792 加好友的认证信息请认真填写 也可以通过关于我中的社交平台账号进行联系 其他 更新日志 䒕黃苽B站碧蓝航线转推姬更新日志 䒕黃苽QQ机器人 䒕黃苽除了B站的这个机器人以外,还有QQ机器人,会实时转发碧蓝航线日服官推到QQ群 881800897 具体请见䒕黃苽QQ机器人使用指南 投喂 运行机器人还是有成本在的哦,希望有钱人dalao能帮䒕黃苽分担一下 打赏¥3.00 打赏¥10.00 打赏¥23.33 打赏¥66.66 打赏¥100.00 或前往https://blog.ggemo.com/feed/查看更多打赏渠道]]></content>
+    <content type="text"><![CDATA[归档 因为酷Q停止运营, 本篇博客现已归档 简介 这里是䒕黃苽B站机器人的介绍 非碧蓝航线官方.是个机器人.会实时转发碧蓝航线新推特和Youtube上的新视频到B站.qq裙: 881800897 主要活动 转发碧蓝航线日服官推 由自动程序控制 会实时转发碧蓝航线官方推特@azurlane_staff的推文到bilibili动态,并在评论区附上百度翻译得来的译文 转载Youtube碧蓝航线频道的投稿 由自动程序控制 会实时转发碧蓝航线官方Youtube频道@アズールレーン的新视频到bilibili 碧蓝航线直播转播 墙外的直播会进行转播 转播是直接将直播源的媒体流转发,保证与直播源完全一致无任何私货. 直播间: https://live.bilibili.com/21334927 碧蓝航线直播录播 无论墙内还是墙外的直播都会进行录播. 录播同样是对直播源媒体流直接抓流,保证与直播源完全一致无任何私货. 机器人特性 因为是机器人,所以很多方面不可能比得上万物之灵长的人类啦 䒕黃苽机器人会无差别地搬运推特,做不到对优质内容的筛选 有时候主人会调试机器人功能,可能会发一些迷之动态,这时如果看到了无视就好 当然这种一般会在半夜进行,并且尽快删掉 虽说是机器人,主人也会上这个账号,偶尔注入灵魂不要吃惊哦 合作 片源合作 䒕黃苽有着一手瓜游相关的视频和直播的抓流资源,如果烤肉组需要片源可以联系我 想要其他的机器人? 如果你想像本转推姬一样,实时搬运其他的推主的推特或Youtuber的新视频到B站,都可以联系䒕黃苽 需要自备一个拿来转推的B站账号 注意B站限制绑定了手机号的账号才能发动态 联系主人 主人是@蔳莼菂小黃苽. 主人QQ:2894700792 加好友的认证信息请认真填写 也可以通过关于我中的社交平台账号进行联系 其他 更新日志 䒕黃苽B站碧蓝航线转推姬更新日志 䒕黃苽QQ机器人 䒕黃苽除了B站的这个机器人以外,还有QQ机器人,会实时转发碧蓝航线日服官推到QQ群 881800897 具体请见䒕黃苽QQ机器人使用指南 投喂 运行机器人还是有成本在的哦,希望有钱人dalao能帮䒕黃苽分担一下 打赏¥3.00 打赏¥10.00 打赏¥23.33 打赏¥66.66 打赏¥100.00 或前往https://blog.ggemo.com/feed/查看更多打赏渠道]]></content>
       <categories>
         <category>bot</category>
       </categories>
@@ -1090,8 +1098,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>动漫</tag>
+        <tag>python</tag>
         <tag>gui</tag>
       </tags>
   </entry>

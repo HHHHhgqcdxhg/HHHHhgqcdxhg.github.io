@@ -181,10 +181,10 @@
     <loc>https://blog.ggemo.com/redis-10/</loc>
     <lastmod>2019-09-18</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/innodb/</loc>
+    <loc>https://blog.ggemo.com/innodb-1/</loc>
     <lastmod>2019-09-16</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/innodb-1/</loc>
+    <loc>https://blog.ggemo.com/innodb/</loc>
     <lastmod>2019-09-16</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/redis-9/</loc>
@@ -247,28 +247,28 @@
     <loc>https://blog.ggemo.com/dubbo-10/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
+    <loc>https://blog.ggemo.com/dubbo-7/</loc>
+    <lastmod>2019-08-24</lastmod>
+  </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-5/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-4/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-6/</loc>
-    <lastmod>2019-08-24</lastmod>
-  </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-8/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-7/</loc>
+    <loc>https://blog.ggemo.com/dubbo-6/</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-3/</loc>
     <lastmod>2019-08-17</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-1/</loc>
+    <loc>https://blog.ggemo.com/dubbo-0/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://blog.ggemo.com/dubbo-0/</loc>
+    <loc>https://blog.ggemo.com/dubbo-1/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/dubbo-2/</loc>
@@ -360,9 +360,6 @@
   </url>  <url>
     <loc>https://blog.ggemo.com/note-AMVCC/</loc>
     <lastmod>2019-04-19</lastmod>
-  </url>  <url>
-    <loc>https://blog.ggemo.com/py/index.html</loc>
-    <lastmod>2019-03-30</lastmod>
   </url>  <url>
     <loc>https://blog.ggemo.com/shader-r-moving/</loc>
     <lastmod>2019-03-26</lastmod>
